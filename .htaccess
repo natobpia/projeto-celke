@@ -1,0 +1,17 @@
+#Para trabalhar com url amigável para ativar RewriteEngine On
+RewriteEngine On
+
+# RewriteCond Determina que o Rewrite só vai ser aplicado se 
+#não existir o diretório -d
+RewriteCond %{REQUEST_FILENAME} !-d 
+#Quando não existir o arquivo
+RewriteCond %{REQUEST_FILENAME} !-f 
+#Quando não existir o link o caminho simbólico
+RewriteCond %{REQUEST_FILENAME} !-l
+
+#Toda URL que for requisitada, exeto quando for a propria raiz do servidor
+#será reinscrito
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+
+#Desabilitar para que não apareceça os arquivos dos projetos.
+Options -Indexes
