@@ -66,43 +66,47 @@ include_once 'app/sts/header.php';
             </div>
             <?php
         }
+        
+        $result_servico = "SELECT * FROM sts_servicos LIMIT 1";
+        $resultado_servico = mysqli_query($conn, $result_servico);
+        $row_servico = mysqli_fetch_assoc($resultado_servico);
         ?>    
 
         <div class="jumbotron servicos">
             <div class="container">
-                <h2 class="display-4 text-center" style="margin-bottom: 40px;">Serviços</h2>
+                <h2 class="display-4 text-center" style="margin-bottom: 40px;"><?php echo $row_servico['titulo'] ?></h2>
                 <div class="card-deck card-servicos">
                     <div class="card text-center">
                         <div class="icon-row tamanh-icone">
                             <span class="step size-96 text-primary">
-                                <i class="icon ion-ios-camera-outline"></i>
+                                <i class="icon <?php echo $row_servico['icone_um'] ?>"></i>
                             </span>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Serviço um</h5>
-                            <p class="card-text lead">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>      
+                            <h5 class="card-title"><?php echo $row_servico['nome_um'] ?></h5>
+                            <p class="card-text lead"><?php echo $row_servico['descricao_um'] ?></p>      
                         </div>
                     </div>
                     <div class="card text-center">
                         <div class="icon-row tamanh-icone">
                             <span class="step size-96 text-primary">
-                                <i class="icon ion-ios-film-outline"></i>
+                                <i class="icon <?php echo $row_servico['icone_dois'] ?>"></i>
                             </span>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Serviços dois</h5>
-                            <p class="card-text lead">This card has supporting text below as a natural lead-in to additional content.</p>
+                            <h5 class="card-title"><?php echo $row_servico['nome_dois'] ?></h5>
+                            <p class="card-text lead"><?php echo $row_servico['descricao_dois'] ?></p>
                         </div>
                     </div>
                     <div class="card text-center">
                         <div class="icon-row tamanh-icone ">
                             <span class="step size-96 text-primary">
-                                <i class="icon ion-ios-videocam-outline"></i>
+                                <i class="icon <?php echo $row_servico['icone_tres'] ?>"></i>
                             </span>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Serviço tres</h5>
-                            <p class="card-text lead">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                            <h5 class="card-title"><?php echo $row_servico['nome_tres'] ?></h5>
+                            <p class="card-text lead"><?php echo $row_servico['descricao_tres'] ?></p>
                         </div>
                     </div>
                 </div>
