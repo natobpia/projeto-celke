@@ -66,7 +66,7 @@ include_once 'app/sts/header.php';
             </div>
             <?php
         }
-        
+
         $result_servico = "SELECT * FROM sts_servicos LIMIT 1";
         $resultado_servico = mysqli_query($conn, $result_servico);
         $row_servico = mysqli_fetch_assoc($resultado_servico);
@@ -112,54 +112,68 @@ include_once 'app/sts/header.php';
                 </div>
             </div>
         </div>
-
+        <?php
+        $result_video = "SELECT * FROM sts_videos LIMIT 1";
+        $resultado_video = mysqli_query($conn, $result_video);
+        $row_video = mysqli_fetch_assoc($resultado_video);
+        ?>
         <div class="jumbotron depoimento">
             <div class="container">
-                <h2 class="display-4 text-center" style="margin-bottom: 40px; color: #FFF;">Depoimentos</h2>
-                <p class="lead text-center" style="margin-bottom: 40px; color: #FFF;">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                <h2 class="display-4 text-center" style="margin-bottom: 40px; color: #FFF;"><?php echo $row_video['titulo'] ?></h2>
+                <p class="lead text-center" style="margin-bottom: 40px; color: #FFF;"><?php echo $row_video['descricao'] ?></p>
                 <div class="card-deck">
                     <div class="card text-center dep-left">
                         <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/JfAgl6CGg2Q?rel=0" allowfullscreen></iframe>
+                            <?php echo $row_video['video_um'] ?>
                         </div>
                     </div>
                     <div class="card text-center dep-center">
                         <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/4tBeeMcw2sM?rel=0" allowfullscreen></iframe>
+                            <?php echo $row_video['video_dois'] ?>
                         </div>							
                     </div>
                     <div class="card text-center dep-right">
                         <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/i_R6sMRRQ0s?rel=0" allowfullscreen></iframe>
+                            <?php echo $row_video['video_tres'] ?>
                         </div>							
                     </div>
                 </div>
             </div>
         </div>
-
+        <?php
+        $result_prod_home = "SELECT * FROM sts_prods_homes LIMIT 1";
+        $resultado_prod_home = mysqli_query($conn, $result_prod_home);
+        $row_prod_home = mysqli_fetch_assoc($resultado_prod_home);
+        ?>
         <div class="jumbotron produto">
             <div class="container">
-                <h2 class="display-4 text-center" style="margin-bottom: 40px;">Produto</h2>
+                <h2 class="display-4 text-center" style="margin-bottom: 40px;"><?php echo $row_prod_home['titulo'] ?></h2>
                 <div class="row featurette">
                     <div class="col-md-7 prod-text">
-                        <h2 class="featurette-heading">First featurette heading.</h2>
-                        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                        <h2 class="featurette-heading"><?php echo $row_prod_home['subtitulo'] ?></h2>
+                        <p class="lead"><?php echo $row_prod_home['descricao'] ?></p>
                     </div>
                     <div class="col-md-5 prod-img">
-                        <img class="featurette-image img-fluid mx-auto" src="imagens/produto.jpg" alt="Generic placeholder image">
+                        <img class="featurette-image img-fluid mx-auto" src="<?php echo pg . '/assets/imagens/prods_home/' . $row_prod_home['id'] . '/' . $row_prod_home['imagem'] ?>" alt="Generic placeholder image">
                     </div>
                 </div>
             </div>
         </div>	
 
-        <div class="jumbotron cadastro-email paralaxe-email" style="background-image:url(imagens/imagem_tres.jpg);">
+        <?php
+        $result_form_email = "SELECT * FROM sts_forms_emails LIMIT 1";
+        $resultado_form_email = mysqli_query($conn, $result_form_email);
+        $row_form_email = mysqli_fetch_assoc($resultado_form_email);
+        ?>
+        <div class="jumbotron cadastro-email paralaxe-email" 
+             style="background-image:url(<?php echo pg . '/assets/imagens/form_email/' . $row_form_email['id'] . '/' . $row_form_email['imagem'] ?>);">
             <div class="container">
                 <div class="email-text">
-                    <h2 class="display-4 text-center" style="margin-bottom: 40px">Receber novidades</h2>
-                    <p class="lead text-center" style="margin-bottom: 40px;">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                    <h2 class="display-4 text-center" style="margin-bottom: 40px"><?php echo $row_form_email['titulo']; ?></h2>
+                    <p class="lead text-center" style="margin-bottom: 40px;"><?php echo $row_form_email['descricao']; ?></p>
                 </div>
                 <div class="email-form">
-                    <form>
+                    <form action="<?php echo pg; ?>/proc_cad_lead" method="POST">
                         <div class="form-row justify-content-center">
                             <div class="col-sm-3 my-1">
                                 <label class="sr-only">E-mail</label>
@@ -167,68 +181,49 @@ include_once 'app/sts/header.php';
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">@</div>
                                     </div>
-                                    <input type="email" class="form-control" placeholder="Seu melhor e-mail">
+                                    <input name="email" type="email" class="form-control" placeholder="Seu melhor e-mail">
                                 </div>
                             </div>
                             <div class="col-auto my-1">
-                                <button type="submit" class="btn btn-primary mb-2">Cadastrar</button>
+                                <input name="SendCadLead" type="submit" class="btn btn-primary mb-2" value="<?php echo $row_form_email['titulo_botao']; ?>">
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
-        </div>	
-
-
+        </div>
+        <?php
+        $result_perg_resp = "SELECT * FROM sts_pergs_resps WHERE sts_situacoe_id = 1";
+        $resultado_perg_resp = mysqli_query($conn, $result_perg_resp);
+        ?>
 
         <div class="jumbotron perg-resp">
             <div class="container">
                 <h2 class="display-4 text-center perg-resp-text" style="margin-bottom: 40px">Perguntas e Respostas</h2>
                 <div class="perg-resp-cont">
                     <div id="accordion">
-                        <div class="card">
-                            <div class="card-header" id="headingOne">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Pergunta 1
-                                    </button>
-                                </h5>
-                            </div>
-
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                                <div class="card-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        <?php
+                        $cont_acord = 1;
+                        while ($row_perg_resp = mysqli_fetch_assoc($resultado_perg_resp)) {
+                            ?>
+                            <div class="card">
+                                <div class="card-header" id="heading<?php echo $row_perg_resp['id']; ?>">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse<?php echo $row_perg_resp['pergunta']; ?>" aria-expanded="false" aria-controls="collapse<?php echo $row_perg_resp['pergunta']; ?>">
+                                            <?php echo $row_perg_resp['pergunta']; ?>
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapse<?php echo $row_perg_resp['pergunta']; ?>" class="collapse <?php if ($cont_acord == 1) {
+                                            echo "show";
+                                        } ?>" aria-labelledby="heading<?php echo $row_perg_resp['pergunta']; ?>" data-parent="#accordion">
+                                    <div class="card-body">
+    <?php echo $row_perg_resp['resposta']; ?>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="headingTwo">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Pergunta 2
-                                    </button>
-                                </h5>
-                            </div>
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                <div class="card-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="headingThree">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        Pergunta 3
-                                    </button>
-                                </h5>
-                            </div>
-                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                                <div class="card-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                </div>
-                            </div>
-                        </div>
+    <?php $cont_acord++;
+} ?>
                     </div>
                 </div>
             </div>
@@ -238,4 +233,58 @@ include_once 'app/sts/header.php';
     include_once 'app/sts/rodape.php';
     include_once 'app/sts/rodape_lib.php';
     ?>
+    
+    <script>
+			window.sr = ScrollReveal({ reset: true });
+			sr.reveal('.card-servicos', { 
+				duration: 1000,
+				origin: 'bottom',
+				distance: '20px'
+			}); 
+			sr.reveal('.dep-left', { 
+				duration: 1000,
+				origin: 'left',
+				distance: '20px'
+			});
+			sr.reveal('.dep-center', { 
+				duration: 1000,
+				origin: 'bottom',
+				distance: '20px'
+			}); 
+			sr.reveal('.dep-right', { 
+				duration: 1000,
+				origin: 'right',
+				distance: '20px'
+			});
+			sr.reveal('.prod-text', { 
+				duration: 1000,
+				origin: 'left',
+				distance: '20px'
+			});
+			sr.reveal('.prod-img', { 
+				duration: 1000,
+				origin: 'right',
+				distance: '20px'
+			});
+			sr.reveal('.email-text', { 
+				duration: 1000,
+				origin: 'left',
+				distance: '20px'
+			}); 
+			sr.reveal('.email-form', { 
+				duration: 1000,
+				origin: 'right',
+				distance: '20px'
+			});
+			sr.reveal('.perg-resp-text', { 
+				duration: 1000,
+				origin: 'left',
+				distance: '20px'
+			});
+			sr.reveal('.perg-resp-cont', { 
+				duration: 1000,
+				origin: 'right',
+				distance: '20px'
+			});
+		</script>
 </body>
