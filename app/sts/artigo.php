@@ -2,101 +2,135 @@
 if (!isset($seguranca)) {
     exit;
 }
+
+$result_art = "SELECT art.*,
+    user.apelido,
+    robot.tipo
+    FROM sts_artigos art
+    INNER JOIN adms_usuarios user ON user.id = art.adms_usuario_id
+    INNER JOIN sts_robots robot on robot.id = art.sts_robot_id
+    WHERE art.slug = '" . $endereco[1] . "' AND art.sts_situacoe_id = 1 LIMIT 1";
+$resultado_art = mysqli_query($conn, $result_art);
+$row_art = mysqli_fetch_assoc($resultado_art);
+$row_pagina['nome_pagina'] = "Celke - ". $row_art['titulo'];
+$row_pagina['robots'] = $row_art['tipo'];
+$row_pagina['keywords'] = $row_art['keywords'];
+$row_pagina['description'] = $row_art['description'];
+$row_pagina['author'] = $row_art['author'];
+
 include_once 'app/sts/header.php';
 ?>
 <body>
     <?php
     include_once 'app/sts/menu.php';
     ?>
-    
+
     <main role="main">
         <div class="jumbotron blog">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 blog-main">
-                        <div class="blog-post">
-                            <h2 class="blog-post-title">Sample blog post</h2>
-                            <p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
-                            <img src="imagens/imagem_um.jpg" class="img-fluid" alt="Responsive image" style="margin-bottom: 20px;">
-                            <p>This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
-                            <hr>
-                            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-                            <blockquote>
-                                <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            </blockquote>
-                            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-                            <h2>Heading</h2>
-                            <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-                            <h3>Sub-heading</h3>
-                            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                            <pre><code>Example code block</code></pre>
-                            <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-                            <h3>Sub-heading</h3>
-                            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                            <ul>
-                                <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
-                                <li>Donec id elit non mi porta gravida at eget metus.</li>
-                                <li>Nulla vitae elit libero, a pharetra augue.</li>
-                            </ul>
-                            <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
-                            <ol>
-                                <li>Vestibulum id ligula porta felis euismod semper.</li>
-                                <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
-                                <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
-                            </ol>
-                            <p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
-                        </div><!-- /.blog-post -->
+                        <?php
+                        if (($resultado_art) AND ( $resultado_art->num_rows != 0)) {
+                            ?>
 
-                        <div class="blog-post">
-                            <h2 class="blog-post-title">Another blog post</h2>
-                            <p class="blog-post-meta">December 23, 2013 by <a href="#">Jacob</a></p>
+                            <div class="blog-post">
+                                <h2 class="blog-post-title"><?php echo $row_art['titulo']; ?></h2>
+                                <?php
+                                setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'portuguese');
+                                date_default_timezone_set('America/Sao_Paulo');
+                                ?>
+                                <p class="blog-post-meta"><?php echo strftime('%d de %B de %Y', strtotime($row_art['created'])); ?>, 
+                                    <?php echo $row_art['apelido'] ?></p>
+                                <img src="<?php echo pg . '/assets/imagens/artigo/' . $row_art['id'] . '/' . $row_art['imagem'] ?>" class="img-fluid" alt="Responsive image" style="margin-bottom: 20px;">
+                                <?php echo $row_art['conteudo'] ?>
+                            </div>
+                            <nav class="blog-pagination">
+                                <?php
+                                $result_art_ant = "SELECT slug FROM sts_artigos WHERE id < '" . $row_art['id'] . "' AND sts_situacoe_id = 1 
+                                ORDER BY id DESC
+                                LIMIT 1";
+                                $resultado_art_ant = mysqli_query($conn, $result_art_ant);
 
-                            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-                            <blockquote>
-                                <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            </blockquote>
-                            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-                            <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-                        </div><!-- /.blog-post -->
+                                if (($resultado_art_ant) AND ( $resultado_art_ant->num_rows != 0)) {
+                                    $row_art_ant = mysqli_fetch_assoc($resultado_art_ant);
 
-                        <nav class="blog-pagination">
-                            <a class="btn btn-outline-primary" href="#">Older</a>
-                            <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Newer</a>
-                        </nav>
+                                    echo "<a class='btn btn-outline-primary' href='" . pg . "/artigo/" . $row_art_ant['slug'] . "'>Anterior</a>";
+                                }
+                                //Próximo artigo
+                                $result_art_pro = "SELECT slug FROM sts_artigos WHERE id > '" . $row_art['id'] . "' AND sts_situacoe_id = 1 
+                                ORDER BY id ASC
+                                LIMIT 1";
+                                $resultado_art_pro = mysqli_query($conn, $result_art_pro);
+
+                                if (($resultado_art_pro) AND ( $resultado_art_pro->num_rows != 0)) {
+                                    $row_art_pro = mysqli_fetch_assoc($resultado_art_pro);
+
+                                    echo "<a class='btn btn-outline-primary' href='" . pg . "/artigo/" . $row_art_pro['slug'] . "'>Próximo</a>";
+                                }
+                                ?>
 
 
+                            </nav>
+
+                            <?php
+                            $result_qnt_ac = "UPDATE sts_artigos SET 
+                            qnt_acesso = qnt_acesso + 1
+                            WHERE id='".$row_art['id']."'";
+                            
+                            mysqli_query($conn, $result_qnt_ac);
+                        } else {
+                            echo "<div class = 'alert alert-danger' role = 'alert'>Artigo não encontrado!
+                            </div> ";
+                            // $url_destino = pg."/blog";
+                            // header("Location: $url_destino");
+                        }
+                        ?>                 
                     </div>
-
                     <aside class="col-md-4 blog-sidebar">
-                        <div class="p-4 mb-3 bg-light rounded">
-                            <h4 class="font-italic">Sobre</h4>
-                            <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-                        </div>
+                        <?php
+                        $result_blog_sobre = "SELECT * FROM sts_blogs_sobre WHERE sts_situacoe_id = 1 LIMIT 1";
+                        $resultado_blog_sobre = mysqli_query($conn, $result_blog_sobre);
+                        if ($resultado_blog_sobre AND $resultado_blog_sobre->num_rows != 0) {
+                            $row_blog_sobre = mysqli_fetch_assoc($resultado_blog_sobre);
+                            ?>
+                            <div class="p-4 mb-3 bg-light rounded">
+                                <h4 class="font-italic"><?php echo $row_blog_sobre['titulo']; ?></h4>
+                                <p class="mb-0"><?php echo $row_blog_sobre['descricao']; ?></p>
+                            </div>
+                            <?php
+                        }
+
+                        $result_art_rec = "SELECT id, titulo, slug FROM sts_artigos
+                        WHERE sts_situacoe_id = 1 ORDER BY id DESC LIMIT 6";
+                        $resultado_art_rec = mysqli_query($conn, $result_art_rec);
+                        ?>
 
                         <div class="p-4">
                             <h4 class="font-italic">Recentes</h4>
                             <ol class="list-unstyled mb-0">
-                                <li><a href="#">March 2014</a></li>
-                                <li><a href="#">February 2014</a></li>
-                                <li><a href="#">January 2014</a></li>
-                                <li><a href="#">December 2013</a></li>
-                                <li><a href="#">November 2013</a></li>
-                                <li><a href="#">October 2013</a></li>
-                                <li><a href="#">September 2013</a></li>
-                                <li><a href="#">August 2013</a></li>
-                                <li><a href="#">July 2013</a></li>
-                                <li><a href="#">June 2013</a></li>
-                                <li><a href="#">May 2013</a></li>
-                                <li><a href="#">April 2013</a></li>
+                                <?php
+                                while ($row_art_rec = mysqli_fetch_assoc($resultado_art_rec)) {
+                                    echo "<li><a href='" . pg . "/artigo/" . $row_art_rec['slug'] . "'>" . $row_art_rec['titulo'] . "</a></li>";
+                                }
+                                ?>
                             </ol>
                         </div>
+
+                        <?php
+                        $result_art_dest = "SELECT titulo, slug FROM sts_artigos
+                        WHERE sts_situacoe_id = 1 ORDER BY qnt_acesso DESC LIMIT 6";
+                        $resultado_art_dest = mysqli_query($conn, $result_art_dest);
+                        ?>
 
                         <div class="p-4">
                             <h4 class="font-italic">Destaques</h4>
                             <ol class="list-unstyled">
-                                <li><a href="#">October 2013</a></li>
-                                <li><a href="#">January 2014</a></li>
-                                <li><a href="#">May 2013</a></li>
+                                <?php
+                                while ($row_art_dest = mysqli_fetch_assoc($resultado_art_dest)) {
+                                    echo "<li><a href='" . pg . "/artigo/" . $row_art_dest['slug'] . "'>" . $row_art_dest['titulo'] . "</a></li>";
+                                }
+                                ?>
                             </ol>
                         </div>
                     </aside><!-- /.blog-sidebar -->	

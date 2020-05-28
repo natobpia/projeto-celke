@@ -12,7 +12,11 @@ $url = filter_input(INPUT_GET, 'url', FILTER_SANITIZE_STRING);
 $url_limpa = limpaURL($url);
 $endereco = explode('/', $url_limpa);
 
-$result_pagina = "SELECT * FROM sts_paginas WHERE endereco = '".$endereco[0]."'AND sts_situacaos_pg_id = 1 LIMIT 1";
+$result_pagina = "SELECT pag.*,
+    robot.tipo
+    FROM sts_paginas pag 
+    INNER JOIN sts_robots robot on robot.id = pag.sts_robot_id
+    WHERE pag.endereco = '".$endereco[0]."'AND pag.sts_situacaos_pg_id = 1 LIMIT 1";
 
 $resultado_pagina = mysqli_query($conn, $result_pagina);
 ?>
