@@ -12,13 +12,13 @@ include_once 'app/sts/header.php';
         <div class="jumbotron contato">
             <div class="container">
                 <h2 class="display-4 text-center perg-resp-text" style="margin-bottom: 40px">Contato</h2>
-                <?php 
-                if(isset($_SESSION['msg'])){
+                <?php
+                if (isset($_SESSION['msg'])) {
                     echo $_SESSION['msg'];
                     unset($_SESSION['msg']);
                 }
                 ?>
-                <form method="POST" action="<?php echo pg.'/proc_cad_contato';?>">
+                <form method="POST" action="<?php echo pg . '/proc_cad_contato'; ?>">
                     <div class="form-row">
                         <div class="form-group col-md-6 form-nome">
                             <label>Nome</label>
