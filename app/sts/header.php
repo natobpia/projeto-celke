@@ -1,6 +1,8 @@
 <head>
+    <title><?php echo $row_pagina['titulo']; ?></title>
+    <link rel="canonical" href="<?php echo pg.'/'.$url_limpa; ?>"
+    
     <meta charset="UTF-8">
-
     <meta name="robots" content="<?php echo $row_pagina['tipo']; ?>">
     <meta name="keywords" content="<?php echo $row_pagina['keywords']; ?>">
     <meta name="description" content="<?php echo $row_pagina['description']; ?>">
@@ -13,7 +15,9 @@
     
     <link rel="stylesheet" href="<?php echo pg; ?>/assets/css/personalizado.css">
     
+    <link rel="icon" href="<?php echo pg; ?>/assets/imagens/icone/favicon.ico">
+  
 
-    <title><?php echo $row_pagina['nome_pagina']; ?></title>
+    
     
 </head>

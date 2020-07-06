@@ -30,8 +30,10 @@ if ($SendCadCont) {
         $_SESSION['msg'] = "<div class = 'alert alert-danger' role = 'alert'>E-mail inválido!
                             </div>";
     }
-
+    //Houve em algum campo será redirecionado para o formulário, não há erro
+    //no formulário tenta cadastrar no banco
     if ($erro) {
+        $_SESSION['dados'] = $dados;
         $url_destino = pg . "/contato";
         header("Location: $url_destino");
     } else {

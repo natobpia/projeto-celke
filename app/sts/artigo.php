@@ -12,7 +12,7 @@ $result_art = "SELECT art.*,
     WHERE art.slug = '" . $endereco[1] . "' AND art.sts_situacoe_id = 1 LIMIT 1";
 $resultado_art = mysqli_query($conn, $result_art);
 $row_art = mysqli_fetch_assoc($resultado_art);
-$row_pagina['nome_pagina'] = "Celke - ". $row_art['titulo'];
+$row_pagina['titulo'] = "Celke - ". $row_art['titulo'];
 $row_pagina['robots'] = $row_art['tipo'];
 $row_pagina['keywords'] = $row_art['keywords'];
 $row_pagina['description'] = $row_art['description'];
