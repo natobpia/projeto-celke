@@ -1,0 +1,11 @@
+# Chamada do módulo que reescreve a url
+RewriteEngine On
+
+#Reescreve quando é um diretório, um arquivo e um link.
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+
+#Tudo que vier depois do dominio vai atribuir para uma variavel no caso para a
+#var $url.
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
