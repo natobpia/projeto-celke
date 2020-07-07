@@ -9,3 +9,5 @@ RewriteCond %{REQUEST_FILENAME} !-l
 #Tudo que vier depois do dominio vai atribuir para uma variavel no caso para a
 #var $url.
 RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+
+Options -Indexes
