@@ -1,4 +1,7 @@
 <?php
+session_start();
+ob_start();
+
 $seguranca = true;
 
 include_once './config/conexao.php';
@@ -9,7 +12,10 @@ $url_limpa = limparUrl($url);
 
 
 
-$result_pg = "SELECT * FROM adms_paginas WHERE endereco = '" . $url_limpa . "' LIMIT 1";
+$result_pg = "SELECT * FROM adms_paginas
+              WHERE endereco = '" . $url_limpa . "'
+              AND adms_sits_pg_id = 1
+              LIMIT 1";
 $resultado_pg = mysqli_query($conn, $result_pg);
 ?>
 <!DOCTYPE html>
@@ -33,7 +39,7 @@ and open the template in the editor.
             } else {
                 include 'app/adms/visualizar/home.php';
             }
-        }else{
+        } else {
             include 'app/adms/visualizar/home.php';
         }
         ?>
