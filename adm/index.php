@@ -11,8 +11,6 @@ include_once './lib/lib_valida.php';
 $url = filter_input(INPUT_GET, 'url', FILTER_SANITIZE_STRING);
 $url_limpa = limparUrl($url);
 
-
-
 $result_pg = "SELECT * FROM adms_paginas
               WHERE endereco = '" . $url_limpa . "'
               AND adms_sits_pg_id = 1
@@ -20,11 +18,7 @@ $result_pg = "SELECT * FROM adms_paginas
 $resultado_pg = mysqli_query($conn, $result_pg);
 ?>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <html>
 
     <?php
