@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07-Jul-2020 às 16:49
+-- Tempo de geração: 07-Jul-2020 às 21:22
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.4.5
 
@@ -76,7 +76,7 @@ CREATE TABLE `adms_paginas` (
 INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, `description`, `author`, `tp_pagina`, `lib_pub`, `ordem`, `depend_pg`, `adms_robot_id`, `adms_sits_pg_id`, `created`, `modified`) VALUES
 (1, 'Cadastrar Usuário', 'cadastrar/cad_usuario', 'Página para cadastrar o usuário', 'cadastrar usuário', 'página para cadastrar usuário', 'Natobpia', 'adms', 2, 1, 0, 4, 1, '2020-07-07 10:24:53', NULL),
 (2, 'Login', 'acesso/login', 'Página de login do adm', 'Celke página login', 'Celke página login', 'Natobpia', 'adms', 1, 2, 0, 1, 1, '2020-07-07 11:01:58', NULL),
-(3, 'Login Multi Empresa', 'acesso/login', 'Login pela página Multi Empresa', 'login multi empresa', 'login multi empresa', 'Natobpia', 'mlemps', 1, 3, 0, 1, 2, '2020-07-07 11:07:08', NULL);
+(3, 'Validar login', 'acesso/valida', 'Validar login', 'Validar login', 'Validar login', 'Natobpia', 'adms', 1, 3, 2, 4, 1, '2020-07-07 15:26:30', NULL);
 
 -- --------------------------------------------------------
 
@@ -177,7 +177,7 @@ CREATE TABLE `adms_usuarios` (
 --
 
 INSERT INTO `adms_usuarios` (`id`, `nome`, `apelido`, `email`, `usuario`, `senha`, `recuperar_senha`, `chave_descadastro`, `imagem`, `adms_niveis_acesso_id`, `adms_sits_usuario_id`, `created`, `modified`) VALUES
-(1, 'Cesar', 'Cesar', 'cesar@celke.com.br', 'cesar@celke.com.br', '123456', NULL, NULL, '', 1, 1, '2020-05-27 16:05:10', NULL);
+(1, 'Cesar', 'Cesar', 'cesar@celke.com.br', 'cesar@celke.com.br', '$2y$10$qnErcfIhFoxRFk/6AH1vtO9Hxmp8oRilL1rOlOZIy1.f5Mtr613Wa', NULL, NULL, 'celke.png', 1, 1, '2020-05-27 16:05:10', NULL);
 
 -- --------------------------------------------------------
 
