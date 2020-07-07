@@ -4,6 +4,7 @@ ob_start();
 
 $seguranca = true;
 
+include_once './config/config.php';
 include_once './config/conexao.php';
 include_once './lib/lib_valida.php';
 
@@ -25,23 +26,19 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
-        <?php
-        if ($resultado_pg AND $resultado_pg->num_rows != 0) {
-            $row_pg = mysqli_fetch_assoc($resultado_pg);
-            $file = "app/" . $row_pg['tp_pagina'] . "/" . $row_pg['endereco'] . ".php";
-            if (file_exists($file)) {
-                include $file;
-            } else {
-                include 'app/adms/visualizar/home.php';
-            }
+
+    <?php
+    if ($resultado_pg AND $resultado_pg->num_rows != 0) {
+        $row_pg = mysqli_fetch_assoc($resultado_pg);
+        $file = "app/" . $row_pg['tp_pagina'] . "/" . $row_pg['endereco'] . ".php";
+        if (file_exists($file)) {
+            include $file;
         } else {
             include 'app/adms/visualizar/home.php';
         }
-        ?>
-    </body>
+    } else {
+        include 'app/adms/visualizar/home.php';
+    }
+    ?>
+
 </html>
