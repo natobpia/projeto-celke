@@ -4,7 +4,7 @@
         exit;
     }
     
-    function limpaURL($conteudo){
+    function limparURL($conteudo){
         $formato_a = '"!@#$%¨&*(){}:;,\\\'<>º';
         $formato_b = '________________________';
         
