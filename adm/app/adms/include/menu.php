@@ -2,8 +2,8 @@
     <ul class="list-unstyled">
         <?php
         $result_menu = "SELECT nivpg.*,
-        men.nome, men.icone,
-        pg.nome_pagina, pg.endereco, pg.icone 
+        men.nome, men.icone iconmen,
+        pg.nome_pagina, pg.endereco, pg.icone iconpg
         FROM adms_nivacs_pgs nivpg
         INNER JOIN adms_menus men ON men.id=nivpg.adms_menu_id
         INNER JOIN adms_paginas pg ON pg.id=nivpg.adms_pagina_id
@@ -13,22 +13,26 @@
         $resultado_menu = mysqli_query($conn, $result_menu);
 
         while ($row_menu = mysqli_fetch_assoc($resultado_menu)) {
-//            echo "ID: " . $row_menu['id'] . "<br>";
-//            echo "<i class='" . $row_menu['icone'] . "'></i>" . $row_menu['nome'] . "<br>";
-            echo "<li><a href='".pg."/".$row_menu['endereco']."'>
-            <i class='" . $row_menu['icone'] . "'></i> " . $row_menu['nome'] . "</a></li>";
+            if ($row_menu['dropdown'] == 1) {
+                ?>
+                <li>
+                    <a href = "#submenu1" data-toggle = "collapse">
+                        <i class = "fas fa-user"></i> Usuário
+                    </a>
+                    <ul id = "submenu1" class = "list-unstyled collapse">
+                        <li><a href = "listar.html"><i class = "fas fa-users"></i> Usuários</a></li>
+                        <li><a href = "#"><i class = "fas fa-key"></i> Nível de Acesso</a></li>
+                    </ul>
+                </li>
+                <?php
+            } else {
+                echo "<li><a href='" . pg . "/" . $row_menu['endereco'] . "'>
+            <i class='" . $row_menu['iconmen'] . "'></i> " . $row_menu['nome'] . "</a></li>";
+            }
         }
         ?>
 
-        <li>
-            <a href="#submenu1" data-toggle="collapse">
-                <i class="fas fa-user"></i> Usuário
-            </a>
-            <ul id="submenu1" class="list-unstyled collapse">
-                <li><a href="listar.html"><i class="fas fa-users"></i> Usuários</a></li>
-                <li><a href="#"><i class="fas fa-key"></i> Nível de Acesso</a></li>
-            </ul>
-        </li>
+
         <li>
             <a href="#submenu2" data-toggle="collapse"><i class="fas fa-list-ul"></i> Menu</a>
             <ul id="submenu2" class="list-unstyled collapse">
