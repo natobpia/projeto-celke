@@ -17,7 +17,7 @@ if (isset($_SESSION['adms_niveis_acesso_id'])) {
     $adms_niveis_acesso_id = 0;
 }
 
-$result_pg = "SELECT pg.tp_pagina, pg.endereco 
+$result_pg = "SELECT pg.id id_pg, pg.tp_pagina, pg.endereco 
     FROM adms_paginas pg
     LEFT JOIN adms_nivacs_pgs nivpg ON nivpg.adms_pagina_id=pg.id
     WHERE pg.endereco = '" . $url_limpa . "'

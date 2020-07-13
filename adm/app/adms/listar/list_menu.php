@@ -12,8 +12,7 @@ include_once 'app/adms/include/head.php';
         <?php
         include_once 'app/adms/include/menu.php';
 
-        echo "Bem-vindo a home<br>";
-        echo "<a href='" . pg . "/acesso/sair'>Sair</a><br>";
+        echo "listar menu";
 
         include_once 'app/adms/include/rodape_lib.php';
         ?>
