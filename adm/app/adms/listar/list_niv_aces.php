@@ -19,13 +19,16 @@ include_once 'app/adms/include/head.php';
                     <div class="mr-auto p-2">
                         <h2 class="display-4 titulo">Listar Nível de Acesso</h2>
                     </div>
-                    <a href="cadastrar.html">
-                        <div class="p-2">
-                            <button class="btn btn-outline-success btn-sm">
-                                Cadastrar
-                            </button>
-                        </div>
-                    </a>
+                    <div class="p-2">
+                        <?php
+                        $btn_cad = carregar_btn('cadastrar/cad_niv_aces', $conn);
+                        if ($btn_cad) {
+                            echo "<a href='" . pg . "/cadastrar/cad_niv_aces' class='btn btn-outline-success btn-sm'>
+                            Cadastrar
+                            </a>";
+                        }
+                        ?>
+                    </div>
                 </div>
                 <div class="alert alert-success" role="alert">
                     Usuário apagado com sucesso!
@@ -67,9 +70,26 @@ include_once 'app/adms/include/head.php';
                                         <td class="d-none d-sm-table-cell"><?php echo $row_niv_aces['ordem']; ?></td>
                                         <td class="text-center">
                                             <span class="d-none d-md-block">
-                                                <a href="visualizar.html" class="btn btn-outline-primary btn-sm">Visualizar</a>
-                                                <a href="editar.html" class="btn btn-outline-warning btn-sm">Editar</a>
-                                                <a href="apagar.html" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#apagarRegistro">Apagar</a>
+                                                <?php
+                                                $btn_vis = carregar_btn('visualizar/vis_niv_aces', $conn);
+                                                if ($btn_vis) {
+                                                    echo "<a href='" . pg . "/visualizar/vis_niv_aces' class='btn btn-outline-primary btn-sm'>
+                            Visualizar
+                            </a>";
+                                                }
+                                                $btn_edit = carregar_btn('editar/edit_niv_aces', $conn);
+                                                if ($btn_edit) {
+                                                    echo "<a href='" . pg . "/editar/edit_niv_aces' class='btn btn-outline-warning btn-sm'>
+            Editar
+            </a>";
+                                                }
+                                                $btn_apagar = carregar_btn('processa/apagar_niv_aces', $conn);
+                                                if ($btn_apagar) {
+                                                    echo "<a href='" . pg . "processa/apagar_niv_aces' class='btn btn-outline-danger btn-sm' data-toggle='modal' data-target='#apagarRegistro'>
+            Apagar
+            </a>";
+                                                }
+                                                ?>
                                             </span>
                                             <div class="dropdown d-block d-md-none">
                                                 <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="acoesListar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

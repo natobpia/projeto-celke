@@ -7,6 +7,7 @@ $seguranca = true;
 include_once './config/config.php';
 include_once './config/conexao.php';
 include_once './lib/lib_valida.php';
+include_once './lib/lib_permissao.php';
 
 $url = filter_input(INPUT_GET, 'url', FILTER_SANITIZE_STRING);
 $url_limpa = limparUrl($url);
