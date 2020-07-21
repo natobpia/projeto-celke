@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20-Jul-2020 às 15:59
+-- Tempo de geração: 21-Jul-2020 às 20:05
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.4.8
 
@@ -131,7 +131,7 @@ CREATE TABLE `adms_niveis_acessos` (
 INSERT INTO `adms_niveis_acessos` (`id`, `nome`, `ordem`, `created`, `modified`) VALUES
 (1, 'Super Administrador', 1, '2018-03-23 00:00:00', NULL),
 (2, 'Administrador', 2, '2018-03-23 00:00:00', NULL),
-(3, 'Colaborador', 3, '2018-03-23 00:00:00', NULL),
+(3, 'Colaborador', 3, '2018-03-23 00:00:00', '2020-07-21 14:30:55'),
 (4, 'Cliente', 4, '2018-03-23 00:00:00', NULL);
 
 -- --------------------------------------------------------

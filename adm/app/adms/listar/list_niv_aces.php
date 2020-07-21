@@ -42,14 +42,14 @@ include_once 'app/adms/include/head.php';
                 $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
 
                 //Setar a quantidade de itens por pagina
-                $qnt_result_pg = 1;
+                $qnt_result_pg = 30;
 
                 //Calcular o inicio visualização
                 $inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
                 $resul_niv_aces = "SELECT * FROM adms_niveis_acessos WHERE ordem >= '" . $_SESSION['ordem'] . "' ORDER BY ordem ASC LIMIT $inicio, $qnt_result_pg";
                 $resultado_niv_aces = mysqli_query($conn, $resul_niv_aces);
-                if (($resultado_niv_aces) and ($resultado_niv_aces->num_rows != 0)) {
-                ?>
+                if (($resultado_niv_aces) and ( $resultado_niv_aces->num_rows != 0)) {
+                    ?>
                     <div class="table-responsive">
                         <table class="table table-striped table-hover table-bordered">
                             <thead>
@@ -63,7 +63,7 @@ include_once 'app/adms/include/head.php';
                             <tbody>
                                 <?php
                                 while ($row_niv_aces = mysqli_fetch_assoc($resultado_niv_aces)) {
-                                ?>
+                                    ?>
                                     <tr>
                                         <th><?php echo $row_niv_aces['id']; ?></th>
                                         <td><?php echo $row_niv_aces['nome']; ?></td>
@@ -73,19 +73,19 @@ include_once 'app/adms/include/head.php';
                                                 <?php
                                                 $btn_vis = carregar_btn('visualizar/vis_niv_aces', $conn);
                                                 if ($btn_vis) {
-                                                    echo "<a href='" . pg . "/visualizar/vis_niv_aces' class='btn btn-outline-primary btn-sm'>
+                                                    echo "<a href='" . pg . "/visualizar/vis_niv_aces?id=" . $row_niv_aces['id'] . "' class='btn btn-outline-primary btn-sm'>
                             Visualizar
                             </a>";
                                                 }
                                                 $btn_edit = carregar_btn('editar/edit_niv_aces', $conn);
                                                 if ($btn_edit) {
-                                                    echo "<a href='" . pg . "/editar/edit_niv_aces' class='btn btn-outline-warning btn-sm'>
+                                                    echo "<a href='" . pg . "/editar/edit_niv_aces?id=" . $row_niv_aces['id'] . "' class='btn btn-outline-warning btn-sm'>
             Editar
             </a>";
                                                 }
                                                 $btn_apagar = carregar_btn('processa/apagar_niv_aces', $conn);
                                                 if ($btn_apagar) {
-                                                    echo "<a href='" . pg . "processa/apagar_niv_aces' class='btn btn-outline-danger btn-sm' data-toggle='modal' data-target='#apagarRegistro'>
+                                                    echo "<a href='" . pg . "processa/apagar_niv_aces?id=" . $row_niv_aces['id'] . "'' class='btn btn-outline-danger btn-sm' data-toggle='modal' data-target='#apagarRegistro'>
             Apagar
             </a>";
                                                 }
@@ -96,14 +96,32 @@ include_once 'app/adms/include/head.php';
                                                     Ações
                                                 </button>
                                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
-                                                    <a class="dropdown-item" href="visualizar.html">Visualizar</a>
-                                                    <a class="dropdown-item" href="editar.html">Editar</a>
-                                                    <a class="dropdown-item" href="apagar.html" data-toggle="modal" data-target="#apagarRegistro">Apagar</a>
+                                                    <?php
+                                                    $btn_vis = carregar_btn('visualizar/vis_niv_aces', $conn);
+                                                    if ($btn_vis) {
+                                                        echo "<a class='dropdown-item' href='" . pg . "/visualizar/vis_niv_aces?id=" . $row_niv_aces['id'] . "'>
+                                                        Visualizar
+                                                        </a>";
+                                                    }
+                                                    $btn_edit = carregar_btn('editar/edit_niv_aces', $conn);
+                                                    if ($btn_edit) {
+                                                        echo "<a class='dropdown-item' href='" . pg . "/editar/edit_niv_aces?id=" . $row_niv_aces['id'] . "'>
+                                                        Editar
+                                                        </a>";
+                                                    }
+                                                    $btn_apagar = carregar_btn('processa/apagar_niv_aces', $conn);
+                                                    if ($btn_apagar) {
+                                                        echo "<a class='dropdown-item' href='" . pg . "processa/apagar_niv_aces?id=" . $row_niv_aces['id'] . "'>
+                                                        Apagar
+                                                        </a>";
+                                                    }
+                                                    ?>
+
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>
-                                <?php
+                                    <?php
                                 }
                                 ?>
 
@@ -150,13 +168,13 @@ include_once 'app/adms/include/head.php';
                         ?>
 
                     </div>
-                <?php
+                    <?php
                 } else {
-                ?>
+                    ?>
                     <div class="alert alert-danger" role="alert">
                         Nenhum registro encontrado!
                     </div>
-                <?php
+                    <?php
                 }
                 ?>
 
