@@ -28,7 +28,41 @@ if ($SendCadNivAc) {
         $url_destino = pg . '/cadastrar/cad_niv_aces';
         header("Location: $url_destino");  
     }else{
-        echo "cadastrar";
+        //Pesquisa a última ordem do nível de acesso
+        $result_niv_ordem = "SELECT ordem 
+        FROM adms_niveis_acessos
+        ORDER BY ordem DESC LIMIT 1";
+        $resultado_niv_ordem = mysqli_query($conn, $result_niv_ordem);
+        $row_niv_ordem = mysqli_fetch_assoc($resultado_niv_ordem);
+        $row_niv_ordem['ordem']++;
+        
+        $result_niv_ac = "INSERT INTO adms_niveis_acessos (nome,
+            ordem,
+            created)
+        VALUES ('".$dados_validos['nome']."',
+                '".$row_niv_ordem['ordem']."',
+                NOW())";
+        $resutado_niv_ac = mysqli_query($conn, $result_niv_ac);
+        
+        if(mysqli_insert_id($conn)){
+            $_SESSION['msg'] = "<div class='alert alert-success'>
+            Nível de acesso inserido com sucesso!
+            <button type='button' class='close' 
+            data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+            </button></div>";
+            $url_destino = pg . '/listar/list_niv_aces';
+            header("Location: $url_destino");
+        }else {
+            $_SESSION['msg'] = "<div class='alert alert-success'>
+            Erro ao inserir o nível de acesso
+            <button type='button' class='close' 
+            data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+            </button></div>";
+            $url_destino = pg . '/acesso/login';
+            header("Location: $url_destino");
+        }
     }
     
 } else {

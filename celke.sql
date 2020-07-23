@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21-Jul-2020 às 20:05
+-- Tempo de geração: 23-Jul-2020 às 15:19
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.4.8
 
@@ -108,7 +108,8 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (7, 1, 7, 2, 2, 2, 1, 9, '2020-07-20 10:34:44', NULL),
 (8, 1, 8, 2, 2, 2, 1, 10, '2020-07-20 10:47:07', NULL),
 (9, 1, 9, 2, 2, 2, 1, 11, '2020-07-20 10:47:07', NULL),
-(10, 1, 10, 2, 2, 2, 1, 12, '2020-07-20 10:47:07', NULL);
+(10, 1, 10, 2, 2, 2, 1, 12, '2020-07-20 10:47:07', NULL),
+(11, 1, 11, 2, 2, 2, 1, 13, '2020-07-22 11:33:55', NULL);
 
 -- --------------------------------------------------------
 
@@ -132,7 +133,10 @@ INSERT INTO `adms_niveis_acessos` (`id`, `nome`, `ordem`, `created`, `modified`)
 (1, 'Super Administrador', 1, '2018-03-23 00:00:00', NULL),
 (2, 'Administrador', 2, '2018-03-23 00:00:00', NULL),
 (3, 'Colaborador', 3, '2018-03-23 00:00:00', '2020-07-21 14:30:55'),
-(4, 'Cliente', 4, '2018-03-23 00:00:00', NULL);
+(4, 'Cliente', 4, '2018-03-23 00:00:00', NULL),
+(5, 'Aluno', 5, '2020-07-23 10:08:41', NULL),
+(6, 'Secretária', 6, '2020-07-23 10:09:35', NULL),
+(7, 'Financeiro', 7, '2020-07-23 10:19:31', NULL);
 
 -- --------------------------------------------------------
 
@@ -174,7 +178,8 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (9, 'Cadastrar Nível de Acesso', 'cadastrar/cad_niv_aces', 'Página para cadastrar Nível de acesso', 'Página para cadastrar Nível de acesso', 'Página para cadastrar Nível de acesso', 'Natobpia', 'adms', 2, NULL, 0, 4, 1, '2020-07-20 10:33:47', NULL),
 (10, 'Visualizar nível de acesso', 'visualizar/vis_niv_aces', 'Página para visualizar nível de acesso', 'Página para visualizar nível de acesso', 'Página para visualizar nível de acesso', 'Natobpia', 'adms', 2, NULL, 0, 4, 1, '2020-07-20 10:44:08', NULL),
 (11, 'Editar nível de acesso', 'editar/edit_niv_aces', 'Página para editar nível de acesso', 'Página para editar nível de acesso', 'Página para editar nível de acesso', 'Natobpia', 'adms', 2, NULL, 0, 4, 1, '2020-07-20 10:44:08', NULL),
-(12, 'Apagar nível de acesso', 'processa/apagar_niv_aces', 'Página para apagar nível de acesso', 'Página para apagar nível de acesso', 'Página para apagar nível de acesso', 'Natobpia', 'adms', 2, NULL, 0, 4, 1, '2020-07-20 10:45:48', NULL);
+(12, 'Apagar nível de acesso', 'processa/apagar_niv_aces', 'Página para apagar nível de acesso', 'Página para apagar nível de acesso', 'Página para apagar nível de acesso', 'Natobpia', 'adms', 2, NULL, 0, 4, 1, '2020-07-20 10:45:48', NULL),
+(13, 'Processa o form cadastrar nível de acesso', 'processa/proc_cad_niv_aces', 'Processa o form cadastrar nível de acesso', 'Processa o form cadastrar nível de acesso', 'Processa o form cadastrar nível de acesso', 'Natobpia', 'adms', 2, NULL, 9, 4, 1, '2020-07-22 11:30:30', NULL);
 
 -- --------------------------------------------------------
 
@@ -298,7 +303,7 @@ CREATE TABLE `adms_usuarios` (
 --
 
 INSERT INTO `adms_usuarios` (`id`, `nome`, `apelido`, `email`, `usuario`, `senha`, `recuperar_senha`, `chave_descadastro`, `imagem`, `adms_niveis_acesso_id`, `adms_sits_usuario_id`, `created`, `modified`) VALUES
-(1, 'Cesar N. Szpak', 'Cesar', 'cesar@celke.com.br', 'cesar@celke.com.br', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, 'celke.jpg', 1, 1, '2018-03-23 00:00:00', NULL);
+(1, 'Cesar N. Szpak', 'Cesar', 'cesar@celke.com.br', 'cesar@celke.com.br', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, 'celke', 1, 1, '2018-03-23 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -930,19 +935,19 @@ ALTER TABLE `adms_menus`
 -- AUTO_INCREMENT de tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `adms_niveis_acessos`
 --
 ALTER TABLE `adms_niveis_acessos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `adms_robots`
