@@ -30,6 +30,12 @@ include_once 'app/adms/include/head.php';
                         ?>
                     </div>
                 </div><hr>
+                <?php
+                if(isset($_SESSION['msg'])){
+                    echo $_SESSION['msg'];
+                    unset($_SESSION['msg']);
+                }
+                ?>
                 <form method="POST" action="<?php echo pg; ?>/processa/proc_cad_niv_aces">
                         <div class="form-group col-md-6">
                             <label><span class="text-danger">* </span> Nome</label>
