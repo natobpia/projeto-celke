@@ -20,15 +20,17 @@ if ($SendLogin) {
         if ($resultado_user AND $resultado_user->num_rows != 0) {
             $row_user = mysqli_fetch_assoc($resultado_user);
             if (password_verify($senha, $row_user['senha'])) {
+                //Pesquisar a ordem do nível de acesso
                 $result_niv_ac = "SELECT ordem FROM adms_niveis_acessos 
                 WHERE id= '".$row_user['adms_niveis_acesso_id']."' LIMIT 1";
                 $resultado_niv_ac = mysqli_query($conn, $result_niv_ac);
                 $row_niv_ac = mysqli_fetch_assoc($resultado_niv_ac);
+                
                 $_SESSION['id'] = $row_user['id'];
                 $_SESSION['nome'] = $row_user['nome'];
                 $_SESSION['email'] = $row_user['email'];
                 $_SESSION['adms_niveis_acesso_id'] = $row_user['adms_niveis_acesso_id'];
-                $_SESSION['ordem'] = $row_user['ordem'];
+                $_SESSION['ordem'] = $row_niv_ac['ordem'];
                 
                 $url_destino = pg . "/visualizar/home";
                 header("Location: $url_destino");

@@ -31,7 +31,7 @@ include_once 'app/adms/include/head.php';
                     </div>
                 </div>
                 <?php
-                if(isset($_SESSION['msg'])){
+                if (isset($_SESSION['msg'])) {
                     echo $_SESSION['msg'];
                     unset($_SESSION['msg']);
                 }
@@ -45,12 +45,22 @@ include_once 'app/adms/include/head.php';
 
                 //Calcular o inicio visualização
                 $inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
-                $resul_niv_aces = "SELECT * FROM adms_niveis_acessos WHERE ordem >= '" . $_SESSION['ordem'] . "' ORDER BY ordem ASC LIMIT $inicio, $qnt_result_pg";
-                $resultado_niv_aces = mysqli_query($conn, $resul_niv_aces);
-                if (($resultado_niv_aces) and ( $resultado_niv_aces->num_rows != 0)) {
+                if ($_SESSION['adms_niveis_acesso_id'] == 1) {
+                    $result_niv_aces = "SELECT * FROM adms_niveis_acessos             
+                ORDER BY ordem ASC LIMIT $inicio, $qnt_result_pg";
+                } else {
+                    $result_niv_aces = "SELECT * FROM adms_niveis_acessos 
+                WHERE ordem > '".$_SESSION['ordem']."'
+                ORDER BY ordem ASC LIMIT $inicio, $qnt_result_pg";
+                }
+
+                $resultado_niv_aces = mysqli_query($conn, $result_niv_aces);
+                if (($resultado_niv_aces)
+                        and ( $resultado_niv_aces->num_rows != 0)) {
                     ?>
                     <div class="table-responsive">
-                        <table class="table table-striped table-hover table-bordered">
+                        <table class="table table-striped 
+                               table-hover table-bordered">
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -74,13 +84,13 @@ include_once 'app/adms/include/head.php';
                                                 if ($btn_vis) {
                                                     echo "<a href='" . pg . "/visualizar/vis_niv_aces?id=" . $row_niv_aces['id'] . "' class='btn btn-outline-primary btn-sm'>
                             Visualizar
-                            </a>";
+                            </a> ";
                                                 }
                                                 $btn_edit = carregar_btn('editar/edit_niv_aces', $conn);
                                                 if ($btn_edit) {
                                                     echo "<a href='" . pg . "/editar/edit_niv_aces?id=" . $row_niv_aces['id'] . "' class='btn btn-outline-warning btn-sm'>
             Editar
-            </a>";
+            </a> ";
                                                 }
                                                 $btn_apagar = carregar_btn('processa/apagar_niv_aces', $conn);
                                                 if ($btn_apagar) {

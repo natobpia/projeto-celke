@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23-Jul-2020 às 15:19
+-- Tempo de geração: 24-Jul-2020 às 22:29
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.4.8
 
@@ -109,7 +109,18 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (8, 1, 8, 2, 2, 2, 1, 10, '2020-07-20 10:47:07', NULL),
 (9, 1, 9, 2, 2, 2, 1, 11, '2020-07-20 10:47:07', NULL),
 (10, 1, 10, 2, 2, 2, 1, 12, '2020-07-20 10:47:07', NULL),
-(11, 1, 11, 2, 2, 2, 1, 13, '2020-07-22 11:33:55', NULL);
+(11, 1, 11, 2, 2, 2, 1, 13, '2020-07-22 11:33:55', NULL),
+(12, 1, 1, 2, 1, 1, 3, 1, '2018-03-23 00:00:00', NULL),
+(13, 1, 2, 1, 1, 2, 3, 5, '2018-03-23 00:00:00', NULL),
+(14, 1, 3, 1, 1, 2, 3, 6, '2018-03-23 00:00:00', NULL),
+(15, 1, 4, 1, 1, 3, 3, 7, '2018-03-23 00:00:00', NULL),
+(16, 1, 5, 1, 1, 3, 3, 8, '2018-03-23 00:00:00', NULL),
+(17, 1, 6, 2, 1, 4, 3, 4, '2018-03-23 00:00:00', NULL),
+(18, 1, 7, 2, 2, 2, 3, 9, '2018-03-23 00:00:00', NULL),
+(19, 1, 8, 2, 2, 2, 3, 10, '2018-03-23 00:00:00', NULL),
+(20, 1, 9, 2, 2, 2, 3, 11, '2018-03-23 00:00:00', NULL),
+(21, 1, 10, 2, 2, 2, 3, 12, '2018-03-23 00:00:00', NULL),
+(22, 1, 11, 2, 2, 2, 3, 13, '2018-03-23 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -303,7 +314,8 @@ CREATE TABLE `adms_usuarios` (
 --
 
 INSERT INTO `adms_usuarios` (`id`, `nome`, `apelido`, `email`, `usuario`, `senha`, `recuperar_senha`, `chave_descadastro`, `imagem`, `adms_niveis_acesso_id`, `adms_sits_usuario_id`, `created`, `modified`) VALUES
-(1, 'Cesar N. Szpak', 'Cesar', 'cesar@celke.com.br', 'cesar@celke.com.br', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, 'celke', 1, 1, '2018-03-23 00:00:00', NULL);
+(1, 'Cesar N. Szpak', 'Cesar', 'cesar@celke.com.br', 'cesar@celke.com.br', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, 'celke.jpg', 1, 1, '2018-03-23 00:00:00', NULL),
+(2, 'Jessica', 'Jessica', 'jessica@celke.com.br', 'jessica@celke.com.br', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, 'jessica.jpg', 3, 1, '2020-07-24 16:24:45', NULL);
 
 -- --------------------------------------------------------
 
@@ -935,7 +947,7 @@ ALTER TABLE `adms_menus`
 -- AUTO_INCREMENT de tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de tabela `adms_niveis_acessos`
@@ -977,7 +989,7 @@ ALTER TABLE `adms_sits_usuarios`
 -- AUTO_INCREMENT de tabela `adms_usuarios`
 --
 ALTER TABLE `adms_usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `sts_artigos`
