@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24-Jul-2020 às 22:29
+-- Tempo de geração: 25-Jul-2020 às 16:34
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.4.8
 
@@ -120,7 +120,8 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (19, 1, 8, 2, 2, 2, 3, 10, '2018-03-23 00:00:00', NULL),
 (20, 1, 9, 2, 2, 2, 3, 11, '2018-03-23 00:00:00', NULL),
 (21, 1, 10, 2, 2, 2, 3, 12, '2018-03-23 00:00:00', NULL),
-(22, 1, 11, 2, 2, 2, 3, 13, '2018-03-23 00:00:00', NULL);
+(22, 1, 11, 2, 2, 2, 3, 13, '2018-03-23 00:00:00', NULL),
+(23, 1, 12, 2, 2, 2, 1, 14, '2020-07-25 10:09:33', NULL);
 
 -- --------------------------------------------------------
 
@@ -143,11 +144,8 @@ CREATE TABLE `adms_niveis_acessos` (
 INSERT INTO `adms_niveis_acessos` (`id`, `nome`, `ordem`, `created`, `modified`) VALUES
 (1, 'Super Administrador', 1, '2018-03-23 00:00:00', NULL),
 (2, 'Administrador', 2, '2018-03-23 00:00:00', NULL),
-(3, 'Colaborador', 3, '2018-03-23 00:00:00', '2020-07-21 14:30:55'),
-(4, 'Cliente', 4, '2018-03-23 00:00:00', NULL),
-(5, 'Aluno', 5, '2020-07-23 10:08:41', NULL),
-(6, 'Secretária', 6, '2020-07-23 10:09:35', NULL),
-(7, 'Financeiro', 7, '2020-07-23 10:19:31', NULL);
+(3, 'Colaborador', 3, '2020-07-25 11:20:06', NULL),
+(5, 'Aluno', 4, '2020-07-25 11:30:12', '2020-07-25 11:33:43');
 
 -- --------------------------------------------------------
 
@@ -190,7 +188,8 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (10, 'Visualizar nível de acesso', 'visualizar/vis_niv_aces', 'Página para visualizar nível de acesso', 'Página para visualizar nível de acesso', 'Página para visualizar nível de acesso', 'Natobpia', 'adms', 2, NULL, 0, 4, 1, '2020-07-20 10:44:08', NULL),
 (11, 'Editar nível de acesso', 'editar/edit_niv_aces', 'Página para editar nível de acesso', 'Página para editar nível de acesso', 'Página para editar nível de acesso', 'Natobpia', 'adms', 2, NULL, 0, 4, 1, '2020-07-20 10:44:08', NULL),
 (12, 'Apagar nível de acesso', 'processa/apagar_niv_aces', 'Página para apagar nível de acesso', 'Página para apagar nível de acesso', 'Página para apagar nível de acesso', 'Natobpia', 'adms', 2, NULL, 0, 4, 1, '2020-07-20 10:45:48', NULL),
-(13, 'Processa o form cadastrar nível de acesso', 'processa/proc_cad_niv_aces', 'Processa o form cadastrar nível de acesso', 'Processa o form cadastrar nível de acesso', 'Processa o form cadastrar nível de acesso', 'Natobpia', 'adms', 2, NULL, 9, 4, 1, '2020-07-22 11:30:30', NULL);
+(13, 'Processa o form cadastrar nível de acesso', 'processa/proc_cad_niv_aces', 'Processa o form cadastrar nível de acesso', 'Processa o form cadastrar nível de acesso', 'Processa o form cadastrar nível de acesso', 'Natobpia', 'adms', 2, NULL, 9, 4, 1, '2020-07-22 11:30:30', NULL),
+(14, 'Processa o formulário editar nível de acesso', 'processa/proc_edit_niv_aces', 'Processa o formulário editar nível de acesso', 'Processa o formulário editar nível de acesso', 'Processa o formulário editar nível de acesso', 'Natobpia', 'adms', 2, NULL, 11, 4, 1, '2020-07-25 10:08:27', NULL);
 
 -- --------------------------------------------------------
 
@@ -947,19 +946,19 @@ ALTER TABLE `adms_menus`
 -- AUTO_INCREMENT de tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de tabela `adms_niveis_acessos`
 --
 ALTER TABLE `adms_niveis_acessos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de tabela `adms_robots`
