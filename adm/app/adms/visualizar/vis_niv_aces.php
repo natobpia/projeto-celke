@@ -56,7 +56,7 @@ include_once 'app/adms/include/head.php';
                             $btn_apagar = carregar_btn('processa/apagar_niv_aces', $conn);
                             if ($btn_apagar) {
                                 if ($resultado_niv_aces AND $resultado_niv_aces->num_rows != 0) {
-                                    echo "<a href='" . pg . "processa/apagar_niv_aces?id=" . $row_niv_aces['id'] . "'' class='btn btn-outline-danger btn-sm' data-toggle='modal' data-target='#apagarRegistro'>
+                                    echo "<a href='" . pg . "/processa/apagar_niv_aces?id=" . $row_niv_aces['id'] . "'' class='btn btn-outline-danger btn-sm'>
                                     Apagar
                                     </a>";
                                 }
@@ -86,7 +86,7 @@ include_once 'app/adms/include/head.php';
                                 $btn_apagar = carregar_btn('processa/apagar_niv_aces', $conn);
                                 if ($btn_apagar) {
                                     if ($resultado_niv_aces AND $resultado_niv_aces->num_rows != 0) {
-                                        echo "<a class='dropdown-item' href='" . pg . "processa/apagar_niv_aces?id=" . $row_niv_aces['id'] . "'>
+                                        echo "<a class='dropdown-item' href='" . pg . "/processa/apagar_niv_aces?id=" . $row_niv_aces['id'] . "'>
                                                         Apagar
                                                         </a>";
                                     }

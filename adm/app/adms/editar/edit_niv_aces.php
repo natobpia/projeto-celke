@@ -10,7 +10,7 @@ if ($id) {
     WHERE id=$id LIMIT 1";
     } else {
         $result_nivac_ed = "SELECT * FROM adms_niveis_acessos
-    WHERE ordem > '".$_SESSION['ordem']."' AND id=$id LIMIT 1";
+    WHERE ordem > '" . $_SESSION['ordem'] . "' AND id=$id LIMIT 1";
     }
 
     $resultado_nivac_ed = mysqli_query($conn, $result_nivac_ed);
@@ -37,14 +37,64 @@ if ($id) {
                                 <h2 class="display-4 titulo">Editar Nível de Acesso</h2>
                             </div>
                             <div class="p-2">
-                                <?php
-                                $btn_list = carregar_btn('listar/list_niv_aces', $conn);
-                                if ($btn_list) {
-                                    echo "<a href='" . pg . "/listar/list_niv_aces' class='btn btn-outline-info btn-sm'>
+                                <span class = "d-none d-md-block">
+                                    <?php
+                                    $btn_list = carregar_btn('listar/list_niv_aces', $conn);
+                                    if ($btn_list) {
+                                        echo "<a href='" . pg . "/listar/list_niv_aces' class='btn btn-outline-info btn-sm'>
                             Listar
                             </a> ";
-                                }
-                                ?>
+                                    }
+                                    $btn_vis = carregar_btn('visualizar/vis_niv_aces', $conn);
+                                    if ($btn_vis) {
+                                        if ($resultado_nivac_ed AND $resultado_nivac_ed->num_rows != 0) {
+                                            echo "<a href='" . pg . "/visualizar/vis_niv_aces?id=" . $row_nivac_ed['id'] . "' class='btn btn-outline-primary btn-sm'>
+                                    Visualizar
+                                    </a> ";
+                                        }
+                                    }
+                                    $btn_apagar = carregar_btn('processa/apagar_niv_aces', $conn);
+                                    if ($btn_apagar) {
+                                        if ($resultado_nivac_ed AND $resultado_nivac_ed->num_rows != 0) {
+                                            echo "<a href='" . pg . "/processa/apagar_niv_aces?id=" . $row_nivac_ed['id'] . "'' class='btn btn-outline-danger btn-sm'>
+                                    Apagar
+                                    </a>";
+                                        }
+                                    }
+                                    ?>
+                                </span>
+                                <div class="dropdown d-block d-md-none">
+                                    <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="acoesListar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Ações
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
+                                        <?php
+                                        $btn_list = carregar_btn('listar/list_niv_aces', $conn);
+                                        if ($btn_list) {
+                                            echo "<a class='dropdown-item' href='" . pg . "/listar/list_niv_aces'>
+                                                        Listar
+                                                        </a>";
+                                        }
+                                        $btn_vis = carregar_btn('visualizar/vis_niv_aces', $conn);
+                                        if ($btn_vis) {
+                                            if ($resultado_nivac_ed AND $resultado_nivac_ed->num_rows != 0) {
+                                                echo "<a class='dropdown-item' href='" . pg . "/visualizar/vis_niv_aces?id=" . $row_nivac_ed['id'] . "'>
+                                                        Visualizar
+                                                        </a>";
+                                            }
+                                        }
+                                        $btn_apagar = carregar_btn('processa/apagar_niv_aces', $conn);
+                                        if ($btn_apagar) {
+                                            if ($resultado_nivac_ed AND $resultado_nivac_ed->num_rows != 0) {
+                                                echo "<a class='dropdown-item' href='" . pg . "/processa/apagar_niv_aces?id=" . $row_nivac_ed['id'] . "'>
+                                                        Apagar
+                                                        </a>";
+                                            }
+                                        }
+                                        ?>
+
+                                    </div>
+                                </div>
                             </div>
                         </div><hr>
                         <?php
@@ -55,14 +105,18 @@ if ($id) {
                         ?>
                         <form method="POST" action="<?php echo pg; ?>/processa/proc_edit_niv_aces">
                             <input type="hidden" name="id" 
-                                   value="<?php if(isset($row_nivac_ed['id'])){
-                                       echo $row_nivac_ed['id']; } ?>">
+                                   value="<?php if (isset($row_nivac_ed['id'])) {
+                    echo $row_nivac_ed['id'];
+                }
+                ?>">
                             <div class="form-group col-md-6">
                                 <label><span class="text-danger">* </span> Nome</label>
                                 <input name="nome" type="text" class="form-control" 
                                        placeholder="Nome do nível de acesso"
-                                       value="<?php if(isset($row_nivac_ed['nome'])){
-                                       echo $row_nivac_ed['nome']; } ?>">
+                                       value="<?php if (isset($row_nivac_ed['nome'])) {
+                    echo $row_nivac_ed['nome'];
+                }
+                ?>">
                             </div>
                             <p>
                                 <span class="text-danger">* </span>Campo obrigatório
@@ -71,9 +125,9 @@ if ($id) {
                         </form>
                     </div>  
                 </div>
-                <?php
-                include_once 'app/adms/include/rodape_lib.php';
-                ?>
+        <?php
+        include_once 'app/adms/include/rodape_lib.php';
+        ?>
 
             </div>
         </body>
