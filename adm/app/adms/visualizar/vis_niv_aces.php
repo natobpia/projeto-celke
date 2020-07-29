@@ -36,7 +36,6 @@ include_once 'app/adms/include/head.php';
                         <h2 class="display-4 titulo">Detalhes Nível de Acesso</h2>
                     </div>
                     <div class="p-2">
-
                         <span class = "d-none d-md-block">
                             <?php
                             $btn_list = carregar_btn('listar/list_niv_aces', $conn);
@@ -56,7 +55,9 @@ include_once 'app/adms/include/head.php';
                             $btn_apagar = carregar_btn('processa/apagar_niv_aces', $conn);
                             if ($btn_apagar) {
                                 if ($resultado_niv_aces AND $resultado_niv_aces->num_rows != 0) {
-                                    echo "<a href='" . pg . "/processa/apagar_niv_aces?id=" . $row_niv_aces['id'] . "'' class='btn btn-outline-danger btn-sm'>
+                                    echo "<a href='" . pg . "/processa/apagar_niv_aces?id=" . $row_niv_aces['id'] . "'' 
+                                        class='btn btn-outline-danger btn-sm'
+                                        data-confirm='Tem certeza de que deseja excluir o item selecionado?'>
                                     Apagar
                                     </a>";
                                 }
@@ -86,7 +87,8 @@ include_once 'app/adms/include/head.php';
                                 $btn_apagar = carregar_btn('processa/apagar_niv_aces', $conn);
                                 if ($btn_apagar) {
                                     if ($resultado_niv_aces AND $resultado_niv_aces->num_rows != 0) {
-                                        echo "<a class='dropdown-item' href='" . pg . "/processa/apagar_niv_aces?id=" . $row_niv_aces['id'] . "'>
+                                        echo "<a class='dropdown-item' href='" . pg . "/processa/apagar_niv_aces?id=" . $row_niv_aces['id'] . "'
+                                            data-confirm='Tem certeza de que deseja excluir o item selecionado?'>
                                                         Apagar
                                                         </a>";
                                     }
@@ -95,7 +97,6 @@ include_once 'app/adms/include/head.php';
 
                             </div>
                         </div>
-
                     </div>
                 </div><hr>
                 <?php

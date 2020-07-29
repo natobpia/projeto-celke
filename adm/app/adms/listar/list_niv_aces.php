@@ -82,21 +82,24 @@ include_once 'app/adms/include/head.php';
                                                 <?php
                                                 $btn_vis = carregar_btn('visualizar/vis_niv_aces', $conn);
                                                 if ($btn_vis) {
-                                                    echo "<a href='" . pg . "/visualizar/vis_niv_aces?id=" . $row_niv_aces['id'] . "' class='btn btn-outline-primary btn-sm'>
+                                                    echo "<a href='" . pg . "/visualizar/vis_niv_aces?id=" . $row_niv_aces['id'] . "' 
+                                                        class='btn btn-outline-primary btn-sm'>
                             Visualizar
                             </a> ";
                                                 }
                                                 $btn_edit = carregar_btn('editar/edit_niv_aces', $conn);
                                                 if ($btn_edit) {
-                                                    echo "<a href='" . pg . "/editar/edit_niv_aces?id=" . $row_niv_aces['id'] . "' class='btn btn-outline-warning btn-sm'>
+                                                    echo "<a href='" . pg . "/editar/edit_niv_aces?id=" . $row_niv_aces['id'] . "' 
+                                                        class='btn btn-outline-warning btn-sm'>
             Editar
             </a> ";
                                                 }
                                                 $btn_apagar = carregar_btn('processa/apagar_niv_aces', $conn);
                                                 if ($btn_apagar) {
-                                                    echo "<a href='" . pg . "/processa/apagar_niv_aces?id=" . $row_niv_aces['id'] . "'' class='btn btn-outline-danger btn-sm'>
-            Apagar
-            </a>";
+                                                    echo "<a href='" . pg . "/processa/apagar_niv_aces?id=" . $row_niv_aces['id'] . "''
+                                                        class='btn btn-outline-danger btn-sm'
+                                                        data-confirm='Tem certeza de que deseja excluir o item selecionado?'>
+                                                        Apagar</a>";
                                                 }
                                                 ?>
                                             </span>
@@ -120,7 +123,8 @@ include_once 'app/adms/include/head.php';
                                                     }
                                                     $btn_apagar = carregar_btn('processa/apagar_niv_aces', $conn);
                                                     if ($btn_apagar) {
-                                                        echo "<a class='dropdown-item' href='" . pg . "/processa/apagar_niv_aces?id=" . $row_niv_aces['id'] . "'>
+                                                        echo "<a class='dropdown-item' href='" . pg . "/processa/apagar_niv_aces?id=" . $row_niv_aces['id'] . "'
+                                                            data-confirm='Tem certeza de que deseja excluir o item selecionado?'>
                                                         Apagar
                                                         </a>";
                                                     }

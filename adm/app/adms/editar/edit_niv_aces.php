@@ -56,7 +56,8 @@ if ($id) {
                                     $btn_apagar = carregar_btn('processa/apagar_niv_aces', $conn);
                                     if ($btn_apagar) {
                                         if ($resultado_nivac_ed AND $resultado_nivac_ed->num_rows != 0) {
-                                            echo "<a href='" . pg . "/processa/apagar_niv_aces?id=" . $row_nivac_ed['id'] . "'' class='btn btn-outline-danger btn-sm'>
+                                            echo "<a href='" . pg . "/processa/apagar_niv_aces?id=" . $row_nivac_ed['id'] . "'' class='btn btn-outline-danger btn-sm'
+                                                data-confirm='Tem certeza de que deseja excluir o item selecionado?'>
                                     Apagar
                                     </a>";
                                         }
@@ -86,7 +87,8 @@ if ($id) {
                                         $btn_apagar = carregar_btn('processa/apagar_niv_aces', $conn);
                                         if ($btn_apagar) {
                                             if ($resultado_nivac_ed AND $resultado_nivac_ed->num_rows != 0) {
-                                                echo "<a class='dropdown-item' href='" . pg . "/processa/apagar_niv_aces?id=" . $row_nivac_ed['id'] . "'>
+                                                echo "<a class='dropdown-item' href='" . pg . "/processa/apagar_niv_aces?id=" . $row_nivac_ed['id'] . "'
+                                                    data-confirm='Tem certeza de que deseja excluir o item selecionado?'>
                                                         Apagar
                                                         </a>";
                                             }
