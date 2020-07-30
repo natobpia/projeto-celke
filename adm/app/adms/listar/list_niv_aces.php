@@ -50,7 +50,7 @@ include_once 'app/adms/include/head.php';
                 ORDER BY ordem ASC LIMIT $inicio, $qnt_result_pg";
                 } else {
                     $result_niv_aces = "SELECT * FROM adms_niveis_acessos 
-                WHERE ordem > '".$_SESSION['ordem']."'
+                WHERE ordem > '" . $_SESSION['ordem'] . "'
                 ORDER BY ordem ASC LIMIT $inicio, $qnt_result_pg";
                 }
 
@@ -71,6 +71,8 @@ include_once 'app/adms/include/head.php';
                             </thead>
                             <tbody>
                                 <?php
+                                $qnt_linhas_exe = 1;
+                                
                                 while ($row_niv_aces = mysqli_fetch_assoc($resultado_niv_aces)) {
                                     ?>
                                     <tr>
@@ -80,19 +82,39 @@ include_once 'app/adms/include/head.php';
                                         <td class="text-center">
                                             <span class="d-none d-md-block">
                                                 <?php
+                                           
+                                                $btn_or_nivac = carregar_btn('processa/proc_ordem_niv_aces', $conn);
+
+                                                if ($qnt_linhas_exe == 1) {
+                                                    if ($btn_or_nivac) {
+                                                        echo "<button class='btn btn-outline-secondary btn-sm disabled'>
+                                                        <i class='fas fa-angle-double-up'></i>
+                                                        </button> ";
+                                                    }
+                                                } else {
+                                                    if ($btn_or_nivac) {
+                                                        echo "<a href='" . pg . "/processa/proc_ordem_niv_aces?id=" . $row_niv_aces['ordem'] . "' 
+                                                        class='btn btn-outline-secondary btn-sm'>
+                                                        <i class='fas fa-angle-double-up'></i>
+                                                        </a> ";
+                                                    }
+                                                }
+                                                $qnt_linhas_exe++;
+
+
                                                 $btn_vis = carregar_btn('visualizar/vis_niv_aces', $conn);
                                                 if ($btn_vis) {
                                                     echo "<a href='" . pg . "/visualizar/vis_niv_aces?id=" . $row_niv_aces['id'] . "' 
                                                         class='btn btn-outline-primary btn-sm'>
-                            Visualizar
-                            </a> ";
+                                                        Visualizar
+                                                        </a> ";
                                                 }
                                                 $btn_edit = carregar_btn('editar/edit_niv_aces', $conn);
                                                 if ($btn_edit) {
                                                     echo "<a href='" . pg . "/editar/edit_niv_aces?id=" . $row_niv_aces['id'] . "' 
                                                         class='btn btn-outline-warning btn-sm'>
-            Editar
-            </a> ";
+                                                        Editar
+                                                        </a> ";
                                                 }
                                                 $btn_apagar = carregar_btn('processa/apagar_niv_aces', $conn);
                                                 if ($btn_apagar) {
