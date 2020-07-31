@@ -93,7 +93,7 @@ include_once 'app/adms/include/head.php';
                                                     }
                                                 } else {
                                                     if ($btn_or_nivac) {
-                                                        echo "<a href='" . pg . "/processa/proc_ordem_niv_aces?id=" . $row_niv_aces['ordem'] . "' 
+                                                        echo "<a href='" . pg . "/processa/proc_ordem_niv_aces?id=" . $row_niv_aces['id'] . "' 
                                                         class='btn btn-outline-secondary btn-sm'>
                                                         <i class='fas fa-angle-double-up'></i>
                                                         </a> ";
