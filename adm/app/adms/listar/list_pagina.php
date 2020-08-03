@@ -4,7 +4,6 @@ if (!isset($seguranca)) {
 }
 include_once 'app/adms/include/head.php';
 ?>
-
 <body>
     <?php
     include_once 'app/adms/include/header.php';
@@ -13,19 +12,19 @@ include_once 'app/adms/include/head.php';
         <?php
         include_once 'app/adms/include/menu.php';
         ?>
+
         <div class="content p-1">
             <div class="list-group-item">
                 <div class="d-flex">
                     <div class="mr-auto p-2">
-                        <h2 class="display-4 titulo">Listar Nível de Acesso</h2>
+                        <h2 class="display-4 titulo">Listar Página</h2>
                     </div>
                     <div class="p-2">
                         <?php
-                        $btn_cad = carregar_btn('cadastrar/cad_niv_aces', $conn);
+                        $btn_cad = carregar_btn('cadastrar/cad_pagina', $conn);
                         if ($btn_cad) {
-                            echo "<a href='" . pg . "/cadastrar/cad_niv_aces' class='btn btn-outline-success btn-sm'>
-                            Cadastrar
-                            </a>";
+                            echo "<a href='" . pg . "/cadastrar/cad_pagina'
+                            class='btn btn-outline-success btn-sm'>Cadastrar</a>";
                         }
                         ?>
                     </div>
@@ -41,26 +40,28 @@ include_once 'app/adms/include/head.php';
                 $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
 
                 //Setar a quantidade de itens por pagina
-                $qnt_result_pg = 30;
+                $qnt_result_pg = 40;
 
                 //Calcular o inicio visualização
                 $inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
                 if ($_SESSION['adms_niveis_acesso_id'] == 1) {
-                    $result_niv_aces = "SELECT * FROM adms_niveis_acessos             
-                ORDER BY ordem ASC LIMIT $inicio, $qnt_result_pg";
+                    $result_pg = "SELECT pg.id,
+                pg.nome_pagina,
+                pg.endereco,
+                pg.tp_pagina
+                FROM adms_paginas pg            
+                ORDER BY pg.id ASC LIMIT $inicio, $qnt_result_pg";
                 } else {
-                    $result_niv_aces = "SELECT * FROM adms_niveis_acessos 
-                WHERE ordem > '" . $_SESSION['ordem'] . "'
-                ORDER BY ordem ASC LIMIT $inicio, $qnt_result_pg";
+//                    $result_niv_aces = "SELECT * FROM adms_niveis_acessos 
+//                WHERE ordem > '" . $_SESSION['ordem'] . "'
+//                ORDER BY ordem ASC LIMIT $inicio, $qnt_result_pg";
                 }
 
-                $resultado_niv_aces = mysqli_query($conn, $result_niv_aces);
-                if (($resultado_niv_aces)
-                        and ( $resultado_niv_aces->num_rows != 0)) {
+                $resultado_pg = mysqli_query($conn, $result_pg);
+                if (($resultado_pg) and ( $resultado_pg->num_rows != 0)) {
                     ?>
                     <div class="table-responsive">
-                        <table class="table table-striped 
-                               table-hover table-bordered">
+                        <table class="table table-striped table-hover table-bordered">
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -71,54 +72,33 @@ include_once 'app/adms/include/head.php';
                             </thead>
                             <tbody>
                                 <?php
-                                $qnt_linhas_exe = 1;
-                                
-                                while ($row_niv_aces = mysqli_fetch_assoc($resultado_niv_aces)) {
+                                while ($row_pg = mysqli_fetch_assoc($resultado_pg)) {
                                     ?>
                                     <tr>
-                                        <th><?php echo $row_niv_aces['id']; ?></th>
-                                        <td><?php echo $row_niv_aces['nome']; ?></td>
-                                        <td class="d-none d-sm-table-cell"><?php echo $row_niv_aces['ordem']; ?></td>
+                                        <th><?php echo $row_pg['id']; ?></th>
+                                        <td><?php echo $row_pg['nome_pagina']; ?></td>
+                                        <td class="d-none d-sm-table-cell"><?php echo $row_pg['endereco']; ?></td>
+                                        <td class="d-none d-sm-table-cell"><?php echo $row_pg['tp_pagina']; ?></td>
                                         <td class="text-center">
                                             <span class="d-none d-md-block">
                                                 <?php
-                                           
-                                                $btn_or_nivac = carregar_btn('processa/proc_ordem_niv_aces', $conn);
-
-                                                if ($qnt_linhas_exe == 1) {
-                                                    if ($btn_or_nivac) {
-                                                        echo "<button class='btn btn-outline-secondary btn-sm disabled'>
-                                                        <i class='fas fa-angle-double-up'></i>
-                                                        </button> ";
-                                                    }
-                                                } else {
-                                                    if ($btn_or_nivac) {
-                                                        echo "<a href='" . pg . "/processa/proc_ordem_niv_aces?id=" . $row_niv_aces['id'] . "' 
-                                                        class='btn btn-outline-secondary btn-sm'>
-                                                        <i class='fas fa-angle-double-up'></i>
-                                                        </a> ";
-                                                    }
-                                                }
-                                                $qnt_linhas_exe++;
-
-
-                                                $btn_vis = carregar_btn('visualizar/vis_niv_aces', $conn);
+                                                $btn_vis = carregar_btn('visualizar/vis_pagina', $conn);
                                                 if ($btn_vis) {
-                                                    echo "<a href='" . pg . "/visualizar/vis_niv_aces?id=" . $row_niv_aces['id'] . "' 
+                                                    echo "<a href='" . pg . "/visualizar/vis_pagina?id=" . $row_pg['id'] . "' 
                                                         class='btn btn-outline-primary btn-sm'>
                                                         Visualizar
                                                         </a> ";
                                                 }
-                                                $btn_edit = carregar_btn('editar/edit_niv_aces', $conn);
+                                                $btn_edit = carregar_btn('editar/edit_pagina', $conn);
                                                 if ($btn_edit) {
-                                                    echo "<a href='" . pg . "/editar/edit_niv_aces?id=" . $row_niv_aces['id'] . "' 
+                                                    echo "<a href='" . pg . "/editar/edit_pagina?id=" . $row_pg['id'] . "' 
                                                         class='btn btn-outline-warning btn-sm'>
                                                         Editar
                                                         </a> ";
                                                 }
-                                                $btn_apagar = carregar_btn('processa/apagar_niv_aces', $conn);
+                                                $btn_apagar = carregar_btn('processa/apagar_pagina', $conn);
                                                 if ($btn_apagar) {
-                                                    echo "<a href='" . pg . "/processa/apagar_niv_aces?id=" . $row_niv_aces['id'] . "''
+                                                    echo "<a href='" . pg . "/processa/apagar_pagina?id=" . $row_pg['id'] . "''
                                                         class='btn btn-outline-danger btn-sm'
                                                         data-confirm='Tem certeza de que deseja excluir o item selecionado?'>
                                                         Apagar</a>";
@@ -131,21 +111,21 @@ include_once 'app/adms/include/head.php';
                                                 </button>
                                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
                                                     <?php
-                                                    $btn_vis = carregar_btn('visualizar/vis_niv_aces', $conn);
+                                                    $btn_vis = carregar_btn('visualizar/vis_pagina', $conn);
                                                     if ($btn_vis) {
-                                                        echo "<a class='dropdown-item' href='" . pg . "/visualizar/vis_niv_aces?id=" . $row_niv_aces['id'] . "'>
+                                                        echo "<a class='dropdown-item' href='" . pg . "/visualizar/vis_pagina?id=" . $row_pg['id'] . "'>
                                                         Visualizar
                                                         </a>";
                                                     }
-                                                    $btn_edit = carregar_btn('editar/edit_niv_aces', $conn);
+                                                    $btn_edit = carregar_btn('editar/edit_pagina', $conn);
                                                     if ($btn_edit) {
-                                                        echo "<a class='dropdown-item' href='" . pg . "/editar/edit_niv_aces?id=" . $row_niv_aces['id'] . "'>
+                                                        echo "<a class='dropdown-item' href='" . pg . "/editar/edit_pagina?id=" . $row_pg['id'] . "'>
                                                         Editar
                                                         </a>";
                                                     }
-                                                    $btn_apagar = carregar_btn('processa/apagar_niv_aces', $conn);
+                                                    $btn_apagar = carregar_btn('processa/apagar_pagina', $conn);
                                                     if ($btn_apagar) {
-                                                        echo "<a class='dropdown-item' href='" . pg . "/processa/apagar_niv_aces?id=" . $row_niv_aces['id'] . "'
+                                                        echo "<a class='dropdown-item' href='" . pg . "/processa/apagar_pagina?id=" . $row_pg['id'] . "'
                                                             data-confirm='Tem certeza de que deseja excluir o item selecionado?'>
                                                         Apagar
                                                         </a>";
@@ -163,7 +143,8 @@ include_once 'app/adms/include/head.php';
                             </tbody>
                         </table>
                         <?php
-                        $result_pg = "SELECT COUNT(id) AS num_result FROM adms_niveis_acessos WHERE ordem >= '" . $_SESSION['ordem'] . "'";
+                        $result_pg = "SELECT COUNT(id) AS num_result
+                        FROM adms_paginas";
                         $resultado_pg = mysqli_query($conn, $result_pg);
                         $row_pg = mysqli_fetch_assoc($resultado_pg);
                         //echo $row_pg['num_result'];
@@ -174,13 +155,13 @@ include_once 'app/adms/include/head.php';
                         echo "<nav aria-label='paginacao-blog'>";
                         echo "<ul class='pagination pagination-sm justify-content-center'>";
                         echo "<li class='page-item'>";
-                        echo "<a class='page-link' href='" . pg . "/listar/list_niv_aces?pagina=1' tabindex='-1'>Primeira</a>";
+                        echo "<a class='page-link' href='" . pg . "/listar/list_pagina?pagina=1' tabindex='-1'>Primeira</a>";
                         echo "</li>";
 
                         for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
                             if ($pag_ant >= 1) {
                                 echo "<li class='page-item'><a class='page-link' 
-                                href='" . pg . "/listar/list_niv_aces?pagina=$pag_ant'>$pag_ant</a></li>";
+                                href='" . pg . "/listar/list_pagina?pagina=$pag_ant'>$pag_ant</a></li>";
                             }
                         }
 
@@ -191,17 +172,16 @@ include_once 'app/adms/include/head.php';
                         for ($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++) {
                             if ($pag_dep <= $quantidade_pg) {
                                 echo "<li class='page-item'><a class='page-link' 
-                                href='" . pg . "/listar/list_niv_aces?pagina=$pag_dep'>$pag_dep</a></li>";
+                                href='" . pg . "/listar/list_pagina?pagina=$pag_dep'>$pag_dep</a></li>";
                             }
                         }
 
                         echo "<li class='page-item'>";
-                        echo "<a class='page-link' href='" . pg . "/listar/list_niv_aces?pagina=$quantidade_pg'>Última</a>";
+                        echo "<a class='page-link' href='" . pg . "/listar/list_pagina?pagina=$quantidade_pg'>Última</a>";
                         echo "</li>";
                         echo "</ul>";
                         echo "</nav>";
                         ?>
-
                     </div>
                     <?php
                 } else {
