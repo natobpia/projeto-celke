@@ -17,9 +17,11 @@ if (!empty($id)) {
         //Verificar se a ordem é maior em relação a ordem do usuário logado
         if ($row_niv_atual['ordem'] > $_SESSION['ordem'] + 1) {
             $ordem = $row_niv_atual['ordem'];
+            
+            //Pesquisar o ID do nível de acesso a ser movido para baixo
             $ordem_super = $ordem - 1;
-            $result_niv_super = "SELECT id FROM adms_niveis_acessos
-             WHERE id='$ordem_super' LIMIT 1";
+            $result_niv_super = "SELECT id, ordem FROM adms_niveis_acessos
+             WHERE ordem='$ordem_super' LIMIT 1";
 
             $resultado_niv_super = mysqli_query($conn, $result_niv_super);
             $row_niv_super = mysqli_fetch_assoc($resultado_niv_super);
