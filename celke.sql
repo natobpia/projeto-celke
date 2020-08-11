@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Jul-2020 às 18:49
+-- Tempo de geração: 11-Ago-2020 às 23:00
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.4.8
 
@@ -48,6 +48,33 @@ INSERT INTO `adms_cors` (`id`, `nome`, `cor`, `created`, `modified`) VALUES
 (6, 'Azul claro', 'info', '2018-03-23 00:00:00', NULL),
 (7, 'Claro', 'light', '2018-03-23 00:00:00', NULL),
 (8, 'Cinza escuro', 'dark', '2018-03-23 00:00:00', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `adms_grps_pgs`
+--
+
+CREATE TABLE `adms_grps_pgs` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `ordem` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `adms_grps_pgs`
+--
+
+INSERT INTO `adms_grps_pgs` (`id`, `nome`, `ordem`, `created`, `modified`) VALUES
+(1, 'Listar', 1, '2020-08-11 17:52:32', NULL),
+(2, 'Cadastrar', 2, '2020-08-11 17:52:32', NULL),
+(3, 'Editar', 3, '2020-08-11 17:52:54', NULL),
+(4, 'Apagar', 4, '2020-08-11 17:52:54', NULL),
+(5, 'Visualizar', 5, '2020-08-11 17:54:19', NULL),
+(6, 'Outros', 6, '2020-08-11 17:54:32', NULL),
+(7, 'Acesso', 7, '2020-08-11 17:58:17', NULL);
 
 -- --------------------------------------------------------
 
@@ -121,7 +148,9 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (20, 1, 9, 2, 2, 2, 3, 11, '2018-03-23 00:00:00', NULL),
 (21, 1, 10, 2, 2, 2, 3, 12, '2018-03-23 00:00:00', NULL),
 (22, 1, 11, 2, 2, 2, 3, 13, '2018-03-23 00:00:00', NULL),
-(23, 1, 12, 2, 2, 2, 1, 14, '2020-07-25 10:09:33', NULL);
+(23, 1, 12, 2, 2, 2, 1, 14, '2020-07-25 10:09:33', NULL),
+(24, 1, 13, 1, 2, 2, 1, 15, '2020-07-30 10:56:53', NULL),
+(25, 1, 14, 1, 2, 3, 1, 16, '2020-08-11 17:20:41', NULL);
 
 -- --------------------------------------------------------
 
@@ -143,9 +172,9 @@ CREATE TABLE `adms_niveis_acessos` (
 
 INSERT INTO `adms_niveis_acessos` (`id`, `nome`, `ordem`, `created`, `modified`) VALUES
 (1, 'Super Administrador', 1, '2018-03-23 00:00:00', NULL),
-(2, 'Administrador', 2, '2018-03-23 00:00:00', NULL),
-(3, 'Colaborador', 3, '2020-07-25 11:20:06', NULL),
-(6, 'Financeiro', 4, '2020-07-26 13:35:00', NULL);
+(2, 'Administrador', 2, '2018-03-23 00:00:00', '2020-08-03 19:45:23'),
+(3, 'Colaborador', 4, '2020-07-25 11:20:06', '2020-08-03 19:45:26'),
+(6, 'Financeiro', 3, '2020-07-26 13:35:00', '2020-08-03 19:45:26');
 
 -- --------------------------------------------------------
 
@@ -161,10 +190,11 @@ CREATE TABLE `adms_paginas` (
   `keywords` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
   `author` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `tp_pagina` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `lib_pub` int(11) NOT NULL DEFAULT 2,
   `icone` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
   `depend_pg` int(11) NOT NULL DEFAULT 0,
+  `adms_grps_pg_id` int(11) NOT NULL,
+  `adms_tps_pg_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `adms_robot_id` int(11) NOT NULL DEFAULT 4,
   `adms_sits_pg_id` int(11) NOT NULL DEFAULT 1,
   `created` datetime NOT NULL,
@@ -175,21 +205,23 @@ CREATE TABLE `adms_paginas` (
 -- Extraindo dados da tabela `adms_paginas`
 --
 
-INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, `description`, `author`, `tp_pagina`, `lib_pub`, `icone`, `depend_pg`, `adms_robot_id`, `adms_sits_pg_id`, `created`, `modified`) VALUES
-(1, 'Home', 'visualizar/home', 'Pagina home', 'home', 'pagina home', 'Celke', 'adms', 2, 'fas fa-tachometer-alt', 0, 4, 1, '2018-03-23 00:00:00', NULL),
-(4, 'Sair', 'acesso/sair', 'Sair do ADM', 'Sair do ADM', 'Sair do ADM', 'Celke', 'adms', 1, 'fas fa-sign-out-alt', 0, 4, 1, '2018-03-23 00:00:00', NULL),
-(2, 'Login', 'acesso/login', 'Pagina de login do ADM', 'celke pagina login', 'celke pagina login', 'Celke', 'adms', 1, NULL, 0, 1, 1, '2018-03-23 00:00:00', NULL),
-(3, 'Validar Login', 'acesso/valida', 'Validar Login', 'Validar Login', 'Validar Login', 'Celke', 'adms', 1, NULL, 2, 4, 1, '2018-03-23 00:00:00', NULL),
-(5, 'Usuarios', 'listar/list_usuario', 'Pagina para listar usuarios', 'Listar usuarios', 'Listar usuarios', 'Celke', 'adms', 2, 'fas fa-users', 0, 4, 1, '2018-03-23 00:00:00', NULL),
-(6, 'Nivel de Acesso', 'listar/list_niv_aces', 'Pagina para listar nivel de acesso', 'Listar nivel de acesso', 'Listar nivel de acesso', 'Celke', 'adms', 2, 'fas fa-key', 0, 4, 1, '2018-03-23 00:00:00', NULL),
-(7, 'Paginas', 'listar/list_pagina', 'Pagina para listar as paginas do ADM', 'Listar pagina', 'Listar pagina', 'Celke', 'adms', 2, 'fas fa-file-alt', 0, 4, 1, '2018-03-23 00:00:00', NULL),
-(8, 'Menu', 'listar/list_menu', 'Pagina para listar os itens do menu', 'Pagina para listar os itens do menu', 'Pagina para listar os itens do menu', 'Celke', 'adms', 2, 'fab fa-elementor', 0, 4, 1, '2018-03-23 00:00:00', NULL),
-(9, 'Cadastrar Nível de Acesso', 'cadastrar/cad_niv_aces', 'Página para cadastrar Nível de acesso', 'Página para cadastrar Nível de acesso', 'Página para cadastrar Nível de acesso', 'Natobpia', 'adms', 2, NULL, 0, 4, 1, '2020-07-20 10:33:47', NULL),
-(10, 'Visualizar nível de acesso', 'visualizar/vis_niv_aces', 'Página para visualizar nível de acesso', 'Página para visualizar nível de acesso', 'Página para visualizar nível de acesso', 'Natobpia', 'adms', 2, NULL, 0, 4, 1, '2020-07-20 10:44:08', NULL),
-(11, 'Editar nível de acesso', 'editar/edit_niv_aces', 'Página para editar nível de acesso', 'Página para editar nível de acesso', 'Página para editar nível de acesso', 'Natobpia', 'adms', 2, NULL, 0, 4, 1, '2020-07-20 10:44:08', NULL),
-(12, 'Apagar nível de acesso', 'processa/apagar_niv_aces', 'Página para apagar nível de acesso', 'Página para apagar nível de acesso', 'Página para apagar nível de acesso', 'Natobpia', 'adms', 2, NULL, 0, 4, 1, '2020-07-20 10:45:48', NULL),
-(13, 'Processa o form cadastrar nível de acesso', 'processa/proc_cad_niv_aces', 'Processa o form cadastrar nível de acesso', 'Processa o form cadastrar nível de acesso', 'Processa o form cadastrar nível de acesso', 'Natobpia', 'adms', 2, NULL, 9, 4, 1, '2020-07-22 11:30:30', NULL),
-(14, 'Processa o formulário editar nível de acesso', 'processa/proc_edit_niv_aces', 'Processa o formulário editar nível de acesso', 'Processa o formulário editar nível de acesso', 'Processa o formulário editar nível de acesso', 'Natobpia', 'adms', 2, NULL, 11, 4, 1, '2020-07-25 10:08:27', NULL);
+INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, `description`, `author`, `lib_pub`, `icone`, `depend_pg`, `adms_grps_pg_id`, `adms_tps_pg_id`, `adms_robot_id`, `adms_sits_pg_id`, `created`, `modified`) VALUES
+(1, 'Home', 'visualizar/home', 'Pagina home', 'home', 'pagina home', 'Celke', 2, 'fas fa-tachometer-alt', 0, 5, '1', 4, 1, '2018-03-23 00:00:00', NULL),
+(4, 'Sair', 'acesso/sair', 'Sair do ADM', 'Sair do ADM', 'Sair do ADM', 'Celke', 1, 'fas fa-sign-out-alt', 0, 7, '1', 4, 1, '2018-03-23 00:00:00', NULL),
+(2, 'Login', 'acesso/login', 'Pagina de login do ADM', 'celke pagina login', 'celke pagina login', 'Celke', 1, NULL, 0, 7, '1', 1, 1, '2018-03-23 00:00:00', NULL),
+(3, 'Validar Login', 'acesso/valida', 'Validar Login', 'Validar Login', 'Validar Login', 'Celke', 1, NULL, 2, 7, '1', 4, 1, '2018-03-23 00:00:00', NULL),
+(5, 'Usuarios', 'listar/list_usuario', 'Pagina para listar usuarios', 'Listar usuarios', 'Listar usuarios', 'Celke', 2, 'fas fa-users', 0, 1, '1', 4, 1, '2018-03-23 00:00:00', NULL),
+(6, 'Nivel de Acesso', 'listar/list_niv_aces', 'Pagina para listar nivel de acesso', 'Listar nivel de acesso', 'Listar nivel de acesso', 'Celke', 2, 'fas fa-key', 0, 1, '1', 4, 1, '2018-03-23 00:00:00', NULL),
+(7, 'Paginas', 'listar/list_pagina', 'Pagina para listar as paginas do ADM', 'Listar pagina', 'Listar pagina', 'Celke', 2, 'fas fa-file-alt', 0, 1, '1', 4, 1, '2018-03-23 00:00:00', NULL),
+(8, 'Menu', 'listar/list_menu', 'Pagina para listar os itens do menu', 'Pagina para listar os itens do menu', 'Pagina para listar os itens do menu', 'Celke', 2, 'fab fa-elementor', 0, 1, '1', 4, 1, '2018-03-23 00:00:00', NULL),
+(9, 'Cadastrar Nível de Acesso', 'cadastrar/cad_niv_aces', 'Página para cadastrar Nível de acesso', 'Página para cadastrar Nível de acesso', 'Página para cadastrar Nível de acesso', 'Natobpia', 2, NULL, 0, 2, '1', 4, 1, '2020-07-20 10:33:47', NULL),
+(10, 'Visualizar nível de acesso', 'visualizar/vis_niv_aces', 'Página para visualizar nível de acesso', 'Página para visualizar nível de acesso', 'Página para visualizar nível de acesso', 'Natobpia', 2, NULL, 0, 5, '1', 4, 1, '2020-07-20 10:44:08', NULL),
+(11, 'Editar nível de acesso', 'editar/edit_niv_aces', 'Página para editar nível de acesso', 'Página para editar nível de acesso', 'Página para editar nível de acesso', 'Natobpia', 2, NULL, 0, 3, '1', 4, 1, '2020-07-20 10:44:08', NULL),
+(12, 'Apagar nível de acesso', 'processa/apagar_niv_aces', 'Página para apagar nível de acesso', 'Página para apagar nível de acesso', 'Página para apagar nível de acesso', 'Natobpia', 2, NULL, 0, 6, '1', 4, 1, '2020-07-20 10:45:48', NULL),
+(13, 'Processa o form cadastrar nível de acesso', 'processa/proc_cad_niv_aces', 'Processa o form cadastrar nível de acesso', 'Processa o form cadastrar nível de acesso', 'Processa o form cadastrar nível de acesso', 'Natobpia', 2, NULL, 9, 6, '1', 4, 1, '2020-07-22 11:30:30', NULL),
+(14, 'Processa o formulário editar nível de acesso', 'processa/proc_edit_niv_aces', 'Processa o formulário editar nível de acesso', 'Processa o formulário editar nível de acesso', 'Processa o formulário editar nível de acesso', 'Natobpia', 2, NULL, 11, 6, '1', 4, 1, '2020-07-25 10:08:27', NULL),
+(15, 'Alterar ordem do nível de acesso', 'processa/proc_ordem_niv_aces', 'Alterar ordem do nível de acesso', 'Alterar ordem do nível de acesso', 'Alterar ordem do nível de acesso', 'Natobpia', 2, NULL, 0, 6, '1', 4, 1, '2020-07-30 10:55:48', NULL),
+(16, 'Cadastrar pagina', 'cadastrar/cad_pagina', 'Formulario para cadastrar pagina', 'Cadastrar pagina', 'Cadastrar pagina', 'Natobpia', 2, NULL, 0, 2, '1', 4, 1, '2020-08-11 17:19:42', NULL);
 
 -- --------------------------------------------------------
 
@@ -285,6 +317,29 @@ INSERT INTO `adms_sits_usuarios` (`id`, `nome`, `adms_cor_id`, `created`, `modif
 (2, 'Inativo', 5, '2018-03-23 00:00:00', NULL),
 (3, 'Aguardando confirmacao', 1, '2018-03-23 00:00:00', NULL),
 (4, 'Spam', 4, '2018-03-23 00:00:00', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `adms_tps_pgs`
+--
+
+CREATE TABLE `adms_tps_pgs` (
+  `id` int(11) NOT NULL,
+  `tipo` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `nome` varchar(120) COLLATE utf8_unicode_ci NOT NULL,
+  `obs` text COLLATE utf8_unicode_ci NOT NULL,
+  `ordem` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `adms_tps_pgs`
+--
+
+INSERT INTO `adms_tps_pgs` (`id`, `tipo`, `nome`, `obs`, `ordem`, `created`, `modified`) VALUES
+(1, 'adms', 'Administrativo', 'Core do Administrativo', 1, '2020-08-11 17:42:05', NULL);
 
 -- --------------------------------------------------------
 
@@ -771,6 +826,12 @@ ALTER TABLE `adms_cors`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices para tabela `adms_grps_pgs`
+--
+ALTER TABLE `adms_grps_pgs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices para tabela `adms_menus`
 --
 ALTER TABLE `adms_menus`
@@ -816,6 +877,12 @@ ALTER TABLE `adms_sits_pgs`
 -- Índices para tabela `adms_sits_usuarios`
 --
 ALTER TABLE `adms_sits_usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `adms_tps_pgs`
+--
+ALTER TABLE `adms_tps_pgs`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -937,6 +1004,12 @@ ALTER TABLE `adms_cors`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT de tabela `adms_grps_pgs`
+--
+ALTER TABLE `adms_grps_pgs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT de tabela `adms_menus`
 --
 ALTER TABLE `adms_menus`
@@ -946,7 +1019,7 @@ ALTER TABLE `adms_menus`
 -- AUTO_INCREMENT de tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de tabela `adms_niveis_acessos`
@@ -958,7 +1031,7 @@ ALTER TABLE `adms_niveis_acessos`
 -- AUTO_INCREMENT de tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de tabela `adms_robots`
@@ -983,6 +1056,12 @@ ALTER TABLE `adms_sits_pgs`
 --
 ALTER TABLE `adms_sits_usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de tabela `adms_tps_pgs`
+--
+ALTER TABLE `adms_tps_pgs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `adms_usuarios`
