@@ -29,113 +29,154 @@ include_once 'app/adms/include/head.php';
                         }
                         ?>
                     </div>
-                </div><hr>
+                </div>
+                <hr>
                 <?php
                 if (isset($_SESSION['msg'])) {
                     echo $_SESSION['msg'];
                     unset($_SESSION['msg']);
                 }
                 ?>
-                <form method="POST" action="<?php echo pg; ?>/processa/proc_pagina">
+                <form method="POST" action="<?php echo pg; ?>/processa/proc_cad_pagina">
                     <div class="form-row">
                         <div class="form-group col-md-5">
                             <label><span class="text-danger">*</span> Nome</label>
-                            <input name="nome_pagina" type="text" class="form-control" 
-                                   id="nome" placeholder="Nome Completo">
+                            <input name="nome_pagina" type="text" class="form-control" id="nome" placeholder="Nome Completo">
                         </div>
                         <div class="form-group col-md-4">
                             <label><span class="text-danger">*</span> Endereço</label>
-                            <input name="endereco" type="text" class="form-control" 
-                                   id="email" placeholder="Endereço da página, ex: listar/list_pagina">
+                            <input name="endereco" type="text" class="form-control" id="email" placeholder="Endereço da página, ex: listar/list_pagina">
                         </div>
                         <div class="form-group col-md-3">
                             <label>Icone</label>
-                            <input name="icone" type="text" class="form-control" 
-                                   id="email" placeholder="Ícone da página">
+                            <input name="icone" type="text" class="form-control" id="email" placeholder="Ícone da página">
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Observação</label>
-                        <textarea name="obs"  class="form-control"></textarea>
+                        <textarea name="obs" class="form-control"></textarea>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-5">
                             <label><span class="text-danger">*</span> Palavra Chave</label>
-                            <input name="keywords" type="text" class="form-control" 
-                                   id="nome" placeholder="Palavra Chave">
+                            <input name="keywords" type="text" class="form-control" id="nome" placeholder="Palavra Chave">
                         </div>
                         <div class="form-group col-md-4">
                             <label><span class="text-danger">*</span> Descrição</label>
-                            <input name="description" type="text" class="form-control" 
-                                   id="email" placeholder="Descrição da página">
+                            <input name="description" type="text" class="form-control" id="email" placeholder="Descrição da página">
                         </div>
                         <div class="form-group col-md-3">
                             <label><span class="text-danger">*</span> Autor</label>
-                            <input name="author" type="text" class="form-control" 
-                                   id="email" placeholder="Desenvolvedor">
+                            <input name="author" type="text" class="form-control" id="email" placeholder="Desenvolvedor">
                         </div>
                     </div>
 
                     <div class="form-row">
-                        <div class="form-group col-md-5">
+                        <div class="form-group col-md-4">
+                            <?php
+                            $result_robots = "SELECT id, nome 
+                            FROM adms_robots";
+                            $resultado_robots = mysqli_query($conn, $result_robots);
+                            ?>
                             <label><span class="text-danger">*</span> Indexar</label>
-                            <select name="adms_robot_id" id="adms_robot_id"
-                                    class="form-control">
+                            <select name="adms_robot_id" id="adms_robot_id" class="form-control">
                                 <option selected>Selecione</option>
-                                <option>...</option>
+                                <?php
+                                while ($row_robots = mysqli_fetch_assoc($resultado_robots)) {
+                                    echo "<option value='" . $row_robots['id'] . "'>" . $row_robots['nome'] . "</option>";
+                                }
+                                ?>
                             </select>
                         </div>
                         <div class="form-group col-md-4">
                             <label><span class="text-danger">*</span> Página pública</label>
-                            <select name="lib_pub" id="lib_pub"
-                                    class="form-control">
+                            <select name="lib_pub" id="lib_pub" class="form-control">
                                 <option selected>Selecione</option>
-                                <option>...</option>
+                                <option value="1">Sim</option>
+                                <option value="2">Não</option>
                             </select>
                         </div>
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-4">
+                            <?php
+                            $result_paginas = "SELECT id, nome_pagina 
+                            FROM adms_paginas
+                            ORDER BY nome_pagina ASC";
+                            $resultado_paginas = mysqli_query($conn, $result_paginas);
+
+                            ?>
                             <label><span class="text-danger">*</span> Página Dependente</label>
-                            <select name="depend_pg" id="depend_pg"
-                                    class="form-control">
-                                <option selected>Selecione</option>
-                                <option>...</option>
+                            <select name="depend_pg" id="depend_pg" class="form-control">
+                                <option>Selecione</option>
+                                <?php
+                                while ($row_paginas = mysqli_fetch_assoc($resultado_paginas)) {
+                                    echo "<option value='" . $row_paginas['id'] . "'>" . $row_paginas['nome_pagina'] . "</option>";
+                                }
+                                ?>
                             </select>
                         </div>
                     </div>
 
                     <div class="form-row">
-                        <div class="form-group col-md-5">
+                        <div class="form-group col-md-4">
+                            <?php
+                            $result_grps_pgs = "SELECT id, nome 
+                            FROM adms_grps_pgs
+                            ORDER BY nome ASC";
+                            $resultado_grps_pgs = mysqli_query($conn, $result_grps_pgs);
+                            ?>
                             <label><span class="text-danger">*</span> Grupo</label>
-                            <select name="adms_robot_id" id="adms_robot_id"
-                                    class="form-control">
-                                <option selected>Selecione</option>
-                                <option>...</option>
+                            <select name="adms_grps_pg_id" id="adms_grps_pg_id" class="form-control">
+                                <option>Selecione</option>
+                                <?php
+                                while ($row_grps_pgs = mysqli_fetch_assoc($resultado_grps_pgs)) {
+                                    echo "<option value='" . $row_grps_pgs['id'] . "'>" . $row_grps_pgs['nome'] . "</option>";
+                                }
+                                ?>
                             </select>
                         </div>
                         <div class="form-group col-md-4">
+                            <?php
+                            $result_tps_pgs = "SELECT id, tipo, nome 
+                            FROM adms_tps_pgs
+                            ORDER BY nome ASC";
+                            $resultado_tps_pgs = mysqli_query($conn, $result_tps_pgs);
+                            ?>
                             <label><span class="text-danger">*</span> Tipo</label>
-                            <select name="lib_pub" id="lib_pub"
-                                    class="form-control">
-                                <option selected>Selecione</option>
-                                <option>...</option>
+                            <select name="adms_tps_pg_id" id="adms_tps_pg_id" class="form-control">
+                                <option>Selecione</option>
+                                <?php
+                                while ($row_tps_pgs = mysqli_fetch_assoc($resultado_tps_pgs)) {
+                                    echo "<option value='" . $row_tps_pgs['id'] . "'>" . $row_tps_pgs['tipo'] . " - " .
+                                        $row_tps_pgs['nome'] . "</option>";
+                                }
+                                ?>
                             </select>
                         </div>
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-4">
+                            <?php
+                            $result_sits_pgs = "SELECT id, nome 
+                            FROM adms_sits_pgs
+                            ORDER BY nome ASC";
+                            $resultado_sits_pgs = mysqli_query($conn, $result_sits_pgs);
+                            ?>
                             <label><span class="text-danger">*</span> Situação</label>
-                            <select name="adms_sits_pg_id" id="depend_pg"
-                                    class="form-control">
-                                <option selected>Selecione</option>
-                                <option>...</option>
+                            <select name="adms_sits_pg_id" id="depend_pg" class="form-control">
+                                <option>Selecione</option>
+                                <?php
+                                while ($row_sits_pgs = mysqli_fetch_assoc($resultado_sits_pgs)) {
+                                    echo "<option value='" . $row_sits_pgs['id'] . "'>" . $row_sits_pgs['nome'] . "</option>";
+                                }
+                                ?>
                             </select>
                         </div>
                     </div>
                     <p>
                         <span class="text-danger">* </span>Campo obrigatório
                     </p>
-                    <input name="SendCadNivAc" type="submit" class="btn btn-success" value="Cadastrar">
+                    <input name="SendCadPg" type="submit" class="btn btn-success" value="Cadastrar">
                 </form>
-            </div>  
+            </div>
         </div>
         <?php
         include_once 'app/adms/include/rodape_lib.php';
