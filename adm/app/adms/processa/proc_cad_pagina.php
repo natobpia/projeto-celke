@@ -60,11 +60,15 @@ if ($SendCadPg) {
 
         mysqli_query($conn, $result_cad_pg);
         if (mysqli_insert_id($conn)) {
+            unset($_SESSION['dados']);
             $_SESSION['msg'] = "<div class='alert alert-success'>
             Página  cadastrada</div>";
             $url_destino = pg . '/listar/list_pagina';
             header("Location: $url_destino");
         } else {
+            $dados['obs'] = trim($dados_obs);
+            $dados['icone'] = $dados_icone;
+            $_SESSION['dados'] = $dados;
             $_SESSION['msg'] = "<div class='alert alert-danger'>
             Página não cadastrada</div>";
             $url_destino = pg . '/cadastrar/cad_pagina';

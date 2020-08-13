@@ -93,7 +93,13 @@ include_once 'app/adms/include/head.php';
                                 <option value="">Selecione</option>
                                 <?php
                                 while ($row_robots = mysqli_fetch_assoc($resultado_robots)) {
-                                    echo "<option value='" . $row_robots['id'] . "'>" . $row_robots['nome'] . "</option>";
+                                    if(isset($_SESSION['dados']['adms_robot_id']) 
+                                    AND $_SESSION['dados']['adms_robot_id'] == $row_robots['id']) {
+                                        echo "<option value='" . $row_robots['id'] . "' selected>" . $row_robots['nome'] . "</option>";
+                                    } else {
+                                        echo "<option value='" . $row_robots['id'] . "'>" . $row_robots['nome'] . "</option>";
+                                    }
+                                    
                                 }
                                 ?>
                             </select>
@@ -101,9 +107,22 @@ include_once 'app/adms/include/head.php';
                         <div class="form-group col-md-4">
                             <label><span class="text-danger">*</span> Página pública</label>
                             <select name="lib_pub" id="lib_pub" class="form-control">
-                                <option selected>Selecione</option>
-                                <option value="1">Sim</option>
-                                <option value="2">Não</option>
+                                <?php
+                                    if(isset($_SESSION['dados']['lib_pub']) AND ($_SESSION['dados']['lib_pub'] == 1)) {
+                                        echo "<option value=''>Selecione</option>";
+                                        echo "<option value='1' selected>Sim</option>";
+                                        echo "<option value='2'>Não</option>";
+                                    } elseif (isset($_SESSION['dados']['lib_pub']) AND ($_SESSION['dados']['lib_pub'] == 2)) {
+                                        echo "<option value=''>Selecione</option>";
+                                        echo "<option value='1'>Sim</option>";
+                                        echo "<option value='2' selected>Não</option>";
+                                    } else {
+                                        echo "<option value='' selected>Selecione</option>";
+                                        echo "<option value='1'>Sim</option>";
+                                        echo "<option value='2'>Não</option>";
+                                    }
+                                 ?>
+
                             </select>
                         </div>
                         <div class="form-group col-md-4">
@@ -116,10 +135,21 @@ include_once 'app/adms/include/head.php';
                             ?>
                             <label><span class="text-danger">*</span> Página Dependente</label>
                             <select name="depend_pg" id="depend_pg" class="form-control">
-                                <option>Selecione</option>
+                                <option value="">Selecione</option>
                                 <?php
+                                if((isset($_SESSION['dados']['depend_pg'])) AND ($_SESSION['dados']['depend_pg'] == $row_paginas['id'])) {
+                                    echo "<option value='0' selected>Não depende de outra página</option>";
+                                } else {
+                                    echo "<option value='0' selected>Não depende de outra página</option>";
+                                }
                                 while ($row_paginas = mysqli_fetch_assoc($resultado_paginas)) {
-                                    echo "<option value='" . $row_paginas['id'] . "'>" . $row_paginas['nome_pagina'] . "</option>";
+                                    if(isset($_SESSION['dados']['depend_pg']) 
+                                    AND $_SESSION['dados']['depend_pg'] == $row_paginas['id']) {
+                                        echo "<option value='" . $row_paginas['id'] . "' selected>" . $row_paginas['nome_pagina'] . "</option>";
+                                    } else {
+                                        echo "<option value='" . $row_paginas['id'] . "'>" . $row_paginas['nome_pagina'] . "</option>";
+                                    }
+                                    
                                 }
                                 ?>
                             </select>
@@ -136,10 +166,16 @@ include_once 'app/adms/include/head.php';
                             ?>
                             <label><span class="text-danger">*</span> Grupo</label>
                             <select name="adms_grps_pg_id" id="adms_grps_pg_id" class="form-control">
-                                <option>Selecione</option>
+                                <option value="">Selecione</option>
                                 <?php
                                 while ($row_grps_pgs = mysqli_fetch_assoc($resultado_grps_pgs)) {
-                                    echo "<option value='" . $row_grps_pgs['id'] . "'>" . $row_grps_pgs['nome'] . "</option>";
+                                    if(isset($_SESSION['dados']['adms_grps_pg_id']) 
+                                    AND $_SESSION['dados']['adms_grps_pg_id'] == $row_grps_pgs['id']) {
+                                        echo "<option value='" . $row_grps_pgs['id'] . "' selected>" . $row_grps_pgs['nome'] . "</option>";
+                                    } else {
+                                        echo "<option value='" . $row_grps_pgs['id'] . "'>" . $row_grps_pgs['nome'] . "</option>";
+                                    }
+                                    
                                 }
                                 ?>
                             </select>
@@ -153,11 +189,18 @@ include_once 'app/adms/include/head.php';
                             ?>
                             <label><span class="text-danger">*</span> Tipo</label>
                             <select name="adms_tps_pg_id" id="adms_tps_pg_id" class="form-control">
-                                <option>Selecione</option>
+                                <option value="">Selecione</option>
                                 <?php
                                 while ($row_tps_pgs = mysqli_fetch_assoc($resultado_tps_pgs)) {
-                                    echo "<option value='" . $row_tps_pgs['id'] . "'>" . $row_tps_pgs['tipo'] . " - " .
+                                    if(isset($_SESSION['dados']['adms_tps_pg_id']) 
+                                    AND $_SESSION['dados']['adms_tps_pg_id'] == $row_tps_pgs['id']) {
+                                        echo "<option value='" . $row_tps_pgs['id'] . "' selected>" . $row_tps_pgs['tipo'] . " - " .
                                         $row_tps_pgs['nome'] . "</option>";
+                                    } else {
+                                        echo "<option value='" . $row_tps_pgs['id'] . "'>" . $row_tps_pgs['tipo'] . " - " .
+                                        $row_tps_pgs['nome'] . "</option>";
+                                    }
+                                    
                                 }
                                 ?>
                             </select>
@@ -171,10 +214,16 @@ include_once 'app/adms/include/head.php';
                             ?>
                             <label><span class="text-danger">*</span> Situação</label>
                             <select name="adms_sits_pg_id" id="depend_pg" class="form-control">
-                                <option>Selecione</option>
+                                <option value="">Selecione</option>
                                 <?php
                                 while ($row_sits_pgs = mysqli_fetch_assoc($resultado_sits_pgs)) {
-                                    echo "<option value='" . $row_sits_pgs['id'] . "'>" . $row_sits_pgs['nome'] . "</option>";
+
+                                    if(isset($_SESSION['dados']['adms_sits_pg_id']) AND ($_SESSION['dados']['adms_sits_pg_id'] == $row_sits_pgs['id'])) {
+                                        echo "<option value='" . $row_sits_pgs['id'] . "' selected>" . $row_sits_pgs['nome'] . "</option>";
+                                    } else {
+                                        echo "<option value='" . $row_sits_pgs['id'] . "'>" . $row_sits_pgs['nome'] . "</option>";
+                                    }
+                                    
                                 }
                                 ?>
                             </select>
@@ -188,6 +237,7 @@ include_once 'app/adms/include/head.php';
             </div>
         </div>
         <?php
+        unset($_SESSION['dados']);
         include_once 'app/adms/include/rodape_lib.php';
         ?>
 
