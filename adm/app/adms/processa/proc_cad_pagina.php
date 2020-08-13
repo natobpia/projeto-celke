@@ -28,11 +28,22 @@ if ($SendCadPg) {
         $erro = true;
         $_SESSION['msg'] = "<div class='alert alert-danger'>
         Necessário preencher todos os campos para cadastrar a página!</div>";
+    } else {
+        //Proibir cadastro de página duplicado
+        $result_paginas = "SELECT id FROM adms_paginas WHERE endereco ='" . $dados_validos['endereco'] . "' 
+        AND adms_tps_pg_id='" . $dados_validos['adms_tps_pg_id'] . "'";
+
+        $resultado_paginas = mysqli_query($conn, $result_paginas);
+        if ($resultado_paginas and $resultado_paginas->num_rows != 0) {
+            $erro = true;
+            $_SESSION['msg'] = "<div class='alert alert-danger'>
+            Este endereço já está cadastrado.</div>";
+        }
     }
 
     if ($erro) {
         $url_destino = pg . '/cadastrar/cad_pagina';
-        header("Location: $url_destino");
+        //header("Location: $url_destino");
     } else {
         $result_cad_pg = "INSERT INTO adms_paginas (nome_pagina, endereco, obs, keywords, description,
         author, lib_pub, icone, depend_pg, adms_grps_pg_id, adms_tps_pg_id, adms_robot_id,
