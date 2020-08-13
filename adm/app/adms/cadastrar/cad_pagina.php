@@ -41,34 +41,43 @@ include_once 'app/adms/include/head.php';
                     <div class="form-row">
                         <div class="form-group col-md-5">
                             <label><span class="text-danger">*</span> Nome</label>
-                            <input name="nome_pagina" type="text" class="form-control" id="nome" placeholder="Nome Completo">
+                            <input name="nome_pagina" type="text" class="form-control" id="nome" placeholder="Nome Completo" 
+                            value="<?php if (isset($_SESSION['dados']['nome_pagina'])) {echo $_SESSION['dados']['nome_pagina'];} ?>">
                         </div>
                         <div class="form-group col-md-4">
                             <label><span class="text-danger">*</span> Endereço</label>
-                            <input name="endereco" type="text" class="form-control" id="email" placeholder="Endereço da página, ex: listar/list_pagina">
+                            <input name="endereco" type="text" class="form-control" id="email" placeholder="Endereço da página, ex: listar/list_pagina"
+                            value="<?php if (isset($_SESSION['dados']['endereco'])) {echo $_SESSION['dados']['endereco'];} ?>">
                         </div>
                         <div class="form-group col-md-3">
                             <label>Icone</label>
-                            <input name="icone" type="text" class="form-control" id="email" placeholder="Ícone da página">
+                            <input name="icone" type="text" class="form-control" id="email" placeholder="Ícone da página" 
+                            value="<?php if (isset($_SESSION['dados']['icone'])) {echo $_SESSION['dados']['icone'];} ?>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Observação</label>
-                        <textarea name="obs" class="form-control"></textarea>
+                        <textarea name="obs" class="form-control"><?php if (isset($_SESSION['dados']['obs'])) {echo $_SESSION['dados']['obs'];} ?></textarea>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-5">
                             <label><span class="text-danger">*</span> Palavra Chave</label>
-                            <input name="keywords" type="text" class="form-control" id="nome" placeholder="Palavra Chave">
+                            <input name="keywords" type="text" class="form-control" id="nome" 
+                            placeholder="Palavra Chave"
+                            value="<?php if (isset($_SESSION['dados']['keywords'])) {echo $_SESSION['dados']['keywords'];} ?>">
                         </div>
                         <div class="form-group col-md-4">
                             <label><span class="text-danger">*</span> Descrição</label>
-                            <input name="description" type="text" class="form-control" id="email" placeholder="Descrição da página">
+                            <input name="description" type="text" class="form-control" id="email" 
+                            placeholder="Descrição da página"
+                            value="<?php if (isset($_SESSION['dados']['description'])) {echo $_SESSION['dados']['description'];} ?>">
                         </div>
                         <div class="form-group col-md-3">
                             <label><span class="text-danger">*</span> Autor</label>
-                            <input name="author" type="text" class="form-control" id="email" placeholder="Desenvolvedor">
+                            <input name="author" type="text" class="form-control" id="email" 
+                            placeholder="Desenvolvedor"
+                            value="<?php if (isset($_SESSION['dados']['author'])) {echo $_SESSION['dados']['author'];} ?>">
                         </div>
                     </div>
 
@@ -81,7 +90,7 @@ include_once 'app/adms/include/head.php';
                             ?>
                             <label><span class="text-danger">*</span> Indexar</label>
                             <select name="adms_robot_id" id="adms_robot_id" class="form-control">
-                                <option selected>Selecione</option>
+                                <option value="">Selecione</option>
                                 <?php
                                 while ($row_robots = mysqli_fetch_assoc($resultado_robots)) {
                                     echo "<option value='" . $row_robots['id'] . "'>" . $row_robots['nome'] . "</option>";

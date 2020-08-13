@@ -42,8 +42,11 @@ if ($SendCadPg) {
     }
 
     if ($erro) {
+        $dados['obs'] = trim($dados_obs);
+        $dados['icone'] = $dados_icone;
+        $_SESSION['dados'] = $dados;
         $url_destino = pg . '/cadastrar/cad_pagina';
-        //header("Location: $url_destino");
+        header("Location: $url_destino");
     } else {
         $result_cad_pg = "INSERT INTO adms_paginas (nome_pagina, endereco, obs, keywords, description,
         author, lib_pub, icone, depend_pg, adms_grps_pg_id, adms_tps_pg_id, adms_robot_id,
