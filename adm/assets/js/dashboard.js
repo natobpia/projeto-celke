@@ -36,7 +36,12 @@ role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">\n\
 </div>');
         }
         $('#dataConfirmOK').attr('href', href);
-        $('#confirm-delete').modal({show: true});
+        $('#confirm-delete').modal({ show: true });
         return false;
     });
+});
+
+//Apresentar tooltip
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
 });

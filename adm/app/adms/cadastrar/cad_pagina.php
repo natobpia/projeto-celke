@@ -40,7 +40,11 @@ include_once 'app/adms/include/head.php';
                 <form method="POST" action="<?php echo pg; ?>/processa/proc_cad_pagina">
                     <div class="form-row">
                         <div class="form-group col-md-5">
-                            <label><span class="text-danger">*</span> Nome</label>
+                            <label>
+                            <span tabindex="0" data-placement="top" data-toggle="tooltip" title="Nome da página ao ser apresentado no menu e no listar">
+                                <i class="fas fa-question-circle"></i>
+                            </span>
+                            <span class="text-danger">*</span> Nome</label>
                             <input name="nome_pagina" type="text" class="form-control" id="nome" placeholder="Nome Completo" 
                             value="<?php if (isset($_SESSION['dados']['nome_pagina'])) {echo $_SESSION['dados']['nome_pagina'];} ?>">
                         </div>
@@ -50,7 +54,10 @@ include_once 'app/adms/include/head.php';
                             value="<?php if (isset($_SESSION['dados']['endereco'])) {echo $_SESSION['dados']['endereco'];} ?>">
                         </div>
                         <div class="form-group col-md-3">
-                            <label>Icone</label>
+                            <label>
+                            <span tabindex="0" data-placement="top" data-toggle="tooltip" data.html="true" title="Página de icone: <a href='https://fontawesome.com/icone?d=gallery' target='_blank'>fontawesome</a>. Somente inserir o nome. Ex.: fas fa-volume-up">
+                                <i class="fas fa-question-circle"></i>
+                            </span> Icone</label>
                             <input name="icone" type="text" class="form-control" id="email" placeholder="Ícone da página" 
                             value="<?php if (isset($_SESSION['dados']['icone'])) {echo $_SESSION['dados']['icone'];} ?>">
                         </div>
@@ -62,19 +69,28 @@ include_once 'app/adms/include/head.php';
 
                     <div class="form-row">
                         <div class="form-group col-md-5">
-                            <label><span class="text-danger">*</span> Palavra Chave</label>
+                            <label>
+                            <span tabindex="0" data-placement="top" data-toggle="tooltip" title="Palavras chaves que o buscador vai utilizar">
+                                <i class="fas fa-question-circle"></i>
+                            </span><span class="text-danger">*</span> Palavra Chave</label>
                             <input name="keywords" type="text" class="form-control" id="nome" 
                             placeholder="Palavra Chave"
                             value="<?php if (isset($_SESSION['dados']['keywords'])) {echo $_SESSION['dados']['keywords'];} ?>">
                         </div>
                         <div class="form-group col-md-4">
-                            <label><span class="text-danger">*</span> Descrição</label>
-                            <input name="description" type="text" class="form-control" id="email" 
+                            <label>
+                            <span tabindex="0" data-placement="top" data-toggle="tooltip" title="Descrição da página">
+                                <i class="fas fa-question-circle"></i>
+                            </span><span class="text-danger">*</span> Descrição</label>
+                            <input name="description" type="text" class="form-control" id="description" 
                             placeholder="Descrição da página"
                             value="<?php if (isset($_SESSION['dados']['description'])) {echo $_SESSION['dados']['description'];} ?>">
                         </div>
                         <div class="form-group col-md-3">
-                            <label><span class="text-danger">*</span> Autor</label>
+                            <label>
+                            <span tabindex="0" data-placement="top" data-toggle="tooltip" title="Autor da página">
+                                <i class="fas fa-question-circle"></i>
+                            </span><span class="text-danger">*</span> Autor</label>
                             <input name="author" type="text" class="form-control" id="email" 
                             placeholder="Desenvolvedor"
                             value="<?php if (isset($_SESSION['dados']['author'])) {echo $_SESSION['dados']['author'];} ?>">
@@ -88,7 +104,10 @@ include_once 'app/adms/include/head.php';
                             FROM adms_robots";
                             $resultado_robots = mysqli_query($conn, $result_robots);
                             ?>
-                            <label><span class="text-danger">*</span> Indexar</label>
+                            <label>
+                            <span tabindex="0" data-placement="top" data-toggle="tooltip" title="Diz o que o navegador deve fazer com a página">
+                                <i class="fas fa-question-circle"></i>
+                            </span><span class="text-danger">*</span> Indexar</label>
                             <select name="adms_robot_id" id="adms_robot_id" class="form-control">
                                 <option value="">Selecione</option>
                                 <?php
@@ -105,7 +124,10 @@ include_once 'app/adms/include/head.php';
                             </select>
                         </div>
                         <div class="form-group col-md-4">
-                            <label><span class="text-danger">*</span> Página pública</label>
+                            <label>
+                            <span tabindex="0" data-placement="top" data-toggle="tooltip" title="Se a página é pública ou não">
+                                <i class="fas fa-question-circle"></i>
+                            </span><span class="text-danger">*</span> Página pública</label>
                             <select name="lib_pub" id="lib_pub" class="form-control">
                                 <?php
                                     if(isset($_SESSION['dados']['lib_pub']) AND ($_SESSION['dados']['lib_pub'] == 1)) {
@@ -133,7 +155,10 @@ include_once 'app/adms/include/head.php';
                             $resultado_paginas = mysqli_query($conn, $result_paginas);
 
                             ?>
-                            <label><span class="text-danger">*</span> Página Dependente</label>
+                            <label>
+                            <span tabindex="0" data-placement="top" data-toggle="tooltip" title="Escolha a página na qual ela é dependente ou não">
+                                <i class="fas fa-question-circle"></i>
+                            </span><span class="text-danger">*</span> Página Dependente</label>
                             <select name="depend_pg" id="depend_pg" class="form-control">
                                 <option value="">Selecione</option>
                                 <?php
@@ -164,7 +189,10 @@ include_once 'app/adms/include/head.php';
                             ORDER BY nome ASC";
                             $resultado_grps_pgs = mysqli_query($conn, $result_grps_pgs);
                             ?>
-                            <label><span class="text-danger">*</span> Grupo</label>
+                            <label>
+                            <span tabindex="0" data-placement="top" data-toggle="tooltip" title="Grupo no qual a página faz parte">
+                                <i class="fas fa-question-circle"></i>
+                            </span><span class="text-danger">*</span> Grupo</label>
                             <select name="adms_grps_pg_id" id="adms_grps_pg_id" class="form-control">
                                 <option value="">Selecione</option>
                                 <?php
@@ -187,7 +215,10 @@ include_once 'app/adms/include/head.php';
                             ORDER BY nome ASC";
                             $resultado_tps_pgs = mysqli_query($conn, $result_tps_pgs);
                             ?>
-                            <label><span class="text-danger">*</span> Tipo</label>
+                            <label>
+                            <span tabindex="0" data-placement="top" data-toggle="tooltip" title="Tipo da página">
+                                <i class="fas fa-question-circle"></i>
+                            </span><span class="text-danger">*</span> Tipo</label>
                             <select name="adms_tps_pg_id" id="adms_tps_pg_id" class="form-control">
                                 <option value="">Selecione</option>
                                 <?php
@@ -212,7 +243,10 @@ include_once 'app/adms/include/head.php';
                             ORDER BY nome ASC";
                             $resultado_sits_pgs = mysqli_query($conn, $result_sits_pgs);
                             ?>
-                            <label><span class="text-danger">*</span> Situação</label>
+                            <label>
+                            <span tabindex="0" data-placement="top" data-toggle="tooltip" title="Situação da página">
+                                <i class="fas fa-question-circle"></i>
+                            </span><span class="text-danger">*</span> Situação</label>
                             <select name="adms_sits_pg_id" id="depend_pg" class="form-control">
                                 <option value="">Selecione</option>
                                 <?php
