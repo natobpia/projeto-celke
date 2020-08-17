@@ -61,6 +61,45 @@ if ($SendCadPg) {
         mysqli_query($conn, $result_cad_pg);
         if (mysqli_insert_id($conn)) {
             unset($_SESSION['dados']);
+            //Inicio inserir na tabela adms_nivacs_pgs
+            $pagina_id = mysqli_insert_id($conn);
+
+            $result_niv_acesso = "SELECT id, nome FROM adms_niveis_acessos";
+            $resultado_niv_acesso = mysqli_query($conn, $result_niv_acesso);
+
+            while($row_niv_acesso = mysqli_fetch_assoc($resultado_niv_acesso)) {
+                if($row_niv_acesso['id'] == 1) {
+                    $permissao = 1;
+                } else {
+                    $permissao = 2;
+                }
+
+                $result_maior_ordem = "SELECT ordem 
+                FROM adms_nivacs_pgs 
+                WHERE adms_niveis_acesso_id='".$row_niv_acesso['id']."'
+                ORDER BY ordem DESC LIMIT 1";
+
+                $resultado_maior_ordem = mysqli_query($conn, $result_maior_ordem);
+
+                $row_maior_ordem = mysqli_fetch_assoc($resultado_maior_ordem);
+
+                $ordem = $row_maior_ordem['ordem'] + 1;
+
+            $result_cad_pagina = "INSERT INTO adms_nivacs_pgs {permissao, ordem, dropdown, lib_menu,
+             adms_menu_id, adms_niveis_acesso_id, adms_pagina_id, created} VALUES (
+                 '$permissao',
+                 '$ordem',
+                 '1',
+                 '2',
+                 '3',
+                 '".$row_niv_acesso['id']."',
+                 '".$pagina_id."',
+                 NOW())";
+
+                 mysqli_query($conn, $result_cad_pagina);
+            }
+
+
             $_SESSION['msg'] = "<div class='alert alert-success'>
             Página  cadastrada</div>";
             $url_destino = pg . '/listar/list_pagina';
