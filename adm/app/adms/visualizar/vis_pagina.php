@@ -7,8 +7,16 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 if (!empty($id)) {
 
     $result_pg_vis = "SELECT pg.*,
+    grpg.nome nome_grpg,
+    tpg.tipo tipo_tpg, tpg.nome nome_tpg,
+    rb.tipo tipo_rb, rb.nome nome_rb,
+    sitpg.nome nome_sitpg, sitpg.cor cor_sitpg,
     depg.id id_depg, depg.nome_pagina nome_depg
     FROM adms_paginas pg
+    LEFT JOIN adms_grps_pgs grpg ON grpg.id=pg.adms_grps_pg_id
+    LEFT JOIN adms_tps_pgs tpg ON tpg.id=pg.adms_tps_pg_id
+    LEFT JOIN adms_robots rb ON rb.id=pg.adms_robot_id
+    INNER JOIN adms_sits_pgs sitpg ON sitpg.id=pg.adms_sits_pg_id
     LEFT JOIN adms_paginas depg ON depg.id=pg.depend_pg
     WHERE pg.id=$id";
     $resultado_pg_vis = mysqli_query($conn, $result_pg_vis);
@@ -138,23 +146,25 @@ if (!empty($id)) {
                                                     ?></dd>
 
                             <dt class="col-sm-3">Depende</dt>
-                            <dd class="col-sm-9"><?php 
-                            if($row_pg_vis['id_depg'] != 0) {
-                                echo  "<a href='" . pg . "/visualizar/vis_pagina?id=" . $row_pg_vis['id_depg'] . "'>".$row_pg_vis['nome_depg']."</a>"; 
-                            } else {
-                                echo "<span class='badge badge-danger'>Não</span>";
-                            } ?></dd>
+                            <dd class="col-sm-9"><?php
+                                                    if ($row_pg_vis['id_depg'] != 0) {
+                                                        echo  "<a href='" . pg . "/visualizar/vis_pagina?id=" . $row_pg_vis['id_depg'] . "'>" . $row_pg_vis['nome_depg'] . "</a>";
+                                                    } else {
+                                                        echo "<span class='badge badge-danger'>Não</span>";
+                                                    } ?></dd>
                             <dt class="col-sm-3">Grupo</dt>
-                            <dd class="col-sm-9"><?php echo $row_pg_vis['adms_grps_pg_id']; ?></dd>
+                            <dd class="col-sm-9"><?php echo $row_pg_vis['nome_grpg']; ?></dd>
 
                             <dt class="col-sm-3">Tipo</dt>
-                            <dd class="col-sm-9"><?php echo $row_pg_vis['adms_tps_pg_id']; ?></dd>
+                            <dd class="col-sm-9"><?php echo $row_pg_vis['tipo_tpg'] . " - " . $row_pg_vis['nome_tpg']; ?></dd>
 
                             <dt class="col-sm-3">Indexar</dt>
-                            <dd class="col-sm-9"><?php echo $row_pg_vis['adms_robot_id']; ?></dd>
+                            <dd class="col-sm-9"><?php echo $row_pg_vis['tipo_rb'] . " - " . $row_pg_vis['nome_rb']; ?></dd>
 
                             <dt class="col-sm-3">Situação</dt>
-                            <dd class="col-sm-9"><?php echo $row_pg_vis['adms_sits_pg_id']; ?></dd>
+                            <dd class="col-sm-9"><?php
+                                                    echo "<span class='badge badge-" . $row_pg_vis['cor_sitpg'] . "'>" . $row_pg_vis['nome_sitpg'] . "</span>";
+                                                    ?></dd>
 
                             <dt class="col-sm-3">Data do Cadastro</dt>
                             <dd class="col-sm-9"><?php echo date('d/m/Y H:i:s', strtotime($row_pg_vis['created'])); ?></dd>
