@@ -6,7 +6,11 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
 if (!empty($id)) {
 
-    $result_pg_vis = "SELECT * FROM adms_paginas WHERE id=$id";
+    $result_pg_vis = "SELECT pg.*,
+    depg.id id_depg, depg.nome_pagina nome_depg
+    FROM adms_paginas pg
+    LEFT JOIN adms_paginas depg ON depg.id=pg.depend_pg
+    WHERE pg.id=$id";
     $resultado_pg_vis = mysqli_query($conn, $result_pg_vis);
     if ($resultado_pg_vis and $resultado_pg_vis->num_rows != 0) {
         $row_pg_vis = mysqli_fetch_assoc($resultado_pg_vis);
@@ -108,31 +112,49 @@ if (!empty($id)) {
 
                             <dt class="col-sm-3">Palavra chave</dt>
                             <dd class="col-sm-9"><?php echo $row_pg_vis['keywords']; ?></dd>
-                           
+
                             <dt class="col-sm-3">Descrição</dt>
                             <dd class="col-sm-9"><?php echo $row_pg_vis['description']; ?></dd>
-                            
+
                             <dt class="col-sm-3">Autor</dt>
                             <dd class="col-sm-9"><?php echo $row_pg_vis['author']; ?></dd>
 
                             <dt class="col-sm-3">Pública</dt>
-                            <dd class="col-sm-9"><?php echo $row_pg_vis['lib_pub']; ?></dd>
+                            <dd class="col-sm-9"><?php
+                                                    if ($row_pg_vis['lib_pub'] == 1) {
+                                                        echo "<span class='badge badge-success'>Sim</span>";
+                                                    } else {
+                                                        echo "<span class='badge badge-danger'>Não</span>";
+                                                    }
+                                                    ?></dd>
+
+                            <dt class="col-sm-3">Ícone</dt>
+                            <dd class="col-sm-9"><?php
+                                                    if (!empty($row_pg_vis['icone'])) {
+                                                        echo "<i class='" . $row_pg_vis['icone'] . "'></i> : " . $row_pg_vis['icone'];
+                                                    } else {
+                                                        echo "Vazio";
+                                                    }
+                                                    ?></dd>
 
                             <dt class="col-sm-3">Depende</dt>
-                            <dd class="col-sm-9"><?php echo $row_pg_vis['depend_pg']; ?></dd>
-
+                            <dd class="col-sm-9"><?php 
+                            if($row_pg_vis['id_depg'] != 0) {
+                                echo  "<a href='" . pg . "/visualizar/vis_pagina?id=" . $row_pg_vis['id_depg'] . "'>".$row_pg_vis['nome_depg']."</a>"; 
+                            } else {
+                                echo "<span class='badge badge-danger'>Não</span>";
+                            } ?></dd>
                             <dt class="col-sm-3">Grupo</dt>
                             <dd class="col-sm-9"><?php echo $row_pg_vis['adms_grps_pg_id']; ?></dd>
 
                             <dt class="col-sm-3">Tipo</dt>
                             <dd class="col-sm-9"><?php echo $row_pg_vis['adms_tps_pg_id']; ?></dd>
-                            
+
                             <dt class="col-sm-3">Indexar</dt>
                             <dd class="col-sm-9"><?php echo $row_pg_vis['adms_robot_id']; ?></dd>
 
                             <dt class="col-sm-3">Situação</dt>
                             <dd class="col-sm-9"><?php echo $row_pg_vis['adms_sits_pg_id']; ?></dd>
-
 
                             <dt class="col-sm-3">Data do Cadastro</dt>
                             <dd class="col-sm-9"><?php echo date('d/m/Y H:i:s', strtotime($row_pg_vis['created'])); ?></dd>
