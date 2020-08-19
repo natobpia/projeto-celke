@@ -68,6 +68,7 @@ include_once 'app/adms/include/head.php';
                                     <th>ID</th>
                                     <th>Nome</th>
                                     <th class="d-none d-sm-table-cell">Ordem</th>
+                                    <th class="d-none d-sm-table-cell">Tipo</th>
                                     <th class="text-center">Ações</th>
                                 </tr>
                             </thead>

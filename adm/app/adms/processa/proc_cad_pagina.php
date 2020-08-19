@@ -59,6 +59,7 @@ if ($SendCadPg) {
         NOW())";
 
         mysqli_query($conn, $result_cad_pg);
+        
         if (mysqli_insert_id($conn)) {
             unset($_SESSION['dados']);
             //Inicio inserir na tabela adms_nivacs_pgs
@@ -85,8 +86,8 @@ if ($SendCadPg) {
 
                 $ordem = $row_maior_ordem['ordem'] + 1;
 
-            $result_cad_pagina = "INSERT INTO adms_nivacs_pgs {permissao, ordem, dropdown, lib_menu,
-             adms_menu_id, adms_niveis_acesso_id, adms_pagina_id, created} VALUES (
+            $result_cad_pagina = "INSERT INTO adms_nivacs_pgs (permissao, ordem, dropdown, lib_menu,
+             adms_menu_id, adms_niveis_acesso_id, adms_pagina_id, created) VALUES (
                  '$permissao',
                  '$ordem',
                  '1',
