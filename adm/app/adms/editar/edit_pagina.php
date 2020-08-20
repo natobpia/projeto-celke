@@ -52,7 +52,7 @@ if (!empty($id)) {
                             unset($_SESSION['msg']);
                         }
                         ?>
-                        <form method="POST" action="<?php echo pg; ?>/processa/proc_cad_pagina">
+                        <form method="POST" action="<?php echo pg; ?>/processa/proc_edit_pagina">
                             <div class="form-row">
                                 <div class="form-group col-md-5">
                                     <label>
@@ -62,7 +62,7 @@ if (!empty($id)) {
                                         <span class="text-danger">*</span> Nome</label>
                                     <input name="nome_pagina" type="text" class="form-control" id="nome" placeholder="Nome Completo" value="<?php if (isset($_SESSION['dados']['nome_pagina'])) {
                                                                                                                                                 echo $_SESSION['dados']['nome_pagina'];
-                                                                                                                                            } elseif (isset($row_edit_pg['nome_pagina'])){
+                                                                                                                                            } elseif (isset($row_edit_pg['nome_pagina'])) {
                                                                                                                                                 echo $row_edit_pg['nome_pagina'];
                                                                                                                                             } ?>">
                                 </div>
@@ -70,7 +70,7 @@ if (!empty($id)) {
                                     <label><span class="text-danger">*</span> Endereço</label>
                                     <input name="endereco" type="text" class="form-control" id="email" placeholder="Endereço da página, ex: listar/list_pagina" value="<?php if (isset($_SESSION['dados']['endereco'])) {
                                                                                                                                                                             echo $_SESSION['dados']['endereco'];
-                                                                                                                                                                        } elseif (isset($row_edit_pg['endereco'])){
+                                                                                                                                                                        } elseif (isset($row_edit_pg['endereco'])) {
                                                                                                                                                                             echo $row_edit_pg['endereco'];
                                                                                                                                                                         } ?>">
                                 </div>
@@ -81,7 +81,7 @@ if (!empty($id)) {
                                         </span> Icone</label>
                                     <input name="icone" type="text" class="form-control" id="email" placeholder="Ícone da página" value="<?php if (isset($_SESSION['dados']['icone'])) {
                                                                                                                                                 echo $_SESSION['dados']['icone'];
-                                                                                                                                            } elseif (isset($row_edit_pg['icone'])){
+                                                                                                                                            } elseif (isset($row_edit_pg['icone'])) {
                                                                                                                                                 echo $row_edit_pg['icone'];
                                                                                                                                             } ?>">
                                 </div>
@@ -90,9 +90,9 @@ if (!empty($id)) {
                                 <label>Observação</label>
                                 <textarea name="obs" class="form-control"><?php if (isset($_SESSION['dados']['obs'])) {
                                                                                 echo $_SESSION['dados']['obs'];
-                                                                            } elseif (isset($row_edit_pg['obs'])){
+                                                                            } elseif (isset($row_edit_pg['obs'])) {
                                                                                 echo $row_edit_pg['obs'];
-                                                                            }?></textarea>
+                                                                            } ?></textarea>
                             </div>
 
                             <div class="form-row">
@@ -103,9 +103,9 @@ if (!empty($id)) {
                                         </span><span class="text-danger">*</span> Palavra Chave</label>
                                     <input name="keywords" type="text" class="form-control" id="nome" placeholder="Palavra Chave" value="<?php if (isset($_SESSION['dados']['keywords'])) {
                                                                                                                                                 echo $_SESSION['dados']['keywords'];
-                                                                                                                                            } elseif (isset($row_edit_pg['keywords'])){
+                                                                                                                                            } elseif (isset($row_edit_pg['keywords'])) {
                                                                                                                                                 echo $row_edit_pg['keywords'];
-                                                                                                                                            }?>">
+                                                                                                                                            } ?>">
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label>
@@ -114,9 +114,9 @@ if (!empty($id)) {
                                         </span><span class="text-danger">*</span> Descrição</label>
                                     <input name="description" type="text" class="form-control" id="description" placeholder="Descrição da página" value="<?php if (isset($_SESSION['dados']['description'])) {
                                                                                                                                                                 echo $_SESSION['dados']['description'];
-                                                                                                                                                            } elseif (isset($row_edit_pg['description'])){
+                                                                                                                                                            } elseif (isset($row_edit_pg['description'])) {
                                                                                                                                                                 echo $row_edit_pg['description'];
-                                                                                                                                                            }?>">
+                                                                                                                                                            } ?>">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label>
@@ -125,9 +125,9 @@ if (!empty($id)) {
                                         </span><span class="text-danger">*</span> Autor</label>
                                     <input name="author" type="text" class="form-control" id="email" placeholder="Desenvolvedor" value="<?php if (isset($_SESSION['dados']['author'])) {
                                                                                                                                             echo $_SESSION['dados']['author'];
-                                                                                                                                        } elseif (isset($row_edit_pg['author'])){
+                                                                                                                                        } elseif (isset($row_edit_pg['author'])) {
                                                                                                                                             echo $row_edit_pg['author'];
-                                                                                                                                        }?>">
+                                                                                                                                        } ?>">
                                 </div>
                             </div>
 
@@ -151,6 +151,12 @@ if (!empty($id)) {
                                                 and $_SESSION['dados']['adms_robot_id'] == $row_robots['id']
                                             ) {
                                                 echo "<option value='" . $row_robots['id'] . "' selected>" . $row_robots['nome'] . "</option>";
+                                            } elseif (
+                                                !isset($_SESSION['dados']['adms_robot_id'])
+                                                and (isset($row_edit_pg['adms_robot_id']))
+                                                and ($row_edit_pg['adms_robot_id'] == $row_robots['id'])
+                                            ) {
+                                                echo "<option value='" . $row_robots['id'] . "' selected>" . $row_robots['nome'] . "</option>";
                                             } else {
                                                 echo "<option value='" . $row_robots['id'] . "'>" . $row_robots['nome'] . "</option>";
                                             }
@@ -165,11 +171,11 @@ if (!empty($id)) {
                                         </span><span class="text-danger">*</span> Página pública</label>
                                     <select name="lib_pub" id="lib_pub" class="form-control">
                                         <?php
-                                        if (isset($_SESSION['dados']['lib_pub']) and ($_SESSION['dados']['lib_pub'] == 1)) {
+                                        if ((isset($_SESSION['dados']['lib_pub']) and ($_SESSION['dados']['lib_pub'] == 1)) OR (isset($row_edit_pg['lib_pub']) AND ($row_edit_pg['lib_pub'] == 1))) {
                                             echo "<option value=''>Selecione</option>";
                                             echo "<option value='1' selected>Sim</option>";
                                             echo "<option value='2'>Não</option>";
-                                        } elseif (isset($_SESSION['dados']['lib_pub']) and ($_SESSION['dados']['lib_pub'] == 2)) {
+                                        } elseif ((isset($_SESSION['dados']['lib_pub']) and ($_SESSION['dados']['lib_pub'] == 2)) OR (isset($row_edit_pg['lib_pub']) AND ($row_edit_pg['lib_pub'] == 2))) {
                                             echo "<option value=''>Selecione</option>";
                                             echo "<option value='1'>Sim</option>";
                                             echo "<option value='2' selected>Não</option>";
@@ -197,7 +203,7 @@ if (!empty($id)) {
                                     <select name="depend_pg" id="depend_pg" class="form-control">
                                         <option value="">Selecione</option>
                                         <?php
-                                        if ((isset($_SESSION['dados']['depend_pg'])) and ($_SESSION['dados']['depend_pg'] == $row_paginas['id'])) {
+                                        if ((isset($_SESSION['dados']['depend_pg']) and ($_SESSION['dados']['depend_pg'] == 0)) OR (isset($row_edit_pg['depend_pg']) AND ($row_edit_pg['depend_pg'] == 0))) {
                                             echo "<option value='0' selected>Não depende de outra página</option>";
                                         } else {
                                             echo "<option value='0' selected>Não depende de outra página</option>";
@@ -206,6 +212,12 @@ if (!empty($id)) {
                                             if (
                                                 isset($_SESSION['dados']['depend_pg'])
                                                 and $_SESSION['dados']['depend_pg'] == $row_paginas['id']
+                                            ) {
+                                                echo "<option value='" . $row_paginas['id'] . "' selected>" . $row_paginas['nome_pagina'] . "</option>";
+                                            } elseif (
+                                                !isset($_SESSION['dados']['depend_pg'])
+                                                and (isset($row_edit_pg['depend_pg']))
+                                                and ($row_edit_pg['depend_pg'] == $row_paginas['id'])
                                             ) {
                                                 echo "<option value='" . $row_paginas['id'] . "' selected>" . $row_paginas['nome_pagina'] . "</option>";
                                             } else {
@@ -238,6 +250,12 @@ if (!empty($id)) {
                                                 and $_SESSION['dados']['adms_grps_pg_id'] == $row_grps_pgs['id']
                                             ) {
                                                 echo "<option value='" . $row_grps_pgs['id'] . "' selected>" . $row_grps_pgs['nome'] . "</option>";
+                                            } elseif (
+                                                !isset($_SESSION['dados']['adms_grps_pg_id'])
+                                                and (isset($row_edit_pg['adms_grps_pg_id']))
+                                                and ($row_edit_pg['adms_grps_pg_id'] == $row_grps_pgs['id'])
+                                            ) {
+                                                echo "<option value='" . $row_grps_pgs['id'] . "' selected>" . $row_grps_pgs['nome'] . "</option>";
                                             } else {
                                                 echo "<option value='" . $row_grps_pgs['id'] . "'>" . $row_grps_pgs['nome'] . "</option>";
                                             }
@@ -263,6 +281,13 @@ if (!empty($id)) {
                                             if (
                                                 isset($_SESSION['dados']['adms_tps_pg_id'])
                                                 and $_SESSION['dados']['adms_tps_pg_id'] == $row_tps_pgs['id']
+                                            ) {
+                                                echo "<option value='" . $row_tps_pgs['id'] . "' selected>" . $row_tps_pgs['tipo'] . " - " .
+                                                    $row_tps_pgs['nome'] . "</option>";
+                                            } elseif (
+                                                !isset($_SESSION['dados']['adms_tps_pg_id'])
+                                                and (isset($row_edit_pg['adms_tps_pg_id']))
+                                                and ($row_edit_pg['adms_tps_pg_id'] == $row_tps_pgs['id'])
                                             ) {
                                                 echo "<option value='" . $row_tps_pgs['id'] . "' selected>" . $row_tps_pgs['tipo'] . " - " .
                                                     $row_tps_pgs['nome'] . "</option>";
@@ -292,6 +317,12 @@ if (!empty($id)) {
 
                                             if (isset($_SESSION['dados']['adms_sits_pg_id']) and ($_SESSION['dados']['adms_sits_pg_id'] == $row_sits_pgs['id'])) {
                                                 echo "<option value='" . $row_sits_pgs['id'] . "' selected>" . $row_sits_pgs['nome'] . "</option>";
+                                            } elseif (
+                                                !isset($_SESSION['dados']['adms_sits_pg_id'])
+                                                and (isset($row_edit_pg['adms_sits_pg_id']))
+                                                and ($row_edit_pg['adms_sits_pg_id'] == $row_sits_pgs['id'])
+                                            ) {
+                                                echo "<option value='" . $row_sits_pgs['id'] . "' selected>" . $row_sits_pgs['nome'] . "</option>";
                                             } else {
                                                 echo "<option value='" . $row_sits_pgs['id'] . "'>" . $row_sits_pgs['nome'] . "</option>";
                                             }
@@ -303,7 +334,7 @@ if (!empty($id)) {
                             <p>
                                 <span class="text-danger">* </span>Campo obrigatório
                             </p>
-                            <input name="SendCadPg" type="submit" class="btn btn-success" value="Cadastrar">
+                            <input name="SendEditPg" type="submit" class="btn btn-warning" value="Salvar">
                         </form>
                     </div>
                 </div>
