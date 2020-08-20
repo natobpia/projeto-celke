@@ -18,7 +18,8 @@ if (!empty($id)) {
     LEFT JOIN adms_robots rb ON rb.id=pg.adms_robot_id
     INNER JOIN adms_sits_pgs sitpg ON sitpg.id=pg.adms_sits_pg_id
     LEFT JOIN adms_paginas depg ON depg.id=pg.depend_pg
-    WHERE pg.id=$id";
+    WHERE pg.id=$id
+    LIMIT 1";
     $resultado_pg_vis = mysqli_query($conn, $result_pg_vis);
     if ($resultado_pg_vis and $resultado_pg_vis->num_rows != 0) {
         $row_pg_vis = mysqli_fetch_assoc($resultado_pg_vis);
