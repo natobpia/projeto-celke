@@ -52,7 +52,7 @@ if (!empty($id)) {
                                     }
                                     $btn_edit = carregar_btn('editar/edit_pagina', $conn);
                                     if ($btn_edit) {
-                                        if ($resultado_niv_aces and $resultado_niv_aces->num_rows != 0) {
+                                        if ($resultado_pg_vis and $resultado_pg_vis->num_rows != 0) {
                                             echo "<a href='" . pg . "/editar/edit_pagina?id=" . $row_pg_vis['id'] . "' class='btn btn-outline-warning btn-sm'>
                                     Editar
                                     </a> ";
@@ -60,7 +60,7 @@ if (!empty($id)) {
                                     }
                                     $btn_apagar = carregar_btn('processa/apagar_pagina', $conn);
                                     if ($btn_apagar) {
-                                        if ($resultado_niv_aces and $resultado_niv_aces->num_rows != 0) {
+                                        if ($resultado_pg_vis and $resultado_pg_vis->num_rows != 0) {
                                             echo "<a href='" . pg . "/processa/apagar_pagina?id=" . $row_pg_vis['id'] . "'' 
                                         class='btn btn-outline-danger btn-sm'
                                         data-confirm='Tem certeza de que deseja excluir o item selecionado?'>

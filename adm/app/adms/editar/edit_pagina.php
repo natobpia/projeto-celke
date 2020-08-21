@@ -35,14 +35,66 @@ if (!empty($id)) {
                                 <h2 class="display-4 titulo">Editar Página</h2>
                             </div>
                             <div class="p-2">
-                                <?php
-                                $btn_list = carregar_btn('listar/list_pagina', $conn);
-                                if ($btn_list) {
-                                    echo "<a href='" . pg . "/listar/list_pagina' class='btn btn-outline-info btn-sm'>
+                            <span class = "d-none d-md-block">
+                                    <?php
+                                    $btn_list = carregar_btn('listar/list_pagina', $conn);
+                                    if ($btn_list) {
+                                        echo "<a href='" . pg . "/listar/list_pagina' class='btn btn-outline-info btn-sm'>
                             Listar
                             </a> ";
-                                }
-                                ?>
+                                    }
+                                    $btn_vis = carregar_btn('visualizar/vis_pagina', $conn);
+                                    if ($btn_vis) {
+                                        if ($resultado_edit_pg AND $resultado_edit_pg->num_rows != 0) {
+                                            echo "<a href='" . pg . "/visualizar/vis_pagina?id=" . $row_edit_pg['id'] . "' class='btn btn-outline-primary btn-sm'>
+                                    Visualizar
+                                    </a> ";
+                                        }
+                                    }
+                                    $btn_apagar = carregar_btn('processa/apagar_niv_aces', $conn);
+                                    if ($btn_apagar) {
+                                        if ($resultado_edit_pg AND $resultado_edit_pg->num_rows != 0) {
+                                            echo "<a href='" . pg . "/processa/apagar_niv_aces?id=" . $row_edit_pg['id'] . "'' class='btn btn-outline-danger btn-sm'
+                                                data-confirm='Tem certeza de que deseja excluir o item selecionado?'>
+                                    Apagar
+                                    </a>";
+                                        }
+                                    }
+                                    ?>
+                                </span>
+                                <div class="dropdown d-block d-md-none">
+                                    <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="acoesListar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Ações
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
+                                        <?php
+                                        $btn_list = carregar_btn('listar/list_pagina', $conn);
+                                        if ($btn_list) {
+                                            echo "<a class='dropdown-item' href='" . pg . "/listar/list_pagina'>
+                                                        Listar
+                                                        </a>";
+                                        }
+                                        $btn_vis = carregar_btn('visualizar/vis_pagina', $conn);
+                                        if ($btn_vis) {
+                                            if ($resultado_edit_pg AND $resultado_edit_pg->num_rows != 0) {
+                                                echo "<a class='dropdown-item' href='" . pg . "/visualizar/vis_pagina?id=" . $row_edit_pg['id'] . "'>
+                                                        Visualizar
+                                                        </a>";
+                                            }
+                                        }
+                                        $btn_apagar = carregar_btn('processa/apagar_niv_aces', $conn);
+                                        if ($btn_apagar) {
+                                            if ($resultado_edit_pg AND $resultado_edit_pg->num_rows != 0) {
+                                                echo "<a class='dropdown-item' href='" . pg . "/processa/apagar_niv_aces?id=" . $row_edit_pg['id'] . "'
+                                                    data-confirm='Tem certeza de que deseja excluir o item selecionado?'>
+                                                        Apagar
+                                                        </a>";
+                                            }
+                                        }
+                                        ?>
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <hr>
@@ -53,6 +105,9 @@ if (!empty($id)) {
                         }
                         ?>
                         <form method="POST" action="<?php echo pg; ?>/processa/proc_edit_pagina">
+                        <input type="hidden" name="id" value="<?php if (isset($row_edit_pg['id'])) {
+                            echo $row_edit_pg['id'];
+                        } ?>">
                             <div class="form-row">
                                 <div class="form-group col-md-5">
                                     <label>
@@ -345,7 +400,8 @@ if (!empty($id)) {
 
             </div>
         </body>
-<?php
+    <?php
+        unset($_SESSION['dados']);
     } else {
         $_SESSION['msg'] = "<div class='alert alert-danger'>
         Página não encontrada</div>";
