@@ -121,7 +121,14 @@ include_once 'app/adms/include/head.php';
                                                     echo "<a href='" . pg . "/processa/apagar_niv_aces?id=" . $row_niv_aces['id'] . "''
                                                         class='btn btn-outline-danger btn-sm'
                                                         data-confirm='Tem certeza de que deseja excluir o item selecionado?'>
-                                                        Apagar</a>";
+                                                        Apagar</a> ";
+                                                }
+                                                $btn_list_per = carregar_btn('listar/list_permissao', $conn);
+                                                if ($btn_list_per) {
+                                                    echo "<a href='" . pg . "/listar/list_permissao?id=" . $row_niv_aces['id'] . "' 
+                                                        class='btn btn-outline-primary btn-sm'>
+                                                        Permissão
+                                                        </a> ";
                                                 }
                                                 ?>
                                             </span>
