@@ -18,9 +18,15 @@ if (!empty($id)) {
         pg.nome_pagina, pg.obs
         FROM adms_nivacs_pgs nivpg
         INNER JOIN adms_paginas pg ON pg.id=nivpg.adms_pagina_id
-        WHERE nivpg.adms_niveis_acesso_id='$id' 
+        WHERE nivpg.adms_niveis_acesso_id='$id' AND pg.depend_pg=0
         ORDER BY nivpg.ordem ASC LIMIT $inicio, $qnt_result_pg";
     } else {
+        $result_niv_ac = "SELECT nivpg.*,
+        pg.nome_pagina, pg.obs
+        FROM adms_nivacs_pgs nivpg
+        INNER JOIN adms_paginas pg ON pg.id=nivpg.adms_pagina_id
+        WHERE nivpg.adms_niveis_acesso_id='$id' 
+        ORDER BY nivpg.ordem ASC LIMIT $inicio, $qnt_result_pg";
     }
     $resultado_niv_ac = mysqli_query($conn, $result_niv_ac);
 
@@ -91,7 +97,23 @@ if (!empty($id)) {
                                                 </span>
                                                 <?php echo $row_niv_ac['nome_pagina']; ?>
                                             </td>
-                                            <td class="d-none d-sm-table-cell"><?php echo $row_niv_ac['permissao']; ?></td>
+                                            <td class="d-none d-sm-table-cell">
+                                                <?php
+                                                $btn_lib_per = carregar_btn('processa/proc_lib_per', $conn);
+                                                if ($btn_lib_per) {
+                                                    if ($row_niv_ac['permissao'] == 1) {
+                                                        echo "<a href='" . pg . "/processa/proc_lib_per?id=" . $row_niv_ac['id'] . "'><span class='badge badge-pill badge-success'>Liberado</span></a>";
+                                                    } else {
+                                                        echo "<a href='" . pg . "/processa/proc_lib_per?id=" . $row_niv_ac['id'] . "'><span class='badge badge-pill badge-danger'>Bloqueado</span></a>";
+                                                    }
+                                                } else {
+                                                    if ($row_niv_ac['permissao'] == 1) {
+                                                        echo "<span class='badge badge-pill badge-success'>Liberado</span>";
+                                                    } else {
+                                                        echo "<span class='badge badge-pill badge-danger'>Bloqueado</span>";
+                                                    }
+                                                }
+                                                ?></td>
                                             <td class="d-none d-sm-table-cell"><?php echo $row_niv_ac['lib_menu']; ?></td>
                                             <td class="d-none d-sm-table-cell"><?php echo $row_niv_ac['dropdown']; ?></td>
                                             <td class="d-none d-sm-table-cell"><?php echo $row_niv_ac['ordem']; ?></td>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 23/08/2020 às 15:40
+-- Tempo de geração: 23/08/2020 às 20:51
 -- Versão do servidor: 10.4.13-MariaDB
 -- Versão do PHP: 7.4.8
 
@@ -137,11 +137,11 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (9, 1, 9, 2, 2, 2, 1, 11, '2020-07-20 10:47:07', NULL),
 (10, 1, 10, 2, 2, 2, 1, 12, '2020-07-20 10:47:07', NULL),
 (11, 1, 11, 2, 2, 2, 1, 13, '2020-07-22 11:33:55', NULL),
-(12, 1, 1, 2, 1, 1, 3, 1, '2018-03-23 00:00:00', NULL),
-(13, 1, 2, 1, 1, 2, 3, 5, '2018-03-23 00:00:00', NULL),
+(12, 1, 1, 2, 1, 1, 3, 1, '2018-03-23 00:00:00', '2020-08-23 15:45:53'),
+(13, 1, 2, 1, 1, 2, 3, 5, '2018-03-23 00:00:00', '2020-08-23 15:45:32'),
 (14, 1, 3, 1, 1, 2, 3, 6, '2018-03-23 00:00:00', NULL),
 (15, 1, 4, 1, 1, 3, 3, 7, '2018-03-23 00:00:00', NULL),
-(16, 1, 5, 1, 1, 3, 3, 8, '2018-03-23 00:00:00', NULL),
+(16, 1, 5, 1, 1, 3, 3, 8, '2018-03-23 00:00:00', '2020-08-23 15:45:49'),
 (17, 1, 6, 2, 1, 4, 3, 4, '2018-03-23 00:00:00', NULL),
 (18, 1, 7, 2, 2, 2, 3, 9, '2018-03-23 00:00:00', NULL),
 (19, 1, 8, 2, 2, 2, 3, 10, '2018-03-23 00:00:00', NULL),
@@ -162,16 +162,20 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (34, 2, 2, 1, 2, 3, 6, 24, '2020-08-17 10:35:04', NULL),
 (35, 1, 18, 1, 2, 3, 1, 25, '2020-08-20 10:49:21', NULL),
 (36, 2, 3, 1, 2, 3, 2, 25, '2020-08-20 10:49:21', NULL),
-(37, 2, 14, 1, 2, 3, 3, 25, '2020-08-20 10:49:21', NULL),
+(37, 2, 14, 1, 2, 3, 3, 25, '2020-08-20 10:49:21', '2020-08-23 15:51:03'),
 (38, 2, 3, 1, 2, 3, 6, 25, '2020-08-20 10:49:21', NULL),
 (39, 1, 19, 1, 2, 3, 1, 26, '2020-08-21 09:05:59', NULL),
 (40, 2, 4, 1, 2, 3, 2, 26, '2020-08-21 09:05:59', NULL),
-(41, 2, 15, 1, 2, 3, 3, 26, '2020-08-21 09:05:59', NULL),
+(41, 2, 15, 1, 2, 3, 3, 26, '2020-08-21 09:05:59', '2020-08-23 15:51:03'),
 (42, 2, 4, 1, 2, 3, 6, 26, '2020-08-21 09:05:59', NULL),
 (50, 2, 5, 1, 2, 3, 6, 28, '2020-08-23 10:21:09', NULL),
 (49, 2, 16, 1, 2, 3, 3, 28, '2020-08-23 10:21:09', NULL),
 (48, 2, 5, 1, 2, 3, 2, 28, '2020-08-23 10:21:09', NULL),
-(47, 1, 20, 1, 2, 3, 1, 28, '2020-08-23 10:21:09', NULL);
+(47, 1, 20, 1, 2, 3, 1, 28, '2020-08-23 10:21:09', NULL),
+(51, 1, 21, 1, 2, 3, 1, 29, '2020-08-23 11:08:06', NULL),
+(52, 2, 6, 1, 2, 3, 2, 29, '2020-08-23 11:08:06', NULL),
+(53, 2, 17, 1, 2, 3, 3, 29, '2020-08-23 11:08:06', NULL),
+(54, 2, 6, 1, 2, 3, 6, 29, '2020-08-23 11:08:06', NULL);
 
 -- --------------------------------------------------------
 
@@ -249,8 +253,9 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (23, 'Apagar Página', 'processa/apagar_pagina', 'Página para apagar página', 'Apagar pagina', 'Página para apagar página', 'Natobpia', 2, '', 0, 4, '1', 4, 1, '2020-08-17 10:33:49', NULL),
 (24, 'Visualizar Página', 'visualizar/vis_pagina', 'Visualizar detalhes da página', 'Visualizar Página', 'Visualizar página', 'Natobpia', 2, '', 0, 5, '1', 4, 1, '2020-08-17 10:35:04', NULL),
 (25, 'Editar Página', 'editar/edit_pagina', 'Formulário', 'Editar Página', 'Editar Página', 'Natobpia', 2, '', 0, 3, '1', 4, 1, '2020-08-20 10:49:21', NULL),
-(26, 'Proc Forma Edita Página', 'processa/proc_edit_pagina', 'Página para processar o formulário editar a página', 'Proc form edita pagina', 'Proc form edita pagina', 'Natobpia', 2, '', 0, 3, '1', 4, 1, '2020-08-21 09:05:59', NULL),
-(28, 'Permissão', 'listar/list_permissao', 'Página para listar as permissões', 'Permissao', 'Permissao', 'Natobpia', 2, '', 0, 1, '1', 4, 1, '2020-08-23 10:21:09', '2020-08-23 10:21:32');
+(26, 'Proc Forma Edita Página', 'processa/proc_edit_pagina', 'Página para processar o formulário editar a página', 'Proc form edita pagina', 'Proc form edita pagina', 'Natobpia', 2, '', 25, 3, '1', 4, 1, '2020-08-21 09:05:59', '2020-08-23 15:47:02'),
+(28, 'Permissão', 'listar/list_permissao', 'Página para listar as permissões', 'Permissao', 'Permissao', 'Natobpia', 2, '', 0, 1, '1', 4, 1, '2020-08-23 10:21:09', '2020-08-23 10:21:32'),
+(29, 'Proc Liberar Permissão', 'processa/proc_lib_per', 'Página para liberar permissão', 'Proc Liberar Permissão', 'Proc Liberar Permissão', 'Natobpia', 2, '', 0, 3, '1', 4, 1, '2020-08-23 11:08:06', NULL);
 
 -- --------------------------------------------------------
 
@@ -399,7 +404,7 @@ CREATE TABLE `adms_usuarios` (
 
 INSERT INTO `adms_usuarios` (`id`, `nome`, `apelido`, `email`, `usuario`, `senha`, `recuperar_senha`, `chave_descadastro`, `imagem`, `adms_niveis_acesso_id`, `adms_sits_usuario_id`, `created`, `modified`) VALUES
 (1, 'Cesar N. Szpak', 'Cesar', 'cesar@celke.com.br', 'cesar@celke.com.br', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, 'celke.jpg', 1, 1, '2018-03-23 00:00:00', NULL),
-(2, 'Jessica', 'Jessica', 'jessica@celke.com.br', 'jessica@celke.com.br', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, 'jessica.jpg', 3, 1, '2020-07-24 16:24:45', NULL);
+(2, 'Jessica', 'Jessica', 'jessica@celke.com.br', 'jessica@celke.com.br', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, 'jessica.jpg', 6, 1, '2020-07-24 16:24:45', NULL);
 
 -- --------------------------------------------------------
 
@@ -1049,7 +1054,7 @@ ALTER TABLE `adms_menus`
 -- AUTO_INCREMENT de tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT de tabela `adms_niveis_acessos`
@@ -1061,7 +1066,7 @@ ALTER TABLE `adms_niveis_acessos`
 -- AUTO_INCREMENT de tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de tabela `adms_robots`
