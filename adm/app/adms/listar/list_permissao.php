@@ -78,11 +78,11 @@ if (!empty($id)) {
                                     <tr>
                                         <th>ID</th>
                                         <th>Página</th>
-                                        <th class="d-none d-sm-table-cell">Permissão</th>
-                                        <th class="d-none d-sm-table-cell">Menu</th>
-                                        <th class="d-none d-sm-table-cell">Dropdown</th>
-                                        <th class="d-none d-sm-table-cell">Ordem</th>
-                                        <th class="text-center">Ações</th>
+                                        <th class="d-none d-sm-table-cell text-center">Permissão</th>
+                                        <th class="d-none d-sm-table-cell text-center">Menu</th>
+                                        <th class="d-none d-sm-table-cell text-center">Dropdown</th>
+                                        <th class="d-none d-sm-table-cell text-center">Ordem</th>
+                                        <th class="text-center text-center">Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -97,7 +97,7 @@ if (!empty($id)) {
                                                 </span>
                                                 <?php echo $row_niv_ac['nome_pagina']; ?>
                                             </td>
-                                            <td class="d-none d-sm-table-cell">
+                                            <td class="d-none d-sm-table-cell text-center">
                                                 <?php
                                                 $btn_lib_per = carregar_btn('processa/proc_lib_per', $conn);
                                                 if ($btn_lib_per) {
@@ -114,9 +114,25 @@ if (!empty($id)) {
                                                     }
                                                 }
                                                 ?></td>
-                                            <td class="d-none d-sm-table-cell"><?php echo $row_niv_ac['lib_menu']; ?></td>
-                                            <td class="d-none d-sm-table-cell"><?php echo $row_niv_ac['dropdown']; ?></td>
-                                            <td class="d-none d-sm-table-cell"><?php echo $row_niv_ac['ordem']; ?></td>
+                                            <td class="d-none d-sm-table-cell text-center">
+                                                <?php
+                                                $btn_lib_per_menu = carregar_btn('processa/proc_lib_per_menu', $conn);
+                                                if ($btn_lib_per_menu) {
+                                                    if ($row_niv_ac['lib_menu'] == 1) {
+                                                        echo "<a href='" . pg . "/processa/proc_lib_per_menu?id=" . $row_niv_ac['id'] . "'><span class='badge badge-pill badge-success'>Liberado</span></a>";
+                                                    } else {
+                                                        echo "<a href='" . pg . "/processa/proc_lib_per_menu?id=" . $row_niv_ac['id'] . "'><span class='badge badge-pill badge-danger'>Bloqueado</span></a>";
+                                                    }
+                                                } else {
+                                                    if ($row_niv_ac['lib_menu'] == 1) {
+                                                        echo "<span class='badge badge-pill badge-success'>Liberado</span>";
+                                                    } else {
+                                                        echo "<span class='badge badge-pill badge-danger'>Bloqueado</span>";
+                                                    }
+                                                }
+                                                ?></td>
+                                            <td class="d-none d-sm-table-cell text-center"><?php echo $row_niv_ac['dropdown']; ?></td>
+                                            <td class="d-none d-sm-table-cell text-center"><?php echo $row_niv_ac['ordem']; ?></td>
                                             <td class="text-center">
                                                 <span class="d-none d-md-block">
                                                     <?php
