@@ -131,7 +131,22 @@ if (!empty($id)) {
                                                     }
                                                 }
                                                 ?></td>
-                                            <td class="d-none d-sm-table-cell text-center"><?php echo $row_niv_ac['dropdown']; ?></td>
+                                            <td class="d-none d-sm-table-cell text-center"><?php 
+                                            $btn_lib_per_dropdown = carregar_btn('processa/proc_lib_per_dropdown', $conn);
+                                            if ($btn_lib_per_dropdown) {
+                                                if ($row_niv_ac['dropdown'] == 1) {
+                                                    echo "<a href='" . pg . "/processa/proc_lib_per_dropdown?id=" . $row_niv_ac['id'] . "'><span class='badge badge-pill badge-success'>Sim</span></a>";
+                                                } else {
+                                                    echo "<a href='" . pg . "/processa/proc_lib_per_dropdown?id=" . $row_niv_ac['id'] . "'><span class='badge badge-pill badge-danger'>Não</span></a>";
+                                                }
+                                            } else {
+                                                if ($row_niv_ac['dropdown'] == 1) {
+                                                    echo "<span class='badge badge-pill badge-success'>Sim</span>";
+                                                } else {
+                                                    echo "<span class='badge badge-pill badge-danger'>Não</span>";
+                                                }
+                                            }
+                                            ?></td>
                                             <td class="d-none d-sm-table-cell text-center"><?php echo $row_niv_ac['ordem']; ?></td>
                                             <td class="text-center">
                                                 <span class="d-none d-md-block">
