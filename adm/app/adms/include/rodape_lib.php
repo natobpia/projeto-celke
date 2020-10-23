@@ -1,5 +1,5 @@
 <?php
-if (!isset($seguranca)) {
+if (!isset($seg)) {
     exit;
 }
 ?>

@@ -1,15 +1,10 @@
 <?php
 
-if (!isset($seguranca)) {
+if (!isset($seg)) {
     exit;
 }
+unset($_SESSION['id'], $_SESSION['nome'], $_SESSION['email'], $_SESSION['adms_niveis_acesso_id'], $_SESSION['ordem']);
 
-unset($_SESSION['id']);
-unset($_SESSION['nome']);
-unset($_SESSION['email']);
-unset($_SESSION['adms_niveis_acesso_id']);
-unset($_SESSION['ordem']);
-
-$_SESSION['msg'] = "<div class='alert alert-success'>Deslogado com sucesso</div>";
+$_SESSION['msg'] = "<div class='alert alert-success'>Deslogado com sucesso!</div>";
 $url_destino = pg . '/acesso/login';
 header("Location: $url_destino");

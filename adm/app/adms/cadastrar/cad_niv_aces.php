@@ -1,11 +1,10 @@
 <?php
-if (!isset($seguranca)) {
+if (!isset($seg)) {
     exit;
 }
 include_once 'app/adms/include/head.php';
 ?>
-
-<body>
+<body>    
     <?php
     include_once 'app/adms/include/header.php';
     ?>
@@ -23,9 +22,7 @@ include_once 'app/adms/include/head.php';
                         <?php
                         $btn_list = carregar_btn('listar/list_niv_aces', $conn);
                         if ($btn_list) {
-                            echo "<a href='" . pg . "/listar/list_niv_aces' class='btn btn-outline-info btn-sm'>
-                            Listar
-                            </a> ";
+                            echo "<a href='" . pg . "/listar/list_niv_aces' class='btn btn-outline-info btn-sm'>Listar</a> ";
                         }
                         ?>
                     </div>
@@ -36,22 +33,23 @@ include_once 'app/adms/include/head.php';
                     unset($_SESSION['msg']);
                 }
                 ?>
-                <form method="POST" action="<?php echo pg; ?>/processa/proc_cad_niv_aces">
-                        <div class="form-group col-md-6">
-                            <label><span class="text-danger">* </span> Nome</label>
-                            <input name="nome" type="text" class="form-control" 
-                                   placeholder="Nome do nível de acesso">
-                        </div>
-                        <p>
-                            <span class="text-danger">* </span>Campo obrigatório
-                        </p>
-                        <input name="SendCadNivAc" type="submit" class="btn btn-success" value="Cadastrar">
-                        </form>
-                    </div>  
-            </div>
-            <?php
-            include_once 'app/adms/include/rodape_lib.php';
-            ?>
-
+                <form method="POST" action="<?php echo pg; ?>/processa/proc_cad_niv_aces">                    
+                    <div class="form-group">
+                        <label><span class="text-danger">*</span> Nome</label>
+                        <input name="nome" type="text" class="form-control" placeholder="Nome do nível de acesso">
+                    </div>
+                    <p>
+                        <span class="text-danger">* </span>Campo obrigatório
+                    </p>
+                    <input name="SendCadNivAc" type="submit" class="btn btn-success" value="Cadastrar">
+                </form>
+            </div>    
         </div>
+        <?php
+        include_once 'app/adms/include/rodape_lib.php';
+        ?>
+
+    </div>
 </body>
+
+

@@ -1,21 +1,23 @@
 <?php
-if (!isset($seguranca)) {
+if (!isset($seg)) {
     exit;
 }
 include_once 'app/adms/include/head.php';
 ?>
-<body>
+<body>    
     <?php
     include_once 'app/adms/include/header.php';
     ?>
     <div class="d-flex">
         <?php
         include_once 'app/adms/include/menu.php';
-
-        echo "listar menu";
-
+        
+        echo "listar menu<br>";   
+        
         include_once 'app/adms/include/rodape_lib.php';
         ?>
+
     </div>
 </body>
+
 

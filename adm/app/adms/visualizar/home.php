@@ -1,11 +1,10 @@
 <?php
-if (!isset($seguranca)) {
+if (!isset($seg)) {
     exit;
 }
 include_once 'app/adms/include/head.php';
 ?>
-
-<body>
+<body>    
     <?php
     include_once 'app/adms/include/header.php';
     ?>
@@ -66,3 +65,5 @@ include_once 'app/adms/include/head.php';
 
     </div>
 </body>
+
+

@@ -1,7 +1,5 @@
 <?php
-
-if (!isset($seguranca)) {
+if(!isset($seg)){
     exit;
 }
-
-echo "Cadastrar usuário";
+echo "Cadastrar usuário<br>";
