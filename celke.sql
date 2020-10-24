@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Tempo de geração: 23/08/2020 às 20:51
--- Versão do servidor: 10.4.13-MariaDB
--- Versão do PHP: 7.4.8
+-- Host: 127.0.0.1
+-- Tempo de geração: 25-Out-2020 às 00:39
+-- Versão do servidor: 10.4.14-MariaDB
+-- versão do PHP: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adms_cors`
+-- Estrutura da tabela `adms_cors`
 --
 
 CREATE TABLE `adms_cors` (
@@ -36,7 +36,7 @@ CREATE TABLE `adms_cors` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `adms_cors`
+-- Extraindo dados da tabela `adms_cors`
 --
 
 INSERT INTO `adms_cors` (`id`, `nome`, `cor`, `created`, `modified`) VALUES
@@ -52,7 +52,7 @@ INSERT INTO `adms_cors` (`id`, `nome`, `cor`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adms_grps_pgs`
+-- Estrutura da tabela `adms_grps_pgs`
 --
 
 CREATE TABLE `adms_grps_pgs` (
@@ -64,7 +64,7 @@ CREATE TABLE `adms_grps_pgs` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `adms_grps_pgs`
+-- Extraindo dados da tabela `adms_grps_pgs`
 --
 
 INSERT INTO `adms_grps_pgs` (`id`, `nome`, `ordem`, `created`, `modified`) VALUES
@@ -79,7 +79,7 @@ INSERT INTO `adms_grps_pgs` (`id`, `nome`, `ordem`, `created`, `modified`) VALUE
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adms_menus`
+-- Estrutura da tabela `adms_menus`
 --
 
 CREATE TABLE `adms_menus` (
@@ -93,7 +93,7 @@ CREATE TABLE `adms_menus` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `adms_menus`
+-- Extraindo dados da tabela `adms_menus`
 --
 
 INSERT INTO `adms_menus` (`id`, `nome`, `icone`, `ordem`, `adms_sit_id`, `created`, `modified`) VALUES
@@ -105,7 +105,7 @@ INSERT INTO `adms_menus` (`id`, `nome`, `icone`, `ordem`, `adms_sit_id`, `create
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adms_nivacs_pgs`
+-- Estrutura da tabela `adms_nivacs_pgs`
 --
 
 CREATE TABLE `adms_nivacs_pgs` (
@@ -113,7 +113,7 @@ CREATE TABLE `adms_nivacs_pgs` (
   `permissao` int(11) NOT NULL,
   `ordem` int(11) NOT NULL,
   `dropdown` int(11) NOT NULL,
-  `lib_menu` int(11) NOT NULL DEFAULT '2',
+  `lib_menu` int(11) NOT NULL DEFAULT 2,
   `adms_menu_id` int(11) NOT NULL,
   `adms_niveis_acesso_id` int(11) NOT NULL,
   `adms_pagina_id` int(11) NOT NULL,
@@ -122,7 +122,7 @@ CREATE TABLE `adms_nivacs_pgs` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `adms_nivacs_pgs`
+-- Extraindo dados da tabela `adms_nivacs_pgs`
 --
 
 INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu`, `adms_menu_id`, `adms_niveis_acesso_id`, `adms_pagina_id`, `created`, `modified`) VALUES
@@ -138,16 +138,16 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (10, 1, 10, 2, 2, 2, 1, 12, '2018-03-23 00:00:00', NULL),
 (11, 1, 11, 2, 2, 2, 1, 13, '2018-03-23 00:00:00', NULL),
 (12, 1, 1, 2, 1, 1, 3, 1, '2018-03-23 00:00:00', '2018-03-22 18:32:12'),
-(13, 1, 3, 1, 1, 2, 3, 5, '2018-03-23 00:00:00', '2018-03-22 20:12:08'),
-(14, 1, 2, 1, 1, 2, 3, 6, '2018-03-23 00:00:00', '2018-03-22 20:12:08'),
-(15, 1, 4, 1, 1, 3, 3, 7, '2018-03-23 00:00:00', '2018-03-22 16:49:34'),
-(16, 1, 5, 1, 1, 3, 3, 8, '2018-03-23 00:00:00', '2018-03-22 16:49:40'),
+(13, 1, 3, 1, 1, 2, 3, 5, '2018-03-23 00:00:00', '2020-10-23 10:55:28'),
+(14, 2, 2, 2, 2, 2, 3, 6, '2018-03-23 00:00:00', '2020-10-24 19:33:46'),
+(15, 2, 4, 1, 2, 3, 3, 7, '2018-03-23 00:00:00', '2020-10-24 19:33:58'),
+(16, 2, 5, 1, 2, 3, 3, 8, '2018-03-23 00:00:00', '2020-10-24 19:33:59'),
 (17, 1, 6, 2, 1, 4, 3, 4, '2018-03-23 00:00:00', '2018-03-22 17:41:13'),
-(18, 1, 7, 2, 2, 2, 3, 9, '2018-03-23 00:00:00', NULL),
-(19, 1, 8, 2, 2, 2, 3, 10, '2018-03-23 00:00:00', NULL),
-(20, 1, 9, 2, 2, 2, 3, 11, '2018-03-23 00:00:00', NULL),
-(21, 1, 10, 2, 2, 2, 3, 12, '2018-03-23 00:00:00', NULL),
-(22, 1, 11, 2, 2, 2, 3, 13, '2018-03-23 00:00:00', NULL),
+(18, 2, 7, 2, 2, 2, 3, 9, '2018-03-23 00:00:00', '2020-10-24 19:34:19'),
+(19, 2, 8, 2, 2, 2, 3, 10, '2018-03-23 00:00:00', '2020-10-24 19:34:23'),
+(20, 2, 9, 2, 2, 2, 3, 11, '2018-03-23 00:00:00', '2020-10-24 19:34:26'),
+(21, 2, 10, 2, 2, 2, 3, 12, '2018-03-23 00:00:00', '2020-10-24 19:34:28'),
+(22, 2, 11, 2, 2, 2, 3, 13, '2018-03-23 00:00:00', '2020-10-24 19:34:19'),
 (23, 1, 12, 2, 2, 2, 1, 14, '2018-03-23 00:00:00', NULL),
 (24, 1, 13, 1, 2, 2, 1, 15, '2018-03-23 00:00:00', NULL),
 (25, 1, 14, 1, 2, 3, 1, 16, '2018-03-23 00:00:00', NULL),
@@ -162,37 +162,83 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (34, 2, 2, 1, 2, 3, 14, 22, '2018-03-21 12:39:49', NULL),
 (35, 1, 18, 1, 2, 3, 1, 23, '2018-03-21 16:43:09', NULL),
 (36, 2, 3, 1, 2, 3, 2, 23, '2018-03-21 16:43:09', NULL),
-(37, 1, 14, 1, 2, 3, 3, 23, '2018-03-21 16:43:09', '2018-03-21 22:56:30'),
+(37, 2, 14, 1, 2, 3, 3, 23, '2018-03-21 16:43:09', '2020-10-24 19:34:33'),
 (38, 2, 3, 1, 2, 3, 14, 23, '2018-03-21 16:43:09', NULL),
 (39, 1, 19, 1, 2, 3, 1, 24, '2018-03-21 17:46:32', NULL),
 (40, 2, 4, 1, 2, 3, 2, 24, '2018-03-21 17:46:32', NULL),
-(41, 1, 15, 1, 2, 3, 3, 24, '2018-03-21 17:46:32', '2018-03-21 22:56:30'),
+(41, 2, 15, 1, 2, 3, 3, 24, '2018-03-21 17:46:32', '2020-10-24 19:34:33'),
 (42, 2, 4, 1, 2, 3, 14, 24, '2018-03-21 17:46:32', NULL),
 (50, 2, 5, 1, 2, 3, 14, 26, '2018-03-21 20:16:19', NULL),
 (49, 1, 16, 1, 2, 3, 3, 26, '2018-03-21 20:16:19', NULL),
-(48, 2, 5, 1, 2, 3, 2, 26, '2018-03-21 20:16:19', NULL),
+(48, 1, 5, 1, 2, 3, 2, 26, '2018-03-21 20:16:19', '2020-10-24 19:32:12'),
 (47, 1, 20, 1, 2, 3, 1, 26, '2018-03-21 20:16:19', NULL),
 (51, 1, 21, 1, 2, 3, 1, 27, '2018-03-21 21:56:03', NULL),
-(52, 2, 6, 1, 2, 3, 2, 27, '2018-03-21 21:56:03', NULL),
+(52, 1, 6, 1, 2, 3, 2, 27, '2018-03-21 21:56:03', '2020-10-24 19:33:06'),
 (53, 2, 17, 1, 2, 3, 3, 27, '2018-03-21 21:56:03', NULL),
 (54, 2, 6, 1, 2, 3, 14, 27, '2018-03-21 21:56:03', NULL),
 (55, 1, 22, 1, 2, 3, 1, 28, '2018-03-22 17:14:57', NULL),
-(56, 2, 7, 1, 2, 3, 2, 28, '2018-03-22 17:14:57', NULL),
+(56, 1, 7, 1, 2, 3, 2, 28, '2018-03-22 17:14:57', '2020-10-24 19:33:23'),
 (57, 2, 18, 1, 2, 3, 3, 28, '2018-03-22 17:14:57', NULL),
 (58, 2, 7, 1, 2, 3, 14, 28, '2018-03-22 17:14:57', NULL),
 (59, 1, 23, 1, 2, 3, 1, 29, '2018-03-22 18:24:20', NULL),
-(60, 2, 8, 1, 2, 3, 2, 29, '2018-03-22 18:24:20', NULL),
+(60, 1, 8, 1, 2, 3, 2, 29, '2018-03-22 18:24:20', '2020-10-24 19:33:28'),
 (61, 2, 19, 1, 2, 3, 3, 29, '2018-03-22 18:24:20', NULL),
 (62, 2, 8, 1, 2, 3, 14, 29, '2018-03-22 18:24:20', NULL),
 (63, 1, 24, 1, 2, 3, 1, 30, '2018-03-22 19:21:32', NULL),
-(64, 2, 9, 1, 2, 3, 2, 30, '2018-03-22 19:21:32', NULL),
+(64, 1, 9, 1, 2, 3, 2, 30, '2018-03-22 19:21:32', '2020-10-24 19:33:38'),
 (65, 2, 20, 1, 2, 3, 3, 30, '2018-03-22 19:21:32', NULL),
-(66, 2, 9, 1, 2, 3, 14, 30, '2018-03-22 19:21:32', NULL);
+(66, 2, 9, 1, 2, 3, 14, 30, '2018-03-22 19:21:32', NULL),
+(67, 1, 25, 1, 2, 3, 1, 31, '2020-10-24 18:58:06', NULL),
+(68, 2, 10, 1, 2, 3, 2, 31, '2020-10-24 18:58:06', NULL),
+(69, 2, 21, 1, 2, 3, 3, 31, '2020-10-24 18:58:06', NULL),
+(70, 2, 10, 1, 2, 3, 14, 31, '2020-10-24 18:58:06', NULL),
+(71, 1, 26, 1, 2, 3, 1, 2, '2020-10-24 19:25:08', NULL),
+(72, 1, 27, 1, 2, 3, 1, 3, '2020-10-24 19:25:08', NULL),
+(73, 1, 11, 2, 1, 1, 2, 1, '2020-10-24 19:25:08', '2020-10-24 19:31:26'),
+(74, 1, 12, 2, 1, 4, 2, 4, '2020-10-24 19:25:08', '2020-10-24 19:31:24'),
+(75, 1, 13, 1, 2, 3, 2, 2, '2020-10-24 19:25:08', NULL),
+(76, 1, 14, 1, 2, 3, 2, 3, '2020-10-24 19:25:08', NULL),
+(77, 1, 15, 1, 1, 2, 2, 5, '2020-10-24 19:25:08', '2020-10-24 19:31:31'),
+(78, 1, 16, 1, 1, 2, 2, 6, '2020-10-24 19:25:08', '2020-10-24 19:31:35'),
+(79, 2, 17, 1, 2, 3, 2, 7, '2020-10-24 19:25:08', NULL),
+(80, 1, 18, 1, 1, 3, 2, 8, '2020-10-24 19:25:09', '2020-10-24 19:35:53'),
+(81, 1, 19, 1, 2, 2, 2, 9, '2020-10-24 19:25:09', '2020-10-24 19:29:09'),
+(82, 1, 20, 1, 2, 2, 2, 10, '2020-10-24 19:25:09', '2020-10-24 19:29:16'),
+(83, 1, 21, 1, 2, 2, 2, 11, '2020-10-24 19:25:09', '2020-10-24 19:29:23'),
+(84, 1, 22, 1, 2, 2, 2, 12, '2020-10-24 19:25:09', '2020-10-24 19:30:05'),
+(85, 1, 23, 1, 2, 2, 2, 13, '2020-10-24 19:25:09', '2020-10-24 19:29:09'),
+(86, 1, 24, 1, 2, 2, 2, 14, '2020-10-24 19:25:09', '2020-10-24 19:29:23'),
+(87, 1, 25, 1, 2, 2, 2, 15, '2020-10-24 19:25:09', '2020-10-24 19:31:40'),
+(88, 2, 26, 1, 2, 3, 2, 16, '2020-10-24 19:25:09', NULL),
+(89, 2, 27, 1, 2, 3, 2, 17, '2020-10-24 19:25:09', NULL),
+(90, 1, 22, 1, 2, 3, 3, 2, '2020-10-24 19:25:09', NULL),
+(91, 1, 23, 1, 2, 3, 3, 3, '2020-10-24 19:25:09', NULL),
+(92, 2, 24, 1, 2, 2, 3, 14, '2020-10-24 19:25:09', '2020-10-24 19:34:26'),
+(93, 2, 25, 1, 2, 2, 3, 15, '2020-10-24 19:25:09', NULL),
+(94, 2, 26, 1, 2, 3, 3, 16, '2020-10-24 19:25:09', NULL),
+(95, 2, 27, 1, 2, 3, 3, 17, '2020-10-24 19:25:09', NULL),
+(96, 2, 11, 1, 2, 1, 14, 1, '2020-10-24 19:25:09', NULL),
+(97, 1, 12, 1, 2, 4, 14, 4, '2020-10-24 19:25:09', NULL),
+(98, 1, 13, 1, 2, 3, 14, 2, '2020-10-24 19:25:09', NULL),
+(99, 1, 14, 1, 2, 3, 14, 3, '2020-10-24 19:25:09', NULL),
+(100, 2, 15, 1, 2, 2, 14, 5, '2020-10-24 19:25:09', NULL),
+(101, 2, 16, 1, 2, 2, 14, 6, '2020-10-24 19:25:09', NULL),
+(102, 2, 17, 1, 2, 3, 14, 7, '2020-10-24 19:25:09', NULL),
+(103, 2, 18, 1, 2, 3, 14, 8, '2020-10-24 19:25:09', NULL),
+(104, 2, 19, 1, 2, 2, 14, 9, '2020-10-24 19:25:09', NULL),
+(105, 2, 20, 1, 2, 2, 14, 10, '2020-10-24 19:25:09', NULL),
+(106, 2, 21, 1, 2, 2, 14, 11, '2020-10-24 19:25:09', NULL),
+(107, 2, 22, 1, 2, 2, 14, 12, '2020-10-24 19:25:09', NULL),
+(108, 2, 23, 1, 2, 2, 14, 13, '2020-10-24 19:25:09', NULL),
+(109, 2, 24, 1, 2, 2, 14, 14, '2020-10-24 19:25:09', NULL),
+(110, 2, 25, 1, 2, 2, 14, 15, '2020-10-24 19:25:09', NULL),
+(111, 2, 26, 1, 2, 3, 14, 16, '2020-10-24 19:25:09', NULL),
+(112, 2, 27, 1, 2, 3, 14, 17, '2020-10-24 19:25:09', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adms_niveis_acessos`
+-- Estrutura da tabela `adms_niveis_acessos`
 --
 
 CREATE TABLE `adms_niveis_acessos` (
@@ -204,7 +250,7 @@ CREATE TABLE `adms_niveis_acessos` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `adms_niveis_acessos`
+-- Extraindo dados da tabela `adms_niveis_acessos`
 --
 
 INSERT INTO `adms_niveis_acessos` (`id`, `nome`, `ordem`, `created`, `modified`) VALUES
@@ -216,30 +262,30 @@ INSERT INTO `adms_niveis_acessos` (`id`, `nome`, `ordem`, `created`, `modified`)
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adms_paginas`
+-- Estrutura da tabela `adms_paginas`
 --
 
 CREATE TABLE `adms_paginas` (
   `id` int(11) NOT NULL,
   `nome_pagina` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
   `endereco` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
-  `obs` text COLLATE utf8_unicode_ci,
+  `obs` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `keywords` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
   `author` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `lib_pub` int(11) NOT NULL DEFAULT '2',
+  `lib_pub` int(11) NOT NULL DEFAULT 2,
   `icone` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `depend_pg` int(11) NOT NULL DEFAULT '0',
+  `depend_pg` int(11) NOT NULL DEFAULT 0,
   `adms_grps_pg_id` int(11) NOT NULL,
   `adms_tps_pg_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `adms_robot_id` int(11) NOT NULL DEFAULT '4',
-  `adms_sits_pg_id` int(11) NOT NULL DEFAULT '1',
+  `adms_robot_id` int(11) NOT NULL DEFAULT 4,
+  `adms_sits_pg_id` int(11) NOT NULL DEFAULT 1,
   `created` datetime NOT NULL,
   `modified` datetime DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `adms_paginas`
+-- Extraindo dados da tabela `adms_paginas`
 --
 
 INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, `description`, `author`, `lib_pub`, `icone`, `depend_pg`, `adms_grps_pg_id`, `adms_tps_pg_id`, `adms_robot_id`, `adms_sits_pg_id`, `created`, `modified`) VALUES
@@ -251,7 +297,7 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (6, 'Nivel de Acesso', 'listar/list_niv_aces', 'Pagina para listar nivel de acesso', 'Listar nivel de acesso', 'Listar nivel de acesso', 'Celke', 2, 'fas fa-key', 0, 1, '1', 4, 1, '2018-03-23 00:00:00', NULL),
 (7, 'Paginas', 'listar/list_pagina', 'Pagina para listar as paginas do ADM', 'Listar pagina', 'Listar pagina', 'Celke', 2, 'fas fa-file-alt', 0, 1, '1', 4, 1, '2018-03-23 00:00:00', NULL),
 (8, 'Menu', 'listar/list_menu', 'Pagina para listar os itens do menu', 'Pagina para listar os itens do menu', 'Pagina para listar os itens do menu', 'Celke', 2, 'fab fa-elementor', 0, 1, '1', 4, 1, '2018-03-23 00:00:00', NULL),
-(9, 'Cadastrar Usuario', 'cadastrar/cad_niv_aces', 'Pagina para cadastrar usuario', 'Pagina para cadastrar usuario', 'Pagina para cadastrar usuario', 'Celke', 2, NULL, 0, 2, '1', 4, 1, '2018-03-23 00:00:00', NULL),
+(9, 'Cadastrar Nível de acesso', 'cadastrar/cad_niv_aces', 'Pagina para cadastrar nível de acesso', 'Pagina para cadastrar nível de acesso', 'Pagina para cadastrar nível de acesso', 'Natobpia', 2, '', 0, 2, '1', 4, 1, '2018-03-23 00:00:00', '2020-10-24 19:28:46'),
 (10, 'Visualizar nivel de acesso', 'visualizar/vis_niv_aces', 'Pagina para Visualizar nivel de acesso', 'Pagina para Visualizar nivel de acesso', 'Pagina para Visualizar nivel de acesso', 'Celke', 2, NULL, 0, 5, '1', 4, 1, '2018-03-23 00:00:00', NULL),
 (11, 'Editar nivel de acesso', 'editar/edit_niv_aces', 'Pagina para editar nivel de acesso', 'Pagina para editar nivel de acesso', 'Pagina para editar nivel de acesso', 'Celke', 2, NULL, 0, 3, '1', 4, 1, '2018-03-23 00:00:00', NULL),
 (12, 'Apagar nivel de acesso', 'processa/apagar_niv_aces', 'Pagina para apagar nivel de acesso', 'Pagina para apagar nivel de acesso', 'Pagina para apagar nivel de acesso', 'Celke', 2, NULL, 0, 4, '1', 4, 1, '2018-03-23 00:00:00', NULL),
@@ -268,12 +314,13 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (24, 'Proc form edita pagina', 'processa/proc_edit_pagina', 'PÃ¡gina para processar o formulÃ¡rio editar a pÃ¡gina', 'Proc form edita pagina', 'Proc form edita pagina', 'Celke', 2, '', 23, 3, '1', 4, 1, '2018-03-21 17:46:32', '2018-03-21 22:56:16'),
 (28, 'Liberar Menu', 'processa/proc_lib_menu', 'PÃ¡gina para Liberar item Menu', 'Liberar Menu', 'Liberar Menu', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-22 17:14:57', NULL),
 (29, 'Liberar Dropdown no menu', 'processa/proc_lib_dropdown', 'PÃ¡gina para Liberar Dropdown no menu', 'Liberar Dropdown no menu', 'Liberar Dropdown no menu', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-22 18:24:19', NULL),
-(30, 'Alterar Ordem do Menu', 'processa/proc_ordem_menu', 'PÃ¡gina para Alterar Ordem do Menu', 'Alterar Ordem do Menu', 'Alterar Ordem do Menu', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-22 19:21:32', NULL);
+(30, 'Alterar Ordem do Menu', 'processa/proc_ordem_menu', 'PÃ¡gina para Alterar Ordem do Menu', 'Alterar Ordem do Menu', 'Alterar Ordem do Menu', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-22 19:21:32', NULL),
+(31, 'Sincronizar Páginas', 'processa/proc_sincro_nivac_pg', 'Página para Sincronizar Páginas com Nível de acesso', 'Sincronizar Páginas', 'Sincronizar Páginas', 'Natobpia', 2, '', 0, 3, '1', 2, 1, '2020-10-24 18:58:05', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adms_robots`
+-- Estrutura da tabela `adms_robots`
 --
 
 CREATE TABLE `adms_robots` (
@@ -285,7 +332,7 @@ CREATE TABLE `adms_robots` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `adms_robots`
+-- Extraindo dados da tabela `adms_robots`
 --
 
 INSERT INTO `adms_robots` (`id`, `nome`, `tipo`, `created`, `modified`) VALUES
@@ -298,7 +345,7 @@ INSERT INTO `adms_robots` (`id`, `nome`, `tipo`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adms_sits`
+-- Estrutura da tabela `adms_sits`
 --
 
 CREATE TABLE `adms_sits` (
@@ -310,7 +357,7 @@ CREATE TABLE `adms_sits` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `adms_sits`
+-- Extraindo dados da tabela `adms_sits`
 --
 
 INSERT INTO `adms_sits` (`id`, `nome`, `cor`, `created`, `modified`) VALUES
@@ -321,7 +368,7 @@ INSERT INTO `adms_sits` (`id`, `nome`, `cor`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adms_sits_pgs`
+-- Estrutura da tabela `adms_sits_pgs`
 --
 
 CREATE TABLE `adms_sits_pgs` (
@@ -333,7 +380,7 @@ CREATE TABLE `adms_sits_pgs` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `adms_sits_pgs`
+-- Extraindo dados da tabela `adms_sits_pgs`
 --
 
 INSERT INTO `adms_sits_pgs` (`id`, `nome`, `cor`, `created`, `modified`) VALUES
@@ -344,7 +391,7 @@ INSERT INTO `adms_sits_pgs` (`id`, `nome`, `cor`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adms_sits_usuarios`
+-- Estrutura da tabela `adms_sits_usuarios`
 --
 
 CREATE TABLE `adms_sits_usuarios` (
@@ -356,7 +403,7 @@ CREATE TABLE `adms_sits_usuarios` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `adms_sits_usuarios`
+-- Extraindo dados da tabela `adms_sits_usuarios`
 --
 
 INSERT INTO `adms_sits_usuarios` (`id`, `nome`, `adms_cor_id`, `created`, `modified`) VALUES
@@ -368,7 +415,7 @@ INSERT INTO `adms_sits_usuarios` (`id`, `nome`, `adms_cor_id`, `created`, `modif
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adms_tps_pgs`
+-- Estrutura da tabela `adms_tps_pgs`
 --
 
 CREATE TABLE `adms_tps_pgs` (
@@ -382,7 +429,7 @@ CREATE TABLE `adms_tps_pgs` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `adms_tps_pgs`
+-- Extraindo dados da tabela `adms_tps_pgs`
 --
 
 INSERT INTO `adms_tps_pgs` (`id`, `tipo`, `nome`, `obs`, `ordem`, `created`, `modified`) VALUES
@@ -391,7 +438,7 @@ INSERT INTO `adms_tps_pgs` (`id`, `tipo`, `nome`, `obs`, `ordem`, `created`, `mo
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adms_usuarios`
+-- Estrutura da tabela `adms_usuarios`
 --
 
 CREATE TABLE `adms_usuarios` (
@@ -411,7 +458,7 @@ CREATE TABLE `adms_usuarios` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `adms_usuarios`
+-- Extraindo dados da tabela `adms_usuarios`
 --
 
 INSERT INTO `adms_usuarios` (`id`, `nome`, `apelido`, `email`, `usuario`, `senha`, `recuperar_senha`, `chave_descadastro`, `imagem`, `adms_niveis_acesso_id`, `adms_sits_usuario_id`, `created`, `modified`) VALUES
@@ -419,9 +466,10 @@ INSERT INTO `adms_usuarios` (`id`, `nome`, `apelido`, `email`, `usuario`, `senha
 (2, 'Jessica', 'Jessica', 'jessica@celke.com.br', 'jessica@celke.com.br', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, 'celke.jpg', 3, 1, '2018-03-23 00:00:00', NULL),
 (3, 'Kelly', 'Kelly', 'kelly@celke.com.br', 'kelly@celke.com.br', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, 'celke.jpg', 2, 1, '2018-03-23 00:00:00', NULL);
 
+-- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_artigos`
+-- Estrutura da tabela `sts_artigos`
 --
 
 CREATE TABLE `sts_artigos` (
@@ -446,7 +494,7 @@ CREATE TABLE `sts_artigos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Despejando dados para a tabela `sts_artigos`
+-- Extraindo dados da tabela `sts_artigos`
 --
 
 INSERT INTO `sts_artigos` (`id`, `titulo`, `descricao`, `conteudo`, `imagem`, `slug`, `keywords`, `description`, `author`, `resumo_publico`, `qnt_acesso`, `sts_robot_id`, `adms_usuario_id`, `sts_situacoe_id`, `sts_cats_artigo_id`, `sts_tps_artigo_id`, `created`, `modified`) VALUES
@@ -458,7 +506,7 @@ INSERT INTO `sts_artigos` (`id`, `titulo`, `descricao`, `conteudo`, `imagem`, `s
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_blogs_sobre`
+-- Estrutura da tabela `sts_blogs_sobre`
 --
 
 CREATE TABLE `sts_blogs_sobre` (
@@ -471,7 +519,7 @@ CREATE TABLE `sts_blogs_sobre` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Despejando dados para a tabela `sts_blogs_sobre`
+-- Extraindo dados da tabela `sts_blogs_sobre`
 --
 
 INSERT INTO `sts_blogs_sobre` (`id`, `titulo`, `descricao`, `sts_situacoe_id`, `created`, `modified`) VALUES
@@ -480,7 +528,7 @@ INSERT INTO `sts_blogs_sobre` (`id`, `titulo`, `descricao`, `sts_situacoe_id`, `
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_carousels`
+-- Estrutura da tabela `sts_carousels`
 --
 
 CREATE TABLE `sts_carousels` (
@@ -500,7 +548,7 @@ CREATE TABLE `sts_carousels` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Despejando dados para a tabela `sts_carousels`
+-- Extraindo dados da tabela `sts_carousels`
 --
 
 INSERT INTO `sts_carousels` (`id`, `nome`, `imagem`, `titulo`, `descricao`, `posicao_text`, `titulo_botao`, `link`, `ordem`, `sts_cor_id`, `sts_situacoes_id`, `created`, `modified`) VALUES
@@ -511,7 +559,7 @@ INSERT INTO `sts_carousels` (`id`, `nome`, `imagem`, `titulo`, `descricao`, `pos
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_cats_artigos`
+-- Estrutura da tabela `sts_cats_artigos`
 --
 
 CREATE TABLE `sts_cats_artigos` (
@@ -523,7 +571,7 @@ CREATE TABLE `sts_cats_artigos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Despejando dados para a tabela `sts_cats_artigos`
+-- Extraindo dados da tabela `sts_cats_artigos`
 --
 
 INSERT INTO `sts_cats_artigos` (`id`, `nome`, `sts_situacoe_id`, `created`, `modifed`) VALUES
@@ -534,7 +582,7 @@ INSERT INTO `sts_cats_artigos` (`id`, `nome`, `sts_situacoe_id`, `created`, `mod
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_contatos`
+-- Estrutura da tabela `sts_contatos`
 --
 
 CREATE TABLE `sts_contatos` (
@@ -548,7 +596,7 @@ CREATE TABLE `sts_contatos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Despejando dados para a tabela `sts_contatos`
+-- Extraindo dados da tabela `sts_contatos`
 --
 
 INSERT INTO `sts_contatos` (`id`, `nome`, `email`, `assunto`, `mensagem`, `created`, `modified`) VALUES
@@ -557,7 +605,7 @@ INSERT INTO `sts_contatos` (`id`, `nome`, `email`, `assunto`, `mensagem`, `creat
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_cors`
+-- Estrutura da tabela `sts_cors`
 --
 
 CREATE TABLE `sts_cors` (
@@ -569,7 +617,7 @@ CREATE TABLE `sts_cors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Despejando dados para a tabela `sts_cors`
+-- Extraindo dados da tabela `sts_cors`
 --
 
 INSERT INTO `sts_cors` (`id`, `nome`, `cor`, `created`, `modified`) VALUES
@@ -585,7 +633,7 @@ INSERT INTO `sts_cors` (`id`, `nome`, `cor`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_forms_emails`
+-- Estrutura da tabela `sts_forms_emails`
 --
 
 CREATE TABLE `sts_forms_emails` (
@@ -599,7 +647,7 @@ CREATE TABLE `sts_forms_emails` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Despejando dados para a tabela `sts_forms_emails`
+-- Extraindo dados da tabela `sts_forms_emails`
 --
 
 INSERT INTO `sts_forms_emails` (`id`, `titulo`, `descricao`, `titulo_botao`, `imagem`, `created`, `modified`) VALUES
@@ -608,7 +656,7 @@ INSERT INTO `sts_forms_emails` (`id`, `titulo`, `descricao`, `titulo_botao`, `im
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_leads`
+-- Estrutura da tabela `sts_leads`
 --
 
 CREATE TABLE `sts_leads` (
@@ -619,7 +667,7 @@ CREATE TABLE `sts_leads` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Despejando dados para a tabela `sts_leads`
+-- Extraindo dados da tabela `sts_leads`
 --
 
 INSERT INTO `sts_leads` (`id`, `email`, `created`, `modified`) VALUES
@@ -629,7 +677,7 @@ INSERT INTO `sts_leads` (`id`, `email`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_paginas`
+-- Estrutura da tabela `sts_paginas`
 --
 
 CREATE TABLE `sts_paginas` (
@@ -653,7 +701,7 @@ CREATE TABLE `sts_paginas` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Despejando dados para a tabela `sts_paginas`
+-- Extraindo dados da tabela `sts_paginas`
 --
 
 INSERT INTO `sts_paginas` (`id`, `endereco`, `nome_pagina`, `titulo`, `obs`, `keywords`, `description`, `author`, `imagem`, `tp_pagina`, `lib_bloq`, `ordem`, `depend_pg`, `sts_robot_id`, `sts_situacaos_pg_id`, `created`, `modified`) VALUES
@@ -668,7 +716,7 @@ INSERT INTO `sts_paginas` (`id`, `endereco`, `nome_pagina`, `titulo`, `obs`, `ke
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_pergs_resps`
+-- Estrutura da tabela `sts_pergs_resps`
 --
 
 CREATE TABLE `sts_pergs_resps` (
@@ -681,7 +729,7 @@ CREATE TABLE `sts_pergs_resps` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Despejando dados para a tabela `sts_pergs_resps`
+-- Extraindo dados da tabela `sts_pergs_resps`
 --
 
 INSERT INTO `sts_pergs_resps` (`id`, `pergunta`, `resposta`, `sts_situacoe_id`, `created`, `modifed`) VALUES
@@ -692,7 +740,7 @@ INSERT INTO `sts_pergs_resps` (`id`, `pergunta`, `resposta`, `sts_situacoe_id`, 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_prods_homes`
+-- Estrutura da tabela `sts_prods_homes`
 --
 
 CREATE TABLE `sts_prods_homes` (
@@ -706,7 +754,7 @@ CREATE TABLE `sts_prods_homes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Despejando dados para a tabela `sts_prods_homes`
+-- Extraindo dados da tabela `sts_prods_homes`
 --
 
 INSERT INTO `sts_prods_homes` (`id`, `titulo`, `subtitulo`, `descricao`, `imagem`, `created`, `modified`) VALUES
@@ -715,7 +763,7 @@ INSERT INTO `sts_prods_homes` (`id`, `titulo`, `subtitulo`, `descricao`, `imagem
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_robots`
+-- Estrutura da tabela `sts_robots`
 --
 
 CREATE TABLE `sts_robots` (
@@ -727,7 +775,7 @@ CREATE TABLE `sts_robots` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Despejando dados para a tabela `sts_robots`
+-- Extraindo dados da tabela `sts_robots`
 --
 
 INSERT INTO `sts_robots` (`id`, `nome`, `tipo`, `created`, `modified`) VALUES
@@ -740,7 +788,7 @@ INSERT INTO `sts_robots` (`id`, `nome`, `tipo`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_servicos`
+-- Estrutura da tabela `sts_servicos`
 --
 
 CREATE TABLE `sts_servicos` (
@@ -760,7 +808,7 @@ CREATE TABLE `sts_servicos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Despejando dados para a tabela `sts_servicos`
+-- Extraindo dados da tabela `sts_servicos`
 --
 
 INSERT INTO `sts_servicos` (`id`, `titulo`, `icone_um`, `nome_um`, `descricao_um`, `icone_dois`, `nome_dois`, `descricao_dois`, `icone_tres`, `nome_tres`, `descricao_tres`, `created`, `modified`) VALUES
@@ -769,7 +817,7 @@ INSERT INTO `sts_servicos` (`id`, `titulo`, `icone_um`, `nome_um`, `descricao_um
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_situacoes`
+-- Estrutura da tabela `sts_situacoes`
 --
 
 CREATE TABLE `sts_situacoes` (
@@ -781,7 +829,7 @@ CREATE TABLE `sts_situacoes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Despejando dados para a tabela `sts_situacoes`
+-- Extraindo dados da tabela `sts_situacoes`
 --
 
 INSERT INTO `sts_situacoes` (`id`, `nome`, `sts_cor_id`, `created`, `modified`) VALUES
@@ -792,7 +840,7 @@ INSERT INTO `sts_situacoes` (`id`, `nome`, `sts_cor_id`, `created`, `modified`) 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_sobs_emps`
+-- Estrutura da tabela `sts_sobs_emps`
 --
 
 CREATE TABLE `sts_sobs_emps` (
@@ -807,7 +855,7 @@ CREATE TABLE `sts_sobs_emps` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Despejando dados para a tabela `sts_sobs_emps`
+-- Extraindo dados da tabela `sts_sobs_emps`
 --
 
 INSERT INTO `sts_sobs_emps` (`id`, `titulo`, `descricao`, `imagem`, `ordem`, `sts_situacoe_id`, `created`, `modifed`) VALUES
@@ -819,7 +867,7 @@ INSERT INTO `sts_sobs_emps` (`id`, `titulo`, `descricao`, `imagem`, `ordem`, `st
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_tps_artigos`
+-- Estrutura da tabela `sts_tps_artigos`
 --
 
 CREATE TABLE `sts_tps_artigos` (
@@ -830,7 +878,7 @@ CREATE TABLE `sts_tps_artigos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Despejando dados para a tabela `sts_tps_artigos`
+-- Extraindo dados da tabela `sts_tps_artigos`
 --
 
 INSERT INTO `sts_tps_artigos` (`id`, `nome`, `created`, `modified`) VALUES
@@ -841,7 +889,7 @@ INSERT INTO `sts_tps_artigos` (`id`, `nome`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_videos`
+-- Estrutura da tabela `sts_videos`
 --
 
 CREATE TABLE `sts_videos` (
@@ -856,192 +904,192 @@ CREATE TABLE `sts_videos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Despejando dados para a tabela `sts_videos`
+-- Extraindo dados da tabela `sts_videos`
 --
 
 INSERT INTO `sts_videos` (`id`, `titulo`, `descricao`, `video_um`, `video_dois`, `video_tres`, `created`, `modified`) VALUES
 (1, 'Depoimentos', 'This is a wider card with supporting text below as a natural lead-in to additional content.', '<iframe class=\"embed-responsive-item\" src=\"https://www.youtube.com/embed/JfAgl6CGg2Q?rel=0\" allowfullscreen></iframe>', '<iframe class=\"embed-responsive-item\" src=\"https://www.youtube.com/embed/4tBeeMcw2sM?rel=0\" allowfullscreen></iframe>', '<iframe class=\"embed-responsive-item\" src=\"https://www.youtube.com/embed/i_R6sMRRQ0s?rel=0\" allowfullscreen></iframe>', '2020-05-22 11:22:37', NULL);
 
 --
--- Índices de tabelas apagadas
+-- Índices para tabelas despejadas
 --
 
 --
--- Índices de tabela `adms_cors`
+-- Índices para tabela `adms_cors`
 --
 ALTER TABLE `adms_cors`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `adms_grps_pgs`
+-- Índices para tabela `adms_grps_pgs`
 --
 ALTER TABLE `adms_grps_pgs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `adms_menus`
+-- Índices para tabela `adms_menus`
 --
 ALTER TABLE `adms_menus`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `adms_nivacs_pgs`
+-- Índices para tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `adms_niveis_acessos`
+-- Índices para tabela `adms_niveis_acessos`
 --
 ALTER TABLE `adms_niveis_acessos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `adms_paginas`
+-- Índices para tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `adms_robots`
+-- Índices para tabela `adms_robots`
 --
 ALTER TABLE `adms_robots`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `adms_sits`
+-- Índices para tabela `adms_sits`
 --
 ALTER TABLE `adms_sits`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `adms_sits_pgs`
+-- Índices para tabela `adms_sits_pgs`
 --
 ALTER TABLE `adms_sits_pgs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `adms_sits_usuarios`
+-- Índices para tabela `adms_sits_usuarios`
 --
 ALTER TABLE `adms_sits_usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `adms_tps_pgs`
+-- Índices para tabela `adms_tps_pgs`
 --
 ALTER TABLE `adms_tps_pgs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `adms_usuarios`
+-- Índices para tabela `adms_usuarios`
 --
 ALTER TABLE `adms_usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_artigos`
+-- Índices para tabela `sts_artigos`
 --
 ALTER TABLE `sts_artigos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_blogs_sobre`
+-- Índices para tabela `sts_blogs_sobre`
 --
 ALTER TABLE `sts_blogs_sobre`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_carousels`
+-- Índices para tabela `sts_carousels`
 --
 ALTER TABLE `sts_carousels`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_cats_artigos`
+-- Índices para tabela `sts_cats_artigos`
 --
 ALTER TABLE `sts_cats_artigos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_contatos`
+-- Índices para tabela `sts_contatos`
 --
 ALTER TABLE `sts_contatos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_cors`
+-- Índices para tabela `sts_cors`
 --
 ALTER TABLE `sts_cors`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_forms_emails`
+-- Índices para tabela `sts_forms_emails`
 --
 ALTER TABLE `sts_forms_emails`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_leads`
+-- Índices para tabela `sts_leads`
 --
 ALTER TABLE `sts_leads`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_paginas`
+-- Índices para tabela `sts_paginas`
 --
 ALTER TABLE `sts_paginas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_pergs_resps`
+-- Índices para tabela `sts_pergs_resps`
 --
 ALTER TABLE `sts_pergs_resps`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_prods_homes`
+-- Índices para tabela `sts_prods_homes`
 --
 ALTER TABLE `sts_prods_homes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_robots`
+-- Índices para tabela `sts_robots`
 --
 ALTER TABLE `sts_robots`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_servicos`
+-- Índices para tabela `sts_servicos`
 --
 ALTER TABLE `sts_servicos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_situacoes`
+-- Índices para tabela `sts_situacoes`
 --
 ALTER TABLE `sts_situacoes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_sobs_emps`
+-- Índices para tabela `sts_sobs_emps`
 --
 ALTER TABLE `sts_sobs_emps`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_tps_artigos`
+-- Índices para tabela `sts_tps_artigos`
 --
 ALTER TABLE `sts_tps_artigos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_videos`
+-- Índices para tabela `sts_videos`
 --
 ALTER TABLE `sts_videos`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de tabelas apagadas
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
@@ -1066,19 +1114,19 @@ ALTER TABLE `adms_menus`
 -- AUTO_INCREMENT de tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
 -- AUTO_INCREMENT de tabela `adms_niveis_acessos`
 --
 ALTER TABLE `adms_niveis_acessos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de tabela `adms_robots`
@@ -1114,7 +1162,7 @@ ALTER TABLE `adms_tps_pgs`
 -- AUTO_INCREMENT de tabela `adms_usuarios`
 --
 ALTER TABLE `adms_usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `sts_artigos`
