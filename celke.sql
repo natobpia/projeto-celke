@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25-Out-2020 às 00:39
+-- Tempo de geração: 25-Out-2020 às 14:36
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.11
 
@@ -138,7 +138,7 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (10, 1, 10, 2, 2, 2, 1, 12, '2018-03-23 00:00:00', NULL),
 (11, 1, 11, 2, 2, 2, 1, 13, '2018-03-23 00:00:00', NULL),
 (12, 1, 1, 2, 1, 1, 3, 1, '2018-03-23 00:00:00', '2018-03-22 18:32:12'),
-(13, 1, 3, 1, 1, 2, 3, 5, '2018-03-23 00:00:00', '2020-10-23 10:55:28'),
+(13, 1, 3, 1, 1, 2, 3, 5, '2018-03-23 00:00:00', '2020-10-25 10:35:31'),
 (14, 2, 2, 2, 2, 2, 3, 6, '2018-03-23 00:00:00', '2020-10-24 19:33:46'),
 (15, 2, 4, 1, 2, 3, 3, 7, '2018-03-23 00:00:00', '2020-10-24 19:33:58'),
 (16, 2, 5, 1, 2, 3, 3, 8, '2018-03-23 00:00:00', '2020-10-24 19:33:59'),
@@ -199,7 +199,7 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (75, 1, 13, 1, 2, 3, 2, 2, '2020-10-24 19:25:08', NULL),
 (76, 1, 14, 1, 2, 3, 2, 3, '2020-10-24 19:25:08', NULL),
 (77, 1, 15, 1, 1, 2, 2, 5, '2020-10-24 19:25:08', '2020-10-24 19:31:31'),
-(78, 1, 16, 1, 1, 2, 2, 6, '2020-10-24 19:25:08', '2020-10-24 19:31:35'),
+(78, 1, 16, 1, 1, 3, 2, 6, '2020-10-24 19:25:08', '2020-10-25 10:32:58'),
 (79, 2, 17, 1, 2, 3, 2, 7, '2020-10-24 19:25:08', NULL),
 (80, 1, 18, 1, 1, 3, 2, 8, '2020-10-24 19:25:09', '2020-10-24 19:35:53'),
 (81, 1, 19, 1, 2, 2, 2, 9, '2020-10-24 19:25:09', '2020-10-24 19:29:09'),
@@ -233,7 +233,15 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (109, 2, 24, 1, 2, 2, 14, 14, '2020-10-24 19:25:09', NULL),
 (110, 2, 25, 1, 2, 2, 14, 15, '2020-10-24 19:25:09', NULL),
 (111, 2, 26, 1, 2, 3, 14, 16, '2020-10-24 19:25:09', NULL),
-(112, 2, 27, 1, 2, 3, 14, 17, '2020-10-24 19:25:09', NULL);
+(112, 2, 27, 1, 2, 3, 14, 17, '2020-10-24 19:25:09', NULL),
+(113, 1, 28, 1, 2, 3, 1, 32, '2020-10-25 09:38:21', NULL),
+(114, 1, 28, 1, 2, 3, 2, 32, '2020-10-25 09:38:21', '2020-10-25 10:34:31'),
+(115, 2, 28, 1, 2, 3, 3, 32, '2020-10-25 09:38:21', NULL),
+(116, 2, 28, 1, 2, 3, 14, 32, '2020-10-25 09:38:21', NULL),
+(117, 1, 29, 1, 2, 3, 1, 33, '2020-10-25 09:48:59', NULL),
+(118, 1, 29, 1, 2, 3, 2, 33, '2020-10-25 09:48:59', '2020-10-25 10:34:31'),
+(119, 2, 29, 1, 2, 3, 3, 33, '2020-10-25 09:48:59', NULL),
+(120, 2, 29, 1, 2, 3, 14, 33, '2020-10-25 09:48:59', NULL);
 
 -- --------------------------------------------------------
 
@@ -293,8 +301,8 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (4, 'Sair', 'acesso/sair', 'Sair do ADM', 'Sair do ADM', 'Sair do ADM', 'Celke', 1, 'fas fa-sign-out-alt', 0, 7, '1', 4, 1, '2018-03-23 00:00:00', NULL),
 (2, 'Login', 'acesso/login', 'Pagina de login do ADM', 'celke pagina login', 'celke pagina login', 'Celke', 1, NULL, 0, 7, '1', 1, 1, '2018-03-23 00:00:00', NULL),
 (3, 'Validar Login', 'acesso/valida', 'Validar Login', 'Validar Login', 'Validar Login', 'Celke', 1, NULL, 2, 7, '1', 4, 1, '2018-03-23 00:00:00', NULL),
-(5, 'Usuarios', 'listar/list_usuario', 'Pagina para listar usuarios', 'Listar usuarios', 'Listar usuarios', 'Celke', 2, 'fas fa-users', 0, 1, '1', 4, 1, '2018-03-23 00:00:00', NULL),
-(6, 'Nivel de Acesso', 'listar/list_niv_aces', 'Pagina para listar nivel de acesso', 'Listar nivel de acesso', 'Listar nivel de acesso', 'Celke', 2, 'fas fa-key', 0, 1, '1', 4, 1, '2018-03-23 00:00:00', NULL),
+(5, 'Usuarios', 'listar/list_usuario', 'Pagina para listar usuarios', 'Listar usuarios', 'Listar usuarios', 'Celke', 2, 'fas fa-users', 0, 1, '1', 4, 1, '2018-03-23 00:00:00', '2020-10-25 10:35:31'),
+(6, 'Nivel de Acesso', 'listar/list_niv_aces', 'Pagina para listar nivel de acesso', 'Listar nivel de acesso', 'Listar nivel de acesso', 'Celke', 2, 'fas fa-key', 0, 1, '1', 4, 1, '2018-03-23 00:00:00', '2020-10-25 10:32:58'),
 (7, 'Paginas', 'listar/list_pagina', 'Pagina para listar as paginas do ADM', 'Listar pagina', 'Listar pagina', 'Celke', 2, 'fas fa-file-alt', 0, 1, '1', 4, 1, '2018-03-23 00:00:00', NULL),
 (8, 'Menu', 'listar/list_menu', 'Pagina para listar os itens do menu', 'Pagina para listar os itens do menu', 'Pagina para listar os itens do menu', 'Celke', 2, 'fab fa-elementor', 0, 1, '1', 4, 1, '2018-03-23 00:00:00', NULL),
 (9, 'Cadastrar Nível de acesso', 'cadastrar/cad_niv_aces', 'Pagina para cadastrar nível de acesso', 'Pagina para cadastrar nível de acesso', 'Pagina para cadastrar nível de acesso', 'Natobpia', 2, '', 0, 2, '1', 4, 1, '2018-03-23 00:00:00', '2020-10-24 19:28:46'),
@@ -315,7 +323,9 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (28, 'Liberar Menu', 'processa/proc_lib_menu', 'PÃ¡gina para Liberar item Menu', 'Liberar Menu', 'Liberar Menu', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-22 17:14:57', NULL),
 (29, 'Liberar Dropdown no menu', 'processa/proc_lib_dropdown', 'PÃ¡gina para Liberar Dropdown no menu', 'Liberar Dropdown no menu', 'Liberar Dropdown no menu', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-22 18:24:19', NULL),
 (30, 'Alterar Ordem do Menu', 'processa/proc_ordem_menu', 'PÃ¡gina para Alterar Ordem do Menu', 'Alterar Ordem do Menu', 'Alterar Ordem do Menu', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-22 19:21:32', NULL),
-(31, 'Sincronizar Páginas', 'processa/proc_sincro_nivac_pg', 'Página para Sincronizar Páginas com Nível de acesso', 'Sincronizar Páginas', 'Sincronizar Páginas', 'Natobpia', 2, '', 0, 3, '1', 2, 1, '2020-10-24 18:58:05', NULL);
+(31, 'Sincronizar Páginas', 'processa/proc_sincro_nivac_pg', 'Página para Sincronizar Páginas com Nível de acesso', 'Sincronizar Páginas', 'Sincronizar Páginas', 'Natobpia', 2, '', 0, 3, '1', 2, 1, '2020-10-24 18:58:05', NULL),
+(32, 'Editar ícone do menu', 'editar/edit_permissao', 'Página para Editar nome do menu do item do menu', 'Editar nome do menu', 'Editar nome do menu', 'Natobpia', 2, '', 0, 3, '1', 2, 1, '2020-10-25 09:38:21', '2020-10-25 09:50:26'),
+(33, 'Proc form edita permissão', 'processa/proc_edit_permissao', 'Página para processar o formulário editar permissão', 'Proc form edita permissão', 'Proc form edita permissão', 'Natobpia', 2, '', 32, 3, '1', 2, 1, '2020-10-25 09:48:59', '2020-10-25 09:50:31');
 
 -- --------------------------------------------------------
 
@@ -1114,7 +1124,7 @@ ALTER TABLE `adms_menus`
 -- AUTO_INCREMENT de tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 
 --
 -- AUTO_INCREMENT de tabela `adms_niveis_acessos`
@@ -1126,7 +1136,7 @@ ALTER TABLE `adms_niveis_acessos`
 -- AUTO_INCREMENT de tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de tabela `adms_robots`
