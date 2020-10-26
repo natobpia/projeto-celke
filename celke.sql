@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Out-2020 às 14:42
+-- Tempo de geração: 26-Out-2020 às 18:52
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.11
 
@@ -258,7 +258,11 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (133, 1, 33, 1, 2, 3, 1, 37, '2020-10-26 10:30:57', NULL),
 (134, 2, 33, 1, 2, 3, 2, 37, '2020-10-26 10:30:57', NULL),
 (135, 2, 33, 1, 2, 3, 3, 37, '2020-10-26 10:30:57', NULL),
-(136, 2, 33, 1, 2, 3, 14, 37, '2020-10-26 10:30:57', NULL);
+(136, 2, 33, 1, 2, 3, 14, 37, '2020-10-26 10:30:57', NULL),
+(137, 1, 34, 1, 2, 3, 1, 38, '2020-10-26 14:39:07', NULL),
+(138, 2, 34, 1, 2, 3, 2, 38, '2020-10-26 14:39:07', NULL),
+(139, 2, 34, 1, 2, 3, 3, 38, '2020-10-26 14:39:07', NULL),
+(140, 2, 34, 1, 2, 3, 14, 38, '2020-10-26 14:39:07', NULL);
 
 -- --------------------------------------------------------
 
@@ -346,7 +350,8 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (34, 'Cadastrar Menu', 'cadastrar/cad_menu', 'Página para Cadastrar Menu', 'Cadastrar Menu', 'Cadastrar Menu', 'Natobpia', 2, '', 0, 2, '1', 4, 1, '2020-10-26 09:47:10', NULL),
 (35, 'Proc Form Cad Menu', 'processa/proc_cad_menu', 'Página para processar o formulário cadastrar menu', 'Processar o formulário cadastrar menu', 'Processar o formulário cadastrar menu', 'Natobpia', 2, '', 34, 2, '1', 4, 1, '2020-10-26 09:59:10', NULL),
 (36, 'Editar Menu', 'editar/edit_menu', 'Formulário para Editar Menu', 'Editar Menu', 'Editar Menu', 'Natobpia', 2, '', 0, 3, '1', 4, 1, '2020-10-26 10:15:49', NULL),
-(37, 'Proc Form Edit Menu', 'processa/proc_edit_menu', 'Processar o formulário editar item do menu', 'Processar o formulário editar item do menu', 'Processar o formulário editar item do menu', 'Natobpia', 2, '', 36, 3, '1', 4, 1, '2020-10-26 10:30:57', NULL);
+(37, 'Proc Form Edit Menu', 'processa/proc_edit_menu', 'Processar o formulário editar item do menu', 'Processar o formulário editar item do menu', 'Processar o formulário editar item do menu', 'Natobpia', 2, '', 36, 3, '1', 4, 1, '2020-10-26 10:30:57', NULL),
+(38, 'Visualizar Menu', 'visualizar/vis_menu', 'Página para Visualizar Menu', 'Visualizar Menu', 'Visualizar Menu', 'Natobpia', 2, '', 0, 5, '1', 4, 1, '2020-10-26 14:39:07', NULL);
 
 -- --------------------------------------------------------
 
@@ -382,7 +387,7 @@ INSERT INTO `adms_robots` (`id`, `nome`, `tipo`, `created`, `modified`) VALUES
 CREATE TABLE `adms_sits` (
   `id` int(11) NOT NULL,
   `nome` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
-  `cor` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `adms_cor_id` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -391,7 +396,7 @@ CREATE TABLE `adms_sits` (
 -- Extraindo dados da tabela `adms_sits`
 --
 
-INSERT INTO `adms_sits` (`id`, `nome`, `cor`, `created`, `modified`) VALUES
+INSERT INTO `adms_sits` (`id`, `nome`, `adms_cor_id`, `created`, `modified`) VALUES
 (1, 'Ativo', '3', '2018-03-23 00:00:00', NULL),
 (2, 'Inativo', '4', '2018-03-23 00:00:00', NULL),
 (3, 'Analise', '1', '2018-03-23 00:00:00', NULL);
@@ -1145,7 +1150,7 @@ ALTER TABLE `adms_menus`
 -- AUTO_INCREMENT de tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
 
 --
 -- AUTO_INCREMENT de tabela `adms_niveis_acessos`
@@ -1157,7 +1162,7 @@ ALTER TABLE `adms_niveis_acessos`
 -- AUTO_INCREMENT de tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de tabela `adms_robots`
