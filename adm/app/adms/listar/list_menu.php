@@ -25,7 +25,7 @@ include_once 'app/adms/include/head.php';
 
                         $btn_cad = carregar_btn('cadastrar/cad_menu', $conn);
                         if ($btn_cad) {
-                            echo "<a href='" . pg . "/cadastrar/cad_men' class='btn btn-outline-success btn-sm'>Cadastrar</a>";
+                            echo "<a href='" . pg . "/cadastrar/cad_menu' class='btn btn-outline-success btn-sm'>Cadastrar</a>";
                         }
                         ?>
                     </div>
