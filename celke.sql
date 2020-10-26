@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Out-2020 às 18:52
+-- Tempo de geração: 26-Out-2020 às 19:03
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.11
 
@@ -100,8 +100,7 @@ INSERT INTO `adms_menus` (`id`, `nome`, `icone`, `ordem`, `adms_sit_id`, `create
 (1, 'Dashboard', 'fas fa-tachometer-alt', 1, 1, '2018-03-23 00:00:00', '2020-10-26 10:31:59'),
 (2, 'Usuario', 'fas fa-user', 2, 1, '2018-03-23 00:00:00', NULL),
 (3, 'Menu', 'fas fa-list-ul', 3, 1, '2018-03-23 00:00:00', NULL),
-(4, 'Sair', 'fas fa-sign-out-alt', 4, 1, '2018-03-23 00:00:00', NULL),
-(5, 'Configuração', 'fas fa-cog', 5, 1, '2020-10-26 10:08:57', '2020-10-26 10:41:55');
+(4, 'Sair', 'fas fa-sign-out-alt', 4, 1, '2018-03-23 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -262,7 +261,11 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (137, 1, 34, 1, 2, 3, 1, 38, '2020-10-26 14:39:07', NULL),
 (138, 2, 34, 1, 2, 3, 2, 38, '2020-10-26 14:39:07', NULL),
 (139, 2, 34, 1, 2, 3, 3, 38, '2020-10-26 14:39:07', NULL),
-(140, 2, 34, 1, 2, 3, 14, 38, '2020-10-26 14:39:07', NULL);
+(140, 2, 34, 1, 2, 3, 14, 38, '2020-10-26 14:39:07', NULL),
+(141, 1, 35, 1, 2, 3, 1, 39, '2020-10-26 14:54:36', NULL),
+(142, 2, 35, 1, 2, 3, 2, 39, '2020-10-26 14:54:36', NULL),
+(143, 2, 35, 1, 2, 3, 3, 39, '2020-10-26 14:54:36', NULL),
+(144, 2, 35, 1, 2, 3, 14, 39, '2020-10-26 14:54:36', NULL);
 
 -- --------------------------------------------------------
 
@@ -351,7 +354,8 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (35, 'Proc Form Cad Menu', 'processa/proc_cad_menu', 'Página para processar o formulário cadastrar menu', 'Processar o formulário cadastrar menu', 'Processar o formulário cadastrar menu', 'Natobpia', 2, '', 34, 2, '1', 4, 1, '2020-10-26 09:59:10', NULL),
 (36, 'Editar Menu', 'editar/edit_menu', 'Formulário para Editar Menu', 'Editar Menu', 'Editar Menu', 'Natobpia', 2, '', 0, 3, '1', 4, 1, '2020-10-26 10:15:49', NULL),
 (37, 'Proc Form Edit Menu', 'processa/proc_edit_menu', 'Processar o formulário editar item do menu', 'Processar o formulário editar item do menu', 'Processar o formulário editar item do menu', 'Natobpia', 2, '', 36, 3, '1', 4, 1, '2020-10-26 10:30:57', NULL),
-(38, 'Visualizar Menu', 'visualizar/vis_menu', 'Página para Visualizar Menu', 'Visualizar Menu', 'Visualizar Menu', 'Natobpia', 2, '', 0, 5, '1', 4, 1, '2020-10-26 14:39:07', NULL);
+(38, 'Visualizar Menu', 'visualizar/vis_menu', 'Página para Visualizar Menu', 'Visualizar Menu', 'Visualizar Menu', 'Natobpia', 2, '', 0, 5, '1', 4, 1, '2020-10-26 14:39:07', NULL),
+(39, 'Apagar Menu', 'processa/apagar_menu', 'Página para Apagar Menu', 'Apagar Menu', 'Apagar Menu', 'Natobpia', 2, '', 0, 4, '1', 4, 1, '2020-10-26 14:54:36', NULL);
 
 -- --------------------------------------------------------
 
@@ -1144,13 +1148,13 @@ ALTER TABLE `adms_grps_pgs`
 -- AUTO_INCREMENT de tabela `adms_menus`
 --
 ALTER TABLE `adms_menus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
 
 --
 -- AUTO_INCREMENT de tabela `adms_niveis_acessos`
@@ -1162,7 +1166,7 @@ ALTER TABLE `adms_niveis_acessos`
 -- AUTO_INCREMENT de tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de tabela `adms_robots`
