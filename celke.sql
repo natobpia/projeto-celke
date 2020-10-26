@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25-Out-2020 às 14:36
+-- Tempo de geração: 26-Out-2020 às 14:42
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.11
 
@@ -97,10 +97,11 @@ CREATE TABLE `adms_menus` (
 --
 
 INSERT INTO `adms_menus` (`id`, `nome`, `icone`, `ordem`, `adms_sit_id`, `created`, `modified`) VALUES
-(1, 'Dashboard', 'fas fa-tachometer-alt', 1, 1, '2018-03-23 00:00:00', NULL),
+(1, 'Dashboard', 'fas fa-tachometer-alt', 1, 1, '2018-03-23 00:00:00', '2020-10-26 10:31:59'),
 (2, 'Usuario', 'fas fa-user', 2, 1, '2018-03-23 00:00:00', NULL),
 (3, 'Menu', 'fas fa-list-ul', 3, 1, '2018-03-23 00:00:00', NULL),
-(4, 'Sair', 'fas fa-sign-out-alt', 4, 1, '2018-03-23 00:00:00', NULL);
+(4, 'Sair', 'fas fa-sign-out-alt', 4, 1, '2018-03-23 00:00:00', NULL),
+(5, 'Configuração', 'fas fa-cog', 5, 1, '2020-10-26 10:08:57', '2020-10-26 10:41:55');
 
 -- --------------------------------------------------------
 
@@ -241,7 +242,23 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (117, 1, 29, 1, 2, 3, 1, 33, '2020-10-25 09:48:59', NULL),
 (118, 1, 29, 1, 2, 3, 2, 33, '2020-10-25 09:48:59', '2020-10-25 10:34:31'),
 (119, 2, 29, 1, 2, 3, 3, 33, '2020-10-25 09:48:59', NULL),
-(120, 2, 29, 1, 2, 3, 14, 33, '2020-10-25 09:48:59', NULL);
+(120, 2, 29, 1, 2, 3, 14, 33, '2020-10-25 09:48:59', NULL),
+(121, 1, 30, 1, 2, 3, 1, 34, '2020-10-26 09:47:10', NULL),
+(122, 2, 30, 1, 2, 3, 2, 34, '2020-10-26 09:47:10', NULL),
+(123, 2, 30, 1, 2, 3, 3, 34, '2020-10-26 09:47:10', NULL),
+(124, 2, 30, 1, 2, 3, 14, 34, '2020-10-26 09:47:10', NULL),
+(125, 1, 31, 1, 2, 3, 1, 35, '2020-10-26 09:59:10', NULL),
+(126, 2, 31, 1, 2, 3, 2, 35, '2020-10-26 09:59:10', NULL),
+(127, 2, 31, 1, 2, 3, 3, 35, '2020-10-26 09:59:10', NULL),
+(128, 2, 31, 1, 2, 3, 14, 35, '2020-10-26 09:59:10', NULL),
+(129, 1, 32, 1, 2, 3, 1, 36, '2020-10-26 10:15:49', NULL),
+(130, 2, 32, 1, 2, 3, 2, 36, '2020-10-26 10:15:49', NULL),
+(131, 2, 32, 1, 2, 3, 3, 36, '2020-10-26 10:15:49', NULL),
+(132, 2, 32, 1, 2, 3, 14, 36, '2020-10-26 10:15:49', NULL),
+(133, 1, 33, 1, 2, 3, 1, 37, '2020-10-26 10:30:57', NULL),
+(134, 2, 33, 1, 2, 3, 2, 37, '2020-10-26 10:30:57', NULL),
+(135, 2, 33, 1, 2, 3, 3, 37, '2020-10-26 10:30:57', NULL),
+(136, 2, 33, 1, 2, 3, 14, 37, '2020-10-26 10:30:57', NULL);
 
 -- --------------------------------------------------------
 
@@ -325,7 +342,11 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (30, 'Alterar Ordem do Menu', 'processa/proc_ordem_menu', 'PÃ¡gina para Alterar Ordem do Menu', 'Alterar Ordem do Menu', 'Alterar Ordem do Menu', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-22 19:21:32', NULL),
 (31, 'Sincronizar Páginas', 'processa/proc_sincro_nivac_pg', 'Página para Sincronizar Páginas com Nível de acesso', 'Sincronizar Páginas', 'Sincronizar Páginas', 'Natobpia', 2, '', 0, 3, '1', 2, 1, '2020-10-24 18:58:05', NULL),
 (32, 'Editar ícone do menu', 'editar/edit_permissao', 'Página para Editar nome do menu do item do menu', 'Editar nome do menu', 'Editar nome do menu', 'Natobpia', 2, '', 0, 3, '1', 2, 1, '2020-10-25 09:38:21', '2020-10-25 09:50:26'),
-(33, 'Proc form edita permissão', 'processa/proc_edit_permissao', 'Página para processar o formulário editar permissão', 'Proc form edita permissão', 'Proc form edita permissão', 'Natobpia', 2, '', 32, 3, '1', 2, 1, '2020-10-25 09:48:59', '2020-10-25 09:50:31');
+(33, 'Proc form edita permissão', 'processa/proc_edit_permissao', 'Página para processar o formulário editar permissão', 'Proc form edita permissão', 'Proc form edita permissão', 'Natobpia', 2, '', 32, 3, '1', 2, 1, '2020-10-25 09:48:59', '2020-10-25 09:50:31'),
+(34, 'Cadastrar Menu', 'cadastrar/cad_menu', 'Página para Cadastrar Menu', 'Cadastrar Menu', 'Cadastrar Menu', 'Natobpia', 2, '', 0, 2, '1', 4, 1, '2020-10-26 09:47:10', NULL),
+(35, 'Proc Form Cad Menu', 'processa/proc_cad_menu', 'Página para processar o formulário cadastrar menu', 'Processar o formulário cadastrar menu', 'Processar o formulário cadastrar menu', 'Natobpia', 2, '', 34, 2, '1', 4, 1, '2020-10-26 09:59:10', NULL),
+(36, 'Editar Menu', 'editar/edit_menu', 'Formulário para Editar Menu', 'Editar Menu', 'Editar Menu', 'Natobpia', 2, '', 0, 3, '1', 4, 1, '2020-10-26 10:15:49', NULL),
+(37, 'Proc Form Edit Menu', 'processa/proc_edit_menu', 'Processar o formulário editar item do menu', 'Processar o formulário editar item do menu', 'Processar o formulário editar item do menu', 'Natobpia', 2, '', 36, 3, '1', 4, 1, '2020-10-26 10:30:57', NULL);
 
 -- --------------------------------------------------------
 
@@ -346,11 +367,11 @@ CREATE TABLE `adms_robots` (
 --
 
 INSERT INTO `adms_robots` (`id`, `nome`, `tipo`, `created`, `modified`) VALUES
-(1, 'Indexar a pÃ¡gina e seguir os links', 'index, follow', '2018-03-23 00:00:00', NULL),
-(2, 'NÃ£o indexar a pÃ¡gina mas seguir os links', 'noindex, follow', '2018-03-23 00:00:00', NULL),
-(3, 'Indexar a pÃ¡gina mas nÃ£o seguir os links', 'index, nofollow', '2018-03-23 00:00:00', NULL),
-(4, 'NÃ£o indexar a pÃ¡gina e nem seguir os links', 'noindex, nofollow', '2018-03-23 00:00:00', NULL),
-(5, 'NÃ£o exibir a versÃ£o em cache da pÃ¡gina', 'noarchive', '2018-03-23 00:00:00', NULL);
+(1, 'Indexar a página e seguir os links', 'index, follow', '2018-03-23 00:00:00', NULL),
+(2, 'Não indexar a página mas seguir os links', 'noindex, follow', '2018-03-23 00:00:00', NULL),
+(3, 'Indexar a página mas não seguir os links', 'index, nofollow', '2018-03-23 00:00:00', NULL),
+(4, 'Não indexar a página e nem seguir os links', 'noindex, nofollow', '2018-03-23 00:00:00', NULL),
+(5, 'Não exibir a versão em cache da página', 'noarchive', '2018-03-23 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -1118,13 +1139,13 @@ ALTER TABLE `adms_grps_pgs`
 -- AUTO_INCREMENT de tabela `adms_menus`
 --
 ALTER TABLE `adms_menus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
 
 --
 -- AUTO_INCREMENT de tabela `adms_niveis_acessos`
@@ -1136,7 +1157,7 @@ ALTER TABLE `adms_niveis_acessos`
 -- AUTO_INCREMENT de tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT de tabela `adms_robots`
