@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Out-2020 às 19:03
+-- Tempo de geração: 27-Out-2020 às 20:44
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.11
 
@@ -98,9 +98,9 @@ CREATE TABLE `adms_menus` (
 
 INSERT INTO `adms_menus` (`id`, `nome`, `icone`, `ordem`, `adms_sit_id`, `created`, `modified`) VALUES
 (1, 'Dashboard', 'fas fa-tachometer-alt', 1, 1, '2018-03-23 00:00:00', '2020-10-26 10:31:59'),
-(2, 'Usuario', 'fas fa-user', 2, 1, '2018-03-23 00:00:00', NULL),
-(3, 'Menu', 'fas fa-list-ul', 3, 1, '2018-03-23 00:00:00', NULL),
-(4, 'Sair', 'fas fa-sign-out-alt', 4, 1, '2018-03-23 00:00:00', NULL);
+(2, 'Usuario', 'fas fa-user', 2, 1, '2018-03-23 00:00:00', '2020-10-26 15:12:58'),
+(3, 'Menu', 'fas fa-list-ul', 3, 1, '2018-03-23 00:00:00', '2020-10-26 15:12:58'),
+(4, 'Sair', 'fas fa-sign-out-alt', 4, 1, '2018-03-23 00:00:00', '2020-10-26 15:12:48');
 
 -- --------------------------------------------------------
 
@@ -265,7 +265,15 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (141, 1, 35, 1, 2, 3, 1, 39, '2020-10-26 14:54:36', NULL),
 (142, 2, 35, 1, 2, 3, 2, 39, '2020-10-26 14:54:36', NULL),
 (143, 2, 35, 1, 2, 3, 3, 39, '2020-10-26 14:54:36', NULL),
-(144, 2, 35, 1, 2, 3, 14, 39, '2020-10-26 14:54:36', NULL);
+(144, 2, 35, 1, 2, 3, 14, 39, '2020-10-26 14:54:36', NULL),
+(145, 1, 36, 1, 2, 3, 1, 40, '2020-10-26 15:06:27', NULL),
+(146, 2, 36, 1, 2, 3, 2, 40, '2020-10-26 15:06:27', NULL),
+(147, 2, 36, 1, 2, 3, 3, 40, '2020-10-26 15:06:27', NULL),
+(148, 2, 36, 1, 2, 3, 14, 40, '2020-10-26 15:06:27', NULL),
+(149, 1, 37, 1, 2, 3, 1, 41, '2020-10-27 16:30:09', NULL),
+(150, 2, 37, 1, 2, 3, 2, 41, '2020-10-27 16:30:09', NULL),
+(151, 2, 37, 1, 2, 3, 3, 41, '2020-10-27 16:30:09', NULL),
+(152, 2, 37, 1, 2, 3, 14, 41, '2020-10-27 16:30:09', NULL);
 
 -- --------------------------------------------------------
 
@@ -355,7 +363,9 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (36, 'Editar Menu', 'editar/edit_menu', 'Formulário para Editar Menu', 'Editar Menu', 'Editar Menu', 'Natobpia', 2, '', 0, 3, '1', 4, 1, '2020-10-26 10:15:49', NULL),
 (37, 'Proc Form Edit Menu', 'processa/proc_edit_menu', 'Processar o formulário editar item do menu', 'Processar o formulário editar item do menu', 'Processar o formulário editar item do menu', 'Natobpia', 2, '', 36, 3, '1', 4, 1, '2020-10-26 10:30:57', NULL),
 (38, 'Visualizar Menu', 'visualizar/vis_menu', 'Página para Visualizar Menu', 'Visualizar Menu', 'Visualizar Menu', 'Natobpia', 2, '', 0, 5, '1', 4, 1, '2020-10-26 14:39:07', NULL),
-(39, 'Apagar Menu', 'processa/apagar_menu', 'Página para Apagar Menu', 'Apagar Menu', 'Apagar Menu', 'Natobpia', 2, '', 0, 4, '1', 4, 1, '2020-10-26 14:54:36', NULL);
+(39, 'Apagar Menu', 'processa/apagar_menu', 'Página para Apagar Menu', 'Apagar Menu', 'Apagar Menu', 'Natobpia', 2, '', 0, 4, '1', 4, 1, '2020-10-26 14:54:36', NULL),
+(40, 'Alterar ordem item menu', 'processa/proc_ordem_menu_item', 'Página para Alterar ordem item menu', 'Alterar ordem item menu', 'Alterar ordem item menu', 'Natobpia', 2, '', 0, 3, '1', 4, 1, '2020-10-26 15:06:27', NULL),
+(41, 'Cadastrar Usuário', 'cadastrar/cad_usuario', 'Página para Cadastrar Usuário', 'Cadastrar Usuário', 'Cadastrar Usuário', 'Natobpia', 2, '', 0, 2, '1', 4, 1, '2020-10-27 16:30:09', NULL);
 
 -- --------------------------------------------------------
 
@@ -1154,7 +1164,7 @@ ALTER TABLE `adms_menus`
 -- AUTO_INCREMENT de tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
 
 --
 -- AUTO_INCREMENT de tabela `adms_niveis_acessos`
@@ -1166,7 +1176,7 @@ ALTER TABLE `adms_niveis_acessos`
 -- AUTO_INCREMENT de tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT de tabela `adms_robots`
