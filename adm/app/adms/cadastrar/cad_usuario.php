@@ -49,7 +49,7 @@ include_once 'app/adms/include/head.php';
                         </div>
                         <div class="form-group col-md-6">
                             <label><span class="text-danger">*</span> E-mail</label>
-                            <input name="email" type="text" class="form-control" id="email" placeholder="O melhor e-mail do usuário" value="<?php
+                            <input name="email" type="email" class="form-control" id="email" placeholder="O melhor e-mail do usuário" value="<?php
                                                                                                                                             if (isset($_SESSION['dados']['email'])) {
                                                                                                                                                 echo $_SESSION['dados']['email'];
                                                                                                                                             }
