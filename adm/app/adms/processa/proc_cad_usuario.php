@@ -16,6 +16,7 @@ if ($SendCadUser) {
     $erro = false;
     include_once 'lib/lib_vazio.php';
     include_once 'lib/lib_email.php';
+    
     $dados_validos = vazio($dados);
     if (!$dados_validos) {
         $erro = true;
@@ -29,7 +30,7 @@ if ($SendCadUser) {
     } elseif (stristr($dados_validos['senha'], "'")) {
         $erro = true;
         $_SESSION['msg'] = "<div class='alert alert-danger'>Caracter ( ' ) utilizado na senha inválido!</div>";
-    } elseif (strlen($dados_validos['usuario'] < 5)) {
+    } elseif (strlen($dados_validos['usuario'] >= 5)) {
         $erro = true;
         $_SESSION['msg'] = "<div class='alert alert-danger'>O usuário deve ter no mínimo 5 caracteres!</div>";
     } elseif (stristr($dados_validos['usuario'], " ' ")) {
@@ -75,6 +76,13 @@ if ($SendCadUser) {
         mysqli_query($conn, $result_cad_user);
         if (mysqli_insert_id($conn)) {
             unset($_SESSION['dados']);
+            //var_dump($_FILES['imagem']);
+            //Redimencionar a imagem e fazer o upload
+            if(!empty($_FILES['imagem']['name'])) {
+                include_once 'lib/lib_upload.php';
+                $destino = "assets/imagens/usuario/".mysqli_insert_id($conn)."/";
+                upload($_FILES['imagem'], $destino, 200, 150);
+            }
 
             $_SESSION['msg'] = "<div class='alert alert-success'>Usuário cadastrado com sucesso!</div>";
             $url_destino = pg . '/listar/list_usuario';

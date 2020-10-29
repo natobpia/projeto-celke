@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27-Out-2020 às 20:44
+-- Tempo de geração: 29-Out-2020 às 23:04
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.11
 
@@ -273,7 +273,11 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (149, 1, 37, 1, 2, 3, 1, 41, '2020-10-27 16:30:09', NULL),
 (150, 2, 37, 1, 2, 3, 2, 41, '2020-10-27 16:30:09', NULL),
 (151, 2, 37, 1, 2, 3, 3, 41, '2020-10-27 16:30:09', NULL),
-(152, 2, 37, 1, 2, 3, 14, 41, '2020-10-27 16:30:09', NULL);
+(152, 2, 37, 1, 2, 3, 14, 41, '2020-10-27 16:30:09', NULL),
+(153, 1, 38, 1, 2, 3, 1, 42, '2020-10-28 15:22:58', NULL),
+(154, 2, 38, 1, 2, 3, 2, 42, '2020-10-28 15:22:58', NULL),
+(155, 2, 38, 1, 2, 3, 3, 42, '2020-10-28 15:22:58', NULL),
+(156, 2, 38, 1, 2, 3, 14, 42, '2020-10-28 15:22:58', NULL);
 
 -- --------------------------------------------------------
 
@@ -365,7 +369,8 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (38, 'Visualizar Menu', 'visualizar/vis_menu', 'Página para Visualizar Menu', 'Visualizar Menu', 'Visualizar Menu', 'Natobpia', 2, '', 0, 5, '1', 4, 1, '2020-10-26 14:39:07', NULL),
 (39, 'Apagar Menu', 'processa/apagar_menu', 'Página para Apagar Menu', 'Apagar Menu', 'Apagar Menu', 'Natobpia', 2, '', 0, 4, '1', 4, 1, '2020-10-26 14:54:36', NULL),
 (40, 'Alterar ordem item menu', 'processa/proc_ordem_menu_item', 'Página para Alterar ordem item menu', 'Alterar ordem item menu', 'Alterar ordem item menu', 'Natobpia', 2, '', 0, 3, '1', 4, 1, '2020-10-26 15:06:27', NULL),
-(41, 'Cadastrar Usuário', 'cadastrar/cad_usuario', 'Página para Cadastrar Usuário', 'Cadastrar Usuário', 'Cadastrar Usuário', 'Natobpia', 2, '', 0, 2, '1', 4, 1, '2020-10-27 16:30:09', NULL);
+(41, 'Cadastrar Usuário', 'cadastrar/cad_usuario', 'Página para Cadastrar Usuário', 'Cadastrar Usuário', 'Cadastrar Usuário', 'Natobpia', 2, '', 0, 2, '1', 4, 1, '2020-10-27 16:30:09', NULL),
+(42, 'Proc Form Cad User', 'processa/proc_cad_usuario', 'Página para processar a página cadastrar usuário', 'Proc Form Cad User', 'Proc Form Cad User', 'Natobpia', 2, '', 41, 2, '1', 4, 1, '2020-10-28 15:22:58', NULL);
 
 -- --------------------------------------------------------
 
@@ -514,7 +519,11 @@ CREATE TABLE `adms_usuarios` (
 INSERT INTO `adms_usuarios` (`id`, `nome`, `apelido`, `email`, `usuario`, `senha`, `recuperar_senha`, `chave_descadastro`, `imagem`, `adms_niveis_acesso_id`, `adms_sits_usuario_id`, `created`, `modified`) VALUES
 (1, 'Cesar N. Szpak', 'Cesar', 'cesar@celke.com.br', 'cesar@celke.com.br', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, 'celke.jpg', 1, 1, '2018-03-23 00:00:00', NULL),
 (2, 'Jessica', 'Jessica', 'jessica@celke.com.br', 'jessica@celke.com.br', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, 'celke.jpg', 3, 1, '2018-03-23 00:00:00', NULL),
-(3, 'Kelly', 'Kelly', 'kelly@celke.com.br', 'kelly@celke.com.br', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, 'celke.jpg', 2, 1, '2018-03-23 00:00:00', NULL);
+(3, 'Kelly', 'Kelly', 'kelly@celke.com.br', 'kelly@celke.com.br', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, 'celke.jpg', 2, 1, '2018-03-23 00:00:00', NULL),
+(4, 'Cesar', NULL, 'cesar1@celke.com.br', 'Cesar1', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, NULL, 3, 1, '2020-10-28 15:30:56', NULL),
+(5, 'Cesar', NULL, 'cesar2@celke.com.br', 'Cesar2', '$2y$10$iDgWGEVmt4esiezOUxng1eIavadfJl0dPNeVRCWweF7yAbUFnXCZW', NULL, NULL, NULL, 3, 1, '2020-10-28 16:07:07', NULL),
+(12, 'cesar10', NULL, 'cesar10@celke.com.br', 'cesar10', '$2y$10$FNtmHKhz.cMU4OXlK9XGcu/0UbWPb1Z5n4.sdLkPSEyFMvGgaP.zu', NULL, NULL, NULL, 14, 1, '2020-10-29 19:04:19', NULL),
+(11, 'cesar9', NULL, 'cesar9@celke.com.br', 'ceasr9', '$2y$10$At4DPmZuFm89MmTlB5saB.Z6sOMme3Kl6lLvpyTYPzbkB9RxFV0pG', NULL, NULL, NULL, 14, 1, '2020-10-29 19:01:49', NULL);
 
 -- --------------------------------------------------------
 
@@ -1164,7 +1173,7 @@ ALTER TABLE `adms_menus`
 -- AUTO_INCREMENT de tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
 
 --
 -- AUTO_INCREMENT de tabela `adms_niveis_acessos`
@@ -1176,7 +1185,7 @@ ALTER TABLE `adms_niveis_acessos`
 -- AUTO_INCREMENT de tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT de tabela `adms_robots`
@@ -1212,7 +1221,7 @@ ALTER TABLE `adms_tps_pgs`
 -- AUTO_INCREMENT de tabela `adms_usuarios`
 --
 ALTER TABLE `adms_usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `sts_artigos`

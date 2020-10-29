@@ -35,7 +35,7 @@ include_once 'app/adms/include/head.php';
                     unset($_SESSION['msg']);
                 }
                 ?>
-                <form method="POST" action="<?php echo pg; ?>/processa/proc_cad_usuario">
+                <form method="POST" action="<?php echo pg; ?>/processa/proc_cad_usuario" enctype="multipart/form-data">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>
@@ -50,10 +50,10 @@ include_once 'app/adms/include/head.php';
                         <div class="form-group col-md-6">
                             <label><span class="text-danger">*</span> E-mail</label>
                             <input name="email" type="email" class="form-control" id="email" placeholder="O melhor e-mail do usuário" value="<?php
-                                                                                                                                            if (isset($_SESSION['dados']['email'])) {
-                                                                                                                                                echo $_SESSION['dados']['email'];
-                                                                                                                                            }
-                                                                                                                                            ?>">
+                                                                                                                                                if (isset($_SESSION['dados']['email'])) {
+                                                                                                                                                    echo $_SESSION['dados']['email'];
+                                                                                                                                                }
+                                                                                                                                                ?>">
                         </div>
                     </div>
 
@@ -89,6 +89,10 @@ include_once 'app/adms/include/head.php';
                     </div>
 
                     <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="">Foto</label>
+                            <input type="file" name="imagem">
+                        </div>
                         <div class="form-group col-md-4">
                             <?php
                             $result_niv_ac = "SELECT id, nome FROM adms_niveis_acessos ORDER BY nome ASC";
@@ -133,10 +137,11 @@ include_once 'app/adms/include/head.php';
                         </div>
                     </div>
 
+
                     <p>
                         <span class="text-danger">* </span>Campo obrigatório
                     </p>
-                    
+
                     <input name="SendCadUser" type="submit" class="btn btn-success" value="Cadastrar">
                 </form>
             </div>
