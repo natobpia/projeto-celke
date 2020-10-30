@@ -16,7 +16,7 @@ if ($SendCadUser) {
     $erro = false;
     include_once 'lib/lib_vazio.php';
     include_once 'lib/lib_email.php';
-    
+
     $dados_validos = vazio($dados);
     if (!$dados_validos) {
         $erro = true;
@@ -54,6 +54,25 @@ if ($SendCadUser) {
         }
     }
 
+    //Criar as variaveis da foto quando a mesma nao esta sendo cadastrada
+
+    if(empty($_FILES['imagem']['name'])) {
+        $campo_foto="";
+        $valor_foto="";
+    } else {
+        $foto = $_FILES['imagem'];
+        include_once 'lib/lib_val_img_ext.php';
+        if (!validarExtensao($foto['type'])) {
+            $erro = true;
+            $_SESSION['msg'] = "<div class='alert alert-danger'>Extensão da imagem inválida!</div>";
+        } else {
+            include_once 'lib/lib_caracter_esp.php';
+            $foto['name'] = caracterEspecial($foto['name']);
+            $campo_foto = "imagem,";
+            $valor_foto = "'" . $foto['name'] . "',";
+        }
+    } 
+
     //Houve erro em algum campo será redirecionado para o login, não há erro no formulário tenta cadastrar no banco
     if ($erro) {
         $dados['apelido'] = trim($dados_apelido);
@@ -64,11 +83,12 @@ if ($SendCadUser) {
         //Criptografar a senha
         $dados_validos['senha'] = password_hash($dados_validos['senha'], PASSWORD_DEFAULT);
 
-        $result_cad_user = "INSERT INTO adms_usuarios (nome, email, usuario, senha, adms_niveis_acesso_id, adms_sits_usuario_id, created) VALUES (
+        $result_cad_user = "INSERT INTO adms_usuarios (nome, email, usuario, senha, $campo_foto adms_niveis_acesso_id, adms_sits_usuario_id, created) VALUES (
         '" . $dados_validos['nome'] . "',
         '" . $dados_validos['email'] . "',
         '" . $dados_validos['usuario'] . "',
         '" . $dados_validos['senha'] . "',
+        $valor_foto
         '" . $dados_validos['adms_niveis_acesso_id'] . "',
         '" . $dados_validos['adms_sits_usuario_id'] . "',
         NOW())";
@@ -78,10 +98,10 @@ if ($SendCadUser) {
             unset($_SESSION['dados']);
             //var_dump($_FILES['imagem']);
             //Redimencionar a imagem e fazer o upload
-            if(!empty($_FILES['imagem']['name'])) {
+            if (!empty($foto['name'])) {
                 include_once 'lib/lib_upload.php';
-                $destino = "assets/imagens/usuario/".mysqli_insert_id($conn)."/";
-                upload($_FILES['imagem'], $destino, 200, 150);
+                $destino = "assets/imagens/usuario/" . mysqli_insert_id($conn) . "/";
+                upload($foto, $destino, 200, 150);
             }
 
             $_SESSION['msg'] = "<div class='alert alert-success'>Usuário cadastrado com sucesso!</div>";
