@@ -101,7 +101,7 @@ if ($SendCadUser) {
             if (!empty($foto['name'])) {
                 include_once 'lib/lib_upload.php';
                 $destino = "assets/imagens/usuario/" . mysqli_insert_id($conn) . "/";
-                upload($foto, $destino, 200, 150);
+                upload($foto, $destino, 150, 150);
             }
 
             $_SESSION['msg'] = "<div class='alert alert-success'>Usuário cadastrado com sucesso!</div>";
