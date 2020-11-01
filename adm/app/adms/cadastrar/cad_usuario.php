@@ -89,11 +89,7 @@ include_once 'app/adms/include/head.php';
                     </div>
 
                     <div class="form-row">
-                        <div class="form-group col-md-4">
-                            <label for="">Foto</label>
-                            <input type="file" name="imagem">
-                        </div>
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-6">
                             <?php
                             $result_niv_ac = "SELECT id, nome FROM adms_niveis_acessos ORDER BY nome ASC";
                             $resultado_niv_ac = mysqli_query($conn, $result_niv_ac);
@@ -114,7 +110,7 @@ include_once 'app/adms/include/head.php';
                                 ?>
                             </select>
                         </div>
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-6">
                             <?php
                             $result_sit_user = "SELECT id, nome FROM adms_sits_usuarios ORDER BY nome ASC";
                             $resultado_sit_user = mysqli_query($conn, $result_sit_user);
@@ -137,6 +133,16 @@ include_once 'app/adms/include/head.php';
                         </div>
                     </div>
 
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="">Foto</label>
+                            <input type="file" name="imagem" onchange="previewImagem()">
+                        </div>
+                        <div class="form-group col-md-6">
+                                <img src="<?php echo pg.'/assets/imagens/usuario/preview_img.png'; ?>" id="preview-user" class="img-thumbnail" style="width: 150px; height:150px;" alt="Preview do Usuário">
+                        </div>
+                    </div>
+
 
                     <p>
                         <span class="text-danger">* </span>Campo obrigatório
@@ -150,6 +156,25 @@ include_once 'app/adms/include/head.php';
         unset($_SESSION['dados']);
         include_once 'app/adms/include/rodape_lib.php';
         ?>
+        <script>
+            function previewImagem(){
+                var imagem = document.querySelector('input[name=imagem]').files[0];
+
+                var preview = document.querySelector('#preview-user');
+
+                var reader = new FileReader();
+
+                reader.onloadend = function() {
+                    preview.src = reader.result;
+                }
+
+                if(imagem) {
+                    reader.readAsDataURL(imagem);
+                } else {
+                    preview.src = "";
+                }
+            }
+        </script>
 
     </div>
 </body>
