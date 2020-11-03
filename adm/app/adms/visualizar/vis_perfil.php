@@ -37,9 +37,9 @@ if (($resultado_user_vis) and ($resultado_user_vis->num_rows != 0)) {
                         <div class="p-2">
                             <span class="d-none d-md-block">
                                 <?php
-                                $btn_edit = carregar_btn('editar/edit_usuario', $conn);
+                                $btn_edit = carregar_btn('editar/edit_perfil', $conn);
                                 if ($btn_edit) {
-                                    echo "<a href='" . pg . "/editar/edit_usuario?id=" . $row_user_vis['id'] . "' class='btn btn-outline-warning btn-sm'>Editar </a> ";
+                                    echo "<a href='" . pg . "/editar/edit_perfil' class='btn btn-outline-warning btn-sm'>Editar </a> ";
                                 }
                                 ?>
                             </span>
@@ -50,7 +50,7 @@ if (($resultado_user_vis) and ($resultado_user_vis->num_rows != 0)) {
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
                                     <?php
                                     if ($btn_edit) {
-                                        echo "<a class='dropdown-item' href='" . pg . "/editar/edit_usuario?id=" . $row_user_vis['id'] . "'>Editar</a>";
+                                        echo "<a class='dropdown-item' href='" . pg . "/editar/edit_perfil'>Editar</a>";
                                     }
                                     ?>
                                 </div>
@@ -58,6 +58,12 @@ if (($resultado_user_vis) and ($resultado_user_vis->num_rows != 0)) {
                         </div>
                     </div>
                     <hr>
+                    <?php
+                    if (isset($_SESSION['msg'])) {
+                        echo $_SESSION['msg'];
+                        unset($_SESSION['msg']);
+                    }
+                    ?>
                     <dl class="row">
                         <dt class="col-sm-3">Imagem</dt>
                         <dd class="col-sm-9">

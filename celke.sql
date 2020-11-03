@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 30-Out-2020 às 20:37
+-- Tempo de geração: 03-Nov-2020 às 19:24
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.11
 
@@ -281,7 +281,31 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (157, 1, 39, 1, 2, 3, 1, 43, '2020-10-30 16:16:25', NULL),
 (158, 1, 39, 1, 2, 3, 2, 43, '2020-10-30 16:16:25', '2020-10-30 16:36:19'),
 (159, 2, 39, 1, 2, 3, 3, 43, '2020-10-30 16:16:25', NULL),
-(160, 2, 39, 1, 2, 3, 14, 43, '2020-10-30 16:16:25', NULL);
+(160, 2, 39, 1, 2, 3, 14, 43, '2020-10-30 16:16:25', NULL),
+(161, 1, 40, 1, 2, 3, 1, 44, '2020-11-03 14:32:32', NULL),
+(162, 2, 40, 1, 2, 3, 2, 44, '2020-11-03 14:32:32', NULL),
+(163, 2, 40, 1, 2, 3, 3, 44, '2020-11-03 14:32:32', NULL),
+(164, 2, 40, 1, 2, 3, 14, 44, '2020-11-03 14:32:32', NULL),
+(165, 1, 41, 1, 2, 3, 1, 45, '2020-11-03 14:37:49', NULL),
+(166, 2, 41, 1, 2, 3, 2, 45, '2020-11-03 14:37:49', NULL),
+(167, 2, 41, 1, 2, 3, 3, 45, '2020-11-03 14:37:49', NULL),
+(168, 2, 41, 1, 2, 3, 14, 45, '2020-11-03 14:37:49', NULL),
+(169, 1, 42, 1, 2, 3, 1, 46, '2020-11-03 14:48:10', NULL),
+(170, 2, 42, 1, 2, 3, 2, 46, '2020-11-03 14:48:10', NULL),
+(171, 2, 42, 1, 2, 3, 3, 46, '2020-11-03 14:48:10', NULL),
+(172, 2, 42, 1, 2, 3, 14, 46, '2020-11-03 14:48:10', NULL),
+(173, 1, 43, 1, 2, 3, 1, 47, '2020-11-03 14:57:54', NULL),
+(174, 1, 43, 1, 2, 3, 2, 47, '2020-11-03 14:57:54', '2020-11-03 15:04:48'),
+(175, 2, 43, 1, 2, 3, 3, 47, '2020-11-03 14:57:54', NULL),
+(176, 2, 43, 1, 2, 3, 14, 47, '2020-11-03 14:57:54', NULL),
+(177, 1, 44, 1, 2, 3, 1, 48, '2020-11-03 15:06:33', NULL),
+(178, 2, 44, 1, 2, 3, 2, 48, '2020-11-03 15:06:33', NULL),
+(179, 2, 44, 1, 2, 3, 3, 48, '2020-11-03 15:06:33', NULL),
+(180, 2, 44, 1, 2, 3, 14, 48, '2020-11-03 15:06:33', NULL),
+(181, 1, 45, 1, 2, 3, 1, 49, '2020-11-03 15:18:01', NULL),
+(182, 2, 45, 1, 2, 3, 2, 49, '2020-11-03 15:18:01', NULL),
+(183, 2, 45, 1, 2, 3, 3, 49, '2020-11-03 15:18:01', NULL),
+(184, 2, 45, 1, 2, 3, 14, 49, '2020-11-03 15:18:01', NULL);
 
 -- --------------------------------------------------------
 
@@ -375,7 +399,13 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (40, 'Alterar ordem item menu', 'processa/proc_ordem_menu_item', 'Página para Alterar ordem item menu', 'Alterar ordem item menu', 'Alterar ordem item menu', 'Natobpia', 2, '', 0, 3, '1', 4, 1, '2020-10-26 15:06:27', NULL),
 (41, 'Cadastrar Usuário', 'cadastrar/cad_usuario', 'Página para Cadastrar Usuário', 'Cadastrar Usuário', 'Cadastrar Usuário', 'Natobpia', 2, '', 0, 2, '1', 4, 1, '2020-10-27 16:30:09', NULL),
 (42, 'Proc Form Cad User', 'processa/proc_cad_usuario', 'Página para processar a página cadastrar usuário', 'Proc Form Cad User', 'Proc Form Cad User', 'Natobpia', 2, '', 41, 2, '1', 4, 1, '2020-10-28 15:22:58', NULL),
-(43, 'Visualizar Usuário', 'visualizar/vis_usuario', 'Página Para Visualizar Usuário', 'Visualizar Usuário', 'Visualizar Usuário', 'Natobpia', 2, '', 0, 5, '1', 4, 1, '2020-10-30 16:16:25', NULL);
+(43, 'Visualizar Usuário', 'visualizar/vis_usuario', 'Página Para Visualizar Usuário', 'Visualizar Usuário', 'Visualizar Usuário', 'Natobpia', 2, '', 0, 5, '1', 4, 1, '2020-10-30 16:16:25', NULL),
+(44, 'Editar Usuário', 'editar/edit_usuario', 'Página para editar usuário', 'Editar usuário', 'Editar usuário', 'Natobpia', 2, '', 0, 3, '1', 4, 1, '2020-11-03 14:32:32', NULL),
+(45, 'Proc Form Edit Usuario', 'processa/proc_edit_usuario', 'Página para processar o formulário editar usuario', 'Proc Form Edit Usuario', 'Proc Form Edit Usuario', 'Natobpia', 2, '', 44, 3, '1', 2, 1, '2020-11-03 14:37:49', NULL),
+(46, 'Apagar usuário', 'processa/apagar_usuario', 'Página para Apagar usuário', 'Apagar usuário', 'Apagar usuário', 'Natobpia', 2, '', 0, 4, '1', 4, 1, '2020-11-03 14:48:10', NULL),
+(47, 'Visualizar Perfil', 'visualizar/vis_perfil', 'Página para Visualizar Perfil', 'Visualizar Perfil', 'Visualizar Perfil', 'Natobpia', 2, '', 0, 5, '1', 4, 1, '2020-11-03 14:57:54', NULL),
+(48, 'Editar perfil', 'editar/edit_perfil', 'Página para editar perfil', 'Editar perfil', 'Editar perfil', 'Natobpia', 2, '', 0, 3, '1', 4, 1, '2020-11-03 15:06:33', NULL),
+(49, 'Proc Form Edit Perfil', 'processa/proc_edit_perfil', 'Página para processar o formulário editar perfil', 'Processar o formulário editar perfil', 'Processar o formulário editar perfil', 'Natobpia', 2, '', 48, 3, '1', 4, 1, '2020-11-03 15:18:01', NULL);
 
 -- --------------------------------------------------------
 
@@ -522,7 +552,7 @@ CREATE TABLE `adms_usuarios` (
 --
 
 INSERT INTO `adms_usuarios` (`id`, `nome`, `apelido`, `email`, `usuario`, `senha`, `recuperar_senha`, `chave_descadastro`, `imagem`, `adms_niveis_acesso_id`, `adms_sits_usuario_id`, `created`, `modified`) VALUES
-(1, 'Cesar N. Szpak', 'Cesar', 'cesar@celke.com.br', 'cesar@celke.com.br', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, 'celke.jpg', 1, 1, '2018-03-23 00:00:00', NULL),
+(1, 'Cesar N. Szpak', 'Cesar', 'cesar@celke.com.br', 'cesar@celke.com.br', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, 'celke.jpg', 1, 1, '2018-03-23 00:00:00', '2020-11-03 15:22:53'),
 (2, 'Jessica', 'Jessica', 'jessica@celke.com.br', 'jessica@celke.com.br', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, 'celke.jpg', 3, 1, '2018-03-23 00:00:00', NULL),
 (3, 'Kelly', 'Kelly', 'kelly@celke.com.br', 'kelly@celke.com.br', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, 'celke.jpg', 2, 1, '2018-03-23 00:00:00', NULL);
 
@@ -1174,7 +1204,7 @@ ALTER TABLE `adms_menus`
 -- AUTO_INCREMENT de tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=185;
 
 --
 -- AUTO_INCREMENT de tabela `adms_niveis_acessos`
@@ -1186,7 +1216,7 @@ ALTER TABLE `adms_niveis_acessos`
 -- AUTO_INCREMENT de tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT de tabela `adms_robots`
