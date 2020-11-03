@@ -40,3 +40,10 @@ function redimensionarImg($imagem_temporaria, $largura, $altura)
 
     return $imagem_redimensionada;
 }
+
+//Apagar foto
+function apagarFoto($foto) {
+    if(file_exists($foto)) {
+        unlink($foto);
+    }
+}
