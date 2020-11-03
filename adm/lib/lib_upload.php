@@ -47,3 +47,9 @@ function apagarFoto($foto) {
         unlink($foto);
     }
 }
+
+function apagarDiretorio($diretorio) {
+    if (file_exists($diretorio)) {
+        rmdir($diretorio);
+    }
+}
