@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05-Nov-2020 às 20:13
+-- Tempo de geração: 05-Nov-2020 às 20:29
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.11
 
@@ -40,7 +40,7 @@ CREATE TABLE `adms_cads_usuarios` (
 --
 
 INSERT INTO `adms_cads_usuarios` (`id`, `adms_niveis_acesso_id`, `adms_sits_usuario_id`, `created`, `modified`) VALUES
-(1, 5, 3, '2020-11-05 16:04:30', NULL);
+(1, 5, 3, '2020-11-05 16:04:30', '2020-11-05 16:29:01');
 
 -- --------------------------------------------------------
 
@@ -121,7 +121,8 @@ INSERT INTO `adms_menus` (`id`, `nome`, `icone`, `ordem`, `adms_sit_id`, `create
 (1, 'Dashboard', 'fas fa-tachometer-alt', 1, 1, '2018-03-23 00:00:00', '2020-10-26 10:31:59'),
 (2, 'Usuario', 'fas fa-user', 2, 1, '2018-03-23 00:00:00', '2020-10-26 15:12:58'),
 (3, 'Menu', 'fas fa-list-ul', 3, 1, '2018-03-23 00:00:00', '2020-10-26 15:12:58'),
-(4, 'Sair', 'fas fa-sign-out-alt', 4, 1, '2018-03-23 00:00:00', '2020-10-26 15:12:48');
+(4, 'Sair', 'fas fa-sign-out-alt', 5, 1, '2018-03-23 00:00:00', '2020-11-05 16:21:08'),
+(8, 'Configurações', 'fas fa-cogs', 4, 0, '2020-11-05 16:19:44', '2020-11-05 16:21:08');
 
 -- --------------------------------------------------------
 
@@ -330,7 +331,17 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (185, 1, 46, 1, 2, 3, 1, 50, '2020-11-05 15:25:15', NULL),
 (186, 2, 46, 1, 2, 3, 2, 50, '2020-11-05 15:25:15', NULL),
 (187, 2, 46, 1, 2, 3, 3, 50, '2020-11-05 15:25:15', NULL),
-(188, 2, 46, 1, 2, 3, 14, 50, '2020-11-05 15:25:15', NULL);
+(188, 2, 46, 1, 2, 3, 14, 50, '2020-11-05 15:25:15', NULL),
+(189, 1, 47, 1, 1, 8, 1, 51, '2020-11-05 16:15:54', '2020-11-05 16:20:40'),
+(190, 2, 47, 1, 2, 3, 2, 51, '2020-11-05 16:15:54', NULL),
+(191, 2, 47, 1, 2, 3, 3, 51, '2020-11-05 16:15:54', NULL),
+(192, 2, 1, 1, 2, 3, 4, 51, '2020-11-05 16:15:54', NULL),
+(193, 2, 1, 1, 2, 3, 5, 51, '2020-11-05 16:15:54', NULL),
+(194, 1, 48, 1, 2, 3, 1, 52, '2020-11-05 16:24:38', NULL),
+(195, 2, 48, 1, 2, 3, 2, 52, '2020-11-05 16:24:38', NULL),
+(196, 2, 48, 1, 2, 3, 3, 52, '2020-11-05 16:24:38', NULL),
+(197, 2, 2, 1, 2, 3, 4, 52, '2020-11-05 16:24:38', NULL),
+(198, 2, 2, 1, 2, 3, 5, 52, '2020-11-05 16:24:38', NULL);
 
 -- --------------------------------------------------------
 
@@ -432,7 +443,9 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (47, 'Visualizar Perfil', 'visualizar/vis_perfil', 'Página para Visualizar Perfil', 'Visualizar Perfil', 'Visualizar Perfil', 'Natobpia', 2, '', 0, 5, '1', 4, 1, '2020-11-03 14:57:54', NULL),
 (48, 'Editar perfil', 'editar/edit_perfil', 'Página para editar perfil', 'Editar perfil', 'Editar perfil', 'Natobpia', 2, '', 0, 3, '1', 4, 1, '2020-11-03 15:06:33', NULL),
 (49, 'Proc Form Edit Perfil', 'processa/proc_edit_perfil', 'Página para processar o formulário editar perfil', 'Processar o formulário editar perfil', 'Processar o formulário editar perfil', 'Natobpia', 2, '', 48, 3, '1', 4, 1, '2020-11-03 15:18:01', NULL),
-(50, 'Página cadastrar usuário no login', 'cadastrar/cad_user_login', 'Página para Cadastrar usuário no login', 'Cadastrar usuário no login', 'Cadastrar usuário no login', 'Natobpia', 1, '', 0, 2, '1', 4, 1, '2020-11-05 15:25:15', NULL);
+(50, 'Página cadastrar usuário no login', 'cadastrar/cad_user_login', 'Página para Cadastrar usuário no login', 'Cadastrar usuário no login', 'Cadastrar usuário no login', 'Natobpia', 1, '', 0, 2, '1', 4, 1, '2020-11-05 15:25:15', NULL),
+(51, 'Cadastro Login', 'editar/edit_cad_user_login', 'Formulário para editar o nível de acesso e a situação do formulário cadastrar usuário na página de login', 'Editar Cadastro Usuário Login', 'Editar Cadastro Usuário Login', 'Natobpia', 2, 'fas fa-edit', 0, 3, '1', 4, 1, '2020-11-05 16:15:54', '2020-11-05 16:21:33'),
+(52, 'Proc Form Cad User Login', 'processa/proc_cad_user_login', 'Página para processar o formulário utilizado para editar o nível de acesso e a situação do formulário cadastrar usuário através da página de login.', 'Fomurlário cadastrar usuário no login', 'Fomurlário cadastrar usuário no login', 'Natobpia', 2, '', 51, 3, '1', 4, 1, '2020-11-05 16:24:38', NULL);
 
 -- --------------------------------------------------------
 
@@ -1239,13 +1252,13 @@ ALTER TABLE `adms_grps_pgs`
 -- AUTO_INCREMENT de tabela `adms_menus`
 --
 ALTER TABLE `adms_menus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=189;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=199;
 
 --
 -- AUTO_INCREMENT de tabela `adms_niveis_acessos`
@@ -1257,7 +1270,7 @@ ALTER TABLE `adms_niveis_acessos`
 -- AUTO_INCREMENT de tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT de tabela `adms_robots`
