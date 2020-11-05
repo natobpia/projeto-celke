@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 03-Nov-2020 às 19:24
+-- Tempo de geração: 05-Nov-2020 às 20:13
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.11
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `celke`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `adms_cads_usuarios`
+--
+
+CREATE TABLE `adms_cads_usuarios` (
+  `id` int(11) NOT NULL,
+  `adms_niveis_acesso_id` int(11) NOT NULL,
+  `adms_sits_usuario_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `adms_cads_usuarios`
+--
+
+INSERT INTO `adms_cads_usuarios` (`id`, `adms_niveis_acesso_id`, `adms_sits_usuario_id`, `created`, `modified`) VALUES
+(1, 5, 3, '2020-11-05 16:04:30', NULL);
 
 -- --------------------------------------------------------
 
@@ -305,7 +326,11 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (181, 1, 45, 1, 2, 3, 1, 49, '2020-11-03 15:18:01', NULL),
 (182, 2, 45, 1, 2, 3, 2, 49, '2020-11-03 15:18:01', NULL),
 (183, 2, 45, 1, 2, 3, 3, 49, '2020-11-03 15:18:01', NULL),
-(184, 2, 45, 1, 2, 3, 14, 49, '2020-11-03 15:18:01', NULL);
+(184, 2, 45, 1, 2, 3, 14, 49, '2020-11-03 15:18:01', NULL),
+(185, 1, 46, 1, 2, 3, 1, 50, '2020-11-05 15:25:15', NULL),
+(186, 2, 46, 1, 2, 3, 2, 50, '2020-11-05 15:25:15', NULL),
+(187, 2, 46, 1, 2, 3, 3, 50, '2020-11-05 15:25:15', NULL),
+(188, 2, 46, 1, 2, 3, 14, 50, '2020-11-05 15:25:15', NULL);
 
 -- --------------------------------------------------------
 
@@ -329,7 +354,8 @@ INSERT INTO `adms_niveis_acessos` (`id`, `nome`, `ordem`, `created`, `modified`)
 (1, 'Super Administrador', 1, '2018-03-23 00:00:00', NULL),
 (2, 'Administrador', 2, '2018-03-23 00:00:00', '2018-03-18 14:01:00'),
 (3, 'Colaborador', 3, '2018-03-23 00:00:00', '2018-03-21 22:17:40'),
-(14, 'Financeiro', 4, '2018-03-18 12:46:00', '2018-03-21 22:17:40');
+(4, 'Financeiro', 4, '2018-03-18 12:46:00', '2018-03-21 22:17:40'),
+(5, 'Cliente', 5, '2020-11-05 15:59:54', NULL);
 
 -- --------------------------------------------------------
 
@@ -405,7 +431,8 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (46, 'Apagar usuário', 'processa/apagar_usuario', 'Página para Apagar usuário', 'Apagar usuário', 'Apagar usuário', 'Natobpia', 2, '', 0, 4, '1', 4, 1, '2020-11-03 14:48:10', NULL),
 (47, 'Visualizar Perfil', 'visualizar/vis_perfil', 'Página para Visualizar Perfil', 'Visualizar Perfil', 'Visualizar Perfil', 'Natobpia', 2, '', 0, 5, '1', 4, 1, '2020-11-03 14:57:54', NULL),
 (48, 'Editar perfil', 'editar/edit_perfil', 'Página para editar perfil', 'Editar perfil', 'Editar perfil', 'Natobpia', 2, '', 0, 3, '1', 4, 1, '2020-11-03 15:06:33', NULL),
-(49, 'Proc Form Edit Perfil', 'processa/proc_edit_perfil', 'Página para processar o formulário editar perfil', 'Processar o formulário editar perfil', 'Processar o formulário editar perfil', 'Natobpia', 2, '', 48, 3, '1', 4, 1, '2020-11-03 15:18:01', NULL);
+(49, 'Proc Form Edit Perfil', 'processa/proc_edit_perfil', 'Página para processar o formulário editar perfil', 'Processar o formulário editar perfil', 'Processar o formulário editar perfil', 'Natobpia', 2, '', 48, 3, '1', 4, 1, '2020-11-03 15:18:01', NULL),
+(50, 'Página cadastrar usuário no login', 'cadastrar/cad_user_login', 'Página para Cadastrar usuário no login', 'Cadastrar usuário no login', 'Cadastrar usuário no login', 'Natobpia', 1, '', 0, 2, '1', 4, 1, '2020-11-05 15:25:15', NULL);
 
 -- --------------------------------------------------------
 
@@ -554,7 +581,9 @@ CREATE TABLE `adms_usuarios` (
 INSERT INTO `adms_usuarios` (`id`, `nome`, `apelido`, `email`, `usuario`, `senha`, `recuperar_senha`, `chave_descadastro`, `imagem`, `adms_niveis_acesso_id`, `adms_sits_usuario_id`, `created`, `modified`) VALUES
 (1, 'Cesar N. Szpak', 'Cesar', 'cesar@celke.com.br', 'cesar@celke.com.br', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, 'celke.jpg', 1, 1, '2018-03-23 00:00:00', '2020-11-03 15:22:53'),
 (2, 'Jessica', 'Jessica', 'jessica@celke.com.br', 'jessica@celke.com.br', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, 'celke.jpg', 3, 1, '2018-03-23 00:00:00', NULL),
-(3, 'Kelly', 'Kelly', 'kelly@celke.com.br', 'kelly@celke.com.br', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, 'celke.jpg', 2, 1, '2018-03-23 00:00:00', NULL);
+(3, 'Kelly', 'Kelly', 'kelly@celke.com.br', 'kelly@celke.com.br', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, 'celke.jpg', 2, 1, '2018-03-23 00:00:00', NULL),
+(18, 'Cesar', NULL, 'cesar6@celke.com.br', 'Cesar6', '$2y$10$Rj/ZAqKTixl7kpY/Tze83eHL/3.a5EdNDM1gO64ybhUrsVR8ZJns.', NULL, NULL, NULL, 5, 1, '2020-11-05 16:11:34', NULL),
+(19, 'Cesar', NULL, 'cesar7@celke.com.br', 'cesar7', '$2y$10$m1i1eXVXr0jz9aqy4m8biOrGCn19amI4HhbHhCXf/QYAcksZkeeQ.', NULL, NULL, NULL, 5, 3, '2020-11-05 16:13:06', NULL);
 
 -- --------------------------------------------------------
 
@@ -1005,6 +1034,12 @@ INSERT INTO `sts_videos` (`id`, `titulo`, `descricao`, `video_um`, `video_dois`,
 --
 
 --
+-- Índices para tabela `adms_cads_usuarios`
+--
+ALTER TABLE `adms_cads_usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices para tabela `adms_cors`
 --
 ALTER TABLE `adms_cors`
@@ -1183,6 +1218,12 @@ ALTER TABLE `sts_videos`
 --
 
 --
+-- AUTO_INCREMENT de tabela `adms_cads_usuarios`
+--
+ALTER TABLE `adms_cads_usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de tabela `adms_cors`
 --
 ALTER TABLE `adms_cors`
@@ -1204,19 +1245,19 @@ ALTER TABLE `adms_menus`
 -- AUTO_INCREMENT de tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=185;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=189;
 
 --
 -- AUTO_INCREMENT de tabela `adms_niveis_acessos`
 --
 ALTER TABLE `adms_niveis_acessos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT de tabela `adms_robots`
@@ -1252,7 +1293,7 @@ ALTER TABLE `adms_tps_pgs`
 -- AUTO_INCREMENT de tabela `adms_usuarios`
 --
 ALTER TABLE `adms_usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de tabela `sts_artigos`

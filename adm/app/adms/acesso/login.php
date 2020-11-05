@@ -13,6 +13,10 @@ include_once 'app/adms/include/head_login.php';
             echo $_SESSION['msg'];
             unset($_SESSION['msg']);
         }
+        if(isset($_SESSION['msgcad'])){
+            echo $_SESSION['msgcad'];
+            unset($_SESSION['msgcad']);
+        }
         ?>
         <div class="form-group">
             <label>Usuário</label>
@@ -23,6 +27,7 @@ include_once 'app/adms/include/head_login.php';
             <input name="senha" type="password" class="form-control" placeholder="Digite a senha" required>
         </div>
         <input type="submit" class="btn btn-lg btn-primary btn-block" value="Acessar" name="SendLogin">
-        <p class="text-center">Esqueceu a senha?</p>
+        <p class="text-center">
+        <a href="<?php echo pg.'/cadastrar/cad_user_login'; ?>">Cadastrar</a> - Esqueceu a senha?</p>
     </form>
 </body>
