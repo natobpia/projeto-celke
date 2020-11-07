@@ -24,6 +24,7 @@ if ($SendEditCadUser) {
         header("Location: $url_destino");
     } else {
         $result_pg_up = "UPDATE adms_cads_usuarios SET
+                env_email_conf = '" . $dados_validos['env_email_conf'] . "', 
                 adms_niveis_acesso_id='" . $dados_validos['adms_niveis_acesso_id'] . "', 
                 adms_sits_usuario_id='" . $dados_validos['adms_sits_usuario_id'] . "',
                 modified=NOW() 

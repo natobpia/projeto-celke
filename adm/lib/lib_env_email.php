@@ -11,8 +11,15 @@ use PHPMailer\PHPMailer\Exception;
 // Load Composer's autoloader
 require 'lib/vendor/autoload.php';
 
-function email_phpmailer($assunto, $mensagem, $mensagem_texto, $nome_destino = null, $email_destino)
+function email_phpmailer($assunto, $mensagem, $mensagem_texto, $nome_destino = null, $email_destino, $conn)
 {
+
+    //Pesquisar as credenciais do e-mail
+    $result_conf_email = "SELECT * FROM adms_conf_emails WHERE id=1 LIMIT 1";
+    $resultado_conf_email = mysqli_query($conn, $result_conf_email);
+    $row_conf_email = mysqli_fetch_assoc($resultado_conf_email);
+
+    if($row_conf_email['usuario'] != ""){
 
     $mail = new PHPMailer(true);
 
@@ -20,18 +27,18 @@ function email_phpmailer($assunto, $mensagem, $mensagem_texto, $nome_destino = n
         //Server settings
         //$mail->SMTPDebug = 2;                      // Enable verbose debug output
         $mail->isSMTP();                                            // Send using SMTP
-        $mail->Host       = 'srv84.prodns.com.br';                    // Set the SMTP server to send through
+        $mail->Host       = $row_conf_email['host'];                    // Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-        $mail->Username   = 'aulacurso@celke.com.br';                     // SMTP username
-        $mail->Password   = 'we6tcZpR4V';                               // SMTP password
-        $mail->SMTPSecure = 'ssl';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-        $mail->Port       = 465;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+        $mail->Username   = $row_conf_email['usuario'];                     // SMTP username
+        $mail->Password   = $row_conf_email['senha'];                               // SMTP password
+        $mail->SMTPSecure = $row_conf_email['smtpsecure'];         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+        $mail->Port       = $row_conf_email['porta'];                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
         //Recipients
-        $mail->setFrom('aulacurso@celke.com.br', 'Cesar - Celke');
+        $mail->setFrom($row_conf_email['email'], $row_conf_email['nome']);
         $mail->addAddress($email_destino, $nome_destino);     // Add a recipient
         //$mail->addAddress('ellen@example.com');               // Name is optional
-        //$mail->addReplyTo('info@example.com', 'Information');
+        $mail->addReplyTo($row_conf_email['email'], $row_conf_email['usuario']);
         //$mail->addCC('cc@example.com');
         //$mail->addBCC('bcc@example.com');
 
@@ -50,4 +57,7 @@ function email_phpmailer($assunto, $mensagem, $mensagem_texto, $nome_destino = n
     } catch (Exception $e) {
         return false;
     }
+} else {
+    $_SESSION['msgcad'] = "<div class='alert alert-danger'>Para enviar e-mail necessário inserir os dados do e-mail: Configurações -> E-mail!</div>";
+}
 }

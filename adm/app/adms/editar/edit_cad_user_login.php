@@ -35,7 +35,7 @@ if (($resultado_edit_caduser) AND ( $resultado_edit_caduser->num_rows != 0)) {
                     ?>
                     <form method="POST" action="<?php echo pg; ?>/processa/proc_cad_user_login" enctype="multipart/form-data">                       
                         <div class="form-row">
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-4">
                                 <?php
                                 $result_niv_ac = "SELECT id, nome FROM adms_niveis_acessos WHERE ordem >= '" . $_SESSION['ordem'] . "' ORDER BY nome ASC";
                                 $resultado_niv_ac = mysqli_query($conn, $result_niv_ac);
@@ -57,7 +57,7 @@ if (($resultado_edit_caduser) AND ( $resultado_edit_caduser->num_rows != 0)) {
                                     ?>
                                 </select>
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-4">
                                 <?php
                                 $result_sit_user = "SELECT id, nome FROM adms_sits_usuarios ORDER BY nome ASC";
                                 $resultado_sit_user = mysqli_query($conn, $result_sit_user);
@@ -77,6 +77,29 @@ if (($resultado_edit_caduser) AND ( $resultado_edit_caduser->num_rows != 0)) {
                                         }
                                     }
                                     ?>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label>
+                                    <span class="text-danger">*</span> Enviar E-mail
+                                </label>
+                                <select name="env_email_conf" id="env_email_conf" class="form-control">
+                                    <?php
+                                    if ((isset($_SESSION['dados']['env_email_conf']) AND ( $_SESSION['dados']['env_email_conf'] == 1)) OR ( isset($row_edit_caduser['env_email_conf']) AND ( $row_edit_caduser['env_email_conf'] == 1))) {
+                                        echo "<option value=''>Selecione</option>";
+                                        echo "<option value='1' selected>Sim</option>";
+                                        echo "<option value='2'>Não</option>";
+                                    } elseif ((isset($_SESSION['dados']['env_email_conf']) AND ( $_SESSION['dados']['env_email_conf'] == 2)) OR ( isset($row_edit_caduser['env_email_conf']) AND ( $row_edit_caduser['env_email_conf'] == 2))) {
+                                        echo "<option value=''>Selecione</option>";
+                                        echo "<option value='1'>Sim</option>";
+                                        echo "<option value='2' selected>Não</option>";
+                                    } else {
+                                        echo "<option value='' selected>Selecione</option>";
+                                        echo "<option value='1'>Sim</option>";
+                                        echo "<option value='2'>Não</option>";
+                                    }
+                                    ?>
+
                                 </select>
                             </div>
                         </div>

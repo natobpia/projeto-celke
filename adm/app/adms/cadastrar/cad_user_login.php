@@ -72,6 +72,10 @@ if (!empty($SendCadLogin)) {
             mysqli_query($conn, $result_cad_user);
             if (mysqli_insert_id($conn)) {
 
+                if($row_user_perm['env_email_conf'] == 1) {
+
+                }
+
                 $nome = explode(" ", $dados_validos['nome']);
                 $prim_nome = $nome[0];
                 
@@ -90,8 +94,16 @@ if (!empty($SendCadLogin)) {
                 $nome_destino = $prim_nome;
                 $email_destino = $dados_validos['email'];
 
-                email_phpmailer($assunto, $mensagem, $mensagem_texto, $nome_destino, $email_destino);
-
+                if(email_phpmailer($assunto, $mensagem, $mensagem_texto, $nome_destino, $email_destino, $conn)){
+                    $_SESSION['msgcad'] = "<div class='alert alert-success'>Usuário cadastrado com sucesso! 
+                    Acesse o seu e-mail para confirmar o cadastro</div>";
+                } else {
+                    $_SESSION['msgcad'] = "<div class='alert alert-danger'>Usuário cadastrado com sucesso! 
+                    Erro ao enviar o e-mail de confirmação</div>";
+                }
+            } else {
+                $_SESSION['msgcad'] = "<div class='alert alert-success'>Usuário cadastrado com sucesso!</div>";
+            }
                 unset($_SESSION['dados']);
                 $_SESSION['msgcad'] = "<div class='alert alert-success'>Usuário cadastrado com sucesso!</div>";
                 $url_destino = pg. '/acesso/login';

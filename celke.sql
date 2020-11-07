@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07-Nov-2020 às 02:34
+-- Tempo de geração: 07-Nov-2020 às 22:16
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.11
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `adms_cads_usuarios` (
   `id` int(11) NOT NULL,
+  `env_email_conf` int(11) NOT NULL,
   `adms_niveis_acesso_id` int(11) NOT NULL,
   `adms_sits_usuario_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
@@ -39,8 +40,34 @@ CREATE TABLE `adms_cads_usuarios` (
 -- Extraindo dados da tabela `adms_cads_usuarios`
 --
 
-INSERT INTO `adms_cads_usuarios` (`id`, `adms_niveis_acesso_id`, `adms_sits_usuario_id`, `created`, `modified`) VALUES
-(1, 5, 3, '2020-11-05 16:04:30', '2020-11-05 16:29:01');
+INSERT INTO `adms_cads_usuarios` (`id`, `env_email_conf`, `adms_niveis_acesso_id`, `adms_sits_usuario_id`, `created`, `modified`) VALUES
+(1, 1, 5, 3, '2020-11-05 16:04:30', '2020-11-07 18:12:35');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `adms_conf_emails`
+--
+
+CREATE TABLE `adms_conf_emails` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
+  `host` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
+  `usuario` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
+  `senha` varchar(120) COLLATE utf8_unicode_ci NOT NULL,
+  `smtpsecure` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `porta` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modifed` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `adms_conf_emails`
+--
+
+INSERT INTO `adms_conf_emails` (`id`, `nome`, `email`, `host`, `usuario`, `senha`, `smtpsecure`, `porta`, `created`, `modifed`) VALUES
+(1, 'Cesar - Celke', 'aulacurso@celke.com.br', 'srv84.prodns.com.br', 'aulacurso@celke.com.br', 'we6tcZpR4V', 'ssl', 465, '2020-11-07 18:05:04', NULL);
 
 -- --------------------------------------------------------
 
@@ -1054,6 +1081,12 @@ ALTER TABLE `adms_cads_usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices para tabela `adms_conf_emails`
+--
+ALTER TABLE `adms_conf_emails`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices para tabela `adms_cors`
 --
 ALTER TABLE `adms_cors`
@@ -1235,6 +1268,12 @@ ALTER TABLE `sts_videos`
 -- AUTO_INCREMENT de tabela `adms_cads_usuarios`
 --
 ALTER TABLE `adms_cads_usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `adms_conf_emails`
+--
+ALTER TABLE `adms_conf_emails`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
