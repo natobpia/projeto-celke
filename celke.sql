@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05-Nov-2020 às 20:29
+-- Tempo de geração: 07-Nov-2020 às 02:34
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.11
 
@@ -580,6 +580,7 @@ CREATE TABLE `adms_usuarios` (
   `senha` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
   `recuperar_senha` varchar(220) COLLATE utf8_unicode_ci DEFAULT NULL,
   `chave_descadastro` varchar(220) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `conf_email` varchar(220) COLLATE utf8_unicode_ci DEFAULT NULL,
   `imagem` varchar(220) COLLATE utf8_unicode_ci DEFAULT NULL,
   `adms_niveis_acesso_id` int(11) NOT NULL,
   `adms_sits_usuario_id` int(11) NOT NULL,
@@ -591,12 +592,12 @@ CREATE TABLE `adms_usuarios` (
 -- Extraindo dados da tabela `adms_usuarios`
 --
 
-INSERT INTO `adms_usuarios` (`id`, `nome`, `apelido`, `email`, `usuario`, `senha`, `recuperar_senha`, `chave_descadastro`, `imagem`, `adms_niveis_acesso_id`, `adms_sits_usuario_id`, `created`, `modified`) VALUES
-(1, 'Cesar N. Szpak', 'Cesar', 'cesar@celke.com.br', 'cesar@celke.com.br', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, 'celke.jpg', 1, 1, '2018-03-23 00:00:00', '2020-11-03 15:22:53'),
-(2, 'Jessica', 'Jessica', 'jessica@celke.com.br', 'jessica@celke.com.br', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, 'celke.jpg', 3, 1, '2018-03-23 00:00:00', NULL),
-(3, 'Kelly', 'Kelly', 'kelly@celke.com.br', 'kelly@celke.com.br', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, 'celke.jpg', 2, 1, '2018-03-23 00:00:00', NULL),
-(18, 'Cesar', NULL, 'cesar6@celke.com.br', 'Cesar6', '$2y$10$Rj/ZAqKTixl7kpY/Tze83eHL/3.a5EdNDM1gO64ybhUrsVR8ZJns.', NULL, NULL, NULL, 5, 1, '2020-11-05 16:11:34', NULL),
-(19, 'Cesar', NULL, 'cesar7@celke.com.br', 'cesar7', '$2y$10$m1i1eXVXr0jz9aqy4m8biOrGCn19amI4HhbHhCXf/QYAcksZkeeQ.', NULL, NULL, NULL, 5, 3, '2020-11-05 16:13:06', NULL);
+INSERT INTO `adms_usuarios` (`id`, `nome`, `apelido`, `email`, `usuario`, `senha`, `recuperar_senha`, `chave_descadastro`, `conf_email`, `imagem`, `adms_niveis_acesso_id`, `adms_sits_usuario_id`, `created`, `modified`) VALUES
+(1, 'Cesar N. Szpak', 'Cesar', 'cesar@celke.com.br', 'cesar@celke.com.br', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, NULL, 'celke.jpg', 1, 1, '2018-03-23 00:00:00', '2020-11-03 15:22:53'),
+(2, 'Jessica', 'Jessica', 'jessica@celke.com.br', 'jessica@celke.com.br', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, NULL, 'celke.jpg', 3, 1, '2018-03-23 00:00:00', NULL),
+(3, 'Kelly', 'Kelly', 'kelly@celke.com.br', 'kelly@celke.com.br', '$2y$10$UDdxOqZghWMPVQQ094COZeNdT/VFBJXqwFfAyRNLZnycaXhY8yK9u', NULL, NULL, NULL, 'celke.jpg', 2, 1, '2018-03-23 00:00:00', NULL),
+(18, 'Cesar', NULL, 'cesar6@celke.com.br', 'Cesar6', '$2y$10$Rj/ZAqKTixl7kpY/Tze83eHL/3.a5EdNDM1gO64ybhUrsVR8ZJns.', NULL, NULL, NULL, NULL, 5, 1, '2020-11-05 16:11:34', NULL),
+(19, 'Cesar', NULL, 'cesar7@celke.com.br', 'cesar7', '$2y$10$m1i1eXVXr0jz9aqy4m8biOrGCn19amI4HhbHhCXf/QYAcksZkeeQ.', NULL, NULL, NULL, NULL, 5, 3, '2020-11-05 16:13:06', NULL);
 
 -- --------------------------------------------------------
 
