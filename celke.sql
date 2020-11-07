@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07-Nov-2020 às 22:16
+-- Tempo de geração: 07-Nov-2020 às 22:28
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.11
 
@@ -46,10 +46,10 @@ INSERT INTO `adms_cads_usuarios` (`id`, `env_email_conf`, `adms_niveis_acesso_id
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `adms_conf_emails`
+-- Estrutura da tabela `adms_confs_emails`
 --
 
-CREATE TABLE `adms_conf_emails` (
+CREATE TABLE `adms_confs_emails` (
   `id` int(11) NOT NULL,
   `nome` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
@@ -63,10 +63,10 @@ CREATE TABLE `adms_conf_emails` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `adms_conf_emails`
+-- Extraindo dados da tabela `adms_confs_emails`
 --
 
-INSERT INTO `adms_conf_emails` (`id`, `nome`, `email`, `host`, `usuario`, `senha`, `smtpsecure`, `porta`, `created`, `modifed`) VALUES
+INSERT INTO `adms_confs_emails` (`id`, `nome`, `email`, `host`, `usuario`, `senha`, `smtpsecure`, `porta`, `created`, `modifed`) VALUES
 (1, 'Cesar - Celke', 'aulacurso@celke.com.br', 'srv84.prodns.com.br', 'aulacurso@celke.com.br', 'we6tcZpR4V', 'ssl', 465, '2020-11-07 18:05:04', NULL);
 
 -- --------------------------------------------------------
@@ -368,7 +368,17 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (195, 2, 48, 1, 2, 3, 2, 52, '2020-11-05 16:24:38', NULL),
 (196, 2, 48, 1, 2, 3, 3, 52, '2020-11-05 16:24:38', NULL),
 (197, 2, 2, 1, 2, 3, 4, 52, '2020-11-05 16:24:38', NULL),
-(198, 2, 2, 1, 2, 3, 5, 52, '2020-11-05 16:24:38', NULL);
+(198, 2, 2, 1, 2, 3, 5, 52, '2020-11-05 16:24:38', NULL),
+(199, 1, 49, 1, 1, 8, 1, 53, '2020-11-07 18:19:07', '2020-11-07 18:19:48'),
+(200, 2, 49, 1, 2, 3, 2, 53, '2020-11-07 18:19:07', NULL),
+(201, 2, 49, 1, 2, 3, 3, 53, '2020-11-07 18:19:07', NULL),
+(202, 2, 3, 1, 2, 3, 4, 53, '2020-11-07 18:19:07', NULL),
+(203, 2, 3, 1, 2, 3, 5, 53, '2020-11-07 18:19:07', NULL),
+(204, 1, 50, 1, 2, 3, 1, 54, '2020-11-07 18:24:49', NULL),
+(205, 2, 50, 1, 2, 3, 2, 54, '2020-11-07 18:24:49', NULL),
+(206, 2, 50, 1, 2, 3, 3, 54, '2020-11-07 18:24:49', NULL),
+(207, 2, 4, 1, 2, 3, 4, 54, '2020-11-07 18:24:49', NULL),
+(208, 2, 4, 1, 2, 3, 5, 54, '2020-11-07 18:24:49', NULL);
 
 -- --------------------------------------------------------
 
@@ -472,7 +482,9 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (49, 'Proc Form Edit Perfil', 'processa/proc_edit_perfil', 'Página para processar o formulário editar perfil', 'Processar o formulário editar perfil', 'Processar o formulário editar perfil', 'Natobpia', 2, '', 48, 3, '1', 4, 1, '2020-11-03 15:18:01', NULL),
 (50, 'Página cadastrar usuário no login', 'cadastrar/cad_user_login', 'Página para Cadastrar usuário no login', 'Cadastrar usuário no login', 'Cadastrar usuário no login', 'Natobpia', 1, '', 0, 2, '1', 4, 1, '2020-11-05 15:25:15', NULL),
 (51, 'Cadastro Login', 'editar/edit_cad_user_login', 'Formulário para editar o nível de acesso e a situação do formulário cadastrar usuário na página de login', 'Editar Cadastro Usuário Login', 'Editar Cadastro Usuário Login', 'Natobpia', 2, 'fas fa-edit', 0, 3, '1', 4, 1, '2020-11-05 16:15:54', '2020-11-05 16:21:33'),
-(52, 'Proc Form Cad User Login', 'processa/proc_cad_user_login', 'Página para processar o formulário utilizado para editar o nível de acesso e a situação do formulário cadastrar usuário através da página de login.', 'Fomurlário cadastrar usuário no login', 'Fomurlário cadastrar usuário no login', 'Natobpia', 2, '', 51, 3, '1', 4, 1, '2020-11-05 16:24:38', NULL);
+(52, 'Proc Form Cad User Login', 'processa/proc_cad_user_login', 'Página para processar o formulário utilizado para editar o nível de acesso e a situação do formulário cadastrar usuário através da página de login.', 'Fomurlário cadastrar usuário no login', 'Fomurlário cadastrar usuário no login', 'Natobpia', 2, '', 51, 3, '1', 4, 1, '2020-11-05 16:24:38', NULL),
+(53, 'Página para editar as credenciais do email', 'editar/edit_cred_email', 'Página com formulário para editar as credenciais do email', 'Página para editar as credenciais do email', 'Página para editar as credenciais do email', 'Natobpia', 2, 'fas fa-at', 0, 3, '1', 4, 1, '2020-11-07 18:19:07', '2020-11-07 18:19:48'),
+(54, 'Processar formulário credenciais e-mail', 'processa/proc_edit_cred_email', 'Página para processar o formulário editar credenciais de envio de e-mail', 'Processar formulário credenciais e-mail', 'Processar formulário credenciais e-mail', 'Natobpia', 2, '', 53, 3, '1', 4, 1, '2020-11-07 18:24:49', NULL);
 
 -- --------------------------------------------------------
 
@@ -1081,9 +1093,9 @@ ALTER TABLE `adms_cads_usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `adms_conf_emails`
+-- Índices para tabela `adms_confs_emails`
 --
-ALTER TABLE `adms_conf_emails`
+ALTER TABLE `adms_confs_emails`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1271,9 +1283,9 @@ ALTER TABLE `adms_cads_usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de tabela `adms_conf_emails`
+-- AUTO_INCREMENT de tabela `adms_confs_emails`
 --
-ALTER TABLE `adms_conf_emails`
+ALTER TABLE `adms_confs_emails`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
@@ -1298,7 +1310,7 @@ ALTER TABLE `adms_menus`
 -- AUTO_INCREMENT de tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=199;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=209;
 
 --
 -- AUTO_INCREMENT de tabela `adms_niveis_acessos`
@@ -1310,7 +1322,7 @@ ALTER TABLE `adms_niveis_acessos`
 -- AUTO_INCREMENT de tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT de tabela `adms_robots`
