@@ -12,6 +12,7 @@ if (!empty($SendCadLogin)) {
     $erro = false;
     include_once 'lib/lib_vazio.php';
     include_once 'lib/lib_email.php';
+    include_once 'lib/lib_env_email.php';
     $dados_validos = vazio($dados);
     if (!$dados_validos) {
         $erro = true;
@@ -50,25 +51,48 @@ if (!empty($SendCadLogin)) {
     }
 
     if (!$erro) {
+        //Criptografar a senha
         $dados_validos['senha'] = password_hash($dados_validos['senha'], PASSWORD_DEFAULT);
+        $conf_email = md5($dados_validos['senha'] . date('Y-m-d H:i'));
 
         $result_user_perm = "SELECT * FROM adms_cads_usuarios LIMIT 1";
         $resultado_user_perm = mysqli_query($conn, $result_user_perm);
         $row_user_perm = mysqli_fetch_assoc($resultado_user_perm);
 
-        $result_cad_user = "INSERT INTO adms_usuarios (nome, email, usuario, senha,  adms_niveis_acesso_id, adms_sits_usuario_id, created) VALUES (
+        $result_cad_user = "INSERT INTO adms_usuarios (nome, email, usuario, senha, conf_email,  adms_niveis_acesso_id, adms_sits_usuario_id, created) VALUES (
             '" . $dados_validos['nome'] . "',
             '" . $dados_validos['email'] . "',
             '" . $dados_validos['usuario'] . "',
             '" . $dados_validos['senha'] . "',
+            '$conf_email',
             '" . $row_user_perm['adms_niveis_acesso_id'] . "',
             '" . $row_user_perm['adms_sits_usuario_id'] . "',
             NOW())";
 
             mysqli_query($conn, $result_cad_user);
             if (mysqli_insert_id($conn)) {
-                unset($_SESSION['dados']);
 
+                $nome = explode(" ", $dados_validos['nome']);
+                $prim_nome = $nome[0];
+                
+                $assunto = "Confirmar E-mail";
+
+                $mensagem = "Caro(a) $prim_nome ,<br><br>";
+                $mensagem .= "Obrigado por se cadastrar conosco. Para ativar seu perfil, clique no link abaixo: <br><br>";
+                $mensagem .= "<a href='".pg."/acesso/vallida_email?chave=$conf_email'>Clique aqui</a><br><br>";
+                $mensagem .= "Obrigado<br>";
+                
+                $mensagem_texto = "Caro(a) $prim_nome ,";
+                $mensagem_texto .= "Obrigado por se cadastrar conosco. Para ativar seu perfil, copie o endereço abaixo e cole no navegador";
+                $mensagem_texto .= pg . "/acesso/valida_email?chave=$conf_email'";
+                $mensagem_texto .= "Obrigado";
+
+                $nome_destino = $prim_nome;
+                $email_destino = $dados_validos['email'];
+
+                email_phpmailer($assunto, $mensagem, $mensagem_texto, $nome_destino, $email_destino);
+
+                unset($_SESSION['dados']);
                 $_SESSION['msgcad'] = "<div class='alert alert-success'>Usuário cadastrado com sucesso!</div>";
                 $url_destino = pg. '/acesso/login';
                 header("Location: $url_destino");
