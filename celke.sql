@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07-Nov-2020 às 22:28
+-- Tempo de geração: 09-Nov-2020 às 00:13
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.11
 
@@ -378,7 +378,12 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (205, 2, 50, 1, 2, 3, 2, 54, '2020-11-07 18:24:49', NULL),
 (206, 2, 50, 1, 2, 3, 3, 54, '2020-11-07 18:24:49', NULL),
 (207, 2, 4, 1, 2, 3, 4, 54, '2020-11-07 18:24:49', NULL),
-(208, 2, 4, 1, 2, 3, 5, 54, '2020-11-07 18:24:49', NULL);
+(208, 2, 4, 1, 2, 3, 5, 54, '2020-11-07 18:24:49', NULL),
+(209, 1, 51, 1, 2, 3, 1, 55, '2020-11-08 20:00:31', NULL),
+(210, 2, 51, 1, 2, 3, 2, 55, '2020-11-08 20:00:31', NULL),
+(211, 2, 51, 1, 2, 3, 3, 55, '2020-11-08 20:00:31', NULL),
+(212, 2, 5, 1, 2, 3, 4, 55, '2020-11-08 20:00:31', NULL),
+(213, 2, 5, 1, 2, 3, 5, 55, '2020-11-08 20:00:31', NULL);
 
 -- --------------------------------------------------------
 
@@ -484,7 +489,8 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (51, 'Cadastro Login', 'editar/edit_cad_user_login', 'Formulário para editar o nível de acesso e a situação do formulário cadastrar usuário na página de login', 'Editar Cadastro Usuário Login', 'Editar Cadastro Usuário Login', 'Natobpia', 2, 'fas fa-edit', 0, 3, '1', 4, 1, '2020-11-05 16:15:54', '2020-11-05 16:21:33'),
 (52, 'Proc Form Cad User Login', 'processa/proc_cad_user_login', 'Página para processar o formulário utilizado para editar o nível de acesso e a situação do formulário cadastrar usuário através da página de login.', 'Fomurlário cadastrar usuário no login', 'Fomurlário cadastrar usuário no login', 'Natobpia', 2, '', 51, 3, '1', 4, 1, '2020-11-05 16:24:38', NULL),
 (53, 'Página para editar as credenciais do email', 'editar/edit_cred_email', 'Página com formulário para editar as credenciais do email', 'Página para editar as credenciais do email', 'Página para editar as credenciais do email', 'Natobpia', 2, 'fas fa-at', 0, 3, '1', 4, 1, '2020-11-07 18:19:07', '2020-11-07 18:19:48'),
-(54, 'Processar formulário credenciais e-mail', 'processa/proc_edit_cred_email', 'Página para processar o formulário editar credenciais de envio de e-mail', 'Processar formulário credenciais e-mail', 'Processar formulário credenciais e-mail', 'Natobpia', 2, '', 53, 3, '1', 4, 1, '2020-11-07 18:24:49', NULL);
+(54, 'Processar formulário credenciais e-mail', 'processa/proc_edit_cred_email', 'Página para processar o formulário editar credenciais de envio de e-mail', 'Processar formulário credenciais e-mail', 'Processar formulário credenciais e-mail', 'Natobpia', 2, '', 53, 3, '1', 4, 1, '2020-11-07 18:24:49', NULL),
+(55, 'Validar E-mail', 'acesso/valida_email', 'Página para validar e-mail', 'Validar E-mail', 'Validar E-mail', 'Natobpia', 1, '', 0, 3, '1', 4, 1, '2020-11-08 20:00:31', NULL);
 
 -- --------------------------------------------------------
 
@@ -1310,7 +1316,7 @@ ALTER TABLE `adms_menus`
 -- AUTO_INCREMENT de tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=209;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=214;
 
 --
 -- AUTO_INCREMENT de tabela `adms_niveis_acessos`
@@ -1322,7 +1328,7 @@ ALTER TABLE `adms_niveis_acessos`
 -- AUTO_INCREMENT de tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT de tabela `adms_robots`
