@@ -88,8 +88,13 @@ include_once 'app/adms/include/head_login.php';
             echo $_SESSION['msg'];
             unset($_SESSION['msg']);
         }
-        ?>
 
+
+        if (isset($_SESSION['msgrec'])) {
+            echo $_SESSION['msgrec'];
+            unset($_SESSION['msgrec']);
+        }
+        ?>
         <div class="form-group">
             <label>E-mail</label>
             <input name="email" type="email" class="form-control" placeholder="E-mail de cadastro" required value="<?php

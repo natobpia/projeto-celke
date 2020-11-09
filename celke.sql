@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 09-Nov-2020 às 00:54
+-- Tempo de geração: 09-Nov-2020 às 19:07
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.11
 
@@ -388,7 +388,12 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (215, 2, 52, 1, 2, 3, 2, 56, '2020-11-08 20:15:50', NULL),
 (216, 2, 52, 1, 2, 3, 3, 56, '2020-11-08 20:15:50', NULL),
 (217, 2, 6, 1, 2, 3, 4, 56, '2020-11-08 20:15:50', NULL),
-(218, 2, 6, 1, 2, 3, 5, 56, '2020-11-08 20:15:50', NULL);
+(218, 2, 6, 1, 2, 3, 5, 56, '2020-11-08 20:15:50', NULL),
+(219, 1, 53, 1, 2, 3, 1, 57, '2020-11-09 14:40:29', NULL),
+(220, 2, 53, 1, 2, 3, 2, 57, '2020-11-09 14:40:29', NULL),
+(221, 2, 53, 1, 2, 3, 3, 57, '2020-11-09 14:40:29', NULL),
+(222, 2, 7, 1, 2, 3, 4, 57, '2020-11-09 14:40:29', NULL),
+(223, 2, 7, 1, 2, 3, 5, 57, '2020-11-09 14:40:29', NULL);
 
 -- --------------------------------------------------------
 
@@ -496,7 +501,8 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (53, 'Página para editar as credenciais do email', 'editar/edit_cred_email', 'Página com formulário para editar as credenciais do email', 'Página para editar as credenciais do email', 'Página para editar as credenciais do email', 'Natobpia', 2, 'fas fa-at', 0, 3, '1', 4, 1, '2020-11-07 18:19:07', '2020-11-07 18:19:48'),
 (54, 'Processar formulário credenciais e-mail', 'processa/proc_edit_cred_email', 'Página para processar o formulário editar credenciais de envio de e-mail', 'Processar formulário credenciais e-mail', 'Processar formulário credenciais e-mail', 'Natobpia', 2, '', 53, 3, '1', 4, 1, '2020-11-07 18:24:49', NULL),
 (55, 'Validar E-mail', 'acesso/valida_email', 'Página para validar e-mail', 'Validar E-mail', 'Validar E-mail', 'Natobpia', 1, '', 0, 3, '1', 4, 1, '2020-11-08 20:00:31', NULL),
-(56, 'Página para recuperar o login', 'acesso/recuperar_login', 'Página para recuperar o login', 'Página para recuperar o login', 'Página para recuperar o login', 'Natobpia', 1, '', 0, 7, '1', 4, 1, '2020-11-08 20:15:50', NULL);
+(56, 'Página para recuperar o login', 'acesso/recuperar_login', 'Página para recuperar o login', 'Página para recuperar o login', 'Página para recuperar o login', 'Natobpia', 1, '', 0, 7, '1', 4, 1, '2020-11-08 20:15:50', NULL),
+(57, 'Atualizar a Senha', 'acesso/atual_senha', 'Formulário para atualizar a senha', 'Atualizar a Senha', 'Atualizar a Senha', 'Natobpia', 1, '', 0, 7, '1', 4, 1, '2020-11-09 14:40:29', NULL);
 
 -- --------------------------------------------------------
 
@@ -1322,7 +1328,7 @@ ALTER TABLE `adms_menus`
 -- AUTO_INCREMENT de tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=219;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=224;
 
 --
 -- AUTO_INCREMENT de tabela `adms_niveis_acessos`
@@ -1334,7 +1340,7 @@ ALTER TABLE `adms_niveis_acessos`
 -- AUTO_INCREMENT de tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT de tabela `adms_robots`
