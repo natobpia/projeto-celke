@@ -15,9 +15,11 @@ $url_limpa = limparURL($url);
 $endereco = explode('/', $url_limpa);
 
 $result_pagina = "SELECT pag.*,
-        rob.tipo
+        rob.tipo, 
+        tpg.tipo tipo_tpg
         FROM sts_paginas pag
         INNER JOIN sts_robots rob ON rob.id=pag.sts_robot_id
+        INNER JOIN sts_tps_pgs tpg ON tpg.id=pag.sts_tps_pg_id
         WHERE pag.endereco='".$endereco[0]."' AND pag.sts_situacaos_pg_id=1 LIMIT 1";
 $resultado_pagina = mysqli_query($conn, $result_pagina);
 ?>
@@ -26,7 +28,7 @@ $resultado_pagina = mysqli_query($conn, $result_pagina);
     <?php
     if(($resultado_pagina) AND ($resultado_pagina->num_rows != 0)){
         $row_pagina = mysqli_fetch_assoc($resultado_pagina);
-        $file = 'app/'.$row_pagina['tp_pagina'].'/'.$endereco[0].'.php';
+        $file = 'app/'.$row_pagina['tipo_tpg'].'/'.$endereco[0].'.php';
         if(file_exists($file)){
             include $file;
         }else{

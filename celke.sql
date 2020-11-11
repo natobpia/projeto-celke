@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 09-Nov-2020 às 19:07
+-- Tempo de geração: 11-Nov-2020 às 01:22
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.11
 
@@ -148,7 +148,8 @@ INSERT INTO `adms_menus` (`id`, `nome`, `icone`, `ordem`, `adms_sit_id`, `create
 (1, 'Dashboard', 'fas fa-tachometer-alt', 1, 1, '2018-03-23 00:00:00', '2020-10-26 10:31:59'),
 (2, 'Usuario', 'fas fa-user', 2, 1, '2018-03-23 00:00:00', '2020-10-26 15:12:58'),
 (3, 'Menu', 'fas fa-list-ul', 3, 1, '2018-03-23 00:00:00', '2020-10-26 15:12:58'),
-(4, 'Sair', 'fas fa-sign-out-alt', 5, 1, '2018-03-23 00:00:00', '2020-11-05 16:21:08'),
+(4, 'Sair', 'fas fa-sign-out-alt', 6, 1, '2018-03-23 00:00:00', '2020-11-10 21:01:16'),
+(9, 'Site', 'fas fa-laptop', 5, 0, '2020-11-10 21:01:13', '2020-11-10 21:01:16'),
 (8, 'Configurações', 'fas fa-cogs', 4, 0, '2020-11-05 16:19:44', '2020-11-05 16:21:08');
 
 -- --------------------------------------------------------
@@ -393,7 +394,12 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (220, 2, 53, 1, 2, 3, 2, 57, '2020-11-09 14:40:29', NULL),
 (221, 2, 53, 1, 2, 3, 3, 57, '2020-11-09 14:40:29', NULL),
 (222, 2, 7, 1, 2, 3, 4, 57, '2020-11-09 14:40:29', NULL),
-(223, 2, 7, 1, 2, 3, 5, 57, '2020-11-09 14:40:29', NULL);
+(223, 2, 7, 1, 2, 3, 5, 57, '2020-11-09 14:40:29', NULL),
+(224, 1, 54, 1, 1, 9, 1, 58, '2020-11-10 21:00:48', '2020-11-10 21:01:41'),
+(225, 2, 54, 1, 2, 3, 2, 58, '2020-11-10 21:00:48', NULL),
+(226, 2, 54, 1, 2, 3, 3, 58, '2020-11-10 21:00:48', NULL),
+(227, 2, 8, 1, 2, 3, 4, 58, '2020-11-10 21:00:48', NULL),
+(228, 2, 8, 1, 2, 3, 5, 58, '2020-11-10 21:00:48', NULL);
 
 -- --------------------------------------------------------
 
@@ -502,7 +508,8 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (54, 'Processar formulário credenciais e-mail', 'processa/proc_edit_cred_email', 'Página para processar o formulário editar credenciais de envio de e-mail', 'Processar formulário credenciais e-mail', 'Processar formulário credenciais e-mail', 'Natobpia', 2, '', 53, 3, '1', 4, 1, '2020-11-07 18:24:49', NULL),
 (55, 'Validar E-mail', 'acesso/valida_email', 'Página para validar e-mail', 'Validar E-mail', 'Validar E-mail', 'Natobpia', 1, '', 0, 3, '1', 4, 1, '2020-11-08 20:00:31', NULL),
 (56, 'Página para recuperar o login', 'acesso/recuperar_login', 'Página para recuperar o login', 'Página para recuperar o login', 'Página para recuperar o login', 'Natobpia', 1, '', 0, 7, '1', 4, 1, '2020-11-08 20:15:50', NULL),
-(57, 'Atualizar a Senha', 'acesso/atual_senha', 'Formulário para atualizar a senha', 'Atualizar a Senha', 'Atualizar a Senha', 'Natobpia', 1, '', 0, 7, '1', 4, 1, '2020-11-09 14:40:29', NULL);
+(57, 'Atualizar a Senha', 'acesso/atual_senha', 'Formulário para atualizar a senha', 'Atualizar a Senha', 'Atualizar a Senha', 'Natobpia', 1, '', 0, 7, '1', 4, 1, '2020-11-09 14:40:29', NULL),
+(58, 'Página do Site', 'listar/sts_list_pagina', 'Listar as páginas do site', 'Página do Site', 'Página do Site', 'Natobpia', 2, 'fas fa-file-alt', 0, 1, '2', 4, 1, '2020-11-10 21:00:48', '2020-11-10 21:03:50');
 
 -- --------------------------------------------------------
 
@@ -620,7 +627,8 @@ CREATE TABLE `adms_tps_pgs` (
 --
 
 INSERT INTO `adms_tps_pgs` (`id`, `tipo`, `nome`, `obs`, `ordem`, `created`, `modified`) VALUES
-(1, 'adms', 'Administrativo', 'Core do Administrativo', 1, '2018-03-23 00:00:00', NULL);
+(1, 'adms', 'Administrativo', 'Core do Administrativo', 1, '2018-03-23 00:00:00', NULL),
+(2, 'sts', 'Site', 'Core do Site', 2, '2020-11-10 20:59:07', NULL);
 
 -- --------------------------------------------------------
 
@@ -880,7 +888,7 @@ CREATE TABLE `sts_paginas` (
   `description` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
   `author` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `imagem` varchar(120) COLLATE utf8_unicode_ci NOT NULL,
-  `tp_pagina` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `sts_tps_pg_id` int(20) NOT NULL,
   `lib_bloq` int(11) NOT NULL DEFAULT 2,
   `ordem` int(11) NOT NULL,
   `depend_pg` int(11) NOT NULL DEFAULT 0,
@@ -894,14 +902,14 @@ CREATE TABLE `sts_paginas` (
 -- Extraindo dados da tabela `sts_paginas`
 --
 
-INSERT INTO `sts_paginas` (`id`, `endereco`, `nome_pagina`, `titulo`, `obs`, `keywords`, `description`, `author`, `imagem`, `tp_pagina`, `lib_bloq`, `ordem`, `depend_pg`, `sts_robot_id`, `sts_situacaos_pg_id`, `created`, `modified`) VALUES
-(1, 'home', 'Home', 'Celke - Home', 'Home', 'site celke home, PHP, HTML, CSS, Bootstrap, JavaScript', 'home do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'home.jpg', 'sts', 1, 1, 0, 1, 1, '2018-02-23 00:00:00', NULL),
-(2, 'sobre_empresa', 'Sobre Empresa', 'Celke - Sobre empresa', NULL, 'site celke sobre empresa, PHP, HTML, CSS, Bootstrap', 'sobre empresa do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'sobre_empresa.jpg', 'sts', 1, 2, 0, 1, 1, '2018-02-23 00:00:00', NULL),
-(3, 'contato', 'Contato', 'Celke - Contato', NULL, 'site celke contato, PHP, HTML, CSS, Bootstrap, JavaScript', 'contato do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'contato.jpg', 'sts', 1, 4, 0, 1, 1, '2018-02-23 00:00:00', NULL),
-(4, 'blog', 'Blog', 'Celke - Blog', NULL, 'site celke blog, PHP, HTML, CSS, Bootstrap, JavaScript', 'blog do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'blog.jpg', 'sts', 1, 3, 0, 1, 1, '2018-02-23 00:00:00', NULL),
-(5, 'artigo', 'Artigo', 'Celke - Artigo', NULL, 'site celke artigo, PHP, HTML, CSS, Bootstrap, JavaScript', 'artigo do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'artigo.jpg', 'sts', 2, 5, 0, 1, 1, '2018-02-23 00:00:00', NULL),
-(6, 'proc_cad_lead', 'Processa Cadastrar Lead', 'Celke - Cadastrar Lead', NULL, 'PHP', 'Cadastrar email para receber novidades', 'Celke', 'proc_cad_lead.jpg', 'sts', 2, 6, 1, 4, 1, '2020-05-27 10:44:14', NULL),
-(7, 'proc_cad_contato', 'Processa Cadastrar Contato', 'Celke - Cadastrar Contato', NULL, 'Cadastrar contato', 'Cadastrar contato', 'Celke', 'cadastrar.jpg', 'sts', 2, 7, 3, 4, 1, '2020-06-08 10:59:34', NULL);
+INSERT INTO `sts_paginas` (`id`, `endereco`, `nome_pagina`, `titulo`, `obs`, `keywords`, `description`, `author`, `imagem`, `sts_tps_pg_id`, `lib_bloq`, `ordem`, `depend_pg`, `sts_robot_id`, `sts_situacaos_pg_id`, `created`, `modified`) VALUES
+(1, 'home', 'Home', 'Celke - Home', 'Home', 'site celke home, PHP, HTML, CSS, Bootstrap, JavaScript', 'home do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'home.jpg', 1, 1, 1, 0, 1, 1, '2018-02-23 00:00:00', NULL),
+(2, 'sobre_empresa', 'Sobre Empresa', 'Celke - Sobre empresa', NULL, 'site celke sobre empresa, PHP, HTML, CSS, Bootstrap', 'sobre empresa do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'sobre_empresa.jpg', 1, 1, 2, 0, 1, 1, '2018-02-23 00:00:00', NULL),
+(3, 'contato', 'Contato', 'Celke - Contato', NULL, 'site celke contato, PHP, HTML, CSS, Bootstrap, JavaScript', 'contato do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'contato.jpg', 1, 1, 4, 0, 1, 1, '2018-02-23 00:00:00', NULL),
+(4, 'blog', 'Blog', 'Celke - Blog', NULL, 'site celke blog, PHP, HTML, CSS, Bootstrap, JavaScript', 'blog do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'blog.jpg', 1, 1, 3, 0, 1, 1, '2018-02-23 00:00:00', NULL),
+(5, 'artigo', 'Artigo', 'Celke - Artigo', NULL, 'site celke artigo, PHP, HTML, CSS, Bootstrap, JavaScript', 'artigo do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'artigo.jpg', 1, 2, 5, 0, 1, 1, '2018-02-23 00:00:00', NULL),
+(6, 'proc_cad_lead', 'Processa Cadastrar Lead', 'Celke - Cadastrar Lead', NULL, 'PHP', 'Cadastrar email para receber novidades', 'Celke', 'proc_cad_lead.jpg', 1, 2, 6, 1, 4, 1, '2020-05-27 10:44:14', NULL),
+(7, 'proc_cad_contato', 'Processa Cadastrar Contato', 'Celke - Cadastrar Contato', NULL, 'Cadastrar contato', 'Cadastrar contato', 'Celke', 'cadastrar.jpg', 1, 2, 7, 3, 4, 1, '2020-06-08 10:59:34', NULL);
 
 -- --------------------------------------------------------
 
@@ -1075,6 +1083,29 @@ INSERT INTO `sts_tps_artigos` (`id`, `nome`, `created`, `modified`) VALUES
 (1, 'Público', '2020-05-27 15:49:15', '0000-00-00 00:00:00'),
 (2, 'Privado', '2020-05-27 15:49:15', '0000-00-00 00:00:00'),
 (3, 'Privado com resumo público', '2020-05-27 15:49:34', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `sts_tps_pgs`
+--
+
+CREATE TABLE `sts_tps_pgs` (
+  `id` int(11) NOT NULL,
+  `tipo` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `nome` varchar(130) COLLATE utf8_unicode_ci NOT NULL,
+  `obs` text COLLATE utf8_unicode_ci NOT NULL,
+  `ordem` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `sts_tps_pgs`
+--
+
+INSERT INTO `sts_tps_pgs` (`id`, `tipo`, `nome`, `obs`, `ordem`, `created`, `modified`) VALUES
+(1, 'sts', 'Site Principal', 'Core do site principal', 1, '2020-11-10 21:14:45', NULL);
 
 -- --------------------------------------------------------
 
@@ -1285,6 +1316,12 @@ ALTER TABLE `sts_tps_artigos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices para tabela `sts_tps_pgs`
+--
+ALTER TABLE `sts_tps_pgs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices para tabela `sts_videos`
 --
 ALTER TABLE `sts_videos`
@@ -1322,13 +1359,13 @@ ALTER TABLE `adms_grps_pgs`
 -- AUTO_INCREMENT de tabela `adms_menus`
 --
 ALTER TABLE `adms_menus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=224;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=229;
 
 --
 -- AUTO_INCREMENT de tabela `adms_niveis_acessos`
@@ -1340,7 +1377,7 @@ ALTER TABLE `adms_niveis_acessos`
 -- AUTO_INCREMENT de tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT de tabela `adms_robots`
@@ -1473,6 +1510,12 @@ ALTER TABLE `sts_sobs_emps`
 --
 ALTER TABLE `sts_tps_artigos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de tabela `sts_tps_pgs`
+--
+ALTER TABLE `sts_tps_pgs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `sts_videos`

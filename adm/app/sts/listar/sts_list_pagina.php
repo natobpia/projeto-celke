@@ -41,8 +41,9 @@ include_once 'app/adms/include/head.php';
 
                 //Calcular o inicio visualização
                 $inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
-                $resul_pg = "SELECT pg.id, pg.nome_pagina, pg.tp_pagina, pg.lib_bloq, pg.ordem
+                $resul_pg = "SELECT pg.id, pg.nome_pagina, pg.lib_bloq, pg.ordem, tpg.tipo
                             FROM sts_paginas pg
+                            LEFT JOIN sts_tps_pgs tpg ON tpg.id=pg.sts_tps_pg_id
                             WHERE pg.depend_pg=0
                             ORDER BY pg.ordem ASC LIMIT $inicio, $qnt_result_pg";
                 
@@ -69,7 +70,7 @@ include_once 'app/adms/include/head.php';
                                     <tr>
                                         <td><?php echo $row_pg['id']; ?></td>
                                         <td><?php echo $row_pg['nome_pagina']; ?></td>
-                                        <td class="d-none d-sm-table-cell"><?php echo $row_pg['tp_pagina']; ?></td>
+                                        <td class="d-none d-sm-table-cell"><?php echo $row_pg['tipo']; ?></td>
                                         <td class="d-none d-sm-table-cell text-center"><?php
                                             $btn_lib_per = carregar_btn('processa/proc_sts_lib_menu', $conn);
                                             if ($btn_lib_per) {
