@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11-Nov-2020 às 01:22
+-- Tempo de geração: 11-Nov-2020 às 01:36
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.11
 
@@ -399,7 +399,17 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (225, 2, 54, 1, 2, 3, 2, 58, '2020-11-10 21:00:48', NULL),
 (226, 2, 54, 1, 2, 3, 3, 58, '2020-11-10 21:00:48', NULL),
 (227, 2, 8, 1, 2, 3, 4, 58, '2020-11-10 21:00:48', NULL),
-(228, 2, 8, 1, 2, 3, 5, 58, '2020-11-10 21:00:48', NULL);
+(228, 2, 8, 1, 2, 3, 5, 58, '2020-11-10 21:00:48', NULL),
+(229, 1, 55, 1, 2, 3, 1, 59, '2020-11-10 21:28:06', NULL),
+(230, 2, 55, 1, 2, 3, 2, 59, '2020-11-10 21:28:06', NULL),
+(231, 2, 55, 1, 2, 3, 3, 59, '2020-11-10 21:28:06', NULL),
+(232, 2, 9, 1, 2, 3, 4, 59, '2020-11-10 21:28:06', NULL),
+(233, 2, 9, 1, 2, 3, 5, 59, '2020-11-10 21:28:06', NULL),
+(234, 1, 56, 1, 2, 3, 1, 60, '2020-11-10 21:33:43', NULL),
+(235, 2, 56, 1, 2, 3, 2, 60, '2020-11-10 21:33:43', NULL),
+(236, 2, 56, 1, 2, 3, 3, 60, '2020-11-10 21:33:43', NULL),
+(237, 2, 10, 1, 2, 3, 4, 60, '2020-11-10 21:33:43', NULL),
+(238, 2, 10, 1, 2, 3, 5, 60, '2020-11-10 21:33:43', NULL);
 
 -- --------------------------------------------------------
 
@@ -509,7 +519,9 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (55, 'Validar E-mail', 'acesso/valida_email', 'Página para validar e-mail', 'Validar E-mail', 'Validar E-mail', 'Natobpia', 1, '', 0, 3, '1', 4, 1, '2020-11-08 20:00:31', NULL),
 (56, 'Página para recuperar o login', 'acesso/recuperar_login', 'Página para recuperar o login', 'Página para recuperar o login', 'Página para recuperar o login', 'Natobpia', 1, '', 0, 7, '1', 4, 1, '2020-11-08 20:15:50', NULL),
 (57, 'Atualizar a Senha', 'acesso/atual_senha', 'Formulário para atualizar a senha', 'Atualizar a Senha', 'Atualizar a Senha', 'Natobpia', 1, '', 0, 7, '1', 4, 1, '2020-11-09 14:40:29', NULL),
-(58, 'Página do Site', 'listar/sts_list_pagina', 'Listar as páginas do site', 'Página do Site', 'Página do Site', 'Natobpia', 2, 'fas fa-file-alt', 0, 1, '2', 4, 1, '2020-11-10 21:00:48', '2020-11-10 21:03:50');
+(58, 'Página do Site', 'listar/sts_list_pagina', 'Listar as páginas do site', 'Página do Site', 'Página do Site', 'Natobpia', 2, 'fas fa-file-alt', 0, 1, '2', 4, 1, '2020-11-10 21:00:48', '2020-11-10 21:03:50'),
+(59, 'Liberar menu site', 'processa/proc_sts_lib_menu', 'Página para liberar item de menu no site', 'Liberar menu site', 'Liberar menu site', 'Natobpia', 2, '', 0, 3, '2', 4, 1, '2020-11-10 21:28:06', NULL),
+(60, 'Ordem menu site', 'processa/proc_sts_ordem_menu', 'Página para alterar a ordem do menu site', 'Ordem menu site', 'Ordem menu site', 'Natobpia', 2, '', 0, 3, '2', 4, 1, '2020-11-10 21:33:43', NULL);
 
 -- --------------------------------------------------------
 
@@ -904,9 +916,9 @@ CREATE TABLE `sts_paginas` (
 
 INSERT INTO `sts_paginas` (`id`, `endereco`, `nome_pagina`, `titulo`, `obs`, `keywords`, `description`, `author`, `imagem`, `sts_tps_pg_id`, `lib_bloq`, `ordem`, `depend_pg`, `sts_robot_id`, `sts_situacaos_pg_id`, `created`, `modified`) VALUES
 (1, 'home', 'Home', 'Celke - Home', 'Home', 'site celke home, PHP, HTML, CSS, Bootstrap, JavaScript', 'home do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'home.jpg', 1, 1, 1, 0, 1, 1, '2018-02-23 00:00:00', NULL),
-(2, 'sobre_empresa', 'Sobre Empresa', 'Celke - Sobre empresa', NULL, 'site celke sobre empresa, PHP, HTML, CSS, Bootstrap', 'sobre empresa do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'sobre_empresa.jpg', 1, 1, 2, 0, 1, 1, '2018-02-23 00:00:00', NULL),
+(2, 'sobre_empresa', 'Sobre Empresa', 'Celke - Sobre empresa', NULL, 'site celke sobre empresa, PHP, HTML, CSS, Bootstrap', 'sobre empresa do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'sobre_empresa.jpg', 1, 1, 2, 0, 1, 1, '2018-02-23 00:00:00', '2020-11-10 21:36:39'),
 (3, 'contato', 'Contato', 'Celke - Contato', NULL, 'site celke contato, PHP, HTML, CSS, Bootstrap, JavaScript', 'contato do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'contato.jpg', 1, 1, 4, 0, 1, 1, '2018-02-23 00:00:00', NULL),
-(4, 'blog', 'Blog', 'Celke - Blog', NULL, 'site celke blog, PHP, HTML, CSS, Bootstrap, JavaScript', 'blog do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'blog.jpg', 1, 1, 3, 0, 1, 1, '2018-02-23 00:00:00', NULL),
+(4, 'blog', 'Blog', 'Celke - Blog', NULL, 'site celke blog, PHP, HTML, CSS, Bootstrap, JavaScript', 'blog do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'blog.jpg', 1, 1, 3, 0, 1, 1, '2018-02-23 00:00:00', '2020-11-10 21:36:39'),
 (5, 'artigo', 'Artigo', 'Celke - Artigo', NULL, 'site celke artigo, PHP, HTML, CSS, Bootstrap, JavaScript', 'artigo do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'artigo.jpg', 1, 2, 5, 0, 1, 1, '2018-02-23 00:00:00', NULL),
 (6, 'proc_cad_lead', 'Processa Cadastrar Lead', 'Celke - Cadastrar Lead', NULL, 'PHP', 'Cadastrar email para receber novidades', 'Celke', 'proc_cad_lead.jpg', 1, 2, 6, 1, 4, 1, '2020-05-27 10:44:14', NULL),
 (7, 'proc_cad_contato', 'Processa Cadastrar Contato', 'Celke - Cadastrar Contato', NULL, 'Cadastrar contato', 'Cadastrar contato', 'Celke', 'cadastrar.jpg', 1, 2, 7, 3, 4, 1, '2020-06-08 10:59:34', NULL);
@@ -1365,7 +1377,7 @@ ALTER TABLE `adms_menus`
 -- AUTO_INCREMENT de tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=229;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=239;
 
 --
 -- AUTO_INCREMENT de tabela `adms_niveis_acessos`
@@ -1377,7 +1389,7 @@ ALTER TABLE `adms_niveis_acessos`
 -- AUTO_INCREMENT de tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT de tabela `adms_robots`
