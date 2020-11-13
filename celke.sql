@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11-Nov-2020 às 01:36
+-- Tempo de geração: 13-Nov-2020 às 23:32
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.11
 
@@ -409,7 +409,12 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (235, 2, 56, 1, 2, 3, 2, 60, '2020-11-10 21:33:43', NULL),
 (236, 2, 56, 1, 2, 3, 3, 60, '2020-11-10 21:33:43', NULL),
 (237, 2, 10, 1, 2, 3, 4, 60, '2020-11-10 21:33:43', NULL),
-(238, 2, 10, 1, 2, 3, 5, 60, '2020-11-10 21:33:43', NULL);
+(238, 2, 10, 1, 2, 3, 5, 60, '2020-11-10 21:33:43', NULL),
+(239, 1, 57, 1, 2, 3, 1, 61, '2020-11-13 19:11:20', NULL),
+(240, 2, 57, 1, 2, 3, 2, 61, '2020-11-13 19:11:20', NULL),
+(241, 2, 57, 1, 2, 3, 3, 61, '2020-11-13 19:11:20', NULL),
+(242, 2, 11, 1, 2, 3, 4, 61, '2020-11-13 19:11:20', NULL),
+(243, 2, 11, 1, 2, 3, 5, 61, '2020-11-13 19:11:20', NULL);
 
 -- --------------------------------------------------------
 
@@ -521,7 +526,8 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (57, 'Atualizar a Senha', 'acesso/atual_senha', 'Formulário para atualizar a senha', 'Atualizar a Senha', 'Atualizar a Senha', 'Natobpia', 1, '', 0, 7, '1', 4, 1, '2020-11-09 14:40:29', NULL),
 (58, 'Página do Site', 'listar/sts_list_pagina', 'Listar as páginas do site', 'Página do Site', 'Página do Site', 'Natobpia', 2, 'fas fa-file-alt', 0, 1, '2', 4, 1, '2020-11-10 21:00:48', '2020-11-10 21:03:50'),
 (59, 'Liberar menu site', 'processa/proc_sts_lib_menu', 'Página para liberar item de menu no site', 'Liberar menu site', 'Liberar menu site', 'Natobpia', 2, '', 0, 3, '2', 4, 1, '2020-11-10 21:28:06', NULL),
-(60, 'Ordem menu site', 'processa/proc_sts_ordem_menu', 'Página para alterar a ordem do menu site', 'Ordem menu site', 'Ordem menu site', 'Natobpia', 2, '', 0, 3, '2', 4, 1, '2020-11-10 21:33:43', NULL);
+(60, 'Ordem menu site', 'processa/proc_sts_ordem_menu', 'Página para alterar a ordem do menu site', 'Ordem menu site', 'Ordem menu site', 'Natobpia', 2, '', 0, 3, '2', 4, 1, '2020-11-10 21:33:43', NULL),
+(61, 'Cadastrar página site', 'cadastrar/sts_cad_pagina', 'Formulário para cadastrar página do site', 'Cadastrar página site', 'Cadastrar página site', 'Natobpia', 2, '', 0, 2, '2', 4, 1, '2020-11-13 19:11:20', NULL);
 
 -- --------------------------------------------------------
 
@@ -899,11 +905,11 @@ CREATE TABLE `sts_paginas` (
   `keywords` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
   `author` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `imagem` varchar(120) COLLATE utf8_unicode_ci NOT NULL,
-  `sts_tps_pg_id` int(20) NOT NULL,
+  `imagem` varchar(120) COLLATE utf8_unicode_ci DEFAULT NULL,
   `lib_bloq` int(11) NOT NULL DEFAULT 2,
   `ordem` int(11) NOT NULL,
   `depend_pg` int(11) NOT NULL DEFAULT 0,
+  `sts_tps_pg_id` int(20) NOT NULL,
   `sts_robot_id` int(11) NOT NULL,
   `sts_situacaos_pg_id` int(11) NOT NULL DEFAULT 2,
   `created` datetime NOT NULL,
@@ -914,14 +920,14 @@ CREATE TABLE `sts_paginas` (
 -- Extraindo dados da tabela `sts_paginas`
 --
 
-INSERT INTO `sts_paginas` (`id`, `endereco`, `nome_pagina`, `titulo`, `obs`, `keywords`, `description`, `author`, `imagem`, `sts_tps_pg_id`, `lib_bloq`, `ordem`, `depend_pg`, `sts_robot_id`, `sts_situacaos_pg_id`, `created`, `modified`) VALUES
-(1, 'home', 'Home', 'Celke - Home', 'Home', 'site celke home, PHP, HTML, CSS, Bootstrap, JavaScript', 'home do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'home.jpg', 1, 1, 1, 0, 1, 1, '2018-02-23 00:00:00', NULL),
-(2, 'sobre_empresa', 'Sobre Empresa', 'Celke - Sobre empresa', NULL, 'site celke sobre empresa, PHP, HTML, CSS, Bootstrap', 'sobre empresa do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'sobre_empresa.jpg', 1, 1, 2, 0, 1, 1, '2018-02-23 00:00:00', '2020-11-10 21:36:39'),
-(3, 'contato', 'Contato', 'Celke - Contato', NULL, 'site celke contato, PHP, HTML, CSS, Bootstrap, JavaScript', 'contato do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'contato.jpg', 1, 1, 4, 0, 1, 1, '2018-02-23 00:00:00', NULL),
-(4, 'blog', 'Blog', 'Celke - Blog', NULL, 'site celke blog, PHP, HTML, CSS, Bootstrap, JavaScript', 'blog do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'blog.jpg', 1, 1, 3, 0, 1, 1, '2018-02-23 00:00:00', '2020-11-10 21:36:39'),
-(5, 'artigo', 'Artigo', 'Celke - Artigo', NULL, 'site celke artigo, PHP, HTML, CSS, Bootstrap, JavaScript', 'artigo do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'artigo.jpg', 1, 2, 5, 0, 1, 1, '2018-02-23 00:00:00', NULL),
-(6, 'proc_cad_lead', 'Processa Cadastrar Lead', 'Celke - Cadastrar Lead', NULL, 'PHP', 'Cadastrar email para receber novidades', 'Celke', 'proc_cad_lead.jpg', 1, 2, 6, 1, 4, 1, '2020-05-27 10:44:14', NULL),
-(7, 'proc_cad_contato', 'Processa Cadastrar Contato', 'Celke - Cadastrar Contato', NULL, 'Cadastrar contato', 'Cadastrar contato', 'Celke', 'cadastrar.jpg', 1, 2, 7, 3, 4, 1, '2020-06-08 10:59:34', NULL);
+INSERT INTO `sts_paginas` (`id`, `endereco`, `nome_pagina`, `titulo`, `obs`, `keywords`, `description`, `author`, `imagem`, `lib_bloq`, `ordem`, `depend_pg`, `sts_tps_pg_id`, `sts_robot_id`, `sts_situacaos_pg_id`, `created`, `modified`) VALUES
+(1, 'home', 'Home', 'Celke - Home', 'Home', 'site celke home, PHP, HTML, CSS, Bootstrap, JavaScript', 'home do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'home.jpg', 1, 1, 0, 1, 1, 1, '2018-02-23 00:00:00', NULL),
+(2, 'sobre_empresa', 'Sobre Empresa', 'Celke - Sobre empresa', NULL, 'site celke sobre empresa, PHP, HTML, CSS, Bootstrap', 'sobre empresa do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'sobre_empresa.jpg', 1, 2, 0, 1, 1, 1, '2018-02-23 00:00:00', '2020-11-10 21:36:39'),
+(3, 'contato', 'Contato', 'Celke - Contato', NULL, 'site celke contato, PHP, HTML, CSS, Bootstrap, JavaScript', 'contato do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'contato.jpg', 1, 4, 0, 1, 1, 1, '2018-02-23 00:00:00', NULL),
+(4, 'blog', 'Blog', 'Celke - Blog', NULL, 'site celke blog, PHP, HTML, CSS, Bootstrap, JavaScript', 'blog do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'blog.jpg', 1, 3, 0, 1, 1, 1, '2018-02-23 00:00:00', '2020-11-10 21:36:39'),
+(5, 'artigo', 'Artigo', 'Celke - Artigo', NULL, 'site celke artigo, PHP, HTML, CSS, Bootstrap, JavaScript', 'artigo do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'artigo.jpg', 2, 5, 0, 1, 1, 1, '2018-02-23 00:00:00', NULL),
+(6, 'proc_cad_lead', 'Processa Cadastrar Lead', 'Celke - Cadastrar Lead', NULL, 'PHP', 'Cadastrar email para receber novidades', 'Celke', 'proc_cad_lead.jpg', 2, 6, 1, 1, 4, 1, '2020-05-27 10:44:14', NULL),
+(7, 'proc_cad_contato', 'Processa Cadastrar Contato', 'Celke - Cadastrar Contato', NULL, 'Cadastrar contato', 'Cadastrar contato', 'Celke', 'cadastrar.jpg', 2, 7, 3, 1, 4, 1, '2020-06-08 10:59:34', NULL);
 
 -- --------------------------------------------------------
 
@@ -1023,6 +1029,29 @@ CREATE TABLE `sts_servicos` (
 
 INSERT INTO `sts_servicos` (`id`, `titulo`, `icone_um`, `nome_um`, `descricao_um`, `icone_dois`, `nome_dois`, `descricao_dois`, `icone_tres`, `nome_tres`, `descricao_tres`, `created`, `modified`) VALUES
 (1, 'Serviços', 'ion-ios-camera-outline', 'Serviço Um', 'This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.', 'ion-ios-film-outline', 'Serviço Dois', 'This card has supporting text below as a natural lead-in to additional content.', 'ion-ios-videocam-outline', 'Serviço Três', 'This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.', '2020-05-22 11:10:21', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `sts_situacaos_pgs`
+--
+
+CREATE TABLE `sts_situacaos_pgs` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `sts_cor_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `sts_situacaos_pgs`
+--
+
+INSERT INTO `sts_situacaos_pgs` (`id`, `nome`, `sts_cor_id`, `created`, `modified`) VALUES
+(1, 'Ativo', 3, '2020-11-13 19:28:44', NULL),
+(2, 'Inativo', 5, '2020-11-13 19:28:44', NULL),
+(3, 'Analise', 1, '2020-11-13 19:29:05', NULL);
 
 -- --------------------------------------------------------
 
@@ -1310,6 +1339,12 @@ ALTER TABLE `sts_servicos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices para tabela `sts_situacaos_pgs`
+--
+ALTER TABLE `sts_situacaos_pgs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices para tabela `sts_situacoes`
 --
 ALTER TABLE `sts_situacoes`
@@ -1377,7 +1412,7 @@ ALTER TABLE `adms_menus`
 -- AUTO_INCREMENT de tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=239;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=244;
 
 --
 -- AUTO_INCREMENT de tabela `adms_niveis_acessos`
@@ -1389,7 +1424,7 @@ ALTER TABLE `adms_niveis_acessos`
 -- AUTO_INCREMENT de tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT de tabela `adms_robots`
@@ -1504,6 +1539,12 @@ ALTER TABLE `sts_robots`
 --
 ALTER TABLE `sts_servicos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `sts_situacaos_pgs`
+--
+ALTER TABLE `sts_situacaos_pgs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `sts_situacoes`
