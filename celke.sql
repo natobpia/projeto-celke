@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14-Nov-2020 às 00:04
+-- Tempo de geração: 15-Nov-2020 às 00:48
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.11
 
@@ -419,7 +419,12 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (245, 2, 58, 1, 2, 3, 2, 62, '2020-11-13 19:54:28', NULL),
 (246, 2, 58, 1, 2, 3, 3, 62, '2020-11-13 19:54:28', NULL),
 (247, 2, 12, 1, 2, 3, 4, 62, '2020-11-13 19:54:28', NULL),
-(248, 2, 12, 1, 2, 3, 5, 62, '2020-11-13 19:54:28', NULL);
+(248, 2, 12, 1, 2, 3, 5, 62, '2020-11-13 19:54:28', NULL),
+(249, 1, 59, 1, 2, 3, 1, 63, '2020-11-14 20:33:54', NULL),
+(250, 2, 59, 1, 2, 3, 2, 63, '2020-11-14 20:33:54', NULL),
+(251, 2, 59, 1, 2, 3, 3, 63, '2020-11-14 20:33:54', NULL),
+(252, 2, 13, 1, 2, 3, 4, 63, '2020-11-14 20:33:54', NULL),
+(253, 2, 13, 1, 2, 3, 5, 63, '2020-11-14 20:33:54', NULL);
 
 -- --------------------------------------------------------
 
@@ -533,7 +538,8 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (59, 'Liberar menu site', 'processa/proc_sts_lib_menu', 'Página para liberar item de menu no site', 'Liberar menu site', 'Liberar menu site', 'Natobpia', 2, '', 0, 3, '2', 4, 1, '2020-11-10 21:28:06', NULL),
 (60, 'Ordem menu site', 'processa/proc_sts_ordem_menu', 'Página para alterar a ordem do menu site', 'Ordem menu site', 'Ordem menu site', 'Natobpia', 2, '', 0, 3, '2', 4, 1, '2020-11-10 21:33:43', NULL),
 (61, 'Cadastrar página site', 'cadastrar/sts_cad_pagina', 'Formulário para cadastrar página do site', 'Cadastrar página site', 'Cadastrar página site', 'Natobpia', 2, '', 0, 2, '2', 4, 1, '2020-11-13 19:11:20', NULL),
-(62, 'Proc Form Sts Cad Página', 'processa/proc_sts_cad_pagina', 'Página para processar o formulário cadastrar página do site', 'Cadastrar página do site', 'Cadastrar página do site', 'Natobpia', 2, '', 61, 2, '2', 4, 1, '2020-11-13 19:54:28', NULL);
+(62, 'Proc Form Sts Cad Página', 'processa/proc_sts_cad_pagina', 'Página para processar o formulário cadastrar página do site', 'Cadastrar página do site', 'Cadastrar página do site', 'Natobpia', 2, '', 61, 2, '2', 4, 1, '2020-11-13 19:54:28', NULL),
+(63, 'Visualizar Pg do Site', 'visualizar/sts_vis_pagina', 'Página para visualizar os detalhes da página do site', 'Visualizar Pg do Site', 'Visualizar Pg do Site', 'Natobpia', 2, '', 0, 5, '2', 4, 1, '2020-11-14 20:33:54', NULL);
 
 -- --------------------------------------------------------
 
@@ -1418,7 +1424,7 @@ ALTER TABLE `adms_menus`
 -- AUTO_INCREMENT de tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=249;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=254;
 
 --
 -- AUTO_INCREMENT de tabela `adms_niveis_acessos`
@@ -1430,7 +1436,7 @@ ALTER TABLE `adms_niveis_acessos`
 -- AUTO_INCREMENT de tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT de tabela `adms_robots`

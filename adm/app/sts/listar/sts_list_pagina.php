@@ -41,12 +41,18 @@ include_once 'app/adms/include/head.php';
 
                 //Calcular o inicio visualização
                 $inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
+                if($_SESSION['adms_niveis_acesso_id'] == 1) {
                 $resul_pg = "SELECT pg.id, pg.nome_pagina, pg.lib_bloq, pg.ordem, tpg.tipo
                             FROM sts_paginas pg
                             LEFT JOIN sts_tps_pgs tpg ON tpg.id=pg.sts_tps_pg_id
-                            WHERE pg.depend_pg=0
                             ORDER BY pg.ordem ASC LIMIT $inicio, $qnt_result_pg";
-                
+                } else {
+                    $resul_pg = "SELECT pg.id, pg.nome_pagina, pg.lib_bloq, pg.ordem, tpg.tipo
+                    FROM sts_paginas pg
+                    LEFT JOIN sts_tps_pgs tpg ON tpg.id=pg.sts_tps_pg_id
+                    WHERE pg.depend_pg=0
+                    ORDER BY pg.ordem ASC LIMIT $inicio, $qnt_result_pg";
+                }
                 $resultado_pg = mysqli_query($conn, $resul_pg);
                 if (($resultado_pg) AND ( $resultado_pg->num_rows != 0)) {
                     ?>
@@ -91,9 +97,9 @@ include_once 'app/adms/include/head.php';
                                         <td class="text-center">
                                             <span class="d-none d-md-block">
                                                 <?php
-                                                $btn_vis = carregar_btn('visualizar/vis_pagina', $conn);
+                                                $btn_vis = carregar_btn('visualizar/sts_vis_pagina', $conn);
                                                 if ($btn_vis) {
-                                                    echo "<a href='" . pg . "/visualizar/vis_pagina?id=" . $row_pg['id'] . "' class='btn btn-outline-primary btn-sm'>Visualizar</a> ";
+                                                    echo "<a href='" . pg . "/visualizar/sts_vis_pagina?id=" . $row_pg['id'] . "' class='btn btn-outline-primary btn-sm'>Visualizar</a> ";
                                                 }
                                                 $btn_edit = carregar_btn('editar/edit_pagina', $conn);
                                                 if ($btn_edit) {
@@ -126,7 +132,7 @@ include_once 'app/adms/include/head.php';
                                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
                                                     <?php
                                                     if ($btn_vis) {
-                                                        echo "<a class='dropdown-item' href='" . pg . "/visualizar/vis_pagina?id=" . $row_pg['id'] . "'>Visualizar</a>";
+                                                        echo "<a class='dropdown-item' href='" . pg . "/visualizar/sts_vis_pagina?id=" . $row_pg['id'] . "'>Visualizar</a>";
                                                     }
                                                     if ($btn_edit) {
                                                         echo "<a class='dropdown-item' href='" . pg . "/editar/edit_pagina?id=" . $row_pg['id'] . "'>Editar</a>";
@@ -150,7 +156,7 @@ include_once 'app/adms/include/head.php';
                             $result_pg = "SELECT COUNT(id) AS num_result FROM sts_paginas";
                         } else {
                             $result_pg = "SELECT COUNT(id) AS num_result 
-                                FROM adms_paginas
+                                FROM sts_paginas
                                 WHERE depend_pg=0";
                         }
 
