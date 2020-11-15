@@ -138,7 +138,7 @@ if (!empty($id)) {
         <?php
     } else {
         $_SESSION['msg'] = "<div class='alert alert-danger'>Página não encontrada!</div>";
-        $url_destino = pg . '/listar/list_pagina';
+        $url_destino = pg . '/listar/sts_list_pagina';
         header("Location: $url_destino");
     }
 } else {

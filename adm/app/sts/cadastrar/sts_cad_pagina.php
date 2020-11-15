@@ -16,7 +16,7 @@ include_once 'app/adms/include/head.php';
             <div class="list-group-item">
                 <div class="d-flex">
                     <div class="mr-auto p-2">
-                        <h2 class="display-4 titulo">Cadastrar Página</h2>
+                        <h2 class="display-4 titulo">Cadastrar Página do Site</h2>
                     </div>
                     <div class="p-2">
                         <?php
@@ -33,7 +33,7 @@ include_once 'app/adms/include/head.php';
                     unset($_SESSION['msg']);
                 }
                 ?>
-                <form method="POST" action="<?php echo pg; ?>/processa/proc_sts_cad_pagina">  
+                <form method="POST" action="<?php echo pg; ?>/processa/proc_sts_cad_pagina" enctype="multipart/form-data">  
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label>
@@ -60,7 +60,7 @@ include_once 'app/adms/include/head.php';
                             <label> 
                                 <span tabindex="0" data-toggle="tooltip" data-placement="top" data-html="true" title="Titulo a ser apresentado para o SEO">
                                     <i class="fas fa-question-circle"></i>
-                                </span> Titulo
+                                </span><span class="text-danger">*</span> Titulo
                             </label>
                             <input name="titulo" type="text" class="form-control" id="email" placeholder="Titulo da página" value="<?php
                             if (isset($_SESSION['dados']['titulo'])) {
