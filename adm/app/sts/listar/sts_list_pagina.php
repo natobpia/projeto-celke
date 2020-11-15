@@ -101,13 +101,13 @@ include_once 'app/adms/include/head.php';
                                                 if ($btn_vis) {
                                                     echo "<a href='" . pg . "/visualizar/sts_vis_pagina?id=" . $row_pg['id'] . "' class='btn btn-outline-primary btn-sm'>Visualizar</a> ";
                                                 }
-                                                $btn_edit = carregar_btn('editar/edit_pagina', $conn);
+                                                $btn_edit = carregar_btn('editar/sts_edit_pagina', $conn);
                                                 if ($btn_edit) {
-                                                    echo "<a href='" . pg . "/editar/edit_pagina?id=" . $row_pg['id'] . "' class='btn btn-outline-warning btn-sm'>Editar </a> ";
+                                                    echo "<a href='" . pg . "/editar/sts_edit_pagina?id=" . $row_pg['id'] . "' class='btn btn-outline-warning btn-sm'>Editar </a> ";
                                                 }
-                                                $btn_apagar = carregar_btn('processa/apagar_pagina', $conn);
+                                                $btn_apagar = carregar_btn('processa/sts_apagar_pagina', $conn);
                                                 if ($btn_apagar) {
-                                                    echo "<a href='" . pg . "/processa/apagar_pagina?id=" . $row_pg['id'] . "' class='btn btn-outline-danger btn-sm' data-confirm='Tem certeza de que deseja excluir o item selecionado?'>Apagar</a> ";
+                                                    echo "<a href='" . pg . "/processa/sts_apagar_pagina?id=" . $row_pg['id'] . "' class='btn btn-outline-danger btn-sm' data-confirm='Tem certeza de que deseja excluir o item selecionado?'>Apagar</a> ";
                                                 }
                                                 $btn_ordem_menu = carregar_btn('processa/proc_sts_ordem_menu', $conn);
                                                 if ($btn_ordem_menu) {
@@ -135,10 +135,10 @@ include_once 'app/adms/include/head.php';
                                                         echo "<a class='dropdown-item' href='" . pg . "/visualizar/sts_vis_pagina?id=" . $row_pg['id'] . "'>Visualizar</a>";
                                                     }
                                                     if ($btn_edit) {
-                                                        echo "<a class='dropdown-item' href='" . pg . "/editar/edit_pagina?id=" . $row_pg['id'] . "'>Editar</a>";
+                                                        echo "<a class='dropdown-item' href='" . pg . "/editar/sts_edit_pagina?id=" . $row_pg['id'] . "'>Editar</a>";
                                                     }
                                                     if ($btn_apagar) {
-                                                        echo "<a class='dropdown-item' href=''" . pg . "/processa/apagar_pagina' data-confirm='Tem certeza de que deseja excluir o item selecionado?'>Apagar</a>";
+                                                        echo "<a class='dropdown-item' href=''" . pg . "/processa/sts_apagar_pagina' data-confirm='Tem certeza de que deseja excluir o item selecionado?'>Apagar</a>";
                                                     }
                                                     ?>
                                                 </div>
@@ -156,7 +156,7 @@ include_once 'app/adms/include/head.php';
                             $result_pg = "SELECT COUNT(id) AS num_result FROM sts_paginas";
                         } else {
                             $result_pg = "SELECT COUNT(id) AS num_result 
-                                FROM sts_paginas
+                                FROM adms_paginas
                                 WHERE depend_pg=0";
                         }
 
@@ -170,12 +170,12 @@ include_once 'app/adms/include/head.php';
                         echo "<nav aria-label='paginacao-blog'>";
                         echo "<ul class='pagination pagination-sm justify-content-center'>";
                         echo "<li class='page-item'>";
-                        echo "<a class='page-link' href='" . pg . "/listar/list_pagina?pagina=1' tabindex='-1'>Primeira</a>";
+                        echo "<a class='page-link' href='" . pg . "/listar/sts_list_pagina?pagina=1' tabindex='-1'>Primeira</a>";
                         echo "</li>";
 
                         for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
                             if ($pag_ant >= 1) {
-                                echo "<li class='page-item'><a class='page-link' href='" . pg . "/listar/list_pagina?pagina=$pag_ant'>$pag_ant</a></li>";
+                                echo "<li class='page-item'><a class='page-link' href='" . pg . "/listar/sts_list_pagina?pagina=$pag_ant'>$pag_ant</a></li>";
                             }
                         }
 
@@ -185,12 +185,12 @@ include_once 'app/adms/include/head.php';
 
                         for ($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++) {
                             if ($pag_dep <= $quantidade_pg) {
-                                echo "<li class='page-item'><a class='page-link' href='" . pg . "/listar/list_pagina?pagina=$pag_dep'>$pag_dep</a></li>";
+                                echo "<li class='page-item'><a class='page-link' href='" . pg . "/listar/sts_list_pagina?pagina=$pag_dep'>$pag_dep</a></li>";
                             }
                         }
 
                         echo "<li class='page-item'>";
-                        echo "<a class='page-link' href='" . pg . "/listar/list_pagina?pagina=$quantidade_pg'>Última</a>";
+                        echo "<a class='page-link' href='" . pg . "/listar/sts_list_pagina?pagina=$quantidade_pg'>Última</a>";
                         echo "</li>";
                         echo "</ul>";
                         echo "</nav>";

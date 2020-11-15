@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 15-Nov-2020 às 00:48
+-- Tempo de geração: 16-Nov-2020 às 00:04
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.11
 
@@ -424,7 +424,22 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (250, 2, 59, 1, 2, 3, 2, 63, '2020-11-14 20:33:54', NULL),
 (251, 2, 59, 1, 2, 3, 3, 63, '2020-11-14 20:33:54', NULL),
 (252, 2, 13, 1, 2, 3, 4, 63, '2020-11-14 20:33:54', NULL),
-(253, 2, 13, 1, 2, 3, 5, 63, '2020-11-14 20:33:54', NULL);
+(253, 2, 13, 1, 2, 3, 5, 63, '2020-11-14 20:33:54', NULL),
+(254, 1, 60, 1, 2, 3, 1, 64, '2020-11-14 20:59:43', NULL),
+(255, 2, 60, 1, 2, 3, 2, 64, '2020-11-14 20:59:43', NULL),
+(256, 2, 60, 1, 2, 3, 3, 64, '2020-11-14 20:59:43', NULL),
+(257, 2, 14, 1, 2, 3, 4, 64, '2020-11-14 20:59:43', NULL),
+(258, 2, 14, 1, 2, 3, 5, 64, '2020-11-14 20:59:43', NULL),
+(259, 1, 61, 1, 2, 3, 1, 65, '2020-11-14 21:04:00', NULL),
+(260, 2, 61, 1, 2, 3, 2, 65, '2020-11-14 21:04:00', NULL),
+(261, 2, 61, 1, 2, 3, 3, 65, '2020-11-14 21:04:00', NULL),
+(262, 2, 15, 1, 2, 3, 4, 65, '2020-11-14 21:04:00', NULL),
+(263, 2, 15, 1, 2, 3, 5, 65, '2020-11-14 21:04:00', NULL),
+(264, 1, 62, 1, 2, 3, 1, 66, '2020-11-15 19:59:18', NULL),
+(265, 2, 62, 1, 2, 3, 2, 66, '2020-11-15 19:59:18', NULL),
+(266, 2, 62, 1, 2, 3, 3, 66, '2020-11-15 19:59:18', NULL),
+(267, 2, 16, 1, 2, 3, 4, 66, '2020-11-15 19:59:18', NULL),
+(268, 2, 16, 1, 2, 3, 5, 66, '2020-11-15 19:59:18', NULL);
 
 -- --------------------------------------------------------
 
@@ -539,7 +554,10 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (60, 'Ordem menu site', 'processa/proc_sts_ordem_menu', 'Página para alterar a ordem do menu site', 'Ordem menu site', 'Ordem menu site', 'Natobpia', 2, '', 0, 3, '2', 4, 1, '2020-11-10 21:33:43', NULL),
 (61, 'Cadastrar página site', 'cadastrar/sts_cad_pagina', 'Formulário para cadastrar página do site', 'Cadastrar página site', 'Cadastrar página site', 'Natobpia', 2, '', 0, 2, '2', 4, 1, '2020-11-13 19:11:20', NULL),
 (62, 'Proc Form Sts Cad Página', 'processa/proc_sts_cad_pagina', 'Página para processar o formulário cadastrar página do site', 'Cadastrar página do site', 'Cadastrar página do site', 'Natobpia', 2, '', 61, 2, '2', 4, 1, '2020-11-13 19:54:28', NULL),
-(63, 'Visualizar Pg do Site', 'visualizar/sts_vis_pagina', 'Página para visualizar os detalhes da página do site', 'Visualizar Pg do Site', 'Visualizar Pg do Site', 'Natobpia', 2, '', 0, 5, '2', 4, 1, '2020-11-14 20:33:54', NULL);
+(63, 'Visualizar Pg do Site', 'visualizar/sts_vis_pagina', 'Página para visualizar os detalhes da página do site', 'Visualizar Pg do Site', 'Visualizar Pg do Site', 'Natobpia', 2, '', 0, 5, '2', 4, 1, '2020-11-14 20:33:54', NULL),
+(64, 'Editar página do site', 'editar/sts_edit_pagina', 'Formulário para editar a página do site', 'Editar página do site', 'Editar página do site', 'Natobpia', 2, '', 0, 3, '2', 4, 1, '2020-11-14 20:59:43', NULL),
+(65, 'Proc Form Edit Página Site', 'processa/proc_sts_edit_pagina', 'Página para processar o formulário editar página do site', 'Processar o formulário editar página do site', 'Processar o formulário editar página do site', 'Natobpia', 2, '', 64, 3, '2', 4, 1, '2020-11-14 21:04:00', NULL),
+(66, 'Apagar página do site', 'processa/sts_apagar_pagina', 'Apagar página do site', 'Apagar página do site', 'Apagar página do site', 'Natobpia', 2, '', 0, 4, '2', 4, 1, '2020-11-15 19:59:18', NULL);
 
 -- --------------------------------------------------------
 
@@ -933,7 +951,7 @@ CREATE TABLE `sts_paginas` (
 --
 
 INSERT INTO `sts_paginas` (`id`, `endereco`, `nome_pagina`, `titulo`, `obs`, `keywords`, `description`, `author`, `imagem`, `lib_bloq`, `ordem`, `depend_pg`, `sts_tps_pg_id`, `sts_robot_id`, `sts_situacaos_pg_id`, `created`, `modified`) VALUES
-(1, 'home', 'Home', 'Celke - Home', 'Home', 'site celke home, PHP, HTML, CSS, Bootstrap, JavaScript', 'home do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'home.jpg', 1, 1, 0, 1, 1, 1, '2018-02-23 00:00:00', NULL),
+(1, 'home', 'Home', 'Celke - Home', 'Home', 'site celke home, PHP, HTML, CSS, Bootstrap, JavaScript', 'home do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'home.jpg', 1, 1, 0, 1, 1, 1, '2018-02-23 00:00:00', '2020-11-14 21:06:19'),
 (2, 'sobre_empresa', 'Sobre Empresa', 'Celke - Sobre empresa', NULL, 'site celke sobre empresa, PHP, HTML, CSS, Bootstrap', 'sobre empresa do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'sobre_empresa.jpg', 1, 2, 0, 1, 1, 1, '2018-02-23 00:00:00', '2020-11-10 21:36:39'),
 (3, 'contato', 'Contato', 'Celke - Contato', NULL, 'site celke contato, PHP, HTML, CSS, Bootstrap, JavaScript', 'contato do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'contato.jpg', 1, 4, 0, 1, 1, 1, '2018-02-23 00:00:00', NULL),
 (4, 'blog', 'Blog', 'Celke - Blog', NULL, 'site celke blog, PHP, HTML, CSS, Bootstrap, JavaScript', 'blog do site desenvolvido no Curso de PHP, MySQLi e Bootstrap', 'Celke', 'blog.jpg', 1, 3, 0, 1, 1, 1, '2018-02-23 00:00:00', '2020-11-10 21:36:39'),
@@ -1424,7 +1442,7 @@ ALTER TABLE `adms_menus`
 -- AUTO_INCREMENT de tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=254;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=269;
 
 --
 -- AUTO_INCREMENT de tabela `adms_niveis_acessos`
@@ -1436,7 +1454,7 @@ ALTER TABLE `adms_niveis_acessos`
 -- AUTO_INCREMENT de tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT de tabela `adms_robots`
