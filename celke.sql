@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16/05/2018 às 17:03
--- Versão do servidor: 5.7.14
--- Versão do PHP: 7.0.10
+-- Tempo de geração: 17-Nov-2020 às 19:25
+-- Versão do servidor: 10.4.14-MariaDB
+-- versão do PHP: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -23,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adms_cads_usuarios`
+-- Estrutura da tabela `adms_cads_usuarios`
 --
 
 CREATE TABLE `adms_cads_usuarios` (
@@ -36,7 +37,7 @@ CREATE TABLE `adms_cads_usuarios` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `adms_cads_usuarios`
+-- Extraindo dados da tabela `adms_cads_usuarios`
 --
 
 INSERT INTO `adms_cads_usuarios` (`id`, `env_email_conf`, `adms_niveis_acesso_id`, `adms_sits_usuario_id`, `created`, `modified`) VALUES
@@ -45,7 +46,7 @@ INSERT INTO `adms_cads_usuarios` (`id`, `env_email_conf`, `adms_niveis_acesso_id
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adms_confs_emails`
+-- Estrutura da tabela `adms_confs_emails`
 --
 
 CREATE TABLE `adms_confs_emails` (
@@ -62,7 +63,7 @@ CREATE TABLE `adms_confs_emails` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `adms_confs_emails`
+-- Extraindo dados da tabela `adms_confs_emails`
 --
 
 INSERT INTO `adms_confs_emails` (`id`, `nome`, `email`, `host`, `usuario`, `senha`, `smtpsecure`, `porta`, `created`, `modified`) VALUES
@@ -71,7 +72,7 @@ INSERT INTO `adms_confs_emails` (`id`, `nome`, `email`, `host`, `usuario`, `senh
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adms_cors`
+-- Estrutura da tabela `adms_cors`
 --
 
 CREATE TABLE `adms_cors` (
@@ -83,7 +84,7 @@ CREATE TABLE `adms_cors` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `adms_cors`
+-- Extraindo dados da tabela `adms_cors`
 --
 
 INSERT INTO `adms_cors` (`id`, `nome`, `cor`, `created`, `modified`) VALUES
@@ -99,7 +100,7 @@ INSERT INTO `adms_cors` (`id`, `nome`, `cor`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adms_grps_pgs`
+-- Estrutura da tabela `adms_grps_pgs`
 --
 
 CREATE TABLE `adms_grps_pgs` (
@@ -111,7 +112,7 @@ CREATE TABLE `adms_grps_pgs` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `adms_grps_pgs`
+-- Extraindo dados da tabela `adms_grps_pgs`
 --
 
 INSERT INTO `adms_grps_pgs` (`id`, `nome`, `ordem`, `created`, `modified`) VALUES
@@ -126,7 +127,7 @@ INSERT INTO `adms_grps_pgs` (`id`, `nome`, `ordem`, `created`, `modified`) VALUE
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adms_menus`
+-- Estrutura da tabela `adms_menus`
 --
 
 CREATE TABLE `adms_menus` (
@@ -140,7 +141,7 @@ CREATE TABLE `adms_menus` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `adms_menus`
+-- Extraindo dados da tabela `adms_menus`
 --
 
 INSERT INTO `adms_menus` (`id`, `nome`, `icone`, `ordem`, `adms_sit_id`, `created`, `modified`) VALUES
@@ -148,13 +149,13 @@ INSERT INTO `adms_menus` (`id`, `nome`, `icone`, `ordem`, `adms_sit_id`, `create
 (2, 'Usuario', 'fas fa-user', 2, 1, '2018-03-23 00:00:00', '2018-04-12 12:21:49'),
 (3, 'Menu', 'fas fa-list-ul', 3, 1, '2018-03-23 00:00:00', '2018-04-12 12:21:49'),
 (4, 'Sair', 'fas fa-sign-out-alt', 6, 1, '2018-03-23 00:00:00', '2018-05-06 12:28:32'),
-(5, 'ConfiguraÃ§Ãµes', 'fas fa-cogs', 4, 1, '2018-05-01 16:54:42', '2018-05-01 16:59:06'),
+(5, 'Configurações', 'fas fa-cogs', 4, 1, '2018-05-01 16:54:42', '2018-05-01 16:59:06'),
 (6, 'Site', 'fas fa-laptop', 5, 1, '2018-05-06 12:28:25', '2018-05-06 12:28:32');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adms_nivacs_pgs`
+-- Estrutura da tabela `adms_nivacs_pgs`
 --
 
 CREATE TABLE `adms_nivacs_pgs` (
@@ -162,7 +163,7 @@ CREATE TABLE `adms_nivacs_pgs` (
   `permissao` int(11) NOT NULL,
   `ordem` int(11) NOT NULL,
   `dropdown` int(11) NOT NULL,
-  `lib_menu` int(11) NOT NULL DEFAULT '2',
+  `lib_menu` int(11) NOT NULL DEFAULT 2,
   `adms_menu_id` int(11) NOT NULL,
   `adms_niveis_acesso_id` int(11) NOT NULL,
   `adms_pagina_id` int(11) NOT NULL,
@@ -171,7 +172,7 @@ CREATE TABLE `adms_nivacs_pgs` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `adms_nivacs_pgs`
+-- Extraindo dados da tabela `adms_nivacs_pgs`
 --
 
 INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu`, `adms_menu_id`, `adms_niveis_acesso_id`, `adms_pagina_id`, `created`, `modified`) VALUES
@@ -478,12 +479,22 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (305, 2, 70, 1, 2, 3, 2, 74, '2018-05-16 16:52:52', NULL),
 (306, 2, 70, 1, 2, 3, 3, 74, '2018-05-16 16:52:52', NULL),
 (307, 2, 24, 1, 2, 3, 4, 74, '2018-05-16 16:52:52', NULL),
-(308, 2, 24, 1, 2, 3, 5, 74, '2018-05-16 16:52:52', NULL);
+(308, 2, 24, 1, 2, 3, 5, 74, '2018-05-16 16:52:52', NULL),
+(309, 1, 71, 1, 1, 6, 1, 75, '2020-11-17 15:16:15', '2020-11-17 15:16:43'),
+(310, 2, 71, 1, 2, 3, 2, 75, '2020-11-17 15:16:15', NULL),
+(311, 2, 71, 1, 2, 3, 3, 75, '2020-11-17 15:16:15', NULL),
+(312, 2, 25, 1, 2, 3, 4, 75, '2020-11-17 15:16:15', NULL),
+(313, 2, 25, 1, 2, 3, 5, 75, '2020-11-17 15:16:15', NULL),
+(314, 1, 72, 1, 2, 3, 1, 76, '2020-11-17 15:21:57', NULL),
+(315, 2, 72, 1, 2, 3, 2, 76, '2020-11-17 15:21:57', NULL),
+(316, 2, 72, 1, 2, 3, 3, 76, '2020-11-17 15:21:57', NULL),
+(317, 2, 26, 1, 2, 3, 4, 76, '2020-11-17 15:21:57', NULL),
+(318, 2, 26, 1, 2, 3, 5, 76, '2020-11-17 15:21:57', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adms_niveis_acessos`
+-- Estrutura da tabela `adms_niveis_acessos`
 --
 
 CREATE TABLE `adms_niveis_acessos` (
@@ -495,7 +506,7 @@ CREATE TABLE `adms_niveis_acessos` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `adms_niveis_acessos`
+-- Extraindo dados da tabela `adms_niveis_acessos`
 --
 
 INSERT INTO `adms_niveis_acessos` (`id`, `nome`, `ordem`, `created`, `modified`) VALUES
@@ -508,30 +519,30 @@ INSERT INTO `adms_niveis_acessos` (`id`, `nome`, `ordem`, `created`, `modified`)
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adms_paginas`
+-- Estrutura da tabela `adms_paginas`
 --
 
 CREATE TABLE `adms_paginas` (
   `id` int(11) NOT NULL,
   `nome_pagina` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
   `endereco` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
-  `obs` text COLLATE utf8_unicode_ci,
+  `obs` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `keywords` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
   `author` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `lib_pub` int(11) NOT NULL DEFAULT '2',
+  `lib_pub` int(11) NOT NULL DEFAULT 2,
   `icone` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `depend_pg` int(11) NOT NULL DEFAULT '0',
+  `depend_pg` int(11) NOT NULL DEFAULT 0,
   `adms_grps_pg_id` int(11) NOT NULL,
   `adms_tps_pg_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `adms_robot_id` int(11) NOT NULL DEFAULT '4',
-  `adms_sits_pg_id` int(11) NOT NULL DEFAULT '1',
+  `adms_robot_id` int(11) NOT NULL DEFAULT 4,
+  `adms_sits_pg_id` int(11) NOT NULL DEFAULT 1,
   `created` datetime NOT NULL,
   `modified` datetime DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `adms_paginas`
+-- Extraindo dados da tabela `adms_paginas`
 --
 
 INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, `description`, `author`, `lib_pub`, `icone`, `depend_pg`, `adms_grps_pg_id`, `adms_tps_pg_id`, `adms_robot_id`, `adms_sits_pg_id`, `created`, `modified`) VALUES
@@ -551,15 +562,15 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (14, 'Proc o form editar nivel de acesso', 'processa/proc_edit_niv_aces', NULL, 'Processa o formulario editar nivel de acesso', 'Processa o formulario editar nivel de acesso', 'Celke', 2, NULL, 11, 3, '1', 4, 1, '2018-03-23 00:00:00', NULL),
 (15, 'Alterar ordem do nivel de acesso', 'processa/proc_ordem_niv_aces', 'Pagina para Alterar ordem do nivel de acesso', 'Alterar ordem do nivel de acesso', 'Alterar ordem do nivel de acesso', 'Celke', 2, NULL, 0, 6, '1', 4, 1, '2018-03-23 00:00:00', NULL),
 (16, 'Cadastrar pagina', 'cadastrar/cad_pagina', 'Formulario para Cadastrar pagina', 'Cadastrar pagina', 'Cadastrar pagina', 'Celke', 2, NULL, 0, 2, '1', 4, 1, '2018-03-23 00:00:00', NULL),
-(17, 'Procr o form cadastrar pagina', 'processa/proc_cad_pagina', 'Pagina para processar o formulario cadastrar pagina', 'Processar o formulario cadastrar pagina', 'Processar o formulario cadastrar pagina', 'Celke', 2, NULL, 16, 2, '1', 4, 1, '2018-03-23 00:00:00', NULL),
-(27, 'Proc Liberar PermissÃ£o', 'processa/proc_lib_per', 'PÃ¡gina para liberar permissÃ£o', 'Proc Liberar Permissao', 'Proc Liberar Permissao', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-21 21:56:03', NULL),
-(26, 'PermissÃ£o', 'listar/list_permissao', 'PÃ¡gina para listar as permissÃµes', 'Permissao', 'Permissao', 'Celke', 2, '', 0, 1, '1', 4, 1, '2018-03-21 20:16:19', NULL),
-(21, 'Apagar PÃ¡gina', 'processa/apagar_pagina', 'PÃ¡gina para Apagar PÃ¡gina', 'Apagar Pagina', 'Apagar Pagina', 'Celke', 2, '', 0, 4, '1', 4, 1, '2018-03-19 18:06:40', NULL),
-(22, 'Visualizar PÃ¡gina', 'visualizar/vis_pagina', 'PÃ¡gina para visualizar detalhes da pÃ¡gina', 'Visualizar Pagina', 'Visualizar Pagina', 'Celke', 2, '', 0, 5, '1', 4, 1, '2018-03-21 12:39:49', NULL),
-(23, 'Editar PÃ¡gina', 'editar/edit_pagina', 'FormulÃ¡rio para Editar PÃ¡gina', 'Editar Pagina', 'Editar Pagina', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-21 16:43:09', '2018-03-21 22:55:13'),
-(24, 'Proc form edita pagina', 'processa/proc_edit_pagina', 'PÃ¡gina para processar o formulÃ¡rio editar a pÃ¡gina', 'Proc form edita pagina', 'Proc form edita pagina', 'Celke', 2, '', 23, 3, '1', 4, 1, '2018-03-21 17:46:32', '2018-03-21 22:56:16'),
-(28, 'Liberar Menu', 'processa/proc_lib_menu', 'PÃ¡gina para Liberar item Menu', 'Liberar Menu', 'Liberar Menu', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-22 17:14:57', NULL),
-(29, 'Liberar Dropdown no menu', 'processa/proc_lib_dropdown', 'PÃ¡gina para Liberar Dropdown no menu', 'Liberar Dropdown no menu', 'Liberar Dropdown no menu', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-22 18:24:19', NULL),
+(17, 'Proc o form cadastrar pagina', 'processa/proc_cad_pagina', 'Pagina para processar o formulario cadastrar pagina', 'Processar o formulario cadastrar pagina', 'Processar o formulario cadastrar pagina', 'Celke', 2, NULL, 16, 2, '1', 4, 1, '2018-03-23 00:00:00', NULL),
+(27, 'Proc Liberar Permissão', 'processa/proc_lib_per', 'Página para liberar a permissão', 'Proc Liberar Permissao', 'Proc Liberar Permissao', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-21 21:56:03', NULL),
+(26, 'Permissão', 'listar/list_permissao', 'Página para listar as permissões', 'Permissao', 'Permissao', 'Celke', 2, '', 0, 1, '1', 4, 1, '2018-03-21 20:16:19', NULL),
+(21, 'Apagar Página', 'processa/apagar_pagina', 'Página para Apagar Página', 'Apagar Pagina', 'Apagar Pagina', 'Celke', 2, '', 0, 4, '1', 4, 1, '2018-03-19 18:06:40', NULL),
+(22, 'Visualizar Página', 'visualizar/vis_pagina', 'Página para visualizar detalhes da página', 'Visualizar Pagina', 'Visualizar Pagina', 'Celke', 2, '', 0, 5, '1', 4, 1, '2018-03-21 12:39:49', NULL),
+(23, 'Editar Página', 'editar/edit_pagina', 'Formulário para Editar Página', 'Editar Pagina', 'Editar Pagina', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-21 16:43:09', '2018-03-21 22:55:13'),
+(24, 'Proc form edita pagina', 'processa/proc_edit_pagina', 'Página para processar o formulário editar a página', 'Proc form edita pagina', 'Proc form edita pagina', 'Celke', 2, '', 23, 3, '1', 4, 1, '2018-03-21 17:46:32', '2018-03-21 22:56:16'),
+(28, 'Liberar Menu', 'processa/proc_lib_menu', 'Página para Liberar item Menu', 'Liberar Menu', 'Liberar Menu', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-22 17:14:57', NULL),
+(29, 'Liberar Dropdown no menu', 'processa/proc_lib_dropdown', 'Página para Liberar Dropdown no menu', 'Liberar Dropdown no menu', 'Liberar Dropdown no menu', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-22 18:24:19', NULL),
 (30, 'Alterar Ordem do Menu', 'processa/proc_ordem_menu', 'PÃ¡gina para Alterar Ordem do Menu', 'Alterar Ordem do Menu', 'Alterar Ordem do Menu', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-22 19:21:32', NULL),
 (31, 'Sincronizar Paginas', 'processa/proc_sincro_nivac_pg', 'PÃ¡gina para Sincronizar Paginas com nÃ­vel de acesso', 'Sincronizar Paginas', 'Sincronizar Paginas', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-22 20:30:26', NULL),
 (32, 'Editar Ã­cone do menu', 'editar/edit_permissao', 'PÃ¡gina para editar o Ã­cone do item do menu', 'Editar icone do menu', 'Editar icone do menu', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-22 22:15:13', '2018-03-22 22:26:41'),
@@ -604,12 +615,14 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (71, 'Proc Form Edit Carousel', 'processa/proc_sts_edit_carousel', 'PÃ¡gina para processar o formulÃ¡rio editar carousel', 'Processar o formulario editar carousel', 'Processar o formulario editar carousel', 'Celke', 2, '', 70, 3, '2', 4, 1, '2018-05-16 16:01:43', NULL),
 (72, 'Visualizar Carousel', 'visualizar/sts_vis_carousel', 'PÃ¡gina para visualizar detalhes do carousel', 'Visualizar Carousel', 'Visualizar Carousel', 'Celke', 2, '', 0, 5, '2', 4, 1, '2018-05-16 16:09:53', NULL),
 (73, 'Apagar carousel', 'processa/sts_apagar_carousel', 'Apagar carousel', 'Apagar carousel', 'Apagar carousel', 'Celke', 2, '', 0, 4, '2', 4, 1, '2018-05-16 16:32:18', NULL),
-(74, 'Alterar ordem carousel', 'processa/proc_sts_ordem_car', 'Processa o alterar ordem carousel', 'Alterar ordem carousel', 'Alterar ordem carousel', 'Celke', 2, '', 0, 3, '2', 4, 1, '2018-05-16 16:52:52', NULL);
+(74, 'Alterar ordem carousel', 'processa/proc_sts_ordem_car', 'Processa o alterar ordem carousel', 'Alterar ordem carousel', 'Alterar ordem carousel', 'Celke', 2, '', 0, 3, '2', 4, 1, '2018-05-16 16:52:52', NULL),
+(75, 'Editar Serviço', 'editar/sts_edit_servico', 'Formulário para editar serviços', 'Editar Serviços', 'Editar Serviços', 'Natobpia', 2, 'fas fa-wrench', 0, 3, '2', 4, 1, '2020-11-17 15:16:15', '2020-11-17 15:16:43'),
+(76, 'Proc Form Edit Serviços', 'processa/proc_sts_edit_servico', 'Página para processar o formulário editar serviços', 'Processar o formulário editar serviços', 'Processar o formulário editar serviços', 'Natobpia', 2, '', 75, 3, '2', 4, 1, '2020-11-17 15:21:57', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adms_robots`
+-- Estrutura da tabela `adms_robots`
 --
 
 CREATE TABLE `adms_robots` (
@@ -621,20 +634,20 @@ CREATE TABLE `adms_robots` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `adms_robots`
+-- Extraindo dados da tabela `adms_robots`
 --
 
 INSERT INTO `adms_robots` (`id`, `nome`, `tipo`, `created`, `modified`) VALUES
-(1, 'Indexar a pÃ¡gina e seguir os links', 'index, follow', '2018-03-23 00:00:00', NULL),
-(2, 'NÃ£o indexar a pÃ¡gina mas seguir os links', 'noindex, follow', '2018-03-23 00:00:00', NULL),
-(3, 'Indexar a pÃ¡gina mas nÃ£o seguir os links', 'index, nofollow', '2018-03-23 00:00:00', NULL),
-(4, 'NÃ£o indexar a pÃ¡gina e nem seguir os links', 'noindex, nofollow', '2018-03-23 00:00:00', NULL),
-(5, 'NÃ£o exibir a versÃ£o em cache da pÃ¡gina', 'noarchive', '2018-03-23 00:00:00', NULL);
+(1, 'Indexar a página e seguir os links', 'index, follow', '2018-03-23 00:00:00', NULL),
+(2, 'Não indexar a página mas seguir os links', 'noindex, follow', '2018-03-23 00:00:00', NULL),
+(3, 'Indexar a página mas não seguir os links', 'index, nofollow', '2018-03-23 00:00:00', NULL),
+(4, 'Não indexar a página e nem seguir os links', 'noindex, nofollow', '2018-03-23 00:00:00', NULL),
+(5, 'Não exibir a versão em cache da página', 'noarchive', '2018-03-23 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adms_sits`
+-- Estrutura da tabela `adms_sits`
 --
 
 CREATE TABLE `adms_sits` (
@@ -646,7 +659,7 @@ CREATE TABLE `adms_sits` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `adms_sits`
+-- Extraindo dados da tabela `adms_sits`
 --
 
 INSERT INTO `adms_sits` (`id`, `nome`, `adms_cor_id`, `created`, `modified`) VALUES
@@ -657,7 +670,7 @@ INSERT INTO `adms_sits` (`id`, `nome`, `adms_cor_id`, `created`, `modified`) VAL
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adms_sits_pgs`
+-- Estrutura da tabela `adms_sits_pgs`
 --
 
 CREATE TABLE `adms_sits_pgs` (
@@ -669,7 +682,7 @@ CREATE TABLE `adms_sits_pgs` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `adms_sits_pgs`
+-- Extraindo dados da tabela `adms_sits_pgs`
 --
 
 INSERT INTO `adms_sits_pgs` (`id`, `nome`, `cor`, `created`, `modified`) VALUES
@@ -680,7 +693,7 @@ INSERT INTO `adms_sits_pgs` (`id`, `nome`, `cor`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adms_sits_usuarios`
+-- Estrutura da tabela `adms_sits_usuarios`
 --
 
 CREATE TABLE `adms_sits_usuarios` (
@@ -692,7 +705,7 @@ CREATE TABLE `adms_sits_usuarios` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `adms_sits_usuarios`
+-- Extraindo dados da tabela `adms_sits_usuarios`
 --
 
 INSERT INTO `adms_sits_usuarios` (`id`, `nome`, `adms_cor_id`, `created`, `modified`) VALUES
@@ -704,7 +717,7 @@ INSERT INTO `adms_sits_usuarios` (`id`, `nome`, `adms_cor_id`, `created`, `modif
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adms_tps_pgs`
+-- Estrutura da tabela `adms_tps_pgs`
 --
 
 CREATE TABLE `adms_tps_pgs` (
@@ -718,7 +731,7 @@ CREATE TABLE `adms_tps_pgs` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `adms_tps_pgs`
+-- Extraindo dados da tabela `adms_tps_pgs`
 --
 
 INSERT INTO `adms_tps_pgs` (`id`, `tipo`, `nome`, `obs`, `ordem`, `created`, `modified`) VALUES
@@ -728,7 +741,7 @@ INSERT INTO `adms_tps_pgs` (`id`, `tipo`, `nome`, `obs`, `ordem`, `created`, `mo
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adms_usuarios`
+-- Estrutura da tabela `adms_usuarios`
 --
 
 CREATE TABLE `adms_usuarios` (
@@ -749,7 +762,7 @@ CREATE TABLE `adms_usuarios` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `adms_usuarios`
+-- Extraindo dados da tabela `adms_usuarios`
 --
 
 INSERT INTO `adms_usuarios` (`id`, `nome`, `apelido`, `email`, `usuario`, `senha`, `recuperar_senha`, `chave_descadastro`, `conf_email`, `imagem`, `adms_niveis_acesso_id`, `adms_sits_usuario_id`, `created`, `modified`) VALUES
@@ -764,7 +777,7 @@ INSERT INTO `adms_usuarios` (`id`, `nome`, `apelido`, `email`, `usuario`, `senha
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_artigos`
+-- Estrutura da tabela `sts_artigos`
 --
 
 CREATE TABLE `sts_artigos` (
@@ -777,8 +790,8 @@ CREATE TABLE `sts_artigos` (
   `keywords` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
   `author` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `resumo_publico` text COLLATE utf8_unicode_ci,
-  `qnt_acesso` int(11) NOT NULL DEFAULT '0',
+  `resumo_publico` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `qnt_acesso` int(11) NOT NULL DEFAULT 0,
   `sts_robot_id` int(11) NOT NULL,
   `adms_usuario_id` int(11) NOT NULL,
   `sts_situacoe_id` int(11) NOT NULL,
@@ -789,21 +802,21 @@ CREATE TABLE `sts_artigos` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `sts_artigos`
+-- Extraindo dados da tabela `sts_artigos`
 --
 
 INSERT INTO `sts_artigos` (`id`, `titulo`, `descricao`, `conteudo`, `imagem`, `slug`, `keywords`, `description`, `author`, `resumo_publico`, `qnt_acesso`, `sts_robot_id`, `adms_usuario_id`, `sts_situacoe_id`, `sts_tps_artigo_id`, `sts_cats_artigo_id`, `created`, `modified`) VALUES
-(1, 'Sample blog post 1', 'Donec 1 ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.', '<p>This blog post shows a few different types of content that\'s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>\r\n								<hr>\r\n								<p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>\r\n								<blockquote>\r\n								  <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>\r\n								</blockquote>\r\n								<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>\r\n								<h2>Heading</h2>\r\n								<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>\r\n								<h3>Sub-heading</h3>\r\n								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>\r\n								<pre><code>Example code block</code></pre>\r\n								<p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>\r\n								<h3>Sub-heading</h3>\r\n								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>\r\n								<ul>\r\n									<li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>\r\n									<li>Donec id elit non mi porta gravida at eget metus.</li>\r\n									<li>Nulla vitae elit libero, a pharetra augue.</li>\r\n								</ul>\r\n								<p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>\r\n								<ol>\r\n									<li>Vestibulum id ligula porta felis euismod semper.</li>\r\n									<li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>\r\n									<li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>\r\n								</ol>\r\n								<p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>', 'artigo.jpg', 'sample-blog-post-1', 'artigo, artigo 1, ', 'Descricao do artigo um para seo', 'Celke', '<p>This blog post shows a few different types of content that\'s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>\n                            <hr>\n                            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>', 6, 1, 1, 1, 1, 1, '2018-02-18 00:00:00', NULL),
-(2, 'Sample blog post 2', 'Donec 2 ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.', '<p>This blog post shows a few different types of content that\'s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>\r\n								<hr>\r\n								<p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>\r\n								<blockquote>\r\n								  <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>\r\n								</blockquote>\r\n								<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>\r\n								<h2>Heading</h2>\r\n								<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>\r\n								<h3>Sub-heading</h3>\r\n								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>\r\n								<pre><code>Example code block</code></pre>\r\n								<p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>\r\n								<h3>Sub-heading</h3>\r\n								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>\r\n								<ul>\r\n									<li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>\r\n									<li>Donec id elit non mi porta gravida at eget metus.</li>\r\n									<li>Nulla vitae elit libero, a pharetra augue.</li>\r\n								</ul>\r\n								<p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>\r\n								<ol>\r\n									<li>Vestibulum id ligula porta felis euismod semper.</li>\r\n									<li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>\r\n									<li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>\r\n								</ol>\r\n								<p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>', 'artigo.jpg', 'sample-blog-post-2', 'artigo, artigo 2, ', 'Descricao do artigo dois para seo', 'Celke', '<p>This blog post shows a few different types of content that\'s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>\n                            <hr>\n                            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>', 4, 1, 1, 1, 1, 1, '2018-02-19 00:00:00', NULL),
-(3, 'Sample blog post 3', 'Donec 3 ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.', '<p>This blog post shows a few different types of content that\'s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>\r\n								<hr>\r\n								<p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>\r\n								<blockquote>\r\n								  <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>\r\n								</blockquote>\r\n								<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>\r\n								<h2>Heading</h2>\r\n								<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>\r\n								<h3>Sub-heading</h3>\r\n								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>\r\n								<pre><code>Example code block</code></pre>\r\n								<p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>\r\n								<h3>Sub-heading</h3>\r\n								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>\r\n								<ul>\r\n									<li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>\r\n									<li>Donec id elit non mi porta gravida at eget metus.</li>\r\n									<li>Nulla vitae elit libero, a pharetra augue.</li>\r\n								</ul>\r\n								<p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>\r\n								<ol>\r\n									<li>Vestibulum id ligula porta felis euismod semper.</li>\r\n									<li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>\r\n									<li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>\r\n								</ol>\r\n								<p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>', 'artigo.jpg', 'sample-blog-post-3', 'artigo, artigo 3 ', 'Descricao do artigo tres para seo', 'Celke', '<p>This blog post shows a few different types of content that\'s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>\n                            <hr>\n                            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>', 14, 1, 1, 1, 1, 1, '2018-02-20 00:00:00', NULL),
-(4, 'Sample blog post 4 titulo', 'Donec 4 ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.', '<p>4This blog post shows a few different types of content that\'s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>\n								<hr>\n								<p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>\n								<blockquote>\n								  <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>\n								</blockquote>\n								<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>\n								<h2>Heading</h2>\n								<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>\n								<h3>Sub-heading</h3>\n								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>\n								<pre><code>Example code block</code></pre>\n								<p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>\n								<h3>Sub-heading</h3>\n								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>\n								<ul>\n									<li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>\n									<li>Donec id elit non mi porta gravida at eget metus.</li>\n									<li>Nulla vitae elit libero, a pharetra augue.</li>\n								</ul>\n								<p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>\n								<ol>\n									<li>Vestibulum id ligula porta felis euismod semper.</li>\n									<li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>\n									<li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>\n								</ol>\n								<p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>', 'artigo.jpg', 'sample-blog-post-4', 'artigo, artigo 4 ', 'Descricao do artigo quatro para seo', 'Celke', '<p>This blog post shows a few different types of content that\'s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>\n                            <hr>\n                            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>', 13, 1, 1, 1, 1, 1, '2018-02-21 00:00:00', NULL),
-(5, 'Sample blog post 5', 'Donec 5 ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.', '<p>This blog post shows a few different types of content that\'s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>\r\n								<hr>\r\n								<p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>\r\n								<blockquote>\r\n								  <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>\r\n								</blockquote>\r\n								<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>\r\n								<h2>Heading</h2>\r\n								<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>\r\n								<h3>Sub-heading</h3>\r\n								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>\r\n								<pre><code>Example code block</code></pre>\r\n								<p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>\r\n								<h3>Sub-heading</h3>\r\n								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>\r\n								<ul>\r\n									<li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>\r\n									<li>Donec id elit non mi porta gravida at eget metus.</li>\r\n									<li>Nulla vitae elit libero, a pharetra augue.</li>\r\n								</ul>\r\n								<p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>\r\n								<ol>\r\n									<li>Vestibulum id ligula porta felis euismod semper.</li>\r\n									<li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>\r\n									<li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>\r\n								</ol>\r\n								<p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>', 'artigo.jpg', 'sample-blog-post-5', 'artigo, artigo 5', 'Descricao do artigo cinco para seo', 'Celke', '<p>This blog post shows a few different types of content that\'s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>\n                            <hr>\n                            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>', 1, 1, 1, 1, 1, 1, '2018-02-22 00:00:00', NULL),
-(6, 'Sample blog post 6', 'Donec 6 ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.', '<p>This blog post shows a few different types of content that\'s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>\r\n								<hr>\r\n								<p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>\r\n								<blockquote>\r\n								  <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>\r\n								</blockquote>\r\n								<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>\r\n								<h2>Heading</h2>\r\n								<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>\r\n								<h3>Sub-heading</h3>\r\n								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>\r\n								<pre><code>Example code block</code></pre>\r\n								<p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>\r\n								<h3>Sub-heading</h3>\r\n								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>\r\n								<ul>\r\n									<li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>\r\n									<li>Donec id elit non mi porta gravida at eget metus.</li>\r\n									<li>Nulla vitae elit libero, a pharetra augue.</li>\r\n								</ul>\r\n								<p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>\r\n								<ol>\r\n									<li>Vestibulum id ligula porta felis euismod semper.</li>\r\n									<li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>\r\n									<li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>\r\n								</ol>\r\n								<p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>', 'artigo.jpg', 'sample-blog-post-6', 'artigo, artigo 6', 'Descricao do artigo seis para seo', 'Celke', '<p>This blog post shows a few different types of content that\'s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>\n                            <hr>\n                            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>', 21, 4, 1, 1, 1, 1, '2018-02-23 00:00:00', NULL);
+(1, 'Sample blog post 1', 'Donec 1 ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.', '<p>This blog post shows a few different types of content that\'s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>\r\n								<hr>\r\n								<p>Cum sociis natoque penatibus et magnis <a href=\"#\">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>\r\n								<blockquote>\r\n								  <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>\r\n								</blockquote>\r\n								<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>\r\n								<h2>Heading</h2>\r\n								<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>\r\n								<h3>Sub-heading</h3>\r\n								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>\r\n								<pre><code>Example code block</code></pre>\r\n								<p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>\r\n								<h3>Sub-heading</h3>\r\n								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>\r\n								<ul>\r\n									<li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>\r\n									<li>Donec id elit non mi porta gravida at eget metus.</li>\r\n									<li>Nulla vitae elit libero, a pharetra augue.</li>\r\n								</ul>\r\n								<p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>\r\n								<ol>\r\n									<li>Vestibulum id ligula porta felis euismod semper.</li>\r\n									<li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>\r\n									<li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>\r\n								</ol>\r\n								<p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>', 'artigo.jpg', 'sample-blog-post-1', 'artigo, artigo 1, ', 'Descricao do artigo um para seo', 'Celke', '<p>This blog post shows a few different types of content that\'s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>\n                            <hr>\n                            <p>Cum sociis natoque penatibus et magnis <a href=\"#\">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>', 6, 1, 1, 1, 1, 1, '2018-02-18 00:00:00', NULL),
+(2, 'Sample blog post 2', 'Donec 2 ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.', '<p>This blog post shows a few different types of content that\'s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>\r\n								<hr>\r\n								<p>Cum sociis natoque penatibus et magnis <a href=\"#\">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>\r\n								<blockquote>\r\n								  <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>\r\n								</blockquote>\r\n								<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>\r\n								<h2>Heading</h2>\r\n								<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>\r\n								<h3>Sub-heading</h3>\r\n								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>\r\n								<pre><code>Example code block</code></pre>\r\n								<p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>\r\n								<h3>Sub-heading</h3>\r\n								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>\r\n								<ul>\r\n									<li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>\r\n									<li>Donec id elit non mi porta gravida at eget metus.</li>\r\n									<li>Nulla vitae elit libero, a pharetra augue.</li>\r\n								</ul>\r\n								<p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>\r\n								<ol>\r\n									<li>Vestibulum id ligula porta felis euismod semper.</li>\r\n									<li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>\r\n									<li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>\r\n								</ol>\r\n								<p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>', 'artigo.jpg', 'sample-blog-post-2', 'artigo, artigo 2, ', 'Descricao do artigo dois para seo', 'Celke', '<p>This blog post shows a few different types of content that\'s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>\n                            <hr>\n                            <p>Cum sociis natoque penatibus et magnis <a href=\"#\">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>', 4, 1, 1, 1, 1, 1, '2018-02-19 00:00:00', NULL),
+(3, 'Sample blog post 3', 'Donec 3 ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.', '<p>This blog post shows a few different types of content that\'s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>\r\n								<hr>\r\n								<p>Cum sociis natoque penatibus et magnis <a href=\"#\">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>\r\n								<blockquote>\r\n								  <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>\r\n								</blockquote>\r\n								<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>\r\n								<h2>Heading</h2>\r\n								<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>\r\n								<h3>Sub-heading</h3>\r\n								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>\r\n								<pre><code>Example code block</code></pre>\r\n								<p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>\r\n								<h3>Sub-heading</h3>\r\n								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>\r\n								<ul>\r\n									<li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>\r\n									<li>Donec id elit non mi porta gravida at eget metus.</li>\r\n									<li>Nulla vitae elit libero, a pharetra augue.</li>\r\n								</ul>\r\n								<p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>\r\n								<ol>\r\n									<li>Vestibulum id ligula porta felis euismod semper.</li>\r\n									<li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>\r\n									<li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>\r\n								</ol>\r\n								<p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>', 'artigo.jpg', 'sample-blog-post-3', 'artigo, artigo 3 ', 'Descricao do artigo tres para seo', 'Celke', '<p>This blog post shows a few different types of content that\'s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>\n                            <hr>\n                            <p>Cum sociis natoque penatibus et magnis <a href=\"#\">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>', 14, 1, 1, 1, 1, 1, '2018-02-20 00:00:00', NULL),
+(4, 'Sample blog post 4 titulo', 'Donec 4 ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.', '<p>4This blog post shows a few different types of content that\'s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>\n								<hr>\n								<p>Cum sociis natoque penatibus et magnis <a href=\"#\">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>\n								<blockquote>\n								  <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>\n								</blockquote>\n								<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>\n								<h2>Heading</h2>\n								<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>\n								<h3>Sub-heading</h3>\n								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>\n								<pre><code>Example code block</code></pre>\n								<p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>\n								<h3>Sub-heading</h3>\n								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>\n								<ul>\n									<li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>\n									<li>Donec id elit non mi porta gravida at eget metus.</li>\n									<li>Nulla vitae elit libero, a pharetra augue.</li>\n								</ul>\n								<p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>\n								<ol>\n									<li>Vestibulum id ligula porta felis euismod semper.</li>\n									<li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>\n									<li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>\n								</ol>\n								<p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>', 'artigo.jpg', 'sample-blog-post-4', 'artigo, artigo 4 ', 'Descricao do artigo quatro para seo', 'Celke', '<p>This blog post shows a few different types of content that\'s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>\n                            <hr>\n                            <p>Cum sociis natoque penatibus et magnis <a href=\"#\">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>', 13, 1, 1, 1, 1, 1, '2018-02-21 00:00:00', NULL),
+(5, 'Sample blog post 5', 'Donec 5 ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.', '<p>This blog post shows a few different types of content that\'s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>\r\n								<hr>\r\n								<p>Cum sociis natoque penatibus et magnis <a href=\"#\">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>\r\n								<blockquote>\r\n								  <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>\r\n								</blockquote>\r\n								<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>\r\n								<h2>Heading</h2>\r\n								<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>\r\n								<h3>Sub-heading</h3>\r\n								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>\r\n								<pre><code>Example code block</code></pre>\r\n								<p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>\r\n								<h3>Sub-heading</h3>\r\n								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>\r\n								<ul>\r\n									<li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>\r\n									<li>Donec id elit non mi porta gravida at eget metus.</li>\r\n									<li>Nulla vitae elit libero, a pharetra augue.</li>\r\n								</ul>\r\n								<p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>\r\n								<ol>\r\n									<li>Vestibulum id ligula porta felis euismod semper.</li>\r\n									<li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>\r\n									<li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>\r\n								</ol>\r\n								<p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>', 'artigo.jpg', 'sample-blog-post-5', 'artigo, artigo 5', 'Descricao do artigo cinco para seo', 'Celke', '<p>This blog post shows a few different types of content that\'s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>\n                            <hr>\n                            <p>Cum sociis natoque penatibus et magnis <a href=\"#\">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>', 1, 1, 1, 1, 1, 1, '2018-02-22 00:00:00', NULL),
+(6, 'Sample blog post 6', 'Donec 6 ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.', '<p>This blog post shows a few different types of content that\'s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>\r\n								<hr>\r\n								<p>Cum sociis natoque penatibus et magnis <a href=\"#\">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>\r\n								<blockquote>\r\n								  <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>\r\n								</blockquote>\r\n								<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>\r\n								<h2>Heading</h2>\r\n								<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>\r\n								<h3>Sub-heading</h3>\r\n								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>\r\n								<pre><code>Example code block</code></pre>\r\n								<p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>\r\n								<h3>Sub-heading</h3>\r\n								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>\r\n								<ul>\r\n									<li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>\r\n									<li>Donec id elit non mi porta gravida at eget metus.</li>\r\n									<li>Nulla vitae elit libero, a pharetra augue.</li>\r\n								</ul>\r\n								<p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>\r\n								<ol>\r\n									<li>Vestibulum id ligula porta felis euismod semper.</li>\r\n									<li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>\r\n									<li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>\r\n								</ol>\r\n								<p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>', 'artigo.jpg', 'sample-blog-post-6', 'artigo, artigo 6', 'Descricao do artigo seis para seo', 'Celke', '<p>This blog post shows a few different types of content that\'s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>\n                            <hr>\n                            <p>Cum sociis natoque penatibus et magnis <a href=\"#\">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>', 21, 4, 1, 1, 1, 1, '2018-02-23 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_blogs_sobres`
+-- Estrutura da tabela `sts_blogs_sobres`
 --
 
 CREATE TABLE `sts_blogs_sobres` (
@@ -816,7 +829,7 @@ CREATE TABLE `sts_blogs_sobres` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `sts_blogs_sobres`
+-- Extraindo dados da tabela `sts_blogs_sobres`
 --
 
 INSERT INTO `sts_blogs_sobres` (`id`, `titulo`, `descricao`, `sts_situacoe_id`, `created`, `modified`) VALUES
@@ -825,7 +838,7 @@ INSERT INTO `sts_blogs_sobres` (`id`, `titulo`, `descricao`, `sts_situacoe_id`, 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_carousels`
+-- Estrutura da tabela `sts_carousels`
 --
 
 CREATE TABLE `sts_carousels` (
@@ -845,7 +858,7 @@ CREATE TABLE `sts_carousels` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `sts_carousels`
+-- Extraindo dados da tabela `sts_carousels`
 --
 
 INSERT INTO `sts_carousels` (`id`, `nome`, `imagem`, `titulo`, `descricao`, `posicao_text`, `titulo_botao`, `link`, `ordem`, `sts_cor_id`, `sts_situacoe_id`, `created`, `modified`) VALUES
@@ -856,7 +869,7 @@ INSERT INTO `sts_carousels` (`id`, `nome`, `imagem`, `titulo`, `descricao`, `pos
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_cats_artigos`
+-- Estrutura da tabela `sts_cats_artigos`
 --
 
 CREATE TABLE `sts_cats_artigos` (
@@ -868,7 +881,7 @@ CREATE TABLE `sts_cats_artigos` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `sts_cats_artigos`
+-- Extraindo dados da tabela `sts_cats_artigos`
 --
 
 INSERT INTO `sts_cats_artigos` (`id`, `nome`, `sts_situacoe_id`, `created`, `modified`) VALUES
@@ -879,7 +892,7 @@ INSERT INTO `sts_cats_artigos` (`id`, `nome`, `sts_situacoe_id`, `created`, `mod
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_contatos`
+-- Estrutura da tabela `sts_contatos`
 --
 
 CREATE TABLE `sts_contatos` (
@@ -893,7 +906,7 @@ CREATE TABLE `sts_contatos` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `sts_contatos`
+-- Extraindo dados da tabela `sts_contatos`
 --
 
 INSERT INTO `sts_contatos` (`id`, `nome`, `email`, `assunto`, `mensagem`, `created`, `modified`) VALUES
@@ -906,7 +919,7 @@ INSERT INTO `sts_contatos` (`id`, `nome`, `email`, `assunto`, `mensagem`, `creat
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_cors`
+-- Estrutura da tabela `sts_cors`
 --
 
 CREATE TABLE `sts_cors` (
@@ -918,7 +931,7 @@ CREATE TABLE `sts_cors` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `sts_cors`
+-- Extraindo dados da tabela `sts_cors`
 --
 
 INSERT INTO `sts_cors` (`id`, `nome`, `cor`, `created`, `modified`) VALUES
@@ -934,7 +947,7 @@ INSERT INTO `sts_cors` (`id`, `nome`, `cor`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_forms_emails`
+-- Estrutura da tabela `sts_forms_emails`
 --
 
 CREATE TABLE `sts_forms_emails` (
@@ -948,7 +961,7 @@ CREATE TABLE `sts_forms_emails` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `sts_forms_emails`
+-- Extraindo dados da tabela `sts_forms_emails`
 --
 
 INSERT INTO `sts_forms_emails` (`id`, `titulo`, `descricao`, `titulo_botao`, `imagem`, `created`, `modified`) VALUES
@@ -957,7 +970,7 @@ INSERT INTO `sts_forms_emails` (`id`, `titulo`, `descricao`, `titulo_botao`, `im
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_leads`
+-- Estrutura da tabela `sts_leads`
 --
 
 CREATE TABLE `sts_leads` (
@@ -968,7 +981,7 @@ CREATE TABLE `sts_leads` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `sts_leads`
+-- Extraindo dados da tabela `sts_leads`
 --
 
 INSERT INTO `sts_leads` (`id`, `email`, `created`, `modified`) VALUES
@@ -978,7 +991,7 @@ INSERT INTO `sts_leads` (`id`, `email`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_paginas`
+-- Estrutura da tabela `sts_paginas`
 --
 
 CREATE TABLE `sts_paginas` (
@@ -986,23 +999,23 @@ CREATE TABLE `sts_paginas` (
   `endereco` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
   `nome_pagina` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `titulo` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
-  `obs` text COLLATE utf8_unicode_ci,
+  `obs` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `keywords` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
   `author` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `imagem` varchar(120) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `lib_bloq` int(11) NOT NULL DEFAULT '2',
+  `lib_bloq` int(11) NOT NULL DEFAULT 2,
   `ordem` int(11) NOT NULL,
-  `depend_pg` int(11) NOT NULL DEFAULT '0',
+  `depend_pg` int(11) NOT NULL DEFAULT 0,
   `sts_tps_pg_id` int(11) NOT NULL,
   `sts_robot_id` int(11) NOT NULL,
-  `sts_situacaos_pg_id` int(11) NOT NULL DEFAULT '2',
+  `sts_situacaos_pg_id` int(11) NOT NULL DEFAULT 2,
   `created` datetime NOT NULL,
   `modified` datetime DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `sts_paginas`
+-- Extraindo dados da tabela `sts_paginas`
 --
 
 INSERT INTO `sts_paginas` (`id`, `endereco`, `nome_pagina`, `titulo`, `obs`, `keywords`, `description`, `author`, `imagem`, `lib_bloq`, `ordem`, `depend_pg`, `sts_tps_pg_id`, `sts_robot_id`, `sts_situacaos_pg_id`, `created`, `modified`) VALUES
@@ -1017,7 +1030,7 @@ INSERT INTO `sts_paginas` (`id`, `endereco`, `nome_pagina`, `titulo`, `obs`, `ke
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_pergs_resps`
+-- Estrutura da tabela `sts_pergs_resps`
 --
 
 CREATE TABLE `sts_pergs_resps` (
@@ -1030,7 +1043,7 @@ CREATE TABLE `sts_pergs_resps` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `sts_pergs_resps`
+-- Extraindo dados da tabela `sts_pergs_resps`
 --
 
 INSERT INTO `sts_pergs_resps` (`id`, `pergunta`, `resposta`, `sts_situacoe_id`, `created`, `modified`) VALUES
@@ -1041,7 +1054,7 @@ INSERT INTO `sts_pergs_resps` (`id`, `pergunta`, `resposta`, `sts_situacoe_id`, 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_prods_homes`
+-- Estrutura da tabela `sts_prods_homes`
 --
 
 CREATE TABLE `sts_prods_homes` (
@@ -1055,7 +1068,7 @@ CREATE TABLE `sts_prods_homes` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `sts_prods_homes`
+-- Extraindo dados da tabela `sts_prods_homes`
 --
 
 INSERT INTO `sts_prods_homes` (`id`, `titulo`, `subtitulo`, `descricao`, `imagem`, `created`, `modified`) VALUES
@@ -1064,7 +1077,7 @@ INSERT INTO `sts_prods_homes` (`id`, `titulo`, `subtitulo`, `descricao`, `imagem
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_robots`
+-- Estrutura da tabela `sts_robots`
 --
 
 CREATE TABLE `sts_robots` (
@@ -1076,20 +1089,20 @@ CREATE TABLE `sts_robots` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `sts_robots`
+-- Extraindo dados da tabela `sts_robots`
 --
 
 INSERT INTO `sts_robots` (`id`, `nome`, `tipo`, `created`, `modified`) VALUES
-(1, 'Indexar a pÃ¡gina e seguir os links', 'index,follow', '2018-02-23 00:00:00', NULL),
-(2, 'NÃ£o indexar a pÃ¡gina mas seguir os links', 'noindex,follow', '2018-02-23 00:00:00', NULL),
-(3, 'Indexar a pÃ¡gina mas nÃ£o seguir os links', 'index,nofollow', '2018-02-23 00:00:00', NULL),
-(4, 'NÃ£o indexar a pÃ¡gina e nem seguir os links', 'noindex,nofollow', '2018-02-23 00:00:00', NULL),
-(5, 'NÃ£o exibir a versÃ£o em cache da pÃ¡gina', 'noarchive', '2018-02-23 00:00:00', NULL);
+(1, 'Indexar a página e seguir os links', 'index,follow', '2018-02-23 00:00:00', NULL),
+(2, 'Não indexar a página mas seguir os links', 'noindex,follow', '2018-02-23 00:00:00', NULL),
+(3, 'Indexar a página mas não seguir os links', 'index,nofollow', '2018-02-23 00:00:00', NULL),
+(4, 'Não indexar a página e nem seguir os links', 'noindex,nofollow', '2018-02-23 00:00:00', NULL),
+(5, 'Não exibir a versão em cache da página', 'noarchive', '2018-02-23 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_servicos`
+-- Estrutura da tabela `sts_servicos`
 --
 
 CREATE TABLE `sts_servicos` (
@@ -1109,16 +1122,16 @@ CREATE TABLE `sts_servicos` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `sts_servicos`
+-- Extraindo dados da tabela `sts_servicos`
 --
 
 INSERT INTO `sts_servicos` (`id`, `titulo`, `icone_um`, `nome_um`, `descricao_um`, `icone_dois`, `nome_dois`, `descricao_dois`, `icone_tres`, `nome_tres`, `descricao_tres`, `created`, `modified`) VALUES
-(1, 'ServiÃ§os', 'ion-ios-camera-outline', 'ServiÃ§os um', 'This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.', 'ion-ios-film-outline', 'ServiÃ§os dois', 'This card has supporting text below as a natural lead-in to additional content.', 'ion-ios-videocam-outline', 'ServiÃ§os tres', 'This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.', '2018-02-23 00:00:00', NULL);
+(1, 'Serviços', 'ion-ios-camera-outline', 'Serviço Um', 'This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.', 'ion-ios-film-outline', 'Serviço Dois', 'This card has supporting text below as a natural lead-in to additional content.', 'ion-ios-videocam-outline', 'Serviço Três', 'This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.', '2018-02-23 00:00:00', '2020-11-17 15:24:22');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_situacaos_pgs`
+-- Estrutura da tabela `sts_situacaos_pgs`
 --
 
 CREATE TABLE `sts_situacaos_pgs` (
@@ -1130,7 +1143,7 @@ CREATE TABLE `sts_situacaos_pgs` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `sts_situacaos_pgs`
+-- Extraindo dados da tabela `sts_situacaos_pgs`
 --
 
 INSERT INTO `sts_situacaos_pgs` (`id`, `nome`, `sts_cor_id`, `created`, `modified`) VALUES
@@ -1141,7 +1154,7 @@ INSERT INTO `sts_situacaos_pgs` (`id`, `nome`, `sts_cor_id`, `created`, `modifie
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_situacoes`
+-- Estrutura da tabela `sts_situacoes`
 --
 
 CREATE TABLE `sts_situacoes` (
@@ -1153,7 +1166,7 @@ CREATE TABLE `sts_situacoes` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `sts_situacoes`
+-- Extraindo dados da tabela `sts_situacoes`
 --
 
 INSERT INTO `sts_situacoes` (`id`, `nome`, `sts_cor_id`, `created`, `modified`) VALUES
@@ -1164,7 +1177,7 @@ INSERT INTO `sts_situacoes` (`id`, `nome`, `sts_cor_id`, `created`, `modified`) 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_sobs_emps`
+-- Estrutura da tabela `sts_sobs_emps`
 --
 
 CREATE TABLE `sts_sobs_emps` (
@@ -1179,7 +1192,7 @@ CREATE TABLE `sts_sobs_emps` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `sts_sobs_emps`
+-- Extraindo dados da tabela `sts_sobs_emps`
 --
 
 INSERT INTO `sts_sobs_emps` (`id`, `titulo`, `descricao`, `imagem`, `ordem`, `sts_situacoe_id`, `created`, `modified`) VALUES
@@ -1191,7 +1204,7 @@ INSERT INTO `sts_sobs_emps` (`id`, `titulo`, `descricao`, `imagem`, `ordem`, `st
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_tps_artigos`
+-- Estrutura da tabela `sts_tps_artigos`
 --
 
 CREATE TABLE `sts_tps_artigos` (
@@ -1202,7 +1215,7 @@ CREATE TABLE `sts_tps_artigos` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `sts_tps_artigos`
+-- Extraindo dados da tabela `sts_tps_artigos`
 --
 
 INSERT INTO `sts_tps_artigos` (`id`, `nome`, `created`, `modified`) VALUES
@@ -1213,7 +1226,7 @@ INSERT INTO `sts_tps_artigos` (`id`, `nome`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_tps_pgs`
+-- Estrutura da tabela `sts_tps_pgs`
 --
 
 CREATE TABLE `sts_tps_pgs` (
@@ -1227,7 +1240,7 @@ CREATE TABLE `sts_tps_pgs` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `sts_tps_pgs`
+-- Extraindo dados da tabela `sts_tps_pgs`
 --
 
 INSERT INTO `sts_tps_pgs` (`id`, `tipo`, `nome`, `obs`, `ordem`, `created`, `modified`) VALUES
@@ -1236,7 +1249,7 @@ INSERT INTO `sts_tps_pgs` (`id`, `tipo`, `nome`, `obs`, `ordem`, `created`, `mod
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sts_videos`
+-- Estrutura da tabela `sts_videos`
 --
 
 CREATE TABLE `sts_videos` (
@@ -1251,216 +1264,216 @@ CREATE TABLE `sts_videos` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `sts_videos`
+-- Extraindo dados da tabela `sts_videos`
 --
 
 INSERT INTO `sts_videos` (`id`, `titulo`, `descricao`, `video_um`, `video_dois`, `video_tres`, `created`, `modified`) VALUES
-(1, 'Depoimentos', 'This is a wider card with supporting text below as a natural lead-in to additional content.', '<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/JfAgl6CGg2Q?rel=0" allowfullscreen></iframe>', '<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/4tBeeMcw2sM?rel=0" allowfullscreen></iframe>', '<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/i_R6sMRRQ0s?rel=0" allowfullscreen></iframe>', '2018-02-23 00:00:00', NULL);
+(1, 'Depoimentos', 'This is a wider card with supporting text below as a natural lead-in to additional content.', '<iframe class=\"embed-responsive-item\" src=\"https://www.youtube.com/embed/JfAgl6CGg2Q?rel=0\" allowfullscreen></iframe>', '<iframe class=\"embed-responsive-item\" src=\"https://www.youtube.com/embed/4tBeeMcw2sM?rel=0\" allowfullscreen></iframe>', '<iframe class=\"embed-responsive-item\" src=\"https://www.youtube.com/embed/i_R6sMRRQ0s?rel=0\" allowfullscreen></iframe>', '2018-02-23 00:00:00', NULL);
 
 --
--- Índices de tabelas apagadas
+-- Índices para tabelas despejadas
 --
 
 --
--- Índices de tabela `adms_cads_usuarios`
+-- Índices para tabela `adms_cads_usuarios`
 --
 ALTER TABLE `adms_cads_usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `adms_confs_emails`
+-- Índices para tabela `adms_confs_emails`
 --
 ALTER TABLE `adms_confs_emails`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `adms_cors`
+-- Índices para tabela `adms_cors`
 --
 ALTER TABLE `adms_cors`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `adms_grps_pgs`
+-- Índices para tabela `adms_grps_pgs`
 --
 ALTER TABLE `adms_grps_pgs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `adms_menus`
+-- Índices para tabela `adms_menus`
 --
 ALTER TABLE `adms_menus`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `adms_nivacs_pgs`
+-- Índices para tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `adms_niveis_acessos`
+-- Índices para tabela `adms_niveis_acessos`
 --
 ALTER TABLE `adms_niveis_acessos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `adms_paginas`
+-- Índices para tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `adms_robots`
+-- Índices para tabela `adms_robots`
 --
 ALTER TABLE `adms_robots`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `adms_sits`
+-- Índices para tabela `adms_sits`
 --
 ALTER TABLE `adms_sits`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `adms_sits_pgs`
+-- Índices para tabela `adms_sits_pgs`
 --
 ALTER TABLE `adms_sits_pgs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `adms_sits_usuarios`
+-- Índices para tabela `adms_sits_usuarios`
 --
 ALTER TABLE `adms_sits_usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `adms_tps_pgs`
+-- Índices para tabela `adms_tps_pgs`
 --
 ALTER TABLE `adms_tps_pgs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `adms_usuarios`
+-- Índices para tabela `adms_usuarios`
 --
 ALTER TABLE `adms_usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_artigos`
+-- Índices para tabela `sts_artigos`
 --
 ALTER TABLE `sts_artigos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_blogs_sobres`
+-- Índices para tabela `sts_blogs_sobres`
 --
 ALTER TABLE `sts_blogs_sobres`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_carousels`
+-- Índices para tabela `sts_carousels`
 --
 ALTER TABLE `sts_carousels`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_cats_artigos`
+-- Índices para tabela `sts_cats_artigos`
 --
 ALTER TABLE `sts_cats_artigos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_contatos`
+-- Índices para tabela `sts_contatos`
 --
 ALTER TABLE `sts_contatos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_cors`
+-- Índices para tabela `sts_cors`
 --
 ALTER TABLE `sts_cors`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_forms_emails`
+-- Índices para tabela `sts_forms_emails`
 --
 ALTER TABLE `sts_forms_emails`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_leads`
+-- Índices para tabela `sts_leads`
 --
 ALTER TABLE `sts_leads`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_paginas`
+-- Índices para tabela `sts_paginas`
 --
 ALTER TABLE `sts_paginas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_pergs_resps`
+-- Índices para tabela `sts_pergs_resps`
 --
 ALTER TABLE `sts_pergs_resps`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_prods_homes`
+-- Índices para tabela `sts_prods_homes`
 --
 ALTER TABLE `sts_prods_homes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_robots`
+-- Índices para tabela `sts_robots`
 --
 ALTER TABLE `sts_robots`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_servicos`
+-- Índices para tabela `sts_servicos`
 --
 ALTER TABLE `sts_servicos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_situacaos_pgs`
+-- Índices para tabela `sts_situacaos_pgs`
 --
 ALTER TABLE `sts_situacaos_pgs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_situacoes`
+-- Índices para tabela `sts_situacoes`
 --
 ALTER TABLE `sts_situacoes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_sobs_emps`
+-- Índices para tabela `sts_sobs_emps`
 --
 ALTER TABLE `sts_sobs_emps`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_tps_artigos`
+-- Índices para tabela `sts_tps_artigos`
 --
 ALTER TABLE `sts_tps_artigos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_tps_pgs`
+-- Índices para tabela `sts_tps_pgs`
 --
 ALTER TABLE `sts_tps_pgs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `sts_videos`
+-- Índices para tabela `sts_videos`
 --
 ALTER TABLE `sts_videos`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de tabelas apagadas
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
@@ -1468,166 +1481,200 @@ ALTER TABLE `sts_videos`
 --
 ALTER TABLE `adms_cads_usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT de tabela `adms_confs_emails`
 --
 ALTER TABLE `adms_confs_emails`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT de tabela `adms_cors`
 --
 ALTER TABLE `adms_cors`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT de tabela `adms_grps_pgs`
 --
 ALTER TABLE `adms_grps_pgs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT de tabela `adms_menus`
 --
 ALTER TABLE `adms_menus`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT de tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=309;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=319;
+
 --
 -- AUTO_INCREMENT de tabela `adms_niveis_acessos`
 --
 ALTER TABLE `adms_niveis_acessos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT de tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+
 --
 -- AUTO_INCREMENT de tabela `adms_robots`
 --
 ALTER TABLE `adms_robots`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT de tabela `adms_sits`
 --
 ALTER TABLE `adms_sits`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT de tabela `adms_sits_pgs`
 --
 ALTER TABLE `adms_sits_pgs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT de tabela `adms_sits_usuarios`
 --
 ALTER TABLE `adms_sits_usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT de tabela `adms_tps_pgs`
 --
 ALTER TABLE `adms_tps_pgs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT de tabela `adms_usuarios`
 --
 ALTER TABLE `adms_usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
 --
 -- AUTO_INCREMENT de tabela `sts_artigos`
 --
 ALTER TABLE `sts_artigos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT de tabela `sts_blogs_sobres`
 --
 ALTER TABLE `sts_blogs_sobres`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT de tabela `sts_carousels`
 --
 ALTER TABLE `sts_carousels`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT de tabela `sts_cats_artigos`
 --
 ALTER TABLE `sts_cats_artigos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT de tabela `sts_contatos`
 --
 ALTER TABLE `sts_contatos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT de tabela `sts_cors`
 --
 ALTER TABLE `sts_cors`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT de tabela `sts_forms_emails`
 --
 ALTER TABLE `sts_forms_emails`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT de tabela `sts_leads`
 --
 ALTER TABLE `sts_leads`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT de tabela `sts_paginas`
 --
 ALTER TABLE `sts_paginas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT de tabela `sts_pergs_resps`
 --
 ALTER TABLE `sts_pergs_resps`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT de tabela `sts_prods_homes`
 --
 ALTER TABLE `sts_prods_homes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT de tabela `sts_robots`
 --
 ALTER TABLE `sts_robots`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT de tabela `sts_servicos`
 --
 ALTER TABLE `sts_servicos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT de tabela `sts_situacaos_pgs`
 --
 ALTER TABLE `sts_situacaos_pgs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT de tabela `sts_situacoes`
 --
 ALTER TABLE `sts_situacoes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT de tabela `sts_sobs_emps`
 --
 ALTER TABLE `sts_sobs_emps`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT de tabela `sts_tps_artigos`
 --
 ALTER TABLE `sts_tps_artigos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT de tabela `sts_tps_pgs`
 --
 ALTER TABLE `sts_tps_pgs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT de tabela `sts_videos`
 --
 ALTER TABLE `sts_videos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
