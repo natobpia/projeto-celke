@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17-Nov-2020 às 19:25
+-- Tempo de geração: 17-Nov-2020 às 20:03
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.11
 
@@ -489,7 +489,17 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (315, 2, 72, 1, 2, 3, 2, 76, '2020-11-17 15:21:57', NULL),
 (316, 2, 72, 1, 2, 3, 3, 76, '2020-11-17 15:21:57', NULL),
 (317, 2, 26, 1, 2, 3, 4, 76, '2020-11-17 15:21:57', NULL),
-(318, 2, 26, 1, 2, 3, 5, 76, '2020-11-17 15:21:57', NULL);
+(318, 2, 26, 1, 2, 3, 5, 76, '2020-11-17 15:21:57', NULL),
+(319, 1, 73, 1, 1, 6, 1, 77, '2020-11-17 15:28:52', '2020-11-17 15:29:33'),
+(320, 2, 73, 1, 2, 3, 2, 77, '2020-11-17 15:28:52', NULL),
+(321, 2, 73, 1, 2, 3, 3, 77, '2020-11-17 15:28:52', NULL),
+(322, 2, 27, 1, 2, 3, 4, 77, '2020-11-17 15:28:52', NULL),
+(323, 2, 27, 1, 2, 3, 5, 77, '2020-11-17 15:28:52', NULL),
+(324, 1, 74, 1, 2, 3, 1, 78, '2020-11-17 15:46:22', NULL),
+(325, 2, 74, 1, 2, 3, 2, 78, '2020-11-17 15:46:22', NULL),
+(326, 2, 74, 1, 2, 3, 3, 78, '2020-11-17 15:46:22', NULL),
+(327, 2, 28, 1, 2, 3, 4, 78, '2020-11-17 15:46:22', NULL),
+(328, 2, 28, 1, 2, 3, 5, 78, '2020-11-17 15:46:22', NULL);
 
 -- --------------------------------------------------------
 
@@ -617,7 +627,9 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (73, 'Apagar carousel', 'processa/sts_apagar_carousel', 'Apagar carousel', 'Apagar carousel', 'Apagar carousel', 'Celke', 2, '', 0, 4, '2', 4, 1, '2018-05-16 16:32:18', NULL),
 (74, 'Alterar ordem carousel', 'processa/proc_sts_ordem_car', 'Processa o alterar ordem carousel', 'Alterar ordem carousel', 'Alterar ordem carousel', 'Celke', 2, '', 0, 3, '2', 4, 1, '2018-05-16 16:52:52', NULL),
 (75, 'Editar Serviço', 'editar/sts_edit_servico', 'Formulário para editar serviços', 'Editar Serviços', 'Editar Serviços', 'Natobpia', 2, 'fas fa-wrench', 0, 3, '2', 4, 1, '2020-11-17 15:16:15', '2020-11-17 15:16:43'),
-(76, 'Proc Form Edit Serviços', 'processa/proc_sts_edit_servico', 'Página para processar o formulário editar serviços', 'Processar o formulário editar serviços', 'Processar o formulário editar serviços', 'Natobpia', 2, '', 75, 3, '2', 4, 1, '2020-11-17 15:21:57', NULL);
+(76, 'Proc Form Edit Serviços', 'processa/proc_sts_edit_servico', 'Página para processar o formulário editar serviços', 'Processar o formulário editar serviços', 'Processar o formulário editar serviços', 'Natobpia', 2, '', 75, 3, '2', 4, 1, '2020-11-17 15:21:57', NULL),
+(77, 'Editar Vídeo', 'editar/sts_edit_video', 'Página para editar os vídeos do site', 'Editar Vídeo', 'Editar Vídeo', 'Natobpia', 2, 'fas fa-video', 0, 3, '2', 4, 1, '2020-11-17 15:28:52', '2020-11-17 15:45:19'),
+(78, 'Proc Form Edit Vídeo', 'processa/proc_sts_edit_video', 'Página para processar o formulário editar vídeo.', 'Processar o formulário editar vídeo', 'Processar o formulário editar vídeo', 'Natobpia', 2, '', 77, 3, '2', 4, 1, '2020-11-17 15:46:22', NULL);
 
 -- --------------------------------------------------------
 
@@ -1268,7 +1280,7 @@ CREATE TABLE `sts_videos` (
 --
 
 INSERT INTO `sts_videos` (`id`, `titulo`, `descricao`, `video_um`, `video_dois`, `video_tres`, `created`, `modified`) VALUES
-(1, 'Depoimentos', 'This is a wider card with supporting text below as a natural lead-in to additional content.', '<iframe class=\"embed-responsive-item\" src=\"https://www.youtube.com/embed/JfAgl6CGg2Q?rel=0\" allowfullscreen></iframe>', '<iframe class=\"embed-responsive-item\" src=\"https://www.youtube.com/embed/4tBeeMcw2sM?rel=0\" allowfullscreen></iframe>', '<iframe class=\"embed-responsive-item\" src=\"https://www.youtube.com/embed/i_R6sMRRQ0s?rel=0\" allowfullscreen></iframe>', '2018-02-23 00:00:00', NULL);
+(1, 'Depoimentos', 'This is a wider card with supporting text below as a natural lead-in to additional content.', '<iframe class=\"embed-responsive-item\" src=\"https://www.youtube.com/embed/JfAgl6CGg2Q?rel=0\" allowfullscreen></iframe>', '<iframe class=\"embed-responsive-item\" src=\"https://www.youtube.com/embed/4tBeeMcw2sM?rel=0\" allowfullscreen></iframe>', '<iframe class=\"embed-responsive-item\" src=\"https://www.youtube.com/embed/i_R6sMRRQ0s?rel=0\" allowfullscreen></iframe>', '2018-02-23 00:00:00', '2020-11-17 16:02:52');
 
 --
 -- Índices para tabelas despejadas
@@ -1510,7 +1522,7 @@ ALTER TABLE `adms_menus`
 -- AUTO_INCREMENT de tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=319;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=329;
 
 --
 -- AUTO_INCREMENT de tabela `adms_niveis_acessos`
@@ -1522,7 +1534,7 @@ ALTER TABLE `adms_niveis_acessos`
 -- AUTO_INCREMENT de tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT de tabela `adms_robots`
