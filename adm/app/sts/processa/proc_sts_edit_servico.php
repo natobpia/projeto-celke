@@ -19,7 +19,6 @@ if ($SendEditSer) {
     
     //Houve erro em algum campo será redirecionado para o login, não há erro no formulário tenta cadastrar no banco
     if ($erro) {
-        $dados['obs'] = trim($dados_obs);
         $_SESSION['dados'] = $dados;
         $url_destino = pg . '/editar/sts_edit_servico';
         header("Location: $url_destino");

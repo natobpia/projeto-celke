@@ -193,7 +193,7 @@ include_once 'app/sts/header.php';
             </div>
         </div>
         <?php
-        $result_perg_resp = "SELECT * FROM sts_pergs_resps WHERE sts_situacoe_id = 1";
+        $result_perg_resp = "SELECT * FROM sts_pergs_resps WHERE sts_situacoe_id = 1 ORDER BY ordem ASC";
         $resultado_perg_resp = mysqli_query($conn, $result_perg_resp);
         ?>
 

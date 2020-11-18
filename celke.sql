@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18-Nov-2020 às 20:37
+-- Tempo de geração: 18-Nov-2020 às 21:08
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.11
 
@@ -455,7 +455,7 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (281, 2, 65, 1, 2, 3, 3, 69, '2018-05-16 15:36:49', NULL),
 (282, 2, 19, 1, 2, 3, 4, 69, '2018-05-16 15:36:49', NULL),
 (283, 2, 19, 1, 2, 3, 5, 69, '2018-05-16 15:36:49', NULL),
-(284, 1, 66, 1, 2, 3, 1, 70, '2018-05-16 15:47:18', NULL),
+(284, 1, 66, 1, 2, 6, 1, 70, '2018-05-16 15:47:18', '2018-05-17 13:01:10'),
 (285, 2, 66, 1, 2, 3, 2, 70, '2018-05-16 15:47:18', NULL),
 (286, 2, 66, 1, 2, 3, 3, 70, '2018-05-16 15:47:18', NULL),
 (287, 2, 20, 1, 2, 3, 4, 70, '2018-05-16 15:47:18', NULL),
@@ -480,46 +480,86 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (306, 2, 70, 1, 2, 3, 3, 74, '2018-05-16 16:52:52', NULL),
 (307, 2, 24, 1, 2, 3, 4, 74, '2018-05-16 16:52:52', NULL),
 (308, 2, 24, 1, 2, 3, 5, 74, '2018-05-16 16:52:52', NULL),
-(309, 1, 71, 1, 1, 6, 1, 75, '2020-11-17 15:16:15', '2020-11-17 15:16:43'),
-(310, 2, 71, 1, 2, 3, 2, 75, '2020-11-17 15:16:15', NULL),
-(311, 2, 71, 1, 2, 3, 3, 75, '2020-11-17 15:16:15', NULL),
-(312, 2, 25, 1, 2, 3, 4, 75, '2020-11-17 15:16:15', NULL),
-(313, 2, 25, 1, 2, 3, 5, 75, '2020-11-17 15:16:15', NULL),
-(314, 1, 72, 1, 2, 3, 1, 76, '2020-11-17 15:21:57', NULL),
-(315, 2, 72, 1, 2, 3, 2, 76, '2020-11-17 15:21:57', NULL),
-(316, 2, 72, 1, 2, 3, 3, 76, '2020-11-17 15:21:57', NULL),
-(317, 2, 26, 1, 2, 3, 4, 76, '2020-11-17 15:21:57', NULL),
-(318, 2, 26, 1, 2, 3, 5, 76, '2020-11-17 15:21:57', NULL),
-(319, 1, 73, 1, 1, 6, 1, 77, '2020-11-17 15:28:52', '2020-11-17 15:29:33'),
-(320, 2, 73, 1, 2, 3, 2, 77, '2020-11-17 15:28:52', NULL),
-(321, 2, 73, 1, 2, 3, 3, 77, '2020-11-17 15:28:52', NULL),
-(322, 2, 27, 1, 2, 3, 4, 77, '2020-11-17 15:28:52', NULL),
-(323, 2, 27, 1, 2, 3, 5, 77, '2020-11-17 15:28:52', NULL),
-(324, 1, 74, 1, 2, 3, 1, 78, '2020-11-17 15:46:22', NULL),
-(325, 2, 74, 1, 2, 3, 2, 78, '2020-11-17 15:46:22', NULL),
-(326, 2, 74, 1, 2, 3, 3, 78, '2020-11-17 15:46:22', NULL),
-(327, 2, 28, 1, 2, 3, 4, 78, '2020-11-17 15:46:22', NULL),
-(328, 2, 28, 1, 2, 3, 5, 78, '2020-11-17 15:46:22', NULL),
-(329, 1, 75, 1, 1, 6, 1, 79, '2020-11-17 16:05:39', '2020-11-17 16:06:08'),
-(330, 2, 75, 1, 2, 3, 2, 79, '2020-11-17 16:05:39', NULL),
-(331, 2, 75, 1, 2, 3, 3, 79, '2020-11-17 16:05:39', NULL),
-(332, 2, 29, 1, 2, 3, 4, 79, '2020-11-17 16:05:39', NULL),
-(333, 2, 29, 1, 2, 3, 5, 79, '2020-11-17 16:05:39', NULL),
-(334, 1, 76, 1, 2, 3, 1, 80, '2020-11-17 16:21:29', NULL),
-(335, 2, 76, 1, 2, 3, 2, 80, '2020-11-17 16:21:29', NULL),
-(336, 2, 76, 1, 2, 3, 3, 80, '2020-11-17 16:21:29', NULL),
-(337, 2, 30, 1, 2, 3, 4, 80, '2020-11-17 16:21:29', NULL),
-(338, 2, 30, 1, 2, 3, 5, 80, '2020-11-17 16:21:29', NULL),
-(339, 1, 77, 1, 1, 6, 1, 81, '2020-11-18 16:29:22', '2020-11-18 16:29:56'),
-(340, 2, 77, 1, 2, 3, 2, 81, '2020-11-18 16:29:22', NULL),
-(341, 2, 77, 1, 2, 3, 3, 81, '2020-11-18 16:29:22', NULL),
-(342, 2, 31, 1, 2, 3, 4, 81, '2020-11-18 16:29:22', NULL),
-(343, 2, 31, 1, 2, 3, 5, 81, '2020-11-18 16:29:22', NULL),
-(344, 1, 78, 1, 2, 3, 1, 82, '2020-11-18 16:34:30', NULL),
-(345, 2, 78, 1, 2, 3, 2, 82, '2020-11-18 16:34:30', NULL),
-(346, 2, 78, 1, 2, 3, 3, 82, '2020-11-18 16:34:30', NULL),
-(347, 2, 32, 1, 2, 3, 4, 82, '2020-11-18 16:34:30', NULL),
-(348, 2, 32, 1, 2, 3, 5, 82, '2020-11-18 16:34:30', NULL);
+(309, 1, 71, 1, 1, 6, 1, 75, '2018-05-17 12:56:14', '2018-05-17 13:02:35'),
+(310, 2, 71, 1, 2, 3, 2, 75, '2018-05-17 12:56:14', NULL),
+(311, 2, 71, 1, 2, 3, 3, 75, '2018-05-17 12:56:14', NULL),
+(312, 2, 25, 1, 2, 3, 4, 75, '2018-05-17 12:56:14', NULL),
+(313, 2, 25, 1, 2, 3, 5, 75, '2018-05-17 12:56:14', NULL),
+(314, 1, 72, 1, 2, 3, 1, 76, '2018-05-17 13:30:04', NULL),
+(315, 2, 72, 1, 2, 3, 2, 76, '2018-05-17 13:30:04', NULL),
+(316, 2, 72, 1, 2, 3, 3, 76, '2018-05-17 13:30:04', NULL),
+(317, 2, 26, 1, 2, 3, 4, 76, '2018-05-17 13:30:04', NULL),
+(318, 2, 26, 1, 2, 3, 5, 76, '2018-05-17 13:30:04', NULL),
+(319, 1, 73, 1, 1, 6, 1, 77, '2018-05-17 14:00:20', '2018-05-17 14:01:34'),
+(320, 2, 73, 1, 2, 3, 2, 77, '2018-05-17 14:00:20', NULL),
+(321, 2, 73, 1, 2, 3, 3, 77, '2018-05-17 14:00:20', NULL),
+(322, 2, 27, 1, 2, 3, 4, 77, '2018-05-17 14:00:20', NULL),
+(323, 2, 27, 1, 2, 3, 5, 77, '2018-05-17 14:00:20', NULL),
+(324, 1, 74, 1, 2, 3, 1, 78, '2018-05-17 15:58:26', NULL),
+(325, 2, 74, 1, 2, 3, 2, 78, '2018-05-17 15:58:26', NULL),
+(326, 2, 74, 1, 2, 3, 3, 78, '2018-05-17 15:58:26', NULL),
+(327, 2, 28, 1, 2, 3, 4, 78, '2018-05-17 15:58:26', NULL),
+(328, 2, 28, 1, 2, 3, 5, 78, '2018-05-17 15:58:26', NULL),
+(329, 1, 75, 1, 1, 6, 1, 79, '2018-05-25 13:31:24', '2018-05-25 13:32:12'),
+(330, 2, 75, 1, 2, 3, 2, 79, '2018-05-25 13:31:24', NULL),
+(331, 2, 75, 1, 2, 3, 3, 79, '2018-05-25 13:31:24', NULL),
+(332, 2, 29, 1, 2, 3, 4, 79, '2018-05-25 13:31:24', NULL),
+(333, 2, 29, 1, 2, 3, 5, 79, '2018-05-25 13:31:24', NULL),
+(334, 1, 76, 1, 2, 3, 1, 80, '2018-05-25 14:06:20', NULL),
+(335, 2, 76, 1, 2, 3, 2, 80, '2018-05-25 14:06:20', NULL),
+(336, 2, 76, 1, 2, 3, 3, 80, '2018-05-25 14:06:20', NULL),
+(337, 2, 30, 1, 2, 3, 4, 80, '2018-05-25 14:06:20', NULL),
+(338, 2, 30, 1, 2, 3, 5, 80, '2018-05-25 14:06:20', NULL),
+(339, 1, 77, 1, 1, 6, 1, 81, '2018-05-26 18:35:39', '2018-05-26 18:37:11'),
+(340, 2, 77, 1, 2, 3, 2, 81, '2018-05-26 18:35:39', NULL),
+(341, 2, 77, 1, 2, 3, 3, 81, '2018-05-26 18:35:39', NULL),
+(342, 2, 31, 1, 2, 3, 4, 81, '2018-05-26 18:35:39', NULL),
+(343, 2, 31, 1, 2, 3, 5, 81, '2018-05-26 18:35:39', NULL),
+(344, 1, 78, 1, 2, 3, 1, 82, '2018-05-26 18:54:14', NULL),
+(345, 2, 78, 1, 2, 3, 2, 82, '2018-05-26 18:54:14', NULL),
+(346, 2, 78, 1, 2, 3, 3, 82, '2018-05-26 18:54:14', NULL),
+(347, 2, 32, 1, 2, 3, 4, 82, '2018-05-26 18:54:14', NULL),
+(348, 2, 32, 1, 2, 3, 5, 82, '2018-05-26 18:54:14', NULL),
+(349, 1, 79, 1, 1, 6, 1, 83, '2018-05-27 11:01:41', '2018-05-27 11:02:06'),
+(350, 2, 79, 1, 2, 3, 2, 83, '2018-05-27 11:01:41', NULL),
+(351, 2, 79, 1, 2, 3, 3, 83, '2018-05-27 11:01:41', NULL),
+(352, 2, 33, 1, 2, 3, 4, 83, '2018-05-27 11:01:41', NULL),
+(353, 2, 33, 1, 2, 3, 5, 83, '2018-05-27 11:01:41', NULL),
+(354, 1, 80, 1, 2, 3, 1, 84, '2018-05-27 13:54:05', NULL),
+(355, 2, 80, 1, 2, 3, 2, 84, '2018-05-27 13:54:05', NULL),
+(356, 2, 80, 1, 2, 3, 3, 84, '2018-05-27 13:54:05', NULL),
+(357, 2, 34, 1, 2, 3, 4, 84, '2018-05-27 13:54:05', NULL),
+(358, 2, 34, 1, 2, 3, 5, 84, '2018-05-27 13:54:05', NULL),
+(359, 1, 81, 1, 2, 3, 1, 85, '2018-05-27 14:00:39', NULL),
+(360, 2, 81, 1, 2, 3, 2, 85, '2018-05-27 14:00:39', NULL),
+(361, 2, 81, 1, 2, 3, 3, 85, '2018-05-27 14:00:39', NULL),
+(362, 2, 35, 1, 2, 3, 4, 85, '2018-05-27 14:00:39', NULL),
+(363, 2, 35, 1, 2, 3, 5, 85, '2018-05-27 14:00:39', NULL),
+(364, 1, 82, 1, 2, 3, 1, 86, '2018-05-27 14:07:06', NULL),
+(365, 2, 82, 1, 2, 3, 2, 86, '2018-05-27 14:07:06', NULL),
+(366, 2, 82, 1, 2, 3, 3, 86, '2018-05-27 14:07:06', NULL),
+(367, 2, 36, 1, 2, 3, 4, 86, '2018-05-27 14:07:06', NULL),
+(368, 2, 36, 1, 2, 3, 5, 86, '2018-05-27 14:07:06', NULL),
+(369, 1, 83, 1, 2, 3, 1, 87, '2018-05-27 14:12:11', NULL),
+(370, 2, 83, 1, 2, 3, 2, 87, '2018-05-27 14:12:11', NULL),
+(371, 2, 83, 1, 2, 3, 3, 87, '2018-05-27 14:12:11', NULL),
+(372, 2, 37, 1, 2, 3, 4, 87, '2018-05-27 14:12:11', NULL),
+(373, 2, 37, 1, 2, 3, 5, 87, '2018-05-27 14:12:11', NULL),
+(374, 1, 84, 1, 2, 3, 1, 88, '2018-05-27 14:20:08', NULL),
+(375, 2, 84, 1, 2, 3, 2, 88, '2018-05-27 14:20:08', NULL),
+(376, 2, 84, 1, 2, 3, 3, 88, '2018-05-27 14:20:08', NULL),
+(377, 2, 38, 1, 2, 3, 4, 88, '2018-05-27 14:20:08', NULL),
+(378, 2, 38, 1, 2, 3, 5, 88, '2018-05-27 14:20:08', NULL),
+(379, 1, 85, 1, 2, 3, 1, 89, '2018-05-27 14:27:24', NULL),
+(380, 2, 85, 1, 2, 3, 2, 89, '2018-05-27 14:27:24', NULL),
+(381, 2, 85, 1, 2, 3, 3, 89, '2018-05-27 14:27:24', NULL),
+(382, 2, 39, 1, 2, 3, 4, 89, '2018-05-27 14:27:24', NULL),
+(383, 2, 39, 1, 2, 3, 5, 89, '2018-05-27 14:27:24', NULL),
+(384, 1, 86, 1, 2, 3, 1, 90, '2018-05-27 14:28:45', NULL),
+(385, 2, 86, 1, 2, 3, 2, 90, '2018-05-27 14:28:45', NULL),
+(386, 2, 86, 1, 2, 3, 3, 90, '2018-05-27 14:28:45', NULL),
+(387, 2, 40, 1, 2, 3, 4, 90, '2018-05-27 14:28:45', NULL),
+(388, 2, 40, 1, 2, 3, 5, 90, '2018-05-27 14:28:45', NULL);
 
 -- --------------------------------------------------------
 
@@ -592,8 +632,8 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (14, 'Proc o form editar nivel de acesso', 'processa/proc_edit_niv_aces', NULL, 'Processa o formulario editar nivel de acesso', 'Processa o formulario editar nivel de acesso', 'Celke', 2, NULL, 11, 3, '1', 4, 1, '2018-03-23 00:00:00', NULL),
 (15, 'Alterar ordem do nivel de acesso', 'processa/proc_ordem_niv_aces', 'Pagina para Alterar ordem do nivel de acesso', 'Alterar ordem do nivel de acesso', 'Alterar ordem do nivel de acesso', 'Celke', 2, NULL, 0, 6, '1', 4, 1, '2018-03-23 00:00:00', NULL),
 (16, 'Cadastrar pagina', 'cadastrar/cad_pagina', 'Formulario para Cadastrar pagina', 'Cadastrar pagina', 'Cadastrar pagina', 'Celke', 2, NULL, 0, 2, '1', 4, 1, '2018-03-23 00:00:00', NULL),
-(17, 'Proc o form cadastrar pagina', 'processa/proc_cad_pagina', 'Pagina para processar o formulario cadastrar pagina', 'Processar o formulario cadastrar pagina', 'Processar o formulario cadastrar pagina', 'Celke', 2, NULL, 16, 2, '1', 4, 1, '2018-03-23 00:00:00', NULL),
-(27, 'Proc Liberar Permissão', 'processa/proc_lib_per', 'Página para liberar a permissão', 'Proc Liberar Permissao', 'Proc Liberar Permissao', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-21 21:56:03', NULL),
+(17, 'Procr o form cadastrar pagina', 'processa/proc_cad_pagina', 'Pagina para processar o formulario cadastrar pagina', 'Processar o formulario cadastrar pagina', 'Processar o formulario cadastrar pagina', 'Celke', 2, NULL, 16, 2, '1', 4, 1, '2018-03-23 00:00:00', NULL),
+(27, 'Proc Liberar Permissão', 'processa/proc_lib_per', 'Página para liberar permissão', 'Proc Liberar Permissao', 'Proc Liberar Permissao', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-21 21:56:03', NULL),
 (26, 'Permissão', 'listar/list_permissao', 'Página para listar as permissões', 'Permissao', 'Permissao', 'Celke', 2, '', 0, 1, '1', 4, 1, '2018-03-21 20:16:19', NULL),
 (21, 'Apagar Página', 'processa/apagar_pagina', 'Página para Apagar Página', 'Apagar Pagina', 'Apagar Pagina', 'Celke', 2, '', 0, 4, '1', 4, 1, '2018-03-19 18:06:40', NULL),
 (22, 'Visualizar Página', 'visualizar/vis_pagina', 'Página para visualizar detalhes da página', 'Visualizar Pagina', 'Visualizar Pagina', 'Celke', 2, '', 0, 5, '1', 4, 1, '2018-03-21 12:39:49', NULL),
@@ -601,59 +641,67 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (24, 'Proc form edita pagina', 'processa/proc_edit_pagina', 'Página para processar o formulário editar a página', 'Proc form edita pagina', 'Proc form edita pagina', 'Celke', 2, '', 23, 3, '1', 4, 1, '2018-03-21 17:46:32', '2018-03-21 22:56:16'),
 (28, 'Liberar Menu', 'processa/proc_lib_menu', 'Página para Liberar item Menu', 'Liberar Menu', 'Liberar Menu', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-22 17:14:57', NULL),
 (29, 'Liberar Dropdown no menu', 'processa/proc_lib_dropdown', 'Página para Liberar Dropdown no menu', 'Liberar Dropdown no menu', 'Liberar Dropdown no menu', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-22 18:24:19', NULL),
-(30, 'Alterar Ordem do Menu', 'processa/proc_ordem_menu', 'PÃ¡gina para Alterar Ordem do Menu', 'Alterar Ordem do Menu', 'Alterar Ordem do Menu', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-22 19:21:32', NULL),
-(31, 'Sincronizar Paginas', 'processa/proc_sincro_nivac_pg', 'PÃ¡gina para Sincronizar Paginas com nÃ­vel de acesso', 'Sincronizar Paginas', 'Sincronizar Paginas', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-22 20:30:26', NULL),
-(32, 'Editar Ã­cone do menu', 'editar/edit_permissao', 'PÃ¡gina para editar o Ã­cone do item do menu', 'Editar icone do menu', 'Editar icone do menu', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-22 22:15:13', '2018-03-22 22:26:41'),
-(33, 'Proc form edita permissÃ£o', 'processa/proc_edit_permissao', 'PÃ¡gina para processar o formulÃ¡rio editar permissÃ£o', 'Proc form edita permissÃ£o', 'Proc form edita permissÃ£o', 'Celke', 2, '', 32, 3, '1', 4, 1, '2018-03-22 22:27:12', '2018-03-22 22:27:46'),
-(34, 'Cadastrar Menu', 'cadastrar/cad_menu', 'PÃ¡gina para Cadastrar Menu', 'Cadastrar Menu', 'Cadastrar Menu', 'Celke', 2, '', 0, 2, '1', 4, 1, '2018-04-04 10:23:29', NULL),
-(35, 'Proc Form Cad Menu', 'processa/proc_cad_menu', 'PÃ¡gina para processar o formulÃ¡rio cadastrar menu', 'Processar o formulario cadastrar menu', 'Processar o formulario cadastrar menu', 'Celke', 2, '', 34, 2, '1', 4, 1, '2018-04-04 10:40:36', NULL),
+(30, 'Alterar Ordem do Menu', 'processa/proc_ordem_menu', 'Página para Alterar Ordem do Menu', 'Alterar Ordem do Menu', 'Alterar Ordem do Menu', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-22 19:21:32', NULL),
+(31, 'Sincronizar Paginas', 'processa/proc_sincro_nivac_pg', 'Página para Sincronizar Paginas com nível de acesso', 'Sincronizar Paginas', 'Sincronizar Paginas', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-22 20:30:26', NULL),
+(32, 'Editar Ícone do menu', 'editar/edit_permissao', 'Página para editar o Í­cone do item do menu', 'Editar icone do menu', 'Editar icone do menu', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-03-22 22:15:13', '2018-03-22 22:26:41'),
+(33, 'Proc form edita permissão', 'processa/proc_edit_permissao', 'Página para processar o formulário editar permissão', 'Proc form edita permissÃ£o', 'Proc form edita permissÃ£o', 'Celke', 2, '', 32, 3, '1', 4, 1, '2018-03-22 22:27:12', '2018-03-22 22:27:46'),
+(34, 'Cadastrar Menu', 'cadastrar/cad_menu', 'Página para Cadastrar Menu', 'Cadastrar Menu', 'Cadastrar Menu', 'Celke', 2, '', 0, 2, '1', 4, 1, '2018-04-04 10:23:29', NULL),
+(35, 'Proc Form Cad Menu', 'processa/proc_cad_menu', 'Página para processar o formulário cadastrar menu', 'Processar o formulario cadastrar menu', 'Processar o formulario cadastrar menu', 'Celke', 2, '', 34, 2, '1', 4, 1, '2018-04-04 10:40:36', NULL),
 (36, 'Editar Menu', 'editar/edit_menu', 'FormulÃ¡rio para Editar Menu', 'Editar Menu', 'Editar Menu', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-04-04 12:26:09', '2018-04-04 12:27:40'),
 (37, 'Proc Form Edit Menu', 'processa/proc_edit_menu', 'Processar o formulÃ¡rio editar item de menu', 'Processar o formulario editar item de menu', 'Processar o formulario editar item de menu', 'Celke', 2, '', 36, 3, '1', 4, 1, '2018-04-04 12:50:27', NULL),
 (38, 'Visualizar Menu', 'visualizar/vis_menu', 'PÃ¡gina para Visualizar Menu', 'Visualizar Menu', 'Visualizar Menu', 'Celke', 2, '', 0, 5, '1', 4, 1, '2018-04-09 15:22:37', NULL),
 (39, 'Apagar Menu', 'processa/apagar_menu', 'PÃ¡gina para Apagar Menu', 'Apagar Menu', 'Apagar Menu', 'Celke', 2, '', 0, 4, '1', 4, 1, '2018-04-09 15:54:43', NULL),
 (40, 'Alterar ordem item menu', 'processa/proc_ordem_menu_item', 'PÃ¡gina para alterar ordem item menu', 'Alterar ordem item menu', 'Alterar ordem item menu', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-04-12 12:12:17', NULL),
-(41, 'Cadastrar UsuÃ¡rio', 'cadastrar/cad_usuario', 'FormulÃ¡rio para cadastrar usuÃ¡rio', 'Cadastrar Usuario', 'Cadastrar Usuario', 'Celke', 2, '', 0, 2, '1', 4, 1, '2018-04-14 21:23:48', NULL),
-(42, 'Proc Form Cad User', 'processa/proc_cad_usuario', 'PÃ¡gina para processar a pÃ¡gina cadastrar usuÃ¡rio', 'Processar o formulario cadastrar usuario', 'Processar o formulario cadastrar usuario', 'Celke', 2, '', 41, 2, '1', 4, 1, '2018-04-14 21:49:39', NULL),
-(43, 'Visualizar usuÃ¡rio', 'visualizar/vis_usuario', 'PÃ¡gina para visualizar usuÃ¡rio', 'visualizar usuario', 'visualizar usuario', 'Celke', 2, '', 0, 5, '1', 4, 1, '2018-04-20 17:50:56', NULL),
-(44, 'Editar usuÃ¡rio', 'editar/edit_usuario', 'FormulÃ¡rio para editar o usuÃ¡rio', 'Formulario para editar o usuario', 'Formulario para editar o usuario', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-04-22 09:00:33', '2018-04-22 09:49:54'),
-(45, 'Proc Form Edit Usuario', 'processa/proc_edit_usuario', 'PÃ¡gina para processar o formulÃ¡rio editar usuÃ¡rio', 'Pagina para processar o formulÃ¡rio editar usuario', 'Pagina para processar o formulÃ¡rio editar usuario', 'Celke', 2, '', 44, 3, '1', 4, 1, '2018-04-22 09:50:59', NULL),
-(46, 'Apagar usuÃ¡rio', 'processa/apagar_usuario', 'PÃ¡gina para apagar usuÃ¡rio', 'Apagar usuario', 'Apagar usuario', 'Celke', 2, '', 0, 4, '1', 4, 1, '2018-04-22 11:18:16', NULL),
-(47, 'Visualizar Perfil', 'visualizar/vis_perfil', 'UsuÃ¡rio Visualizar Perfil', 'Visualizar Perfil', 'Visualizar Perfil', 'Celke', 2, '', 0, 5, '1', 4, 1, '2018-04-22 13:50:45', NULL),
-(48, 'Editar Perfil', 'editar/edit_perfil', 'FormulÃ¡rio para Editar Perfil', 'Editar Perfil', 'Editar Perfil', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-04-22 14:04:38', NULL),
-(49, 'Proc Form Edit Perfil', 'processa/proc_edit_perfil', 'PÃ¡gina para processar o formulÃ¡rio editar perfil', 'Processar o formulario editar perfil', 'Processar o formulario editar perfil', 'Celke', 2, '', 48, 3, '1', 4, 1, '2018-04-22 14:15:52', NULL),
-(50, 'Cadastrar usuÃ¡rio no login', 'cadastrar/cad_user_login', 'PÃ¡gina para cadastrar usuÃ¡rio no login', 'Cadastrar usuario no login', 'Cadastrar usuario no login', 'Celke', 1, '', 0, 2, '1', 4, 1, '2018-05-01 15:38:25', NULL),
-(51, 'Cadastro Login', 'editar/edit_cad_user_login', 'FormulÃ¡rio para editar o nÃ­vel de acesso e a situaÃ§Ã£o do formulÃ¡rio cadastrar usuÃ¡rio na pÃ¡gina de login', 'Editar Cadastro Usuario login', 'Editar Cadastro Usuario login', 'Celke', 2, 'fas fa-edit', 0, 3, '1', 4, 1, '2018-05-01 16:40:55', '2018-05-01 17:00:44'),
-(52, 'Proc Form Cad User Login', 'processa/proc_cad_user_login', 'PÃ¡gina para processar o formulÃ¡rio utilizado para editar o nÃ­vel de acesso e a situaÃ§Ã£o do formulÃ¡rio cadastrar usuÃ¡rio atravÃ©s da pÃ¡gina de login', 'Formulario cadastrar usuario no login', 'Formulario cadastrar usuario no login', 'Celke', 2, '', 51, 3, '1', 4, 1, '2018-05-01 17:06:00', NULL),
+(41, 'Cadastrar Usuário', 'cadastrar/cad_usuario', 'Formulário para cadastrar usuário', 'Cadastrar Usuario', 'Cadastrar Usuario', 'Celke', 2, '', 0, 2, '1', 4, 1, '2018-04-14 21:23:48', NULL),
+(42, 'Proc Form Cad User', 'processa/proc_cad_usuario', 'Página para processar a página cadastrar usuário', 'Processar o formulario cadastrar usuario', 'Processar o formulario cadastrar usuario', 'Celke', 2, '', 41, 2, '1', 4, 1, '2018-04-14 21:49:39', NULL),
+(43, 'Visualizar usuário', 'visualizar/vis_usuario', 'Página para visualizar usuário', 'visualizar usuario', 'visualizar usuario', 'Celke', 2, '', 0, 5, '1', 4, 1, '2018-04-20 17:50:56', NULL),
+(44, 'Editar usuário', 'editar/edit_usuario', 'Formulário para editar o usuário', 'Formulario para editar o usuario', 'Formulario para editar o usuario', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-04-22 09:00:33', '2018-04-22 09:49:54'),
+(45, 'Proc Form Edit Usuario', 'processa/proc_edit_usuario', 'Página para processar o formulário editar usuário', 'Pagina para processar o formulÃ¡rio editar usuario', 'Pagina para processar o formulÃ¡rio editar usuario', 'Celke', 2, '', 44, 3, '1', 4, 1, '2018-04-22 09:50:59', NULL),
+(46, 'Apagar usuário', 'processa/apagar_usuario', 'Página para apagar usuário', 'Apagar usuario', 'Apagar usuario', 'Celke', 2, '', 0, 4, '1', 4, 1, '2018-04-22 11:18:16', NULL),
+(47, 'Visualizar Perfil', 'visualizar/vis_perfil', 'Usuário Visualizar Perfil', 'Visualizar Perfil', 'Visualizar Perfil', 'Celke', 2, '', 0, 5, '1', 4, 1, '2018-04-22 13:50:45', NULL),
+(48, 'Editar Perfil', 'editar/edit_perfil', 'Formulário para Editar Perfil', 'Editar Perfil', 'Editar Perfil', 'Celke', 2, '', 0, 3, '1', 4, 1, '2018-04-22 14:04:38', NULL),
+(49, 'Proc Form Edit Perfil', 'processa/proc_edit_perfil', 'Página para processar o formulário editar perfil', 'Processar o formulario editar perfil', 'Processar o formulario editar perfil', 'Celke', 2, '', 48, 3, '1', 4, 1, '2018-04-22 14:15:52', NULL),
+(50, 'Cadastrar usuário no login', 'cadastrar/cad_user_login', 'Página para cadastrar usuário no login', 'Cadastrar usuario no login', 'Cadastrar usuario no login', 'Celke', 1, '', 0, 2, '1', 4, 1, '2018-05-01 15:38:25', NULL),
+(51, 'Cadastro Login', 'editar/edit_cad_user_login', 'Formulário para editar o nível de acesso e a situações do formulário cadastrar usuário na página de login', 'Editar Cadastro Usuario login', 'Editar Cadastro Usuario login', 'Celke', 2, 'fas fa-edit', 0, 3, '1', 4, 1, '2018-05-01 16:40:55', '2018-05-01 17:00:44'),
+(52, 'Proc Form Cad User Login', 'processa/proc_cad_user_login', 'Página para processar o formulário utilizado para editar o nível de acesso e a situações do formulário cadastrar usuário através da página de login', 'Formulario cadastrar usuario no login', 'Formulario cadastrar usuario no login', 'Celke', 2, '', 51, 3, '1', 4, 1, '2018-05-01 17:06:00', NULL),
 (53, 'Credenciais E-mail', 'editar/edit_cred_email', 'FormulÃ¡rio para editar as credenciais de envio de e-mail', 'Credenciais E-mail', 'Credenciais E-mail', 'Celke', 2, 'fas fa-at', 0, 3, '1', 4, 1, '2018-05-02 23:57:08', '2018-05-02 23:57:35'),
-(54, 'Processar formulÃ¡rio credenciais e-mail', 'processa/proc_edit_cred_email', 'PÃ¡gina para processar o formulÃ¡rio editar credenciais de envio de e-mail', 'Processar formulario credenciais e-mail', 'Processar formulario credenciais e-mail', 'Celke', 2, '', 53, 3, '1', 4, 1, '2018-05-03 00:04:59', NULL),
+(54, 'Processar formulário credenciais e-mail', 'processa/proc_edit_cred_email', 'PÃ¡gina para processar o formulÃ¡rio editar credenciais de envio de e-mail', 'Processar formulario credenciais e-mail', 'Processar formulario credenciais e-mail', 'Celke', 2, '', 53, 3, '1', 4, 1, '2018-05-03 00:04:59', NULL),
 (55, 'Validar E-mail', 'acesso/valida_email', 'PÃ¡gina para validar e-mail', 'Validar E-mail', 'Validar E-mail', 'Celke', 1, '', 0, 3, '1', 4, 1, '2018-05-04 12:42:15', NULL),
 (56, 'Recuperar Login', 'acesso/recuper_login', 'FormulÃ¡rio para recuperar login', 'Recuperar Login', 'Recuperar Login', 'Celke', 1, '', 0, 7, '1', 4, 1, '2018-05-04 13:10:17', NULL),
 (57, 'Atualizar a Senha', 'acesso/atual_senha', 'FormulÃ¡rio para atualizar a senha', 'Atualizar a Senha', 'Atualizar a Senha', 'Celke', 1, '', 0, 7, '1', 4, 1, '2018-05-05 16:36:02', NULL),
-(58, 'PÃ¡gina do Site', 'listar/sts_list_pagina', 'Listar as pÃ¡gina do site', 'Pagina do Site', 'Pagina do Site', 'Celke', 2, 'fas fa-file-alt', 0, 1, '2', 4, 1, '2018-05-06 12:26:10', '2018-05-12 13:48:47'),
+(58, 'Página do Site', 'listar/sts_list_pagina', 'Listar as pÃ¡gina do site', 'Pagina do Site', 'Pagina do Site', 'Celke', 2, 'fas fa-file-alt', 0, 1, '2', 4, 1, '2018-05-06 12:26:10', '2018-05-12 13:48:47'),
 (59, 'Liberar menu site', 'processa/proc_sts_lib_menu', 'PÃ¡gina para liberar item de menu no site', 'Liberar menu site', 'Liberar menu site', 'Celke', 2, '', 0, 3, '2', 4, 1, '2018-05-06 13:49:37', NULL),
 (60, 'Ordem menu site', 'processa/proc_sts_ordem_menu', 'PÃ¡gina para alterar a ordem dos itens de menu do site', 'Ordem menu site', 'Ordem menu site', 'Celke', 2, '', 0, 3, '2', 4, 1, '2018-05-06 14:54:26', NULL),
-(61, 'Cadastrar pÃ¡gina site', 'cadastrar/sts_cad_pagina', 'FormulÃ¡rio para cadastrar pÃ¡gina do site', 'Cadastrar pagina site', 'Cadastrar pagina site', 'Celke', 2, '', 0, 2, '2', 4, 1, '2018-05-06 15:13:52', NULL),
-(62, 'Proc Form Sts Cad PÃ¡gina', 'processa/proc_sts_cad_pagina', 'PÃ¡gina para processar o formulÃ¡rio cadastrar pÃ¡gina do site', 'Cadastrar pagina do site', 'Cadastrar pagina do site', 'Celke', 2, '', 61, 2, '2', 4, 1, '2018-05-11 12:50:42', NULL),
+(61, 'Cadastrar página site', 'cadastrar/sts_cad_pagina', 'FormulÃ¡rio para cadastrar pÃ¡gina do site', 'Cadastrar pagina site', 'Cadastrar pagina site', 'Celke', 2, '', 0, 2, '2', 4, 1, '2018-05-06 15:13:52', NULL),
+(62, 'Proc Form Sts Cad Página', 'processa/proc_sts_cad_pagina', 'PÃ¡gina para processar o formulÃ¡rio cadastrar pÃ¡gina do site', 'Cadastrar pagina do site', 'Cadastrar pagina do site', 'Celke', 2, '', 61, 2, '2', 4, 1, '2018-05-11 12:50:42', NULL),
 (63, 'Visualizar Pg do Site', 'visualizar/sts_vis_pagina', 'PÃ¡gina para visualizar os detalhes da pÃ¡gina do site', 'Visualizar Pg do Site', 'Visualizar Pg do Site', 'Celke', 2, '', 0, 5, '2', 4, 1, '2018-05-12 13:18:42', NULL),
-(64, 'Editar pÃ¡gina do site', 'editar/sts_edit_pagina', 'FormulÃ¡rio para editar pÃ¡gina do site', 'Editar pagina do site', 'Editar pagina do site', 'Celke', 2, '', 0, 3, '2', 4, 1, '2018-05-16 11:25:25', NULL),
+(64, 'Editar página do site', 'editar/sts_edit_pagina', 'FormulÃ¡rio para editar pÃ¡gina do site', 'Editar pagina do site', 'Editar pagina do site', 'Celke', 2, '', 0, 3, '2', 4, 1, '2018-05-16 11:25:25', NULL),
 (65, 'Proc Form Edit Pagina Site', 'processa/proc_sts_edit_pagina', 'PÃ¡gina para processar o formulÃ¡rio editar pÃ¡gina do site', 'Processar o formulario editar pagina do site', 'Processar o formulario editar pagina do site', 'Celke', 2, '', 64, 3, '2', 4, 1, '2018-05-16 11:53:31', NULL),
-(66, 'Apagar pÃ¡gina do site', 'processa/sts_apagar_pagina', 'Apagar pÃ¡gina do site', 'Apagar pagina do site', 'Apagar pagina do site', 'Celke', 2, '', 0, 4, '2', 4, 1, '2018-05-16 12:30:02', NULL),
+(66, 'Apagar página do site', 'processa/sts_apagar_pagina', 'Apagar pÃ¡gina do site', 'Apagar pagina do site', 'Apagar pagina do site', 'Celke', 2, '', 0, 4, '2', 4, 1, '2018-05-16 12:30:02', NULL),
 (67, 'Listar Carousels', 'listar/sts_list_carousel', 'Listar Carousels', 'Listar Carousels', 'Listar Carousels', 'Celke', 2, 'fas fa-sliders-h', 0, 1, '2', 4, 1, '2018-05-16 14:20:19', '2018-05-16 14:37:58'),
 (68, 'Cadastrar Carousel', 'cadastrar/sts_cad_carousel', 'Cadastrar Carousel', 'Cadastrar Carousel', 'Cadastrar Carousel', 'Celke', 2, '', 0, 2, '2', 4, 1, '2018-05-16 15:00:02', NULL),
 (69, 'Proc Cad Carousel', 'processa/proc_sts_cad_carousel', 'PÃ¡gina para processar o formulÃ¡rio cadastrar carousel', 'Proc Cad Carousel', 'Proc Cad Carousel', 'Celke', 2, '', 68, 2, '2', 4, 1, '2018-05-16 15:36:49', NULL),
-(70, 'Editar Carousel', 'editar/sts_edit_carousel', 'FormulÃ¡rio para editar o carousel', 'Editar Carousel', 'Editar Carousel', 'Celke', 2, '', 0, 3, '2', 4, 1, '2018-05-16 15:47:18', NULL),
+(70, 'Editar Carousel', 'editar/sts_edit_carousel', 'FormulÃ¡rio para editar o carousel', 'Editar Carousel', 'Editar Carousel', 'Celke', 2, 'fas fa-wrench', 0, 3, '2', 4, 1, '2018-05-16 15:47:18', '2018-05-17 12:56:51'),
 (71, 'Proc Form Edit Carousel', 'processa/proc_sts_edit_carousel', 'PÃ¡gina para processar o formulÃ¡rio editar carousel', 'Processar o formulario editar carousel', 'Processar o formulario editar carousel', 'Celke', 2, '', 70, 3, '2', 4, 1, '2018-05-16 16:01:43', NULL),
 (72, 'Visualizar Carousel', 'visualizar/sts_vis_carousel', 'PÃ¡gina para visualizar detalhes do carousel', 'Visualizar Carousel', 'Visualizar Carousel', 'Celke', 2, '', 0, 5, '2', 4, 1, '2018-05-16 16:09:53', NULL),
 (73, 'Apagar carousel', 'processa/sts_apagar_carousel', 'Apagar carousel', 'Apagar carousel', 'Apagar carousel', 'Celke', 2, '', 0, 4, '2', 4, 1, '2018-05-16 16:32:18', NULL),
 (74, 'Alterar ordem carousel', 'processa/proc_sts_ordem_car', 'Processa o alterar ordem carousel', 'Alterar ordem carousel', 'Alterar ordem carousel', 'Celke', 2, '', 0, 3, '2', 4, 1, '2018-05-16 16:52:52', NULL),
-(75, 'Editar Serviço', 'editar/sts_edit_servico', 'Formulário para editar serviços', 'Editar Serviços', 'Editar Serviços', 'Natobpia', 2, 'fas fa-wrench', 0, 3, '2', 4, 1, '2020-11-17 15:16:15', '2020-11-17 15:16:43'),
-(76, 'Proc Form Edit Serviços', 'processa/proc_sts_edit_servico', 'Página para processar o formulário editar serviços', 'Processar o formulário editar serviços', 'Processar o formulário editar serviços', 'Natobpia', 2, '', 75, 3, '2', 4, 1, '2020-11-17 15:21:57', NULL),
-(77, 'Editar Vídeo', 'editar/sts_edit_video', 'Página para editar os vídeos do site', 'Editar Vídeo', 'Editar Vídeo', 'Natobpia', 2, 'fas fa-video', 0, 3, '2', 4, 1, '2020-11-17 15:28:52', '2020-11-17 15:45:19'),
-(78, 'Proc Form Edit Vídeo', 'processa/proc_sts_edit_video', 'Página para processar o formulário editar vídeo.', 'Processar o formulário editar vídeo', 'Processar o formulário editar vídeo', 'Natobpia', 2, '', 77, 3, '2', 4, 1, '2020-11-17 15:46:22', NULL),
-(79, 'Editar Produto', 'editar/sts_edit_produto', 'Página para editar o produto da página inicial', 'Editar Produto', 'Editar Produto', 'Natobpia', 2, 'fas fa-dolly', 0, 3, '2', 4, 1, '2020-11-17 16:05:39', '2020-11-17 16:06:08'),
-(80, 'Proc Form Edit Produto', 'processa/proc_sts_edit_produto', 'Página para processar o formulário editar produto na página inicial', 'Processar o formulário editar produto', 'Processar o formulário editar produto', 'Natobpia', 2, '', 79, 3, '2', 4, 1, '2020-11-17 16:21:29', NULL),
-(81, 'Editar Formulário E-mail', 'editar/sts_edit_form_email', 'Formulário para editar as informações da parte do site para o usuário inserir o e-mail', 'Editar Formulário E-mail', 'Editar Formulário E-mail', 'Natobpia', 2, 'fas fa-at', 0, 3, '2', 4, 1, '2020-11-18 16:29:22', '2020-11-18 16:29:56'),
-(82, 'Proc Form Edit Form E-mail', 'processa/proc_sts_edit_form_email', 'Página para processar a edição do e-mail', 'Processa o edit e-mail', 'Processa o edit e-mail', 'Natobpia', 2, '', 81, 3, '2', 4, 1, '2020-11-18 16:34:30', NULL);
+(75, 'Editar Serviços', 'editar/sts_edit_servico', 'FormulÃ¡rio para editar serviÃ§os', 'Editar Servicos', 'Editar Servicos', 'Celke', 2, 'fas fa-wrench', 0, 3, '2', 4, 1, '2018-05-17 12:56:14', '2018-05-17 13:02:35'),
+(76, 'Proc Form Edit Serviços', 'processa/proc_sts_edit_servico', 'PÃ¡gina para processar o formulÃ¡rio editar serviÃ§os', 'Processar o formulario editar servicos', 'Processar o formulario editar servicos', 'Celke', 2, '', 75, 3, '2', 4, 1, '2018-05-17 13:30:04', NULL),
+(77, 'Editar Vídeo', 'editar/sts_edit_video', 'FormulÃ¡rio para editar vÃ­deos da pÃ¡gina inicial', 'Cadastrar Video', 'Cadastrar Video', 'Celke', 2, 'fas fa-video', 0, 3, '2', 4, 1, '2018-05-17 14:00:20', '2018-05-17 15:56:15'),
+(78, 'Proc Form Edit Vídeo', 'processa/proc_sts_edit_video', 'PÃ¡gina para processar o formulÃ¡rio editar vÃ­deo', 'Processar o formulario editar video', 'Processar o formulario editar video', 'Celke', 2, '', 77, 3, '2', 4, 1, '2018-05-17 15:58:26', NULL),
+(79, 'Editar Produto', 'editar/sts_edit_produto', 'Página para editar o produto da página inicial', 'Editar Produto', 'Editar Produto', 'Celke', 2, 'fas fa-dolly', 0, 3, '2', 4, 1, '2018-05-25 13:31:24', '2018-05-25 13:32:12'),
+(80, 'Proc Form Edit Produto', 'processa/proc_sts_edit_produto', 'Página para processar o formulário editar produto na pÃ¡gina inicial', 'Processar o formulario editar produto', 'Processar o formulario editar produto', 'Celke', 2, '', 79, 3, '2', 4, 1, '2018-05-25 14:06:20', NULL),
+(81, 'Editar Formulário E-mail', 'editar/sts_edit_form_email', 'Formulário para editar as informações da parte do site para o usuÃ¡rio inserir o e-mail', 'Editar Formulario E-mail', 'Editar Formulario E-mail', 'Celke', 2, 'fas fa-at', 0, 3, '2', 4, 1, '2018-05-26 18:35:39', '2018-05-26 18:37:11'),
+(82, 'Proc Form Edit Form E-mail', 'processa/proc_sts_edit_form_email', 'Página para processar o formulÃ¡rio editar o dados da Ã¡rea inserir e-mail na pÃ¡gina inicial', 'Processar o formulario editar formulario e-mail', 'Processar o formulario editar formulario e-mail', 'Celke', 2, '', 81, 3, '2', 4, 1, '2018-05-26 18:54:14', NULL),
+(83, 'Pergunta e Resposta', 'listar/sts_list_perg_resp', 'Página para listar pergunta e resposta', 'Listar Pergunta e Resposta', 'Listar Pergunta e Resposta', 'Celke', 2, 'far fa-question-circle', 0, 1, '2', 4, 1, '2018-05-27 11:01:41', '2018-05-27 11:02:34'),
+(84, 'Visualizar Perguntas e Respostas', 'visualizar/sts_vis_perg_resp', 'Página para Visualizar Perguntas e Respostas', 'Visualizar Perguntas e Respostas', 'Visualizar Perguntas e Respostas', 'Celke', 2, '', 0, 5, '2', 4, 1, '2018-05-27 13:54:05', NULL),
+(85, 'Cadastrar Pegunta e Resposta', 'cadastrar/sts_cad_perg_resp', 'Formulário para Cadastrar Pegunta e Resposta', 'Cadastrar Pegunta e Resposta', 'Cadastrar Pegunta e Resposta', 'Celke', 2, '', 0, 2, '2', 4, 1, '2018-05-27 14:00:39', NULL),
+(86, 'Proc Form Cad Perg e Resp', 'processa/proc_sts_cad_perg_resp', 'Página para processar o formulário para cadastrar pergunta e resposta', 'Processar o formulario para cadastrar pergunta e resposta', 'Processar o formulario para cadastrar pergunta e resposta', 'Celke', 2, '', 85, 2, '2', 3, 1, '2018-05-27 14:07:06', NULL),
+(87, 'Editar Pergunta e Resposta', 'editar/sts_edit_perg_resp', 'Formulário para Editar Pergunta e Resposta', 'Editar Pergunta e Resposta', 'Editar Pergunta e Resposta', 'Celke', 2, '', 0, 3, '2', 4, 1, '2018-05-27 14:12:11', NULL),
+(88, 'Proc Form Edit Perg Resp', 'processa/proc_sts_edit_perg_resp', 'Página para processar o formulário editar pergunta e resposta', 'Processar o formulario editar pergunta e resposta', 'Processar o formulario editar pergunta e resposta', 'Celke', 1, '', 87, 3, '2', 4, 1, '2018-05-27 14:20:08', NULL),
+(89, 'Alterar ordem pergunta e resposta', 'processa/proc_sts_ordem_perg', 'Alterar ordem pergunta e resposta', 'Alterar ordem pergunta e resposta', 'Alterar ordem pergunta e resposta', 'Celke', 2, '', 0, 6, '2', 4, 1, '2018-05-27 14:27:24', NULL),
+(90, 'Apagar pergunta e resposta', 'processa/sts_apagar_perg_resp', 'Página para apagar pergunta e resposta', 'Apagar pergunta e resposta', 'Apagar pergunta e resposta', 'Celke', 2, '', 0, 4, '2', 4, 1, '2018-05-27 14:28:45', NULL);
 
 -- --------------------------------------------------------
 
@@ -1001,7 +1049,7 @@ CREATE TABLE `sts_forms_emails` (
 --
 
 INSERT INTO `sts_forms_emails` (`id`, `titulo`, `descricao`, `titulo_botao`, `imagem`, `created`, `modified`) VALUES
-(1, 'Receber novidades', 'This is a wider card with supporting text below as a natural lead-in to additional content.', 'Cadastrar', 'imagem-tres.jpg', '2018-02-23 00:00:00', '2020-11-18 16:37:00');
+(1, 'Receber novidades', 'This is a wider card with supporting text below as a natural lead-in to additional content.', 'Cadastrar', 'imagem-um.jpg', '2018-02-23 00:00:00', '2018-05-26 19:10:06');
 
 -- --------------------------------------------------------
 
@@ -1073,6 +1121,7 @@ CREATE TABLE `sts_pergs_resps` (
   `id` int(11) NOT NULL,
   `pergunta` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
   `resposta` text COLLATE utf8_unicode_ci NOT NULL,
+  `ordem` int(11) NOT NULL,
   `sts_situacoe_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime DEFAULT NULL
@@ -1082,10 +1131,10 @@ CREATE TABLE `sts_pergs_resps` (
 -- Extraindo dados da tabela `sts_pergs_resps`
 --
 
-INSERT INTO `sts_pergs_resps` (`id`, `pergunta`, `resposta`, `sts_situacoe_id`, `created`, `modified`) VALUES
-(1, 'Pergunta 1?', '1Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven\'t heard of them accusamus labore sustainable VHS.', 1, '2018-02-23 00:00:00', NULL),
-(2, 'Pergunta 2?', '2Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven\'t heard of them accusamus labore sustainable VHS.', 1, '2018-02-23 00:00:00', NULL),
-(3, 'Pergunta 3?', '3Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven\'t heard of them accusamus labore sustainable VHS.', 1, '2018-02-23 00:00:00', NULL);
+INSERT INTO `sts_pergs_resps` (`id`, `pergunta`, `resposta`, `ordem`, `sts_situacoe_id`, `created`, `modified`) VALUES
+(1, 'Pergunta 1?', '1Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably havent heard of them accusamus labore sustainable VHS.', 2, 1, '2018-02-23 00:00:00', '2018-05-27 15:03:49'),
+(2, 'Pergunta 2?', '2Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably havent heard of them accusamus labore sustainable VHS.', 3, 1, '2018-02-23 00:00:00', '2018-05-27 15:03:35'),
+(3, 'Pergunta 3?', '3Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably havent heard of them accusamus labore sustainable VHS.', 1, 1, '2018-02-23 00:00:00', '2018-05-27 15:03:49');
 
 -- --------------------------------------------------------
 
@@ -1108,7 +1157,7 @@ CREATE TABLE `sts_prods_homes` (
 --
 
 INSERT INTO `sts_prods_homes` (`id`, `titulo`, `subtitulo`, `descricao`, `imagem`, `created`, `modified`) VALUES
-(1, 'Produto', 'First featurette heading.', 'Donec ullamcorper nulla non auctor fringilla, VEstibulium id ligula porta felis euismod sempre. Prasent commodo cursus magna, vel sclequie', 'produto.jpg', '2018-02-23 00:00:00', '2020-11-17 16:35:55');
+(1, 'Produto', 'First featurette heading.', 'Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.', 'produto.jpg', '2018-02-23 00:00:00', '2018-05-25 16:18:24');
 
 -- --------------------------------------------------------
 
@@ -1162,7 +1211,7 @@ CREATE TABLE `sts_servicos` (
 --
 
 INSERT INTO `sts_servicos` (`id`, `titulo`, `icone_um`, `nome_um`, `descricao_um`, `icone_dois`, `nome_dois`, `descricao_dois`, `icone_tres`, `nome_tres`, `descricao_tres`, `created`, `modified`) VALUES
-(1, 'Serviços', 'ion-ios-camera-outline', 'Serviço Um', 'This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.', 'ion-ios-film-outline', 'Serviço Dois', 'This card has supporting text below as a natural lead-in to additional content.', 'ion-ios-videocam-outline', 'Serviço Três', 'This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.', '2018-02-23 00:00:00', '2020-11-17 15:24:22');
+(1, 'Serviços', 'ion-ios-camera-outline', 'Serviços um', 'This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.', 'ion-ios-film-outline', 'Serviços dosi', 'This card has supporting text below as a natural lead-in to additional content.', 'ion-ios-videocam-outline', 'Serviços três', 'This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.', '2018-02-23 00:00:00', '2018-05-17 13:50:47');
 
 -- --------------------------------------------------------
 
@@ -1304,7 +1353,7 @@ CREATE TABLE `sts_videos` (
 --
 
 INSERT INTO `sts_videos` (`id`, `titulo`, `descricao`, `video_um`, `video_dois`, `video_tres`, `created`, `modified`) VALUES
-(1, 'Depoimentos', 'This is a wider card with supporting text below as a natural lead-in to additional content.', '<iframe class=\"embed-responsive-item\" src=\"https://www.youtube.com/embed/JfAgl6CGg2Q?rel=0\" allowfullscreen></iframe>', '<iframe class=\"embed-responsive-item\" src=\"https://www.youtube.com/embed/4tBeeMcw2sM?rel=0\" allowfullscreen></iframe>', '<iframe class=\"embed-responsive-item\" src=\"https://www.youtube.com/embed/i_R6sMRRQ0s?rel=0\" allowfullscreen></iframe>', '2018-02-23 00:00:00', '2020-11-17 16:02:52');
+(1, 'Depoimentos', 'This is a wider card with supporting text below as a natural lead-in to additional content.', '<iframe class=\"embed-responsive-item\" src=\"https://www.youtube.com/embed/JfAgl6CGg2Q?rel=0\" allowfullscreen></iframe>', '<iframe class=\"embed-responsive-item\" src=\"https://www.youtube.com/embed/4tBeeMcw2sM?rel=0\" allowfullscreen></iframe>', '<iframe class=\"embed-responsive-item\" src=\"https://www.youtube.com/embed/i_R6sMRRQ0s?rel=0\" allowfullscreen></iframe>', '2018-02-23 00:00:00', '2018-05-17 16:16:41');
 
 --
 -- Índices para tabelas despejadas
@@ -1546,7 +1595,7 @@ ALTER TABLE `adms_menus`
 -- AUTO_INCREMENT de tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=349;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=389;
 
 --
 -- AUTO_INCREMENT de tabela `adms_niveis_acessos`
@@ -1558,7 +1607,7 @@ ALTER TABLE `adms_niveis_acessos`
 -- AUTO_INCREMENT de tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT de tabela `adms_robots`
@@ -1654,7 +1703,7 @@ ALTER TABLE `sts_paginas`
 -- AUTO_INCREMENT de tabela `sts_pergs_resps`
 --
 ALTER TABLE `sts_pergs_resps`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `sts_prods_homes`
