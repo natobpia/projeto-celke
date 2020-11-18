@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17-Nov-2020 às 20:03
+-- Tempo de geração: 18-Nov-2020 às 20:37
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.11
 
@@ -499,7 +499,27 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (325, 2, 74, 1, 2, 3, 2, 78, '2020-11-17 15:46:22', NULL),
 (326, 2, 74, 1, 2, 3, 3, 78, '2020-11-17 15:46:22', NULL),
 (327, 2, 28, 1, 2, 3, 4, 78, '2020-11-17 15:46:22', NULL),
-(328, 2, 28, 1, 2, 3, 5, 78, '2020-11-17 15:46:22', NULL);
+(328, 2, 28, 1, 2, 3, 5, 78, '2020-11-17 15:46:22', NULL),
+(329, 1, 75, 1, 1, 6, 1, 79, '2020-11-17 16:05:39', '2020-11-17 16:06:08'),
+(330, 2, 75, 1, 2, 3, 2, 79, '2020-11-17 16:05:39', NULL),
+(331, 2, 75, 1, 2, 3, 3, 79, '2020-11-17 16:05:39', NULL),
+(332, 2, 29, 1, 2, 3, 4, 79, '2020-11-17 16:05:39', NULL),
+(333, 2, 29, 1, 2, 3, 5, 79, '2020-11-17 16:05:39', NULL),
+(334, 1, 76, 1, 2, 3, 1, 80, '2020-11-17 16:21:29', NULL),
+(335, 2, 76, 1, 2, 3, 2, 80, '2020-11-17 16:21:29', NULL),
+(336, 2, 76, 1, 2, 3, 3, 80, '2020-11-17 16:21:29', NULL),
+(337, 2, 30, 1, 2, 3, 4, 80, '2020-11-17 16:21:29', NULL),
+(338, 2, 30, 1, 2, 3, 5, 80, '2020-11-17 16:21:29', NULL),
+(339, 1, 77, 1, 1, 6, 1, 81, '2020-11-18 16:29:22', '2020-11-18 16:29:56'),
+(340, 2, 77, 1, 2, 3, 2, 81, '2020-11-18 16:29:22', NULL),
+(341, 2, 77, 1, 2, 3, 3, 81, '2020-11-18 16:29:22', NULL),
+(342, 2, 31, 1, 2, 3, 4, 81, '2020-11-18 16:29:22', NULL),
+(343, 2, 31, 1, 2, 3, 5, 81, '2020-11-18 16:29:22', NULL),
+(344, 1, 78, 1, 2, 3, 1, 82, '2020-11-18 16:34:30', NULL),
+(345, 2, 78, 1, 2, 3, 2, 82, '2020-11-18 16:34:30', NULL),
+(346, 2, 78, 1, 2, 3, 3, 82, '2020-11-18 16:34:30', NULL),
+(347, 2, 32, 1, 2, 3, 4, 82, '2020-11-18 16:34:30', NULL),
+(348, 2, 32, 1, 2, 3, 5, 82, '2020-11-18 16:34:30', NULL);
 
 -- --------------------------------------------------------
 
@@ -629,7 +649,11 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (75, 'Editar Serviço', 'editar/sts_edit_servico', 'Formulário para editar serviços', 'Editar Serviços', 'Editar Serviços', 'Natobpia', 2, 'fas fa-wrench', 0, 3, '2', 4, 1, '2020-11-17 15:16:15', '2020-11-17 15:16:43'),
 (76, 'Proc Form Edit Serviços', 'processa/proc_sts_edit_servico', 'Página para processar o formulário editar serviços', 'Processar o formulário editar serviços', 'Processar o formulário editar serviços', 'Natobpia', 2, '', 75, 3, '2', 4, 1, '2020-11-17 15:21:57', NULL),
 (77, 'Editar Vídeo', 'editar/sts_edit_video', 'Página para editar os vídeos do site', 'Editar Vídeo', 'Editar Vídeo', 'Natobpia', 2, 'fas fa-video', 0, 3, '2', 4, 1, '2020-11-17 15:28:52', '2020-11-17 15:45:19'),
-(78, 'Proc Form Edit Vídeo', 'processa/proc_sts_edit_video', 'Página para processar o formulário editar vídeo.', 'Processar o formulário editar vídeo', 'Processar o formulário editar vídeo', 'Natobpia', 2, '', 77, 3, '2', 4, 1, '2020-11-17 15:46:22', NULL);
+(78, 'Proc Form Edit Vídeo', 'processa/proc_sts_edit_video', 'Página para processar o formulário editar vídeo.', 'Processar o formulário editar vídeo', 'Processar o formulário editar vídeo', 'Natobpia', 2, '', 77, 3, '2', 4, 1, '2020-11-17 15:46:22', NULL),
+(79, 'Editar Produto', 'editar/sts_edit_produto', 'Página para editar o produto da página inicial', 'Editar Produto', 'Editar Produto', 'Natobpia', 2, 'fas fa-dolly', 0, 3, '2', 4, 1, '2020-11-17 16:05:39', '2020-11-17 16:06:08'),
+(80, 'Proc Form Edit Produto', 'processa/proc_sts_edit_produto', 'Página para processar o formulário editar produto na página inicial', 'Processar o formulário editar produto', 'Processar o formulário editar produto', 'Natobpia', 2, '', 79, 3, '2', 4, 1, '2020-11-17 16:21:29', NULL),
+(81, 'Editar Formulário E-mail', 'editar/sts_edit_form_email', 'Formulário para editar as informações da parte do site para o usuário inserir o e-mail', 'Editar Formulário E-mail', 'Editar Formulário E-mail', 'Natobpia', 2, 'fas fa-at', 0, 3, '2', 4, 1, '2020-11-18 16:29:22', '2020-11-18 16:29:56'),
+(82, 'Proc Form Edit Form E-mail', 'processa/proc_sts_edit_form_email', 'Página para processar a edição do e-mail', 'Processa o edit e-mail', 'Processa o edit e-mail', 'Natobpia', 2, '', 81, 3, '2', 4, 1, '2020-11-18 16:34:30', NULL);
 
 -- --------------------------------------------------------
 
@@ -977,7 +1001,7 @@ CREATE TABLE `sts_forms_emails` (
 --
 
 INSERT INTO `sts_forms_emails` (`id`, `titulo`, `descricao`, `titulo_botao`, `imagem`, `created`, `modified`) VALUES
-(1, 'Receber novidades', 'This is a wider card with supporting text below as a natural lead-in to additional content.', 'Cadastrar', 'imagem_tres.jpg', '2018-02-23 00:00:00', NULL);
+(1, 'Receber novidades', 'This is a wider card with supporting text below as a natural lead-in to additional content.', 'Cadastrar', 'imagem-tres.jpg', '2018-02-23 00:00:00', '2020-11-18 16:37:00');
 
 -- --------------------------------------------------------
 
@@ -1084,7 +1108,7 @@ CREATE TABLE `sts_prods_homes` (
 --
 
 INSERT INTO `sts_prods_homes` (`id`, `titulo`, `subtitulo`, `descricao`, `imagem`, `created`, `modified`) VALUES
-(1, 'Produto', 'First featurette heading.', 'Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.', 'produto.jpg', '2018-02-23 00:00:00', NULL);
+(1, 'Produto', 'First featurette heading.', 'Donec ullamcorper nulla non auctor fringilla, VEstibulium id ligula porta felis euismod sempre. Prasent commodo cursus magna, vel sclequie', 'produto.jpg', '2018-02-23 00:00:00', '2020-11-17 16:35:55');
 
 -- --------------------------------------------------------
 
@@ -1522,7 +1546,7 @@ ALTER TABLE `adms_menus`
 -- AUTO_INCREMENT de tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=329;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=349;
 
 --
 -- AUTO_INCREMENT de tabela `adms_niveis_acessos`
@@ -1534,7 +1558,7 @@ ALTER TABLE `adms_niveis_acessos`
 -- AUTO_INCREMENT de tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT de tabela `adms_robots`
