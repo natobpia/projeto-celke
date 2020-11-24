@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18-Nov-2020 às 21:08
--- Versão do servidor: 10.4.14-MariaDB
--- versão do PHP: 7.4.11
+-- Tempo de geração: 24-Nov-2020 às 21:46
+-- Versão do servidor: 10.4.16-MariaDB
+-- versão do PHP: 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -559,7 +559,47 @@ INSERT INTO `adms_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu
 (385, 2, 86, 1, 2, 3, 2, 90, '2018-05-27 14:28:45', NULL),
 (386, 2, 86, 1, 2, 3, 3, 90, '2018-05-27 14:28:45', NULL),
 (387, 2, 40, 1, 2, 3, 4, 90, '2018-05-27 14:28:45', NULL),
-(388, 2, 40, 1, 2, 3, 5, 90, '2018-05-27 14:28:45', NULL);
+(388, 2, 40, 1, 2, 3, 5, 90, '2018-05-27 14:28:45', NULL),
+(389, 1, 87, 1, 1, 6, 1, 91, '2020-11-24 17:20:11', '2020-11-24 17:24:33'),
+(390, 2, 87, 1, 2, 3, 2, 91, '2020-11-24 17:20:11', NULL),
+(391, 2, 87, 1, 2, 3, 3, 91, '2020-11-24 17:20:11', NULL),
+(392, 2, 41, 1, 2, 3, 4, 91, '2020-11-24 17:20:11', NULL),
+(393, 2, 41, 1, 2, 3, 5, 91, '2020-11-24 17:20:11', NULL),
+(394, 1, 88, 1, 2, 3, 1, 92, '2020-11-24 17:21:47', NULL),
+(395, 2, 88, 1, 2, 3, 2, 92, '2020-11-24 17:21:47', NULL),
+(396, 2, 88, 1, 2, 3, 3, 92, '2020-11-24 17:21:47', NULL),
+(397, 2, 42, 1, 2, 3, 4, 92, '2020-11-24 17:21:47', NULL),
+(398, 2, 42, 1, 2, 3, 5, 92, '2020-11-24 17:21:47', NULL),
+(399, 1, 89, 1, 2, 3, 1, 93, '2020-11-24 17:22:35', NULL),
+(400, 2, 89, 1, 2, 3, 2, 93, '2020-11-24 17:22:35', NULL),
+(401, 2, 89, 1, 2, 3, 3, 93, '2020-11-24 17:22:35', NULL),
+(402, 2, 43, 1, 2, 3, 4, 93, '2020-11-24 17:22:35', NULL),
+(403, 2, 43, 1, 2, 3, 5, 93, '2020-11-24 17:22:35', NULL),
+(404, 1, 90, 1, 2, 3, 1, 94, '2020-11-24 17:23:28', NULL),
+(405, 2, 90, 1, 2, 3, 2, 94, '2020-11-24 17:23:28', NULL),
+(406, 2, 90, 1, 2, 3, 3, 94, '2020-11-24 17:23:28', NULL),
+(407, 2, 44, 1, 2, 3, 4, 94, '2020-11-24 17:23:28', NULL),
+(408, 2, 44, 1, 2, 3, 5, 94, '2020-11-24 17:23:28', NULL),
+(409, 1, 91, 1, 2, 3, 1, 95, '2020-11-24 17:23:56', NULL),
+(410, 2, 91, 1, 2, 3, 2, 95, '2020-11-24 17:23:56', NULL),
+(411, 2, 91, 1, 2, 3, 3, 95, '2020-11-24 17:23:56', NULL),
+(412, 2, 45, 1, 2, 3, 4, 95, '2020-11-24 17:23:56', NULL),
+(413, 2, 45, 1, 2, 3, 5, 95, '2020-11-24 17:23:56', NULL),
+(414, 1, 92, 1, 2, 3, 1, 96, '2020-11-24 17:40:14', NULL),
+(415, 2, 92, 1, 2, 3, 2, 96, '2020-11-24 17:40:14', NULL),
+(416, 2, 92, 1, 2, 3, 3, 96, '2020-11-24 17:40:14', NULL),
+(417, 2, 46, 1, 2, 3, 4, 96, '2020-11-24 17:40:14', NULL),
+(418, 2, 46, 1, 2, 3, 5, 96, '2020-11-24 17:40:14', NULL),
+(419, 1, 93, 1, 2, 3, 1, 97, '2020-11-24 17:43:45', NULL),
+(420, 2, 93, 1, 2, 3, 2, 97, '2020-11-24 17:43:45', NULL),
+(421, 2, 93, 1, 2, 3, 3, 97, '2020-11-24 17:43:45', NULL),
+(422, 2, 47, 1, 2, 3, 4, 97, '2020-11-24 17:43:45', NULL),
+(423, 2, 47, 1, 2, 3, 5, 97, '2020-11-24 17:43:45', NULL),
+(424, 1, 94, 1, 2, 3, 1, 98, '2020-11-24 17:46:19', NULL),
+(425, 2, 94, 1, 2, 3, 2, 98, '2020-11-24 17:46:19', NULL),
+(426, 2, 94, 1, 2, 3, 3, 98, '2020-11-24 17:46:19', NULL),
+(427, 2, 48, 1, 2, 3, 4, 98, '2020-11-24 17:46:19', NULL),
+(428, 2, 48, 1, 2, 3, 5, 98, '2020-11-24 17:46:19', NULL);
 
 -- --------------------------------------------------------
 
@@ -701,7 +741,15 @@ INSERT INTO `adms_paginas` (`id`, `nome_pagina`, `endereco`, `obs`, `keywords`, 
 (87, 'Editar Pergunta e Resposta', 'editar/sts_edit_perg_resp', 'Formulário para Editar Pergunta e Resposta', 'Editar Pergunta e Resposta', 'Editar Pergunta e Resposta', 'Celke', 2, '', 0, 3, '2', 4, 1, '2018-05-27 14:12:11', NULL),
 (88, 'Proc Form Edit Perg Resp', 'processa/proc_sts_edit_perg_resp', 'Página para processar o formulário editar pergunta e resposta', 'Processar o formulario editar pergunta e resposta', 'Processar o formulario editar pergunta e resposta', 'Celke', 1, '', 87, 3, '2', 4, 1, '2018-05-27 14:20:08', NULL),
 (89, 'Alterar ordem pergunta e resposta', 'processa/proc_sts_ordem_perg', 'Alterar ordem pergunta e resposta', 'Alterar ordem pergunta e resposta', 'Alterar ordem pergunta e resposta', 'Celke', 2, '', 0, 6, '2', 4, 1, '2018-05-27 14:27:24', NULL),
-(90, 'Apagar pergunta e resposta', 'processa/sts_apagar_perg_resp', 'Página para apagar pergunta e resposta', 'Apagar pergunta e resposta', 'Apagar pergunta e resposta', 'Celke', 2, '', 0, 4, '2', 4, 1, '2018-05-27 14:28:45', NULL);
+(90, 'Apagar pergunta e resposta', 'processa/sts_apagar_perg_resp', 'Página para apagar pergunta e resposta', 'Apagar pergunta e resposta', 'Apagar pergunta e resposta', 'Celke', 2, '', 0, 4, '2', 4, 1, '2018-05-27 14:28:45', NULL),
+(91, 'Sobre Empresa', 'listar/sts_list_sob_emp', 'Página mostra o sobre empresa', 'Sobre Empresa', 'Sobre Empresa', 'Natobpia', 2, '', 0, 1, '2', 4, 1, '2020-11-24 17:20:11', '2020-11-24 17:24:33'),
+(92, 'Visualizar Sobre Empresa', 'visualizar/sts_vis_sob_emp', 'Visualizar sobre empresa', 'Visualizar Sobre Empresa', 'Visualizar Sobre Empresa', 'Natobpia', 2, '', 0, 5, '2', 4, 1, '2020-11-24 17:21:47', NULL),
+(93, 'Editar Sobre Empresa', 'editar/sts_edit_sob_emp', 'Página para Editar Sobre Empresa', 'Editar Sobre Empresa', 'Editar Sobre Empresa', 'Natobpia', 2, '', 0, 3, '2', 4, 1, '2020-11-24 17:22:35', NULL),
+(94, 'Proc Form Edit Sobre Emp', 'processa/proc_sts_edit_sob_emp', 'Página para processar o form do edit sob empresa', 'Proc Form Edit Sobre Emp', 'Proc Form Edit Sobre Emp', 'Natobpia', 2, '', 93, 3, '2', 4, 1, '2020-11-24 17:23:28', NULL),
+(95, 'Cadastrar Sobre Empresa', 'cadastrar/sts_cad_sob_emp', 'Página para Cadastrar Sobre Empresa', 'Cadastrar Sobre Empresa', 'Cadastrar Sobre Empresa', 'Natobpia', 2, '', 0, 2, '2', 4, 1, '2020-11-24 17:23:56', NULL),
+(96, 'Proc Form Cad Sob Emp', 'processa/proc_sts_cad_sob_emp', 'Página para processar o cadastro do sob emp', 'Proc Form Cad Sob Emp', 'Proc Form Cad Sob Emp', 'Natobpia', 2, '', 95, 2, '2', 4, 1, '2020-11-24 17:40:14', NULL),
+(97, 'Ordem Sobre Empresa', 'processa/proc_sts_ordem_sob_emp', 'Muda a ordem do sobre empresa', 'Ordem Sobre Empresa', 'Ordem Sobre Empresa', 'Natobpia', 2, '', 0, 3, '2', 4, 1, '2020-11-24 17:43:45', NULL),
+(98, 'Apagar Sob Emp', 'processa/sts_apagar_sob_emp', 'Apagar Sob Emp', 'Apagar Sob Emp', 'Apagar Sob Emp', 'Natobpia', 2, '', 0, 4, '2', 4, 1, '2020-11-24 17:46:19', NULL);
 
 -- --------------------------------------------------------
 
@@ -1283,8 +1331,8 @@ CREATE TABLE `sts_sobs_emps` (
 INSERT INTO `sts_sobs_emps` (`id`, `titulo`, `descricao`, `imagem`, `ordem`, `sts_situacoe_id`, `created`, `modified`) VALUES
 (1, 'Sobre empresa um.', 'Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.', 'empresa.jpg', 1, 1, '2018-02-23 00:00:00', NULL),
 (2, 'Sobre empresa dois.', 'Descricao sobre empresa 2 Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.', 'empresa.jpg', 2, 1, '2018-02-23 00:00:00', NULL),
-(3, 'Sobre empresa tres.', 'Descricao sobre empresa 3 Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.', 'empresa.jpg', 3, 1, '2018-02-23 00:00:00', NULL),
-(4, 'Sobre empresa quatro.', 'Descricao sobre empresa 4 Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.', 'empresa.jpg', 4, 1, '2018-02-23 00:00:00', NULL);
+(3, 'Sobre empresa tres.', 'Descricao sobre empresa 3 Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.', 'empresa.jpg', 3, 1, '2018-02-23 00:00:00', '2020-11-24 17:43:53'),
+(4, 'Sobre empresa quatro.', 'Descricao sobre empresa 4 Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.', 'empresa.jpg', 4, 1, '2018-02-23 00:00:00', '2020-11-24 17:43:53');
 
 -- --------------------------------------------------------
 
@@ -1595,7 +1643,7 @@ ALTER TABLE `adms_menus`
 -- AUTO_INCREMENT de tabela `adms_nivacs_pgs`
 --
 ALTER TABLE `adms_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=389;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=429;
 
 --
 -- AUTO_INCREMENT de tabela `adms_niveis_acessos`
@@ -1607,7 +1655,7 @@ ALTER TABLE `adms_niveis_acessos`
 -- AUTO_INCREMENT de tabela `adms_paginas`
 --
 ALTER TABLE `adms_paginas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
 -- AUTO_INCREMENT de tabela `adms_robots`
